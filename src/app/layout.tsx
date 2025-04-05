@@ -4,34 +4,37 @@ import "./globals.css";
 import MainHeader from "../../components/header/main-header";
 import MainFooter from "../../components/footer/main-footer";
 import {LanguageProvider} from "../../context/LanguageContext";
+import {CookieConsentProvider} from "../../context/CookieConsentContext";
 
 const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400", "700"]
+    variable: "--font-roboto",
+    subsets: ["latin"],
+    weight: ["400", "700"]
 });
 
 export const metadata: Metadata = {
-  title: "ELSE - Technical and Research Service",
-  description: "ELSE Technical and Research Service ",
+    title: "ELSE - Technical and Research Service",
+    description: "ELSE Technical and Research Service ",
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${roboto.variable} antialiased`}
-      >
-      <LanguageProvider>
-        <MainHeader />
-        <main className="flex-grow">{children}</main>
-        <MainFooter />
-      </LanguageProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+        <body
+            className={`${roboto.variable} antialiased`}
+        >
+        <LanguageProvider>
+            <CookieConsentProvider>
+                <MainHeader/>
+                <main className="flex-grow">{children}</main>
+                <MainFooter/>
+            </CookieConsentProvider>
+        </LanguageProvider>
+        </body>
+        </html>
+    );
 }

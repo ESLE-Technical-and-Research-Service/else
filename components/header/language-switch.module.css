@@ -1,0 +1,17 @@
+.languageSwitchOn {
+    background-color: var(--main-color);
+    color: var(--font-color-light);
+}
+
+.languageSwitchOff {
+    background-color: var(--foreground);
+    color: var(--font-color);
+}
+
+.languageSwitchOn:hover {
+    color: var(--main-color-secondary);
+}
+
+.languageSwitchOff:hover {
+    color: var(--main-color-secondary);
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import {FaLinkedin, FaXTwitter} from "react-icons/fa6";
+import {FaLinkedin} from "react-icons/fa6";
 import {FaFacebookSquare} from "react-icons/fa";
 import {useLanguage} from "../../context/LanguageContext";
 
@@ -22,12 +22,6 @@ export default function SocialMedia() {
                        target="_blank"
                        rel="noopener noreferrer">
                         <FaLinkedin/>
-                    </a>
-                </li>
-                <li>
-                    <a className="hover:underline" href="https://twitter.com" target="_blank"
-                       rel="noopener noreferrer">
-                        <FaXTwitter/>
                     </a>
                 </li>
                 <li>

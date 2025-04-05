@@ -17,7 +17,7 @@ export default function AboutUsFooter() {
             </h3>
             <ul className="space-y-2">
                 <li>
-                    <Link href="/profile">
+                    <Link href="/about/profile">
                         {
                             language === "PLN"
                                 ? "Opis działalności"
@@ -26,7 +26,7 @@ export default function AboutUsFooter() {
                     </Link>
                 </li>
                 <li>
-                    <Link className="hover:underline" href="/departments">
+                    <Link className="hover:underline" href="/about/departments">
                         {
                             language === "PLN"
                                 ? "Nasze działy"
@@ -35,7 +35,7 @@ export default function AboutUsFooter() {
                     </Link>
                 </li>
                 <li>
-                    <Link className="hover:underline" href="/management">
+                    <Link className="hover:underline" href="/about/management">
                         {
                             language === "PLN"
                                 ? "Władze spółki"
@@ -44,7 +44,7 @@ export default function AboutUsFooter() {
                     </Link>
                 </li>
                 <li>
-                    <Link className="hover:underline" href="/locations">
+                    <Link className="hover:underline" href="/about/locations">
                         {
                             language === "PLN"
                                 ? "Lokalizacje"
@@ -53,13 +53,7 @@ export default function AboutUsFooter() {
                     </Link>
                 </li>
                 <li>
-                    <Link className="hover:underline" href="/media">
-                        {
-                            language === "PLN"
-                                ? "Media"
-                                : "Media"
-                        }
-                    </Link>
+                    <Link className="hover:underline" href="/about/media">Media</Link>
                 </li>
             </ul>
         </div>

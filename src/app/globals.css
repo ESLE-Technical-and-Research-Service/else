@@ -9,6 +9,8 @@
   --background-gradient-middle: #EDF0EF;
   --background-gradient-end: #006EAC;
   --font-color: #333333;
+  --font-color-light: #F2F2F2;
+  --font-color-accent: #FF0000;
   --font-roboto: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
@@ -28,6 +30,9 @@
     --background-gradient-begining: #FFFFFF;
     --background-gradient-middle: #EDF0EF;
     --background-gradient-end: #006EAC;
+    --font-color: #333333;
+    --font-color-light: #F2F2F2;
+    --font-color-accent: #FF0000;
   }
 }
 

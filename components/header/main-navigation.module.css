@@ -1,0 +1,107 @@
+.navItem {
+    position: relative;
+}
+
+/* Arrow indicator for dropdown */
+.hasDropdown > a::after {
+    content: '▼';
+    margin-left: 0.3rem;
+    font-size: 0.6rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--font-color);
+}
+
+.hasDropdown:hover > a::after {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+    background-color: var(--foreground);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style: none;
+    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    opacity: 0;
+    transform: scaleY(0) scaleX(0.8);
+    transform-origin: top;
+    animation: dropdownAnimation 0.3s ease forwards;
+}
+
+.navItem:hover .dropdownMenu {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+}
+
+.dropdownMenu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdownMenu li a {
+    color: var(--font-color);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdownMenu li a:hover {
+    background-color: var(--foreground);
+    color: var(--main-color-secondary);
+}
+
+@keyframes dropdownAnimation {
+    0% {
+        opacity: 0;
+        transform: scaleY(0) scaleX(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+.navItem.open .dropdownMenu {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 500px;
+    overflow: hidden;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navItem .dropdownMenu {
+    display: none;
+}
+
+.navItem.open .dropdownMenu {
+    transition: max-height 0.3s ease;
+}
+
+.navItem.open .dropdownMenu li {
+    padding: 0.5rem 1rem;
+}
+
+.navItem.open .dropdownMenu li a {
+    color: var(--font-color);
+    text-decoration: none;
+    display: block;
+}
+
+.navItem.open .dropdownMenu li a:hover {
+    background-color: var(--foreground);
+    color: var(--main-color-secondary);
+}
