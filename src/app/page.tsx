@@ -1,7 +1,13 @@
+import HeroImage from "../../components/hero/hero-image";
+import WelcomeMessage from "../../components/about/welcome-message";
+
 export default function Home() {
-  return (
-    <div>
-        <h1>Main content</h1>
-    </div>
-  );
+    return (
+        <>
+            <main className="w-full overflow-y-auto">
+                <HeroImage/>
+                <WelcomeMessage />
+            </main>
+        </>
+    );
 }

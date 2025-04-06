@@ -6,6 +6,7 @@ import MainFooter from "../../components/footer/main-footer";
 import {LanguageProvider} from "../../context/LanguageContext";
 import {CookieConsentProvider} from "../../context/CookieConsentContext";
 import Analytics from "../../components/analytics/analytics";
+import ScrollToBottomFooter from "../../components/footer/scroll-to-bottom-footer";
 
 const roboto = Roboto({
     variable: "--font-roboto",
@@ -34,7 +35,7 @@ export default function RootLayout({
                 <MainHeader/>
                 <Analytics />
                 <main className="flex-grow">{children}</main>
-                <MainFooter/>
+                <ScrollToBottomFooter />
             </CookieConsentProvider>
         </LanguageProvider>
         </body>
