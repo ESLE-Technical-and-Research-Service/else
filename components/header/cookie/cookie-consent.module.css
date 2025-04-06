@@ -1,0 +1,30 @@
+.cookieConsent {
+    background-color: var(--foreground);
+    color: var(--font-color);
+    width: 100%;
+    line-height: 1.5rem;
+}
+
+.cookieConsent h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.cookieConsent ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    width: 100%;
+    list-style: circle;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}

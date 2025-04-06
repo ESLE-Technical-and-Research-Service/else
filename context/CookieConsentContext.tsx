@@ -3,14 +3,15 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 
 interface CookieConsentContext {
-    hasConsent: boolean;
+    showConsent: () => boolean;
     setConsent: (consent: boolean) => void;
 }
 
 const CookieConsentContext = createContext<CookieConsentContext | undefined>(undefined);
 
 export const CookieConsentProvider = ({children}: { children: ReactNode }) => {
-    const [acceptedConsent, setAcceptedConsent] = useState<boolean>(false);
+    const [acceptedConsent, setAcceptedConsent] = useState<boolean>(false)
+    const [displayConsentPopup, setDisplayConsentPopup] = useState<boolean>(false)
 
     useEffect(() => {
         if (!acceptedConsent) {
@@ -20,8 +21,13 @@ export const CookieConsentProvider = ({children}: { children: ReactNode }) => {
 
             if (cookie && cookie.split("=")[1] === "true") {
                 setAcceptedConsent(true);
+                setDisplayConsentPopup(false);
+            } else if (cookie && cookie.split("=")[1] === "false") {
+                setAcceptedConsent(false);
+                setDisplayConsentPopup(false);
             } else {
                 setAcceptedConsent(false);
+                setDisplayConsentPopup(true);
             }
         }
     }, []);
@@ -30,8 +36,12 @@ export const CookieConsentProvider = ({children}: { children: ReactNode }) => {
         setAcceptedConsent(consent);
     }
 
+    const showConsent = () => {
+        return displayConsentPopup;
+    }
+
     return (
-        <CookieConsentContext.Provider value={{hasConsent: acceptedConsent, setConsent}}>
+        <CookieConsentContext.Provider value={{showConsent, setConsent}}>
             {children}
         </CookieConsentContext.Provider>
     )

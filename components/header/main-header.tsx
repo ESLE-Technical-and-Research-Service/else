@@ -1,9 +1,8 @@
-import logo from '../../assets/images/logoElse.webp';
+import logo from '../../assets/images/logoElse_transp.png';
 import Image from 'next/image';
 import classes from './main-header.module.css';
 import Link from "next/link";
 import MainHeaderContent from "./main-header-content";
-import CookieConsent from "./cookie-consent";
 
 export default function MainHeader() {
     return (
@@ -19,7 +18,6 @@ export default function MainHeader() {
                     <MainHeaderContent/>
                 </div>
             </header>
-            <CookieConsent/>
         </>
     )
 }

@@ -5,6 +5,7 @@ import MainHeader from "../../components/header/main-header";
 import MainFooter from "../../components/footer/main-footer";
 import {LanguageProvider} from "../../context/LanguageContext";
 import {CookieConsentProvider} from "../../context/CookieConsentContext";
+import Analytics from "../../components/analytics/analytics";
 
 const roboto = Roboto({
     variable: "--font-roboto",
@@ -22,6 +23,7 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
+
     return (
         <html lang="en">
         <body
@@ -30,6 +32,7 @@ export default function RootLayout({
         <LanguageProvider>
             <CookieConsentProvider>
                 <MainHeader/>
+                <Analytics />
                 <main className="flex-grow">{children}</main>
                 <MainFooter/>
             </CookieConsentProvider>
