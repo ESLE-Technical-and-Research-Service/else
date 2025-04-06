@@ -34,7 +34,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                         href="/products"
                         onClick={(e) => handleClick(e, 'products')}
                     >
-                        {language === Language.PLN ? "Produkty" : "Products"} <IoMdArrowDropdown className="ml-2" />
+                        {language === Language.PLN ? "Produkty" : "Products"} <IoMdArrowDropdown className="ml-2"/>
                     </Link>
 
                     {/* Mobile Dropdown */}
@@ -93,7 +93,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                         href="/about"
                         onClick={(e) => handleClick(e, 'about')}
                     >
-                        {language === Language.PLN ? "O nas" : "About Us"} <IoMdArrowDropdown className="ml-2" />
+                        {language === Language.PLN ? "O nas" : "About Us"} <IoMdArrowDropdown className="ml-2"/>
                     </Link>
 
                     {/* Mobile Dropdown */}
@@ -150,6 +150,12 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                                 </Link>
                             </li>
                             <li className={classes.navItem}>
+                                <Link href="/about/certificates"
+                                      className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                                    {language === Language.PLN ? "Certifikaty" : "Certificates"}
+                                </Link>
+                            </li>
+                            <li className={classes.navItem}>
                                 <Link href="/about/locations"
                                       className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
                                     {language === Language.PLN ? "Lokalizacje" : "Locations"}
@@ -170,7 +176,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                         href="/services"
                         onClick={(e) => handleClick(e, 'services')}
                     >
-                        {language === Language.PLN ? "Serwisy" : "Services"} <IoMdArrowDropdown className="ml-2" />
+                        {language === Language.PLN ? "Serwisy" : "Services"} <IoMdArrowDropdown className="ml-2"/>
                     </Link>
 
                     {/* Mobile Dropdown */}

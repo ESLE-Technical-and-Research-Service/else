@@ -5,6 +5,7 @@
   --foreground: #F2F2F2;
   --main-color: #0070AC;
   --main-color-secondary: #FF0000;
+  --main-color-accent-dark: #9c0000;
   --background-gradient-begining: #FFFFFF;
   --background-gradient-middle: #EDF0EF;
   --background-gradient-end: #006EAC;
@@ -27,6 +28,7 @@
     --foreground: #b8b8b8;
     --main-color: #0070AC;
     --main-color-secondary: #FF0000;
+    --main-color-accent-dark: #9c0000;
     --background-gradient-begining: #FFFFFF;
     --background-gradient-middle: #EDF0EF;
     --background-gradient-end: #006EAC;

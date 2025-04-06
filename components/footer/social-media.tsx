@@ -21,7 +21,7 @@ export default function SocialMedia() {
                        href="https://pl.linkedin.com/company/else-technical-and-research-service-co-ltd-sp-z-o-o"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <FaLinkedin/>
+                        <FaLinkedin size={26}/>
                     </a>
                 </li>
                 <li>
@@ -29,7 +29,7 @@ export default function SocialMedia() {
                        href="https://www.facebook.com/p/ELSE-Technical-and-Research-Service-61556574954977/"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <FaFacebookSquare/>
+                        <FaFacebookSquare size={26}/>
                     </a>
                 </li>
             </ul>

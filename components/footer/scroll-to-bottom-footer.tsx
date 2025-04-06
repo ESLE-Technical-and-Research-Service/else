@@ -13,7 +13,7 @@ export default function ScrollToBottomFooter() {
         const scrollPosition = window.scrollY + window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
-        if (scrollPosition >= documentHeight - 1) {
+        if (scrollPosition >= documentHeight - 150) {
             if (!prevIsAtBottomRef.current) {
                 setIsAtBottom(true);
                 prevIsAtBottomRef.current = true;
