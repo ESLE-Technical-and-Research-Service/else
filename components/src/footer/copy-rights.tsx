@@ -1,6 +1,6 @@
 'use client';
 
-import {useLanguage} from "../../context/LanguageContext";
+import {useLanguage} from "../../../context/src/LanguageContext";
 
 export default function CopyRights() {
     const {language} = useLanguage();

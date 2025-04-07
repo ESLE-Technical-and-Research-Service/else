@@ -1,12 +1,12 @@
 'use client';
 
 import Image from "next/image";
-import heroImage1 from "../../assets/images/heroImage_01.jpg";
-import heroImage2 from "../../assets/images/heroImage_02.jpg";
-import heroImage3 from "../../assets/images/heroImage_03.jpg";
+import heroImage1 from "../../../assets/images/heroImage_01.jpg";
+import heroImage2 from "../../../assets/images/heroImage_02.jpg";
+import heroImage3 from "../../../assets/images/heroImage_03.jpg";
 import {useEffect, useState} from "react";
-import {useLanguage} from "../../context/LanguageContext";
-import {Language} from "../../context/types/Language";
+import {useLanguage} from "../../../context/src/LanguageContext";
+import {Language} from "../../../context/src/types/Language";
 
 const heroSlides = [heroImage1, heroImage2, heroImage3];
 
@@ -49,7 +49,7 @@ export default function HeroImage() {
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-4">
                 <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold drop-shadow-2xl leading-tight">
                     {language === Language.PLN ? "WITAJ W" : "WELCOME TO"}{" "}
-                    <strong className="inline-block bg-[var(--main-color)] text-[var(--background)] text-xl sm:text-2xl md:text-4xl px-3 sm:px-4 py-0.5 sm:py-1 rounded-md">
+                    <strong className="inline-block bg-[var(--main-color)] text-[var(--background)] text-xl sm:text-2xl md:text-6xl px-3 sm:px-4 py-0.5 sm:py-1 rounded-md">
                         ELSE
                     </strong>
                 </h1>

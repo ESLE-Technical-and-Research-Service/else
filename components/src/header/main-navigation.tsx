@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {useLanguage} from "../../context/LanguageContext";
-import {Language} from "../../context/types/Language";
+import {useLanguage} from "../../../context/src/LanguageContext";
+import {Language} from "../../../context/src/types/Language";
 import {IoMdArrowDropdown} from "react-icons/io";
 
 type MainNavigationProps = {

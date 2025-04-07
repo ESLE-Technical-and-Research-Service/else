@@ -15,7 +15,7 @@ export const LanguageProvider = ({children}: { children: ReactNode }) => {
 
     useEffect(() => {
         const userLang = navigator.language || navigator.languages?.[0] || "en";
-        const normalizedLang = userLang.toUpperCase();
+        const normalizedLang = userLang.toLowerCase();
 
         if (normalizedLang.startsWith("pl")) {
             setLanguage(Language.PLN);

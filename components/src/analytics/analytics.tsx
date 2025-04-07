@@ -1,6 +1,6 @@
 'use client';
 
-import {useCookieConsent} from "../../context/CookieConsentContext";
+import {useCookieConsent} from "../../../context/src/CookieConsentContext";
 import {useState} from "react";
 import CookieConsent from "../header/cookie/cookie-consent";
 

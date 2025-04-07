@@ -1,12 +1,11 @@
 'use client';
 
-import {useLanguage} from "../../context/LanguageContext";
-import {Language} from "../../context/types/Language";
+import {useLanguage} from "../../../context/src/LanguageContext";
+import {Language} from "../../../context/src/types/Language";
 import Image from "next/image";
-import waterAndSewageDep from "../../assets/images/waterAndSewageDep.png";
-import maritimeDepImg from "../../assets/images/meritimeDep.png";
+import waterAndSewageDep from "../../../assets/images/waterAndSewageDep.png";
+import maritimeDepImg from "../../../assets/images/meritimeDep.png";
 import {useEffect, useRef, useState} from "react";
-import Link from "next/link";
 import CheckButton from "../common/buttons/check-button";
 
 export default function Departments() {

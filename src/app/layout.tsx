@@ -1,12 +1,11 @@
 import type {Metadata} from "next";
 import {Roboto} from "next/font/google";
 import "./globals.css";
-import MainHeader from "../../components/header/main-header";
-import MainFooter from "../../components/footer/main-footer";
-import {LanguageProvider} from "../../context/LanguageContext";
-import {CookieConsentProvider} from "../../context/CookieConsentContext";
-import Analytics from "../../components/analytics/analytics";
-import ScrollToBottomFooter from "../../components/footer/scroll-to-bottom-footer";
+import {LanguageProvider} from "../../context/src/LanguageContext";
+import {CookieConsentProvider} from "../../context/src/CookieConsentContext";
+import Analytics from "../../components/src/analytics/analytics";
+import ScrollToBottomFooter from "../../components/src/footer/scroll-to-bottom-footer";
+import MainHeader from "../../components/src/header/main-header";
 
 const roboto = Roboto({
     variable: "--font-roboto",

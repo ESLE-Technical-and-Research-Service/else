@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import { IoIosClose } from "react-icons/io";
 import classes from "./popup.module.css";
-import logo from '../../assets/images/logoElse.webp';
+import logo from '../../../assets/images/logoElse.webp';
 
 type PopupProps = {
     children: ReactNode;

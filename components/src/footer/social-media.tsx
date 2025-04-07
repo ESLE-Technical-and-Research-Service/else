@@ -2,7 +2,7 @@
 
 import {FaLinkedin} from "react-icons/fa6";
 import {FaFacebookSquare} from "react-icons/fa";
-import {useLanguage} from "../../context/LanguageContext";
+import {useLanguage} from "../../../context/src/LanguageContext";
 
 export default function SocialMedia() {
     const {language} = useLanguage();
