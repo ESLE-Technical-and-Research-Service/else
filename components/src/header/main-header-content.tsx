@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import LanguageSwitch from "./language-switch";
-import MainNavigation from "./main-navigation";
+import MainNavigation from "./navigation/main-navigation";
 
 export default function MainHeaderContent() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function MainHeaderContent() {
         <>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center w-full">
-                <div className="flex-none">{/* Logo */}</div>
+                {/*<div className="flex-none">/!* Logo *!/</div>*/}
                 <div className="flex-grow flex justify-center">
                     <MainNavigation />
                 </div>
@@ -41,7 +41,7 @@ export default function MainHeaderContent() {
                 </div>
             </div>
 
-            {/* Mobile Burger Button - tylko przy scroll up lub top of page */}
+            {/* Mobile Burger Button */}
             <button
                 className={`md:hidden fixed top-4 right-4 z-50 transition-opacity duration-300 ${
                     showBurger ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
