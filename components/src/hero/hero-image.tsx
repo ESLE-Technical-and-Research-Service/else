@@ -1,19 +1,16 @@
 'use client';
 
 import Image from "next/image";
-import heroImage1 from "../../../assets/images/heroImage_01.jpg";
-import heroImage2 from "../../../assets/images/heroImage_02.jpg";
-import heroImage3 from "../../../assets/images/heroImage_03.jpg";
 import {useEffect, useState} from "react";
 import {useLanguage} from "../../../context/src/LanguageContext";
 import {Language} from "../../../context/src/types/Language";
-
-const heroSlides = [heroImage1, heroImage2, heroImage3];
+import {getHeroSlideImages} from "./hero-images-list";
 
 export default function HeroImage() {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const {language} = useLanguage();
 
+    const heroSlides = getHeroSlideImages();
     const goToNextSlide = (): void => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
     }

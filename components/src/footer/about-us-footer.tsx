@@ -44,6 +44,15 @@ export default function AboutUsFooter() {
                     </Link>
                 </li>
                 <li>
+                    <Link className="hover:underline" href="/about/certificates">
+                        {
+                            language === "PLN"
+                                ? "Certyfikaty"
+                                : "Certificates"
+                        }
+                    </Link>
+                </li>
+                <li>
                     <Link className="hover:underline" href="/about/locations">
                         {
                             language === "PLN"

@@ -1,15 +1,14 @@
 import {act, render, screen} from "@testing-library/react";
 import HeroImage from "../../src/hero/hero-image";
 import {LanguageProvider} from "../../../context/src/LanguageContext";
+import * as slides from "../../src/hero/hero-images-list";
+import {StaticImageData} from "next/image";
 
+jest.mock("../../src/hero/hero-images-list");
 jest.mock("next/image", () => ({
     __esModule: true,
     default: ({ alt }: { alt: string }) => <img alt={alt} />,
 }));
-
-jest.mock("../../../assets/images/heroImage_01.jpg", () => "image1.jpg");
-jest.mock("../../../assets/images/heroImage_02.jpg", () => "image2.jpg");
-jest.mock("../../../assets/images/heroImage_03.jpg", () => "image3.jpg");
 
 Object.defineProperty(window.navigator, 'language', {
     value: 'en',
@@ -25,8 +24,14 @@ describe("HeroImage", () => {
         );
     };
 
+
     beforeEach(() => {
         jest.useFakeTimers();
+        jest.spyOn(slides, 'getHeroSlideImages').mockReturnValue([
+            { src: "image1.webp" } as StaticImageData,
+            { src: "image2.webp" } as StaticImageData,
+            { src: "image3.webp" } as StaticImageData,
+        ]);
     });
 
     afterEach(() => {
