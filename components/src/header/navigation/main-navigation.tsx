@@ -4,6 +4,7 @@ import AboutUsNavigation from "./about-us-navigation";
 import ServicesNavigation from "./services-navigation";
 import Service24by7Navigation from "./service-24-7-navigation";
 import ContactNavigation from "./contact-navigation";
+import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 
 type MainNavigationProps = {
     isMobile?: boolean;
@@ -11,13 +12,14 @@ type MainNavigationProps = {
 
 export default function MainNavigation({isMobile = false}: MainNavigationProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const isTouchTablet = useIsTouchTablet();
 
     const toggleDropdown = (menu: string) => {
         setOpenDropdown(openDropdown === menu ? null : menu);
     };
 
-    const handleClick = (e: React.MouseEvent, menu: string) => {
-        if (isMobile) {
+    const handleClick = (e: React.MouseEvent | React.TouchEvent, menu: string) => {
+        if (isMobile || isTouchTablet) {
             e.preventDefault();
             toggleDropdown(menu);
         }
@@ -25,12 +27,20 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
 
     return (
         <nav>
-            <ul className={`flex ${isMobile ? 'flex-col gap-4' : 'space-x-8 gap-4'} p-4`}>
-                <ProductNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile} />
-                <AboutUsNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile} />
-                <ServicesNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile} />
-                <Service24by7Navigation />
-                <ContactNavigation />
+            <ul
+                className={`flex ${isMobile 
+                    ? 'flex-col gap-4' 
+                    : isTouchTablet 
+                        ? 'relative flex-grow gap-6 flex-nowrap' 
+                        : 'flex-row space-x-4 gap-4 md:gap-8 md:flex-nowrap justify-center'
+                } p-4`
+                }
+            >
+                <ProductNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
+                <AboutUsNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
+                <ServicesNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
+                <Service24by7Navigation/>
+                <ContactNavigation/>
             </ul>
         </nav>
     );

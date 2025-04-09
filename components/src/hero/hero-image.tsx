@@ -32,9 +32,8 @@ export default function HeroImage() {
                     <Image
                         src={slide}
                         alt={`ELSE Hero Image ${index + 1}`}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center 55%"
+                        fill
+                        style={{ objectPosition: "center 50%", objectFit: "cover" }}
                     />
                 </div>
             ))}
