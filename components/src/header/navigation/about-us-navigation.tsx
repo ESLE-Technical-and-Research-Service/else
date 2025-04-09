@@ -6,6 +6,8 @@ import { useLanguage } from "../../../../context/src/LanguageContext";
 import { useIsTouchTablet } from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
 import {useRouter} from "next/navigation";
+import {renderDropdownItems} from "./render-dropdown-items";
+import {aboutUsDropdownItems} from "./dropdownItems/about-us-dropdown-items";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
@@ -37,138 +39,21 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
             {/* Mobile Dropdown */}
             {isMobile && openDropdown === 'about' && (
                 <ul className={`mt-2 bg-white border border-gray-200 rounded-lg`}>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/profile"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/profile")}
-                        >
-                            {language === Language.PLN ? "Opis działalności" : "Company Profile"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/departments"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/departments")}
-                        >
-                            {language === Language.PLN ? "Nasze działy" : "Our Departments"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/management"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/management")}
-                        >
-                            {language === Language.PLN ? "Władze spółki" : "Management"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/locations"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/locations")}
-                        >
-                            {language === Language.PLN ? "Lokalizacje" : "Locations"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/media"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/media")}
-                        >
-                            Media
-                        </Link>
-                    </li>
+                    {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
                 </ul>
             )}
 
             {/* Tablet Dropdown */}
             {!isMobile && isTouchTablet && openDropdown === 'about' && (
                 <ul className={`${classes.dropdownMenu} ${classes.tabletDropdown} mt-2 bg-white border border-gray-200 rounded-lg`}>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/profile"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/profile")}
-                        >
-                            {language === Language.PLN ? "Opis działalności" : "Company Profile"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/departments"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/departments")}
-                        >
-                            {language === Language.PLN ? "Nasze działy" : "Our Departments"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/management"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/management")}
-                        >
-                            {language === Language.PLN ? "Władze spółki" : "Management"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/locations"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/locations")}
-                        >
-                            {language === Language.PLN ? "Lokalizacje" : "Locations"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link
-                            href="/about/media"
-                            className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                            onClick={onDropdownItemActivate("/about/media")}
-                        >
-                            Media
-                        </Link>
-                    </li>
+                    {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
                 </ul>
             )}
 
             {/* Desktop Dropdown – always visible on hover, handled by CSS */}
             {!isMobile && !isTouchTablet && (
                 <ul className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
-                    <li className={classes.navItem}>
-                        <Link href="/about/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            {language === Language.PLN ? "Opis działalności" : "Company Profile"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link href="/about/departments" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            {language === Language.PLN ? "Nasze działy" : "Our Departments"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link href="/about/management" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            {language === Language.PLN ? "Władze spółki" : "Management"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link href="/about/certificates" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            {language === Language.PLN ? "Certyfikaty" : "Certificates"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link href="/about/locations" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            {language === Language.PLN ? "Lokalizacje" : "Locations"}
-                        </Link>
-                    </li>
-                    <li className={classes.navItem}>
-                        <Link href="/about/media" className="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                            Media
-                        </Link>
-                    </li>
+                    {renderDropdownItems(aboutUsDropdownItems, language)}
                 </ul>
             )}
         </li>

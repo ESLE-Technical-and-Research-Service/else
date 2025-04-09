@@ -1,5 +1,12 @@
 .navItem {
     position: relative;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    margin-left: 0.5rem;
+}
+
+.navItem.navItemSubmenu {
+    margin-left: 0.5rem;
 }
 
 .hasDropdown > a::after {
@@ -10,6 +17,7 @@
   vertical-align: middle;
   color: var(--font-color);
 }
+
 .hasDropdown:hover > a::after {
   transform: rotate(180deg);
   transition: transform 0.2s ease;
@@ -31,8 +39,8 @@
     transform: none;
     background-color: white;
     margin-top: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
+    /*border-radius: 0.5rem;*/
+    /*border: 1px solid #e5e7eb;*/
     padding: 0.5rem 0;
 }
 
@@ -44,9 +52,6 @@
     z-index: 1000;
     white-space: nowrap;
     background-color: var(--foreground);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
     padding: 0.5rem 1rem;
     opacity: 0;
     visibility: hidden;
@@ -67,9 +72,9 @@
     z-index: 1000;
     white-space: nowrap;
     background-color: var(--foreground);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+    /*border-radius: 0.5rem;*/
+    /*border: 1px solid #e5e7eb;*/
     padding: 0.5rem 1rem;
     opacity: 1;
     visibility: visible;

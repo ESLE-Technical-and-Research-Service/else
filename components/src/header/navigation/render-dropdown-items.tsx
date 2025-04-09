@@ -12,13 +12,15 @@ export type DropDownItem = {
 export const renderDropdownItems = (
     items: DropDownItem[],
     language: Language,
-    onDropdownAction: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void) => (
+    onDropdownAction?: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void,
+    isSubmenu?: boolean
+) => (
     items.map((item) => (
-        <li key={item.href} className={classes.navItem}>
+        <li key={item.href} className={isSubmenu ? classes.navItemSubmenu : classes.navItem}>
             <Link
             href={item.href}
             className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-            onClick={onDropdownAction(item.href)}
+            onClick={onDropdownAction ? onDropdownAction(item.href) : undefined}
             >
                 {language === Language.PLN ? item.labelPL : item.labelENG}
             </Link>

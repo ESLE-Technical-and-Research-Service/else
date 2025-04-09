@@ -12,16 +12,30 @@ type MainNavigationProps = {
 
 export default function MainNavigation({isMobile = false}: MainNavigationProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [dropdownSubmenu, setDropdownSubmenu] = useState<string | null>(null);
     const isTouchTablet = useIsTouchTablet();
 
     const toggleDropdown = (menu: string) => {
         setOpenDropdown(openDropdown === menu ? null : menu);
     };
 
+    const toggleDropdownSubmenu = (submenu: string) => {
+        setDropdownSubmenu(dropdownSubmenu === submenu ? null : submenu);
+    }
+
     const handleClick = (e: React.MouseEvent | React.TouchEvent, menu: string) => {
         if (isMobile || isTouchTablet) {
             e.preventDefault();
-            toggleDropdown(menu);
+
+            if (menu === "water-sewage") {
+                toggleDropdownSubmenu(menu);
+            } else {
+                toggleDropdown(menu);
+            }
+        } else {
+            if (menu === "water-sewage") {
+                toggleDropdownSubmenu(menu);
+            }
         }
     };
 
@@ -36,7 +50,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                 } p-4`
                 }
             >
-                <ProductNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
+                <ProductNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile} dropdownSubmenu={dropdownSubmenu} />
                 <AboutUsNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
                 <ServicesNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile}/>
                 <Service24by7Navigation/>
