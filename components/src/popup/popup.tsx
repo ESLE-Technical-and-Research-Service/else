@@ -22,6 +22,7 @@ export default function Popup({ children, onClose }: PopupProps) {
                 </div>
 
                 <button
+                    data-testid="popup-close-button"
                     className={classes.closeButton}
                     onClick={onClose}
                     aria-label="Close"

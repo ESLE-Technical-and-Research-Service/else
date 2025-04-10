@@ -22,7 +22,7 @@ export default function HeroImage() {
     });
 
     return (
-        <div className="relative w-full h-[60vh] overflow-hidden rounded-md">
+        <div data-testid="hero-slides-container" className="relative w-full h-[60vh] overflow-hidden rounded-md">
             {/* Hero Image Slides */}
             {heroSlides.map((slide, index) => (
                 <div

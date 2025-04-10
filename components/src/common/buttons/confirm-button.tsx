@@ -9,6 +9,7 @@ type ConfirmButtonProps = {
 export default function ConfirmButton({ children, onClick }: ConfirmButtonProps) {
     return (
         <button
+            data-testid="consent-confirm-button"
             onClick={onClick}
             type="button"
             className="px-6 py-2 mx-2 mt-2 rounded-xs font-semibold transition duration-200 ease-in-out shadow-md

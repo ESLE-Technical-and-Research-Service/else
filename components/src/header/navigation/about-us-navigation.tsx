@@ -27,8 +27,9 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
     }
 
     return (
-        <li className={`${classes.navItem} ${classes.hasDropdown}`}>
+        <li data-testid="about-us-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
+                data-testid="about-us-menu-link"
                 className="hover:underline cursor-pointer flex items-center"
                 href="/about"
                 onClick={(e) => handleClickAction(e, 'about')}
@@ -45,14 +46,20 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
 
             {/* Tablet Dropdown */}
             {!isMobile && isTouchTablet && openDropdown === 'about' && (
-                <ul className={`${classes.dropdownMenu} ${classes.tabletDropdown} mt-2 bg-white border border-gray-200 rounded-lg`}>
+                <ul
+                    data-testid="about-us-tablet-items"
+                    className={
+                    `${classes.dropdownMenu} ${classes.tabletDropdown} 
+                    mt-2 bg-white border border-gray-200 rounded-lg`
+                }
+                >
                     {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
                 </ul>
             )}
 
             {/* Desktop Dropdown – always visible on hover, handled by CSS */}
             {!isMobile && !isTouchTablet && (
-                <ul className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
+                <ul data-testid="about-us-items" className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
                     {renderDropdownItems(aboutUsDropdownItems, language)}
                 </ul>
             )}

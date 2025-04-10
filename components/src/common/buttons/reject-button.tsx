@@ -8,6 +8,7 @@ type RejectButtonProps = {
 export default function RejectButton({children, onClick}: RejectButtonProps) {
     return (
         <button
+            data-testid="consent-reject-button"
             onClick={onClick}
             type="button"
             className="px-6 py-2 mx-2 mt-2 rounded-xs font-semibold transition duration-200 ease-in-out shadow-md

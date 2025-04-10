@@ -27,20 +27,20 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
         if (isMobile || isTouchTablet) {
             e.preventDefault();
 
-            if (menu === "water-sewage") {
+            if (menu === "water-sewage" || menu === "maritime") {
                 toggleDropdownSubmenu(menu);
             } else {
                 toggleDropdown(menu);
             }
         } else {
-            if (menu === "water-sewage") {
+            if (menu === "water-sewage" || menu === "maritime") {
                 toggleDropdownSubmenu(menu);
             }
         }
     };
 
     return (
-        <nav>
+        <nav data-testid="main-nav-container">
             <ul
                 className={`flex ${isMobile 
                     ? 'flex-col gap-4' 

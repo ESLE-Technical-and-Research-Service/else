@@ -8,7 +8,7 @@ export default function ContactNavigation() {
     const {language} = useLanguage();
     return (
         <>
-            <li className={`${classes.navItem}`}>
+            <li data-testid="contact-menu" className={`${classes.navItem}`}>
                 <Link className="hover:underline" href="/contact">
                     {language === Language.PLN ? "Kontakt" : "Contact"}
                 </Link>

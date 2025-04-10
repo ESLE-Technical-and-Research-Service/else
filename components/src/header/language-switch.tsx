@@ -5,18 +5,32 @@ import {useLanguage} from "../../../context/src/LanguageContext";
 import {Language} from "../../../context/src/types/Language";
 
 export default function LanguageSwitch() {
-    const { language, switchLanguage } = useLanguage();
+    const {language, switchLanguage} = useLanguage();
 
     return (
-        <div className="flex items-center space-x-2">
+        <div data-testid="lang-switch-container" className="flex items-center space-x-2">
             <button
-                className={`px-4 py-2 rounded ${language === Language.ENG ? classes.languageSwitchOn : classes.languageSwitchOff}`}
+                data-testid="en-lang-switch"
+                className={
+                    `px-4 py-2 rounded ${
+                        language === Language.ENG
+                            ? classes.languageSwitchOn
+                            : classes.languageSwitchOff
+                    }`
+                }
                 onClick={() => switchLanguage(Language.ENG)}
             >
                 ENG
             </button>
             <button
-                className={`px-4 py-2 rounded ${language === Language.PLN ? classes.languageSwitchOn : classes.languageSwitchOff}`}
+                data-testid="pl-lang-switch"
+                className={
+                    `px-4 py-2 rounded ${
+                        language === Language.PLN
+                            ? classes.languageSwitchOn
+                            : classes.languageSwitchOff
+                    }`
+                }
                 onClick={() => switchLanguage(Language.PLN)}
             >
                 PLN

@@ -1,11 +1,11 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import { useLanguage } from "../../../../context/src/LanguageContext";
-import { Language } from "../../../../context/src/types/Language";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { useIsTouchTablet } from "../../../../hooks/src/useIsTouchTablet";
+import {useLanguage} from "../../../../context/src/LanguageContext";
+import {Language} from "../../../../context/src/types/Language";
+import {IoMdArrowDropdown} from "react-icons/io";
+import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
 import {servicesDropdownItems} from "./dropdownItems/services-dropdown-items";
 
@@ -20,7 +20,7 @@ export default function ServicesNavigation({
                                                isMobile,
                                                openDropdown,
                                            }: ServicesNavigationProps) {
-    const { language } = useLanguage();
+    const {language} = useLanguage();
     const isTouchTablet = useIsTouchTablet();
     const router = useRouter();
 
@@ -31,8 +31,9 @@ export default function ServicesNavigation({
     };
 
     return (
-        <li className={`${classes.navItem} ${classes.hasDropdown}`}>
+        <li data-testid="services-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
+                data-testid="services-menu-link"
                 className="hover:underline cursor-pointer flex items-center"
                 href="/services"
                 onClick={(e) => handleClickAction(e, 'services')}
@@ -49,14 +50,21 @@ export default function ServicesNavigation({
 
             {/* Tablet Dropdown */}
             {!isMobile && isTouchTablet && openDropdown === 'services' && (
-                <ul className={`${classes.dropdownMenu} ${classes.tabletDropdown} mt-2 bg-white border border-gray-200 rounded-lg`}>
+                <ul
+                    data-testid="services-tablet-items"
+                    className={
+                        `${classes.dropdownMenu} ${classes.tabletDropdown} 
+                    mt-2 bg-white border border-gray-200 rounded-lg`
+                    }
+                >
                     {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
                 </ul>
             )}
 
             {/* Desktop Dropdown */}
             {!isMobile && !isTouchTablet && (
-                <ul className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
+                <ul data-testid="services-menu-items"
+                    className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
                     {renderDropdownItems(servicesDropdownItems, language)}
                 </ul>
             )}
