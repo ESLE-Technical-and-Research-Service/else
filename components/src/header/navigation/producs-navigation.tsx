@@ -51,13 +51,13 @@ export default function ProductNavigation({ handleClickAction, isMobile, openDro
 
     return (
         <>
-            <li className={classes.navItem}>
+            <li className={`${classes.navItem} ${classes.hasDropdown}`}>
                 <Link
                     className="hover:underline cursor-pointer flex items-center"
                     href="/products"
                     onClick={(e) => handleClickAction(e, 'products')}
                 >
-                    {language === Language.PLN ? "Produkty" : "Products"} <IoMdArrowDropdown className="ml-2" />
+                    {language === Language.PLN ? "Produkty" : "Products"}
                 </Link>
 
                 {/* Mobile Dropdown – static positioning */}
@@ -134,43 +134,51 @@ export default function ProductNavigation({ handleClickAction, isMobile, openDro
 
                 {/* Desktop Dropdown – absolute positioning; always rendered and controlled by CSS hover */}
                 {!isMobile && !isTouchTablet && (
-                    <ul className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 border-b border-t border-gray-300 shadow-lg bg-white rounded-lg`}>
+                    <ul className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-64 bg-white border border-gray-300 shadow-lg rounded-lg z-10`}>
                         <li
-                            className={classes.navItem}
+                            className={`${classes.navItem} relative`}
                             onMouseEnter={() => handleMouseEnter('water-sewage')}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <Link
-                                className="hover:underline cursor-pointer flex items-center"
-                                href="/products/water-sewage"
-                                onClick={(e) => handleClickAction(e, 'water-sewage')}
-                            >
-                                {language === Language.PLN ? "Dział WOD-KAN" : "Water-Sewage Department"}
-                            </Link>
-                            {/* Desktop hover submenu */}
-                            <ul className={`mt-2 bg-[var(--foreground)] border-b border-t border-gray-300 ${hoveredSubmenu === "water-sewage" ? 'visible' : 'hidden'}`}>
-                                {renderDropdownItems(waterSewageItems, language, onDropdownItemActivate, true)}
-                            </ul>
+                            <li className={`${classes.navItem} ${classes.hasSubmenuRightArrow}`}>
+                                <Link
+                                    className="hover:underline cursor-pointer flex items-center px-4 py-2"
+                                    href="/products/water-sewage"
+                                    onClick={(e) => handleClickAction(e, 'water-sewage')}
+                                >
+                                    {language === Language.PLN ? "Dział WOD-KAN" : "Water-Sewage Department"}
+                                </Link>
+
+                                {/* Submenu */}
+                                <ul className={`absolute top-0 left-full ml-2 min-w-[200px] bg-[var(--foreground)] border border-gray-300 shadow-lg rounded-lg z-10 ${hoveredSubmenu === "water-sewage" ? 'block' : 'hidden'}`}>
+                                    {renderDropdownItems(waterSewageItems, language, onDropdownItemActivate, true)}
+                                </ul>
+                            </li>
                         </li>
+
                         <li
-                            className={classes.navItem}
+                            className={`${classes.navItem} relative`}
                             onMouseEnter={() => handleMouseEnter('maritime')}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <Link
-                                className="hover:underline cursor-pointer flex items-center"
-                                href="/products/maritime"
-                                onClick={(e) => handleClickAction(e, 'maritime')}
-                            >
-                                {language === Language.PLN ? "Dział Morski" : "Maritime Department"}
-                            </Link>
-                            {/* Desktop hover submenu */}
-                            <ul className={`mt-2 bg-[var(--foreground)] border-b border-t border-gray-300 ${hoveredSubmenu === "maritime" ? 'visible' : 'hidden'}`}>
-                                {renderDropdownItems(maritimeItems, language, onDropdownItemActivate)}
-                            </ul>
+                            <li className={`${classes.navItem} `}>
+                                <Link
+                                    className="hover:underline cursor-pointer flex items-center px-4 py-2"
+                                    href="/products/maritime"
+                                    onClick={(e) => handleClickAction(e, 'maritime')}
+                                >
+                                    {language === Language.PLN ? "Dział Morski" : "Maritime Department"}
+                                </Link>
+
+                                {/* Submenu */}
+                                <ul className={`absolute top-0 left-full ml-2 min-w-[200px] bg-[var(--foreground)] border border-gray-300 shadow-lg rounded-lg z-10 ${hoveredSubmenu === "maritime" ? 'block' : 'hidden'}`}>
+                                    {renderDropdownItems(maritimeItems, language, onDropdownItemActivate)}
+                                </ul>
+                            </li>
                         </li>
                     </ul>
                 )}
+
 
             </li>
         </>

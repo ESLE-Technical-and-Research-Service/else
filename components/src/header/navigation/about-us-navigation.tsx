@@ -27,13 +27,13 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
     }
 
     return (
-        <li className={`${classes.navItem} relative`}>
+        <li className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
                 className="hover:underline cursor-pointer flex items-center"
                 href="/about"
                 onClick={(e) => handleClickAction(e, 'about')}
             >
-                {language === Language.PLN ? "O nas" : "About Us"} <IoMdArrowDropdown className="ml-2" />
+                {language === Language.PLN ? "O nas" : "About Us"}
             </Link>
 
             {/* Mobile Dropdown */}

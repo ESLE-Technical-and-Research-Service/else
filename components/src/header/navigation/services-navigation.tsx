@@ -31,13 +31,13 @@ export default function ServicesNavigation({
     };
 
     return (
-        <li className={`${classes.navItem} relative`}>
+        <li className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
                 className="hover:underline cursor-pointer flex items-center"
                 href="/services"
                 onClick={(e) => handleClickAction(e, 'services')}
             >
-                {language === Language.PLN ? "Serwisy" : "Services"} <IoMdArrowDropdown className="ml-2" />
+                {language === Language.PLN ? "Serwisy" : "Services"}
             </Link>
 
             {/* Mobile Dropdown */}
