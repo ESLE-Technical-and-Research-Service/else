@@ -1,7 +1,7 @@
 import {Browser, Page} from "@playwright/test";
 import {closeConsentPopup} from "./closeConsentPopup";
 
-const baseUrl = "http://localhost:3000/";
+const baseUrl = process.env.BASE_URL as string;
 
 export async function openMainPageOnDesktop(browser: Browser, locale: string = "en-ENG"): Promise<Page> {
     const context = await browser.newContext({ locale });
@@ -11,8 +11,8 @@ export async function openMainPageOnDesktop(browser: Browser, locale: string = "
     return page;
 }
 
-export async function openMainPageOnDesktopAndCloseConsentPopup(browser: Browser): Promise<Page> {
-    const page = await openMainPageOnDesktop(browser);
+export async function openMainPageOnDesktopAndCloseConsentPopup(browser: Browser, locale?: string): Promise<Page> {
+    const page = await openMainPageOnDesktop(browser, locale);
     await closeConsentPopup(page);
     return page;
 }

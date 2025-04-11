@@ -68,9 +68,15 @@ export default function ProductNavigation({
 
                 {/* Mobile Dropdown – static positioning */}
                 {isMobile && openDropdown === 'products' && (
-                    <ul className={`mt-2 bg-white border-b border-t border-gray-300`}>
+                    <ul
+                        data-testid="products-mobile-menu"
+                        className={
+                            `mt-2 bg-white border-b border-t border-gray-300`
+                        }
+                    >
                         <li className={classes.navItem}>
                             <Link
+                                data-testid="products-water-sewage-mobile-submenu-link"
                                 className="hover:underline cursor-pointer flex items-center"
                                 href="/products/water-sewage"
                                 onClick={(e) => handleClickAction(e, 'water-sewage')}
@@ -78,13 +84,17 @@ export default function ProductNavigation({
                                 {language === Language.PLN ? "Dział WOD-KAN" : "Water-Sewage Department"}
                             </Link>
                             {isMobile && dropdownSubmenu === "water-sewage" && (
-                                <ul className={`mt-2 bg-white border-b border-t border-gray-300`}>
+                                <ul
+                                    data-testid="water-sewage-mobile-submenu-items"
+                                    className={`mt-2 bg-white border-b border-t border-gray-300`}
+                                >
                                     {renderDropdownItems(waterSewageItems, language, onDropdownItemActivate, true)}
                                 </ul>
                             )}
                         </li>
                         <li className={classes.navItem}>
                             <Link
+                                data-testid="products-mairtime-mobile-submenu-link"
                                 className="hover:underline cursor-pointer flex items-center"
                                 href="/products/maritime"
                                 onClick={(e) => handleClickAction(e, 'maritime')}
@@ -93,7 +103,9 @@ export default function ProductNavigation({
                             </Link>
                             {
                                 isMobile && dropdownSubmenu === "maritime" && (
-                                    <ul className={`mt-2 bg-white border-b border-t border-gray-300`}>
+                                    <ul
+                                        data-testid="maritime-mobile-submenu-items"
+                                        className={`mt-2 bg-white border-b border-t border-gray-300`}>
                                         {renderDropdownItems(maritimeItems, language, onDropdownItemActivate, true)}
                                     </ul>
                                 )
@@ -118,7 +130,7 @@ export default function ProductNavigation({
                             {
                                 !isMobile && isTouchTablet && dropdownSubmenu === "water-sewage" && (
                                     <ul
-                                        data-testid="water-sewage-submenu-items"
+                                        data-testid="water-sewage-submenu-tablet-items"
                                         className={`mt-2 bg-[var(--foreground)] border-b border-t border-gray-300`}
                                     >
                                         {renderDropdownItems(waterSewageItems, language, onDropdownItemActivate, true)}
@@ -138,7 +150,7 @@ export default function ProductNavigation({
                             {
                                 !isMobile && isTouchTablet && dropdownSubmenu === "maritime" && (
                                     <ul
-                                        data-testid="maritime-submenu-items"
+                                        data-testid="maritime-submenu-tablet-items"
                                         className={
                                             `mt-2 bg-[var(--foreground)] border-b border-t border-gray-300`
                                         }
@@ -167,6 +179,7 @@ export default function ProductNavigation({
                         >
                             <div className={`${classes.navItem} ${classes.hasSubmenuRightArrow}`}>
                                 <Link
+                                    data-testid="products-desktop-water-sewage-submenu-link"
                                     className="hover:underline cursor-pointer flex items-center px-4 py-2"
                                     href="/products/water-sewage"
                                     onClick={(e) => handleClickAction(e, 'water-sewage')}
@@ -181,7 +194,7 @@ export default function ProductNavigation({
                                             ? 'block'
                                             : 'hidden'
                                     }`}
-                                    data-testid="water-sewage-submenu"
+                                    data-testid="water-sewage-submenu-desktop-items"
                                 >
                                     {renderDropdownItems(waterSewageItems, language, onDropdownItemActivate, true)}
                                 </ul>
@@ -193,8 +206,9 @@ export default function ProductNavigation({
                             onMouseEnter={() => handleMouseEnter('maritime')}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <div className={`${classes.navItem}`}>
+                            <div className={`${classes.navItem} ${classes.hasSubmenuRightArrow}`}>
                                 <Link
+                                    data-testid="products-desktop-maritime-submenu-link"
                                     className="hover:underline cursor-pointer flex items-center px-4 py-2"
                                     href="/products/maritime"
                                     onClick={(e) => handleClickAction(e, 'maritime')}
@@ -209,7 +223,7 @@ export default function ProductNavigation({
                                             ? 'block'
                                             : 'hidden'
                                     }`}
-                                    data-testid="maritime-submenu"
+                                    data-testid="maritime-submenu-desktop-items"
                                 >
                                     {renderDropdownItems(maritimeItems, language, onDropdownItemActivate, true)}
                                 </ul>
