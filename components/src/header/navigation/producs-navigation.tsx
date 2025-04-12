@@ -57,7 +57,7 @@ export default function ProductNavigation({
             <li data-testid="products-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
                 <Link
                     data-testid="products-menu-link"
-                    className="hover:underline cursor-pointer flex items-center"
+                    className={`${classes.navLink} hover:underline cursor-pointer`}
                     href="/products"
                     onClick={(e) => handleClickAction(e, 'products')}
                 >
@@ -234,4 +234,3 @@ export default function ProductNavigation({
         </>
     );
 }
-

@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:unit": "jest",
-    "test:e2e": "playwright test --workers=5",
-    "test:e2e:debug": "playwright test --workers=5 --debug"
+    "test:e2e": "playwright test --workers=3",
+    "test:e2e:debug": "playwright test --workers=3 --debug"
   },
   "dependencies": {
     "@playwright/test": "^1.51.1",

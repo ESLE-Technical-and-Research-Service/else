@@ -47,7 +47,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
                     : isTouchTablet 
                         ? 'relative flex-grow gap-6 flex-nowrap' 
                         : 'flex-row space-x-4 gap-4 md:gap-8 md:flex-nowrap justify-center'
-                } p-4`
+                } p-6`
                 }
             >
                 <ProductNavigation handleClickAction={handleClick} openDropdown={openDropdown} isMobile={isMobile} dropdownSubmenu={dropdownSubmenu} />

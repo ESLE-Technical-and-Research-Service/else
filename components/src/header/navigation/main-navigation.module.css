@@ -3,24 +3,41 @@
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
     margin-left: 0.5rem;
+    margin-right: 0.8rem;
 }
 
 .navItem.navItemSubmenu {
     margin-left: 0.5rem;
 }
 
+.navLink {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.hasDropdown > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 1.5rem;
+    width: 100%;
+}
+
 .hasDropdown > a::after {
     content: '▼';
     color: var(--main-color);
-    margin-left: 0.5rem;
     font-size: 0.7rem;
-    display: inline-block;
-    vertical-align: middle;
     transition: transform .2s ease;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .hasDropdown:hover > a::after {
-    transform: rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
 }
 
 /* Base dropdown menu styling */

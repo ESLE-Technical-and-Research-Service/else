@@ -183,7 +183,10 @@ test.describe("main header suite", () => {
                 desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser, "pl-PL");
                 const productsMenu = desktopPage.locator('[data-testid="products-menu"]').first();
                 await productsMenu.hover();
-
+                
+                // Wait for the CSS transition to complete
+                await desktopPage.waitForTimeout(300);
+                
                 const dropdownMenu = desktopPage.locator('[data-testid="products-desktop-dropdown-menu"]').first();
                 await expect(dropdownMenu).toBeVisible({timeout: 2000});
 
@@ -191,6 +194,9 @@ test.describe("main header suite", () => {
                 await expect(waterAndSewageItem).toHaveText("Dział WOD-KAN");
                 await waterAndSewageItem.hover();
 
+                // Wait for submenu transition
+                await desktopPage.waitForTimeout(300);
+                
                 const waterSewageSubmenu = desktopPage.locator('[data-testid="water-sewage-submenu-desktop-items"]');
                 await expect(waterSewageSubmenu).toBeVisible({timeout: 2000});
 
@@ -198,6 +204,9 @@ test.describe("main header suite", () => {
                 await expect(maritimeItem).toHaveText("Dział Morski");
                 await maritimeItem.hover();
 
+                // Wait for submenu transition
+                await desktopPage.waitForTimeout(300);
+                
                 const maritimeSubmenu = desktopPage.locator('[data-testid="maritime-submenu-desktop-items"]');
                 await expect(maritimeSubmenu).toBeVisible({timeout: 2000});
             });
@@ -300,8 +309,9 @@ test.describe("main header suite", () => {
                 await servicesMenu.hover();
 
                 const servicesItems = desktopPage.locator('[data-testid="services-menu-items"]').first();
-                await servicesItems.hover();
-                expect(servicesItems).toBeVisible({timeout: 2000});
+                // Wait for the transition to complete
+                await desktopPage.waitForTimeout(300);
+                await expect(servicesItems).toBeVisible({timeout: 2000});
             });
         });
     });

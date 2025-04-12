@@ -2,7 +2,7 @@ import {DropDownItem} from "../render-dropdown-items";
 
 export const waterSewageItems: DropDownItem[] = [
     {
-        href: "/products/water-sewage/camers",
+        href: "/products/water-sewage/cameras",
         labelPL: "Kamery",
         labelENG: "Cameras",
     },
