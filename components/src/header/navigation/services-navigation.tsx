@@ -2,7 +2,6 @@ import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {Language} from "../../../../context/src/types/Language";
-import {IoMdArrowDropdown} from "react-icons/io";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
 import {useRouter} from "next/navigation";

@@ -1,9 +1,8 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import { Language } from "../../../../context/src/types/Language";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { useLanguage } from "../../../../context/src/LanguageContext";
-import { useIsTouchTablet } from "../../../../hooks/src/useIsTouchTablet";
+import {Language} from "../../../../context/src/types/Language";
+import {useLanguage} from "../../../../context/src/LanguageContext";
+import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
 import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";

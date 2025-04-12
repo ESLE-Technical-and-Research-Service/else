@@ -1,15 +1,13 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import {Language} from "../../../../context/src/types/Language";
-import {IoMdArrowDropdown} from "react-icons/io";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
 import {waterSewageItems} from "./dropdownItems/water-sewage-items";
 import {maritimeItems} from "./dropdownItems/maritime-items";
-import {useState, useEffect} from "react";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
