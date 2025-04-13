@@ -7,7 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
+  cache-npm:
+    uses: ./.github/workflows/cache.yml
+    with:
+      cache-type: 'npm'
+
+  cache-playwright:
+    uses: ./.github/workflows/cache.yml
+    with:
+      cache-type: 'playwright'
+
+  cache-nextjs:
+    uses: ./.github/workflows/cache.yml
+    with:
+      cache-type: 'nextjs'
+
   test-unit:
+    needs: cache-npm
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +42,7 @@ jobs:
         run: npm run test:unit
 
   test-e2e:
+    needs: [cache-npm, cache-playwright]
     runs-on: ubuntu-latest
     environment: test
 
@@ -50,7 +67,7 @@ jobs:
           BASE_URL: ${{ vars.BASE_URL }}
 
   build:
-    needs: [test-unit, test-e2e]
+    needs: [test-unit, test-e2e, cache-nextjs]
     runs-on: ubuntu-latest
 
     steps:
