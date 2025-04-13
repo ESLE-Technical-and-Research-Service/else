@@ -3,6 +3,9 @@ import heroImage2 from "../../../assets/images/heroImage_02.jpg";
 import heroImage3 from "../../../assets/images/heroImage_03.jpg";
 import heroImage4 from "../../../assets/images/heroImage_04.webp"
 import heroImage5 from "../../../assets/images/heroImage_05.webp"
+import camerasSlide1 from "../../../assets/images/products/camerasHeroImage01.webp";
+import camerasSlide2 from "../../../assets/images/products/camerasHeroImage02.webp";
+
 import {StaticImageData} from "next/image";
 
 export const getHeroSlideImages = (): StaticImageData[] => [
@@ -12,3 +15,8 @@ export const getHeroSlideImages = (): StaticImageData[] => [
     heroImage4,
     heroImage5,
 ]
+
+export const getCamerasImagesSlides = (): StaticImageData[] => [
+    camerasSlide1,
+    camerasSlide2
+];

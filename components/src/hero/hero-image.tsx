@@ -1,16 +1,17 @@
 'use client';
 
-import Image from "next/image";
-import {useEffect, useState} from "react";
-import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../../../context/src/types/Language";
-import {getHeroSlideImages} from "./hero-images-list";
+import Image, {StaticImageData} from "next/image";
+import {ReactElement, useEffect, useState} from "react";
 
-export default function HeroImage() {
+type HeroImageProps = {
+    heroSlides: StaticImageData[],
+    heroTitle: ReactElement
+    heroHeight?: number
+}
+
+export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroImageProps): ReactElement {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const {language} = useLanguage();
 
-    const heroSlides = getHeroSlideImages();
     const goToNextSlide = (): void => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
     }
@@ -22,7 +23,10 @@ export default function HeroImage() {
     });
 
     return (
-        <div data-testid="hero-slides-container" className="relative w-full h-[60vh] overflow-hidden rounded-md">
+        <div
+            className={`relative w-full overflow-hidden rounded-md`}
+            style={{ height: `${heroHeight ? heroHeight : 60}vh` }}
+        >
             {/* Hero Image Slides */}
             {heroSlides.map((slide, index) => (
                 <div
@@ -33,6 +37,7 @@ export default function HeroImage() {
                         src={slide}
                         alt={`ELSE Hero Image ${index + 1}`}
                         fill
+                        priority
                         style={{ objectPosition: "center 50%", objectFit: "cover" }}
                     />
                 </div>
@@ -43,17 +48,7 @@ export default function HeroImage() {
 
             {/* Title Overlay */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-4">
-                <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold drop-shadow-2xl leading-tight">
-                    {language === Language.PLN ? "WITAJ W" : "WELCOME TO"}{" "}
-                    <strong className="inline-block bg-[var(--main-color)] text-[var(--background)] text-xl sm:text-2xl md:text-6xl px-3 sm:px-4 py-0.5 sm:py-1 rounded-md">
-                        ELSE
-                    </strong>
-                </h1>
-                <h2 className="text-sm sm:text-base md:text-2xl font-bold drop-shadow-lg mt-3 sm:mt-4 leading-snug max-w-xl">
-                    {language === Language.PLN
-                        ? "Innowacyjne rozwiązania dla nowoczesnego świata"
-                        : "Innovative Solutions for a Modern World"}
-                </h2>
+                {heroTitle}
             </div>
 
         </div>

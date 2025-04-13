@@ -1,7 +1,6 @@
 import {act, render, screen} from "@testing-library/react";
 import HeroImage from "../../src/hero/hero-image";
 import {LanguageProvider} from "../../../context/src/LanguageContext";
-import * as slides from "../../src/hero/hero-images-list";
 import {StaticImageData} from "next/image";
 
 jest.mock("../../src/hero/hero-images-list");
@@ -20,7 +19,14 @@ describe("HeroImage", () => {
     const TestComponent = () => {
         return (
             <LanguageProvider>
-                <HeroImage/>
+                <HeroImage
+                    heroTitle={<h2>ELSE test</h2>}
+                    heroSlides={[
+                        { src: "image1.webp" } as StaticImageData,
+                        { src: "image2.webp" } as StaticImageData,
+                        { src: "image3.webp" } as StaticImageData,
+                    ]}
+                />
             </LanguageProvider>
         );
     };
@@ -28,11 +34,6 @@ describe("HeroImage", () => {
 
     beforeEach(() => {
         jest.useFakeTimers();
-        jest.spyOn(slides, 'getHeroSlideImages').mockReturnValue([
-            { src: "image1.webp" } as StaticImageData,
-            { src: "image2.webp" } as StaticImageData,
-            { src: "image3.webp" } as StaticImageData,
-        ]);
     });
 
     afterEach(() => {
@@ -76,10 +77,9 @@ describe("HeroImage", () => {
         expect(getVisibleIndex()).toBe(2);
     });
 
-    it("renders text in English by default", () => {
+    it("renders title text", () => {
         render(<TestComponent />);
-        expect(screen.getByText(/WELCOME TO/i)).toBeInTheDocument();
-        expect(screen.getByText(/Innovative Solutions for a Modern World/i)).toBeInTheDocument();
+        expect(screen.getByText(/ELSE test/i)).toBeInTheDocument();
     });
 });
 
