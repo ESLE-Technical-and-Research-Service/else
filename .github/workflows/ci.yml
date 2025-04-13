@@ -2,105 +2,86 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  cache-npm:
-    uses: ./.github/workflows/cache.yml
-    with:
-      cache-type: 'npm'
+  cache:
+    runs-on: ubuntu-latest
+    outputs:
+      npm-cache-hit: ${{ steps.npm-cache.outputs.cache-hit }}
+      pw-cache-hit: ${{ steps.pw-cache.outputs.cache-hit }}
+      next-cache-hit: ${{ steps.next-cache.outputs.cache-hit }}
+    steps:
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
 
-  cache-playwright:
-    uses: ./.github/workflows/cache.yml
-    with:
-      cache-type: 'playwright'
+      - uses: actions/cache@v3
+        id: pw-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: pw-${{ hashFiles('package-lock.json') }}
 
-  cache-nextjs:
-    uses: ./.github/workflows/cache.yml
-    with:
-      cache-type: 'nextjs'
+      - uses: actions/cache@v3
+        id: next-cache
+        with:
+          path: .next/cache
+          key: next-${{ hashFiles('package-lock.json') }}
 
   test-unit:
-    needs: cache-npm
+    needs: cache
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run unit tests
-        run: npm run test:unit
+      - run: npm ci
+      - run: npm run test:unit
 
   test-e2e:
-    needs: [cache-npm, cache-playwright]
+    needs: cache
     runs-on: ubuntu-latest
     environment: test
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
-      - name: Run E2E tests
-        run: npm run test:e2e
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npm run test:e2e
         env:
           BASE_URL: ${{ vars.BASE_URL }}
 
   build:
-    needs: [test-unit, test-e2e, cache-nextjs]
+    needs: [test-unit, test-e2e]
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      - run: npm ci
+      - run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: List build output
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
-          ls -la
-          echo ".next directory contents:"
-          ls -la .next/ || echo ".next directory not found"
-          echo "Standalone directory contents:"
-          ls -la .next/standalone/ || echo "standalone directory not found"
-
       - name: Upload standalone build
         uses: actions/upload-artifact@v4
-        if: success()
         with:
           name: standalone-build
           path: .next/standalone
@@ -108,7 +89,6 @@ jobs:
 
       - name: Upload static files
         uses: actions/upload-artifact@v4
-        if: success()
         with:
           name: static-files
           path: |
@@ -116,9 +96,8 @@ jobs:
             public
           if-no-files-found: warn
 
-      - name: Upload build outputs
+      - name: Upload build output
         uses: actions/upload-artifact@v4
-        if: success()
         with:
           name: build-output
           path: |
