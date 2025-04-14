@@ -2,8 +2,8 @@
 
 import {usePathname} from "next/navigation";
 import {ProductLinks} from "../../../../../components/src/types/products";
-import Cameras from "../../../../../components/products/cameras";
-import PressureVehiclesProducts from "../../../../../components/products/pressure-vehicles";
+import Cameras from "../../../../../components/src/products/cameras";
+import PressureVehiclesProducts from "../../../../../components/src/products/pressure-vehicles";
 
 export default function Products() {
     const pathname = usePathname();

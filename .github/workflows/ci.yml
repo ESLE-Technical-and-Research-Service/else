@@ -80,6 +80,12 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Copy static files to standalone
+        run: |
+          mkdir -p .next/standalone/.next/static
+          cp -r .next/static/* .next/standalone/.next/static/
+          cp -r public .next/standalone/
+
       - name: Upload standalone build
         uses: actions/upload-artifact@v4
         with:
