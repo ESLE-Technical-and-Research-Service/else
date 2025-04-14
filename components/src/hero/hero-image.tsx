@@ -24,7 +24,7 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
 
     return (
         <div
-            className={`relative w-full overflow-hidden rounded-md`}
+            className={`relative w-full overflow-hidden `}
             style={{ height: `${heroHeight ? heroHeight : 60}vh` }}
         >
             {/* Hero Image Slides */}

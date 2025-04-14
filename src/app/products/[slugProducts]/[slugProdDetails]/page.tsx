@@ -13,6 +13,7 @@ export default function Products() {
         <main className="w-full overflow-y-auto bg-[var(--foreground)]">
             {slug === ProductLinks.CAMERAS && <Cameras />}
             {slug === ProductLinks.PRESSURE_VEHICLES && <PressureVehiclesProducts />}
+            {slug === ProductLinks.MILLING_ROBOTS && <h2>Milling Robots</h2>}
             {slug === ProductLinks.ACCESSORIES && <h2>Accessories</h2>}
         </main>
     )

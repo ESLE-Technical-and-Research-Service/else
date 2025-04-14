@@ -6,7 +6,7 @@ import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
 import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
-import {aboutUsDropdownItems} from "./dropdownItems/about-us-dropdown-items";
+import {aboutUsDropdownItems} from "./config/about-us-dropdown-items";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;

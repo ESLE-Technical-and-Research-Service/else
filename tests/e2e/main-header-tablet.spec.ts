@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnTabletAndCloseConsentPopup} from "./utils/openMainPageOnTablet";
-import {waterSewageItems} from "../../components/src/header/navigation/dropdownItems/water-sewage-items";
+import {waterSewageSubmenuItems} from "../../components/src/header/navigation/config/water-sewage-submenu-items";
 import {DropDownItem} from "../../components/src/header/navigation/render-dropdown-items";
-import {maritimeItems} from "../../components/src/header/navigation/dropdownItems/maritime-items";
+import {maritimeItems} from "../../components/src/header/navigation/config/maritime-items";
 
 test.describe("main header suite", () => {
     test.describe("tablet version", () => {
@@ -161,7 +161,7 @@ test.describe("main header suite", () => {
                 const waterAndSewageSubmenuLink = tabletPage
                     .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-water-sewage-submenu-link"]');
                 await expect(waterAndSewageSubmenuLink).toBeVisible();
-                await expect(waterAndSewageSubmenuLink).toHaveText('Water-Sewage Department');
+                await expect(waterAndSewageSubmenuLink).toHaveText('Water and Sewage Department');
 
                 const maritimeSubmenuLink = tabletPage
                     .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-maritime-submenu-link"]');
@@ -213,7 +213,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageItems.map((item: DropDownItem) => item.labelENG);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelENG);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
@@ -241,7 +241,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageItems.map((item: DropDownItem) => item.labelPL);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelPL);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });

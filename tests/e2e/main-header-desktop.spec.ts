@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "./utils/openMainPageOnDesktop";
-import {waterSewageItems} from "../../components/src/header/navigation/dropdownItems/water-sewage-items";
+import {waterSewageSubmenuItems} from "../../components/src/header/navigation/config/water-sewage-submenu-items";
 import {DropDownItem} from "../../components/src/header/navigation/render-dropdown-items";
-import {maritimeItems} from "../../components/src/header/navigation/dropdownItems/maritime-items";
+import {maritimeItems} from "../../components/src/header/navigation/config/maritime-items";
 
 test.describe("main header suite", () => {
     test.describe("desktop version", () => {
@@ -165,7 +165,7 @@ test.describe("main header suite", () => {
                 await expect(dropdownMenu).toBeVisible({timeout: 2000});
 
                 const waterAndSewageItem = desktopPage.locator('[data-testid="products-desktop-water-sewage-submenu-link"]').first();
-                await expect(waterAndSewageItem).toHaveText("Water-Sewage Department");
+                await expect(waterAndSewageItem).toHaveText("Water and Sewage Department");
                 await waterAndSewageItem.hover();
 
                 const waterSewageSubmenu = desktopPage.locator('[data-testid="water-sewage-submenu-desktop-items"]');
@@ -226,7 +226,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedItems = waterSewageItems.map((item: DropDownItem) => item.labelENG);
+                const expectedItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelENG);
 
                 expect(submenuItems).toEqual(expectedItems);
             });
@@ -248,7 +248,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedItems = waterSewageItems.map((item: DropDownItem) => item.labelPL);
+                const expectedItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelPL);
 
                 expect(submenuItems).toEqual(expectedItems);
             });

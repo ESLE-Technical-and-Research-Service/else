@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnMobileAndCloseConsentPopup} from "./utils/openMainPageOnMobile";
-import {waterSewageItems} from "../../components/src/header/navigation/dropdownItems/water-sewage-items";
+import {waterSewageSubmenuItems} from "../../components/src/header/navigation/config/water-sewage-submenu-items";
 import {DropDownItem} from "../../components/src/header/navigation/render-dropdown-items";
-import {maritimeItems} from "../../components/src/header/navigation/dropdownItems/maritime-items";
+import {maritimeItems} from "../../components/src/header/navigation/config/maritime-items";
 
 test.describe("main header suite", () => {
     test.describe("mobile version", () => {
@@ -105,7 +105,7 @@ test.describe("main header suite", () => {
                 await expect(productsMobileMenu).toBeVisible({timeout: 2000});
 
                 const maritimeMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-mairtime-mobile-submenu-link"]'
+                    '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
                 );
                 await expect(maritimeMobileSubmenuLink).toBeVisible({timeout: 2000});
 
@@ -140,7 +140,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageItems.map((item: DropDownItem) => item.labelENG);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelENG);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
@@ -171,7 +171,7 @@ test.describe("main header suite", () => {
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageItems.map((item: DropDownItem) => item.labelPL);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelPL);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
@@ -185,7 +185,7 @@ test.describe("main header suite", () => {
                 await productsMenu.click();
 
                 const maritimeMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-mairtime-mobile-submenu-link"]'
+                    '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
                 );
                 await maritimeMobileSubmenuLink.click();
 
@@ -216,7 +216,7 @@ test.describe("main header suite", () => {
                 await productsMenu.click();
 
                 const maritimeMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-mairtime-mobile-submenu-link"]'
+                    '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
                 );
                 await maritimeMobileSubmenuLink.click();
 
