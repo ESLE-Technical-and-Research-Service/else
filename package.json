@@ -9,7 +9,12 @@
     "lint": "next lint",
     "test:unit": "jest",
     "test:e2e": "playwright test --workers=3",
-    "test:e2e:debug": "playwright test --workers=3 --debug"
+    "test:e2e:debug": "playwright test --workers=3 --debug",
+    "clean:build": "find . -name '.next' -type d -prune -exec rm -rf '{}' +",
+    "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "clean:package-lock": "find . -name 'package-lock.json' -type f -prune -exec rm -rf '{}' +",
+    "clean:test-results": "find . -name 'test-results' -type d -prune -exec rm -rf '{}' +",
+    "clean": "npm run clean:build && npm run clean:node-modules && npm run clean:package-lock && npm run clean:test-results"
   },
   "dependencies": {
     "@playwright/test": "^1.51.1",
@@ -17,6 +22,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {

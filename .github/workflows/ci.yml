@@ -65,7 +65,7 @@ jobs:
           BASE_URL: ${{ vars.BASE_URL }}
 
   build:
-    needs: [test-unit, test-e2e]
+    needs: [ test-unit, test-e2e ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,37 +76,35 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+
       - run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Copy static files to standalone
+      - name: Prepare deploy artifact
         run: |
-          mkdir -p .next/standalone/.next/static
-          cp -r .next/static/* .next/standalone/.next/static/
-          cp -r public .next/standalone/
+          echo "Creating a fresh deploy folder"
+          mkdir -p deploy
 
-      - name: Upload standalone build
+          echo "Coping standalone runtime files into deploy"
+          rsync -av .next/standalone/ deploy/
+
+          echo "Creating a deploy/.next folder and coping build assets from .next (exclude standalone and cache)"
+          mkdir -p deploy/.next
+          rsync -av --exclude='standalone' --exclude='cache' .next/ deploy/.next/
+
+          echo "Creating a deploy/public folder and coping build assets from public folder."
+          if [ -d "public" ]; then
+            mkdir -p deploy/public
+            rsync -av public/ deploy/public/
+          fi
+
+          echo "Final deploy folder structure:"
+          ls -laR deploy
+
+      - name: Upload deploy artifact
         uses: actions/upload-artifact@v4
         with:
-          name: standalone-build
-          path: .next/standalone
-          if-no-files-found: warn
-
-      - name: Upload static files
-        uses: actions/upload-artifact@v4
-        with:
-          name: static-files
-          path: |
-            .next/static
-            public
-          if-no-files-found: warn
-
-      - name: Upload build output
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: |
-            .next
-            !.next/cache/**
-          if-no-files-found: warn
+          name: deploy-build
+          path: deploy
+          if-no-files-found: error
