@@ -4,7 +4,7 @@ import HeroCamerasTitle from "../hero/hero-cameras-title";
 import HeaderDivider from "../common/header-divider";
 import {useIntersectionObserver} from "../../../hooks/useIntersectionObserver";
 import ProductsGrid from "./products-grid";
-import {cameras} from "./data/cameras";
+import {camerasItems} from "./data/camerasItems";
 
 export default function Cameras() {
     const {elementRef, isVisible} = useIntersectionObserver();
@@ -17,7 +17,7 @@ export default function Cameras() {
             <div ref={elementRef}>
                 <HeaderDivider title={{labelPL: "Producenci", labelENG: "Manufacturers"}} isVisible={isVisible}/>
             </div>
-            <ProductsGrid products={cameras}/>
+            <ProductsGrid products={camerasItems}/>
         </main>
     )
 }
