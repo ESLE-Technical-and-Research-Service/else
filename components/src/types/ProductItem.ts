@@ -4,6 +4,7 @@ import {Category} from "./Category";
 import {ProductDescription} from "./ProductDescription";
 import {ProductName} from "./ProductName";
 import {ProductDetailedDescription} from "./ProductDetailedDescription";
+import {Manufacturer} from "./Manufacturer";
 
 export type ProductItem = {
     name: ProductName,
@@ -11,6 +12,7 @@ export type ProductItem = {
     images: StaticImageData[],
     description: ProductDescription,
     detailedDescription: ProductDetailedDescription,
+    manufacturers: Manufacturer[],
     category: Category[],
     tags: Tag[]
 }

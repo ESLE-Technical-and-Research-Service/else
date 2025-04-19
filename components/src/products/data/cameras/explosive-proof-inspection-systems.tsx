@@ -9,13 +9,8 @@ import explosiveProofInspecSys04
 import explosiveProofInspecSys05
     from "../../../../../assets/images/products/cameras/explosive_proof_inspec_sys_05.webp";
 import {InspectionSystemsCategory} from "../categories";
-import {
-    CamerasForSewageInspectionTag,
-    ContinuousPipeInspectionTag,
-    DN100Tag, PanoramoTag, RotaxTag,
-    TransmitterForLocationTag,
-    TrolleyAssistantTag
-} from "../cameras-tags";
+import {CamerasTags} from "../tags/cameras-tags";
+import {IBAK} from "../manufacturers/IBAK";
 
 export const ExplosiveProofInspectionSystems = {
     name: {
@@ -99,14 +94,15 @@ export const ExplosiveProofInspectionSystems = {
 
         ),
     },
+    manufacturers: [IBAK],
     category: [InspectionSystemsCategory],
     tags: [
-        TransmitterForLocationTag,
-        TrolleyAssistantTag,
-        ContinuousPipeInspectionTag,
-        DN100Tag,
-        CamerasForSewageInspectionTag,
-        PanoramoTag,
-        RotaxTag,
+        CamerasTags.TransmitterForLocationTag,
+        CamerasTags.TrolleyAssistantTag,
+        CamerasTags.ContinuousPipeInspectionTag,
+        CamerasTags.DN100Tag,
+        CamerasTags.CamerasForSewageInspectionTag,
+        CamerasTags.PanoramoTag,
+        CamerasTags.RotaxTag,
     ]
 };

@@ -3,7 +3,8 @@ import telescopicCamera01 from "../../../../../assets/images/products/cameras/te
 import telescopicCamera02 from "../../../../../assets/images/products/cameras/telescopic_camera_02.webp";
 import telescopicCamera03 from "../../../../../assets/images/products/cameras/telescopic_camera_03.webp";
 import telescopicCamera04 from "../../../../../assets/images/products/cameras/telescopic_camera_04.webp";
-import {MobileCameraTag} from "../cameras-tags";
+import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasForSewageInspectionCategory} from "../categories";
 
 export const TelescopicCameraForQuickInspection: ProductItem = {
     name: {
@@ -96,8 +97,9 @@ export const TelescopicCameraForQuickInspection: ProductItem = {
             </>
         ),
     },
-    category: [MobileCameraTag],
+    manufacturers: [],
+    category: [CamerasForSewageInspectionCategory],
     tags: [
-        MobileCameraTag
+        CamerasTags.MobileCameraTag
     ]
 };

@@ -17,6 +17,7 @@
     "clean": "npm run clean:build && npm run clean:node-modules && npm run clean:package-lock && npm run clean:test-results"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@playwright/test": "^1.51.1",
     "next": "15.2.4",
     "react": "^19.0.0",

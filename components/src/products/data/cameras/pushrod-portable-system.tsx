@@ -5,7 +5,7 @@ import pushrodPortableSys03 from "../../../../../assets/images/products/cameras/
 import pushrodPortableSys04 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_04.webp";
 import pushrodPortableSys05 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_05.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {HDSystemsTag, MobileCameraTag, PushrodPortableSystemsTag} from "../cameras-tags";
+import {CamerasTags} from "../tags/cameras-tags";
 import {ProductItem} from "../../../types/ProductItem";
 
 export const PushrodPortableSystem: ProductItem = {
@@ -109,10 +109,11 @@ export const PushrodPortableSystem: ProductItem = {
 
         ),
     },
+    manufacturers: [],
     category: [CamerasForSewageInspectionCategory],
     tags: [
-        MobileCameraTag,
-        PushrodPortableSystemsTag,
-        HDSystemsTag,
+        CamerasTags.MobileCameraTag,
+        CamerasTags.PushrodPortableSystemsTag,
+        CamerasTags.HDSystemsTag,
     ],
 };

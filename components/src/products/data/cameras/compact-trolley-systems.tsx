@@ -4,13 +4,7 @@ import compactPortableSys03 from "../../../../../assets/images/products/cameras/
 import compactPortableSys04 from "../../../../../assets/images/products/cameras/compact_portable_sys_04.webp";
 import compactPortableSys05 from "../../../../../assets/images/products/cameras/compact_portable_sys_05.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {
-    CamerasForSewageInspectionTag,
-    CompactPortableSystemsTag,
-    HDSystemsTag,
-    MobileCameraTag,
-    SelfPropelledTrolleysTag
-} from "../cameras-tags";
+import {CamerasTags} from "../tags/cameras-tags";
 import {ProductItem} from "../../../types/ProductItem";
 
 export const CompactTrolleySystems: ProductItem = {
@@ -116,12 +110,13 @@ export const CompactTrolleySystems: ProductItem = {
             </>
         ),
     },
+    manufacturers: [],
     category: [CamerasForSewageInspectionCategory],
     tags: [
-        CamerasForSewageInspectionTag,
-        MobileCameraTag,
-        CompactPortableSystemsTag,
-        HDSystemsTag,
-        SelfPropelledTrolleysTag,
+        CamerasTags.CamerasForSewageInspectionTag,
+        CamerasTags.MobileCameraTag,
+        CamerasTags.CompactPortableSystemsTag,
+        CamerasTags.HDSystemsTag,
+        CamerasTags.SelfPropelledTrolleysTag,
     ],
 };

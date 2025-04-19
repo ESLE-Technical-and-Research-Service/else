@@ -1,14 +1,26 @@
 import {ProductItem} from "../../types/ProductItem";
 import {PushrodPortableSystem} from "./cameras/pushrod-portable-system";
 import {CompactTrolleySystems} from "./cameras/compact-trolley-systems";
-import {MainSewerInspectionSystems} from "./cameras/main-sewer-inspection-systems";
+import {PipeRunMeasurementInMainSewersSystems} from "./cameras/pipe-run-measurement-in-main-sewers-systems";
 import {ExplosiveProofInspectionSystems} from "./cameras/explosive-proof-inspection-systems";
 import {TelescopicCameraForQuickInspection} from "./cameras/telescopic-camera-for-quick-inspection";
+import {InspectionSystemForLateralPipes} from "./cameras/inspection-system-for-lateral-pipes";
+import {Panoramo4KScannersForMainlineSewer} from "./cameras/panoramo-4k-scanners-for-mainline-sewer";
+import {PanoramoSi4kManholeInspectionScanner} from "./cameras/panoramo-si-4k-manhole-inspection-scanner";
+import {LeakTestingSystem} from "./cameras/leak-testing-system";
+import {SystemWithCameraAndCleaningNozzle} from "./cameras/system-with-camera-and-cleaning-nozzle";
+import {OfficeSoftwareForNetworkManagement} from "./cameras/office-software-for-network-management";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
     ExplosiveProofInspectionSystems,
-    MainSewerInspectionSystems,
+    PipeRunMeasurementInMainSewersSystems,
     CompactTrolleySystems,
     PushrodPortableSystem,
+    InspectionSystemForLateralPipes,
+    Panoramo4KScannersForMainlineSewer,
+    PanoramoSi4kManholeInspectionScanner,
+    LeakTestingSystem,
+    SystemWithCameraAndCleaningNozzle,
+    OfficeSoftwareForNetworkManagement,
 ]

@@ -34,19 +34,19 @@ export default function ProductsDesktopSubmenu({
                 absolute left-0 mt-2 w-64 bg-white border border-gray-300 shadow-lg rounded-lg z-10`
             }
         >
-            {productsItems.map((item: MenuItem) => (
+            {productsItems.map((item: MenuItem, idx: number) => (
                 <li
-                    key={item.submenuName}
+                    key={idx}
                     className={`${classes.navItem} relative`}
                     onMouseEnter={() => handleMouseEnter(item.submenuName)}
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
-                        key={item.submenuName}
+                        key={idx + 1}
                         className={`${classes.navItem} ${classes.hasSubmenuRightArrow}`}
                     >
                         <Link
-                            key={item.submenuName}
+                            key={idx + 2}
                             data-testid={`products-desktop-${item.submenuName}-submenu-link`}
                             className="hover:underline cursor-pointer flex items-center px-4 py-2"
                             href={item.href}
@@ -60,7 +60,7 @@ export default function ProductsDesktopSubmenu({
                         </Link>
 
                         <ul
-                            key={item.submenuName}
+                            key={idx + 3}
                             className={`absolute top-0 left-full ml-2 min-w-[200px] bg-[var(--foreground)] 
                                     border border-gray-300 shadow-lg rounded-lg z-10 ${
                                 hoveredSubmenu === item.submenuName
