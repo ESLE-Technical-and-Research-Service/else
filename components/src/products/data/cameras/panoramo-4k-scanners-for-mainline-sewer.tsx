@@ -115,10 +115,6 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
                         Designed for single-operator use, the system ensures maximum user convenience.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales team to learn more
-                </a>
             </>
         ),
     },

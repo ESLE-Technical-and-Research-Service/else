@@ -36,7 +36,7 @@ export const ExplosiveProofInspectionSystems = {
                     wybuchem. Oferujemy różne rozwiązania dostosowane do Twoich potrzeb, zarówno systemy zabudowane na
                     pojeździe, jak i systemy przenośne z wózkiem samojezdnym oraz przenośne systemy popychane.</p>
 
-                <b>Główne cechy:</b>
+                <strong>Główne cechy:</strong>
 
                 <ul>
                     <li><strong>Bezpieczna praca: </strong>Kompletne rozwiązanie dla pracy w miejscach zagrożonych
@@ -52,9 +52,6 @@ export const ExplosiveProofInspectionSystems = {
                         inspekcję kanałów, rur i szybów w miejscach niedostępnych dla większych systemów.
                     </li>
                 </ul>
-
-                <a href="kontakt.wod-kan@else.pl">Skontaktuj się z naszym działem handlowym, aby dowiedzieć się
-                    więcej</a>
             </>
         ),
         descriptionENG: (

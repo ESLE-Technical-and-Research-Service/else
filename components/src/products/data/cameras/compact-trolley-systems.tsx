@@ -103,10 +103,6 @@ export const CompactTrolleySystems: ProductItem = {
                         Designed for single-operator use, making it simple and convenient to handle.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
         ),
     },

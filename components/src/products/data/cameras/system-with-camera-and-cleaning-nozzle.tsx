@@ -54,10 +54,6 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
                         System zaprojektowany do obsługi przez jedną osobę.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Skontaktuj się z naszym zespołem handlowym, aby dowiedzieć się więcej
-                </a>
             </>
         ),
         descriptionENG: (
@@ -93,10 +89,6 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
                         Designed for single-operator use.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales team to learn more
-                </a>
             </>
         ),
     },

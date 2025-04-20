@@ -105,10 +105,6 @@ export const LeakTestingSystem: ProductItem = {
                         The system is designed for operation by a single person.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales team to learn more
-                </a>
             </>
         ),
     },

@@ -50,6 +50,11 @@ export default function Cameras() {
                         <button className="self-end mb-4" onClick={() => setShowFilters(false)}>
                             <XMarkIcon className="h-6 w-6 text-gray-800"/>
                         </button>
+                        <ManufacturersFilters
+                            setProducts={setCamerasProducts}
+                            allProducts={allCamerasProducts}
+                            category={ProductsCategories.CAMERAS}
+                        />
                         <ProductsFilters
                             setProducts={setCamerasProducts}
                             allProducts={allCamerasProducts}

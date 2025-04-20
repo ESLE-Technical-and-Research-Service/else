@@ -155,10 +155,6 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
                         add-ons.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales team to learn more
-                </a>
             </>
         ),
     },

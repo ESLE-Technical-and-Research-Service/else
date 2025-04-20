@@ -62,9 +62,6 @@ export const PushrodPortableSystem: ProductItem = {
                     </li>
                     <li><strong>Opcja przeciwwybuchowa: </strong>System dostępny w wersji przeciwwybuchowej Ex.</li>
                 </ul>
-
-                <a href="kontakt.wod-kan@else.pl">Skontaktuj się z naszym działem handlowym, aby dowiedzieć się
-                    więcej</a>
             </>
         ),
         descriptionENG: (
@@ -101,10 +98,6 @@ export const PushrodPortableSystem: ProductItem = {
                     <li><strong>Explosion-Proof Option: </strong>System available in explosion-proof Ex version.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
 
         ),

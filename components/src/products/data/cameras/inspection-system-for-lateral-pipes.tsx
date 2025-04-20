@@ -106,10 +106,6 @@ export const InspectionSystemForLateralPipes: ProductItem = {
                         The system is equipped with a transmitter for accurate camera localization in the pipe.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
         ),
     },

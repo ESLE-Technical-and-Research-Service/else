@@ -63,9 +63,6 @@ export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
                         przez jedną osobę.
                     </li>
                 </ul>
-
-                <a href="kontakt.wod-kan@else.pl">Skontaktuj się z naszym działem handlowym, aby dowiedzieć się
-                    więcej</a>
             </>
         ),
         descriptionENG: (
@@ -125,10 +122,6 @@ export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
                         System is designed for single-operator use.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
 
         ),

@@ -50,9 +50,6 @@ export const TelescopicCameraForQuickInspection: ProductItem = {
                         proste.
                     </li>
                 </ul>
-
-                <a href="kontakt.wod-kan@else.pl">Skontaktuj się z naszym działem handlowym, aby dowiedzieć się
-                    więcej</a>
             </>
         ),
         descriptionENG: (
@@ -90,10 +87,6 @@ export const TelescopicCameraForQuickInspection: ProductItem = {
                         Transferring inspection results to the client remains quick and simple.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
         ),
     },
