@@ -6,19 +6,35 @@ import HeroCamerasTitle from "../hero/hero-cameras-title";
 import {useIntersectionObserver} from "../../../hooks/useIntersectionObserver";
 import ProductsGrid from "./products-grid";
 import {camerasItems} from "./data/camerasItems";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ProductItem} from "../types/ProductItem";
 import ProductsFilters from "./filters/products-filters";
 import {ProductsCategories} from "../types/ProductsCategories";
 import {XMarkIcon, FunnelIcon} from "@heroicons/react/24/outline";
 import ManufacturersFilters from "./filters/manufacturers-filters";
 import Breadcrumbs from "../common/breadcrumbs/breadcrumbs";
+import {useSearchParams} from "next/navigation";
+import {Tag} from "../types/Tag";
 
 export default function Cameras() {
     const {elementRef, isVisible} = useIntersectionObserver();
     const [camerasProducts, setCamerasProducts] = useState<ProductItem[]>(camerasItems);
     const [allCamerasProducts] = useState<ProductItem[]>(camerasItems);
     const [showFilters, setShowFilters] = useState(false);
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        const productName = searchParams.get("name");
+
+        if (productName) {
+            const filteredProducts = allCamerasProducts
+                .filter(
+                    (prod: ProductItem) => prod.tags?.some((tag: Tag | undefined) => tag?.link.split('?name=').pop() === productName)
+                );
+            setCamerasProducts(filteredProducts);
+        }
+
+    }, []);
 
     const camerasImagesSlides = getCamerasHeroImagesSlides();
 
@@ -65,7 +81,8 @@ export default function Cameras() {
             )}
 
             {/* Desktop Layout: Sidebar Filters + Products Grid (aligned with breadcrumbs, grid sizing unchanged) */}
-            <div className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0">
+            <div
+                className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0">
                 <div className="w-80 shrink-0 mt-8">
                     <ManufacturersFilters
                         setProducts={setCamerasProducts}
