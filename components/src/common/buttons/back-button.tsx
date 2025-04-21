@@ -3,11 +3,12 @@
 import {ArrowLeftIcon} from "@heroicons/react/24/outline";
 import {Language} from "../../../../context/src/types/Language";
 import React from "react";
-import {router} from "next/client";
 import {useLanguage} from "../../../../context/src/LanguageContext";
+import {useRouter} from "next/navigation";
 
 export default function BackButton() {
     const {language} = useLanguage();
+    const router = useRouter();
 
     return (
         <button

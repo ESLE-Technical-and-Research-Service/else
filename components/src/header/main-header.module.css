@@ -20,3 +20,22 @@
     color: #005f8c;
     border-color: #005f8c;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-header-content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .languageButton {
+    position: static;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    /* Ensure it doesn't overflow */
+    max-width: 48px;
+    min-width: 40px;
+    padding: 0.25rem 0.5rem;
+  }
+}

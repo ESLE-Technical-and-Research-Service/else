@@ -31,7 +31,9 @@ export const InspectionSystemForLateralPipes: ProductItem = {
             <>
                 <p>Odkryj zalety naszego systemu inspekcyjnego do przykanalików z kanału głównego.</p>
 
-                <b>Główne cechy:</b>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
 
                 <ul>
                     <li>
@@ -63,10 +65,6 @@ export const InspectionSystemForLateralPipes: ProductItem = {
                         System jest wyposażony w nadajnik umożliwiający lokalizację kamery w kanale.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Skontaktuj się z naszym działem handlowym, aby dowiedzieć się więcej
-                </a>
             </>
 
         ),
@@ -74,7 +72,9 @@ export const InspectionSystemForLateralPipes: ProductItem = {
             <>
                 <p>Discover the advantages of our lateral inspection system from the mainline sewer.</p>
 
-                <b>Main Features:</b>
+                <h2>
+                    <strong>Main Features:</strong>
+                </h2>
 
                 <ul>
                     <li>

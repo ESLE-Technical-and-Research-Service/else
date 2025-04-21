@@ -62,7 +62,9 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
                     <strong>Cel:</strong> Rzetelna baza danych stanowi podstawę planowania napraw i renowacji.
                 </p>
 
-                <b>Główne cechy:</b>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
 
                 <ul>
                     <li><strong>Obszerna baza danych: </strong> Centralne miejsce do przechowywania danych o
@@ -91,10 +93,6 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
                         potrzeb.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Skontaktuj się z naszym zespołem, aby dowiedzieć się więcej
-                </a>
             </>
         ),
         descriptionENG: (
@@ -131,7 +129,9 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
                     renovations.
                 </p>
 
-                <b>Main features:</b>
+                <h2>
+                    <strong>Main features:</strong>
+                </h2>
 
                 <ul>
                     <li><strong>Extensive database: </strong> A centralized repository for infrastructure data.</li>

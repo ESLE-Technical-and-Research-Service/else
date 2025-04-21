@@ -74,7 +74,10 @@ export const PanoramoSi4kManholeInspectionScanner = {
                     PANORAMO® SI 4K to zaawansowany system inspekcji studzienek, który umożliwia trójwymiarowe skanowanie wnętrza studzienek w ultrawysokiej rozdzielczości 4K. Dzięki zastosowaniu dwóch cyfrowych kamer z obiektywami typu "rybie oko" o kącie widzenia 185°, system rejestruje pełny obraz wnętrza studzienki w jednym pionowym przejeździe. Technologia chmury punktów pozwala na precyzyjne pomiary i dokładną dokumentację stanu technicznego.
                 </p>
 
-                <b>Główne cechy:</b>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
+
                 <ul>
                     <li>
                         <strong>Obrazowanie w ultrawysokiej rozdzielczości:</strong> Rejestracja obrazu w rozdzielczości 4K (4096 x 2160 pikseli), oferująca czterokrotnie większą szczegółowość niż standardowe HD.

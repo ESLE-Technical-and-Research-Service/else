@@ -42,7 +42,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
     return (
         <nav data-testid="main-nav-container">
             <ul
-                className={`flex ${isMobile 
+                className={`flex text-base md:text-lg lg:text-xl font-semibold ${isMobile 
                     ? 'flex-col gap-4' 
                     : isTouchTablet 
                         ? 'relative flex-grow gap-6 flex-nowrap' 

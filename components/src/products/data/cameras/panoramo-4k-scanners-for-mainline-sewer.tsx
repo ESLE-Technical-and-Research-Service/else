@@ -4,6 +4,8 @@ import scanners360Panoramo01 from "../../../../../assets/images/products/cameras
 import scanners360Panoramo02 from "../../../../../assets/images/products/cameras/scanners_360_02.webp";
 import scanners360Panoramo03 from "../../../../../assets/images/products/cameras/scanners_360_03.webp";
 import scanners360Panoramo04 from "../../../../../assets/images/products/cameras/scanners_360_04.webp";
+import scanners360Panoramo05 from "../../../../../assets/images/products/cameras/scanners_360_05.webp";
+import scanners360Panoramo06 from "../../../../../assets/images/products/cameras/scanners_360_06.webp";
 
 import {CamerasTags} from "../tags/cameras-tags";
 import {IBAK} from "../manufacturers/IBAK";
@@ -19,6 +21,8 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
         scanners360Panoramo02,
         scanners360Panoramo03,
         scanners360Panoramo04,
+        scanners360Panoramo05,
+        scanners360Panoramo06,
     ],
     description: {
         textPL: "Skanery PANORAMO 4K umożliwiają trójwymiarowe obrazowanie kanałów w ultra wysokiej rozdzielczości. Zapewniają szybki, pełen widok wnętrza kanału oraz dokładne pomiary spadków, średnicy i uszkodzeń. Z łatwością obsługiwane przez jedną osobę, nasze skanery to kompleksowe, modułowe rozwiązanie dopasowane do indywidualnych potrzeb użytkownika. Skontaktuj się z nami, aby dowiedzieć się więcej",
@@ -27,7 +31,9 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
     detailedDescription: {
         descriptionPL: (
             <>
-                <b>Główne cechy:</b>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
 
                 <ul>
                     <li>
@@ -67,15 +73,13 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
                         Zaprojektowany do obsługi przez jedną osobę, gwarantuje wygodę użytkowania.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Skontaktuj się z naszym działem handlowym, aby dowiedzieć się więcej
-                </a>
             </>
         ),
         descriptionENG: (
             <>
-                <b>Main features:</b>
+                <h2>
+                    <strong>Main features:</strong>
+                </h2>
 
                 <ul>
                     <li>

@@ -36,7 +36,9 @@ export const ExplosiveProofInspectionSystems = {
                     wybuchem. Oferujemy różne rozwiązania dostosowane do Twoich potrzeb, zarówno systemy zabudowane na
                     pojeździe, jak i systemy przenośne z wózkiem samojezdnym oraz przenośne systemy popychane.</p>
 
-                <strong>Główne cechy:</strong>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
 
                 <ul>
                     <li><strong>Bezpieczna praca: </strong>Kompletne rozwiązanie dla pracy w miejscach zagrożonych
@@ -62,7 +64,9 @@ export const ExplosiveProofInspectionSystems = {
                     portable systems with a self-propelled crawler, and portable pushrod systems.
                 </p>
 
-                <b>Main Features:</b>
+                <h2>
+                    <b>Main Features:</b>
+                </h2>
 
                 <ul>
                     <li>
@@ -83,10 +87,6 @@ export const ExplosiveProofInspectionSystems = {
                         inaccessible to larger systems.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Contact our sales department to learn more
-                </a>
             </>
 
         ),

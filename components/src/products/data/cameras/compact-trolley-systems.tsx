@@ -29,7 +29,9 @@ export const CompactTrolleySystems: ProductItem = {
             <>
                 <p>Niezwykle mobilne i łatwe w obsłudze, nasze systemy przenośne z wózkiem samojezdnym oferują zaawansowane rozwiązanie do inspekcji kanałów. Wyposażone w szereg wszechstronnych funkcji pomiarowych, te systemy sprawdzą się idealnie nawet w trudno dostępnych miejscach dla wszystkich zadań związanych z eksploatacją kanałów.</p>
 
-                <b>Główne Cechy:</b>
+                <h2>
+                    <strong>Główne Cechy:</strong>
+                </h2>
 
                 <ul>
                     <li><strong>Mobilność: </strong>Kompaktowa, przenośna budowa ułatwia transport w trudno dostępne miejsca.</li>
@@ -44,9 +46,6 @@ export const CompactTrolleySystems: ProductItem = {
                     <li><strong>Szybka wymiana kół: </strong>System mocowania przy użyciu szybko złączki umożliwia wymianę kół bez użycia śrub i narzędzi, co znacznie przyśpiesza przygotowanie kamery do pracy.</li>
                     <li><strong>Przyjazny dla użytkownika: </strong>System zaprojektowany do obsługi przez jedną osobę, co czyni go prostym i wygodnym w obsłudze.</li>
                 </ul>
-
-                <a href="kontakt.wod-kan@else.pl">Skontaktuj się z naszym działem handlowym, aby dowiedzieć się
-                    więcej</a>
             </>
         ),
         descriptionENG: (
@@ -55,7 +54,9 @@ export const CompactTrolleySystems: ProductItem = {
                     Extremely mobile and easy to operate, our portable systems with a self-propelled crawler offer an advanced solution for pipeline inspections. Equipped with a range of versatile measurement functions, these systems are ideal even for hard-to-reach locations and all tasks related to sewer operations.
                 </p>
 
-                <b>Main Features:</b>
+                <h2>
+                    <strong>Main Features:</strong>
+                </h2>
 
                 <ul>
                     <li>

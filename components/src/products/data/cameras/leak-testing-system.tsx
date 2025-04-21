@@ -2,6 +2,9 @@ import {ProductItem} from "../../../types/ProductItem";
 import leakTestingSystem01 from "../../../../../assets/images/products/cameras/leak_testing_system_01.webp";
 import leakTestingSystem02 from "../../../../../assets/images/products/cameras/leak_testing_system_02.webp";
 import leakTestingSystem03 from "../../../../../assets/images/products/cameras/leak_testing_system_03.webp";
+import leakTestingSystem04 from "../../../../../assets/images/products/cameras/leak_testing_system_04.webp";
+import leakTestingSystem05 from "../../../../../assets/images/products/cameras/leak_testing_system_05.webp";
+import leakTestingSystem06 from "../../../../../assets/images/products/cameras/leak_testing_system_06.webp";
 
 import {CamerasTags} from "../tags/cameras-tags";
 import {CamerasForSewageInspectionCategory} from "../categories";
@@ -16,6 +19,9 @@ export const LeakTestingSystem: ProductItem = {
         leakTestingSystem01,
         leakTestingSystem02,
         leakTestingSystem03,
+        leakTestingSystem04,
+        leakTestingSystem05,
+        leakTestingSystem06,
     ],
     description: {
         textPL: "Nasz system do sprawdzania szczelności to wszechstronne rozwiązanie do efektywnej kontroli nowych obiektów budowlanych. Wyposażony w zaawansowane funkcje pomiarowe oraz system wymiany kół bez użycia narzędzi. Intuicyjne oprogramowanie pozwala na szybkie przesyłanie wyników do klienta. Zaprojektowany został z myślą o obsłudze przez jedną osobę.",
@@ -24,7 +30,9 @@ export const LeakTestingSystem: ProductItem = {
     detailedDescription: {
         descriptionPL: (
             <>
-                <b>Główne cechy:</b>
+                <h2>
+                    <strong>Główne cechy:</strong>
+                </h2>
 
                 <ul>
                     <li>
@@ -60,16 +68,14 @@ export const LeakTestingSystem: ProductItem = {
                         System został zaprojektowany z myślą o obsłudze przez jedną osobę.
                     </li>
                 </ul>
-
-                <a href="mailto:kontakt.wod-kan@else.pl">
-                    Skontaktuj się z naszym działem handlowym, aby dowiedzieć się więcej
-                </a>
             </>
 
         ),
         descriptionENG: (
             <>
-                <b>Main features:</b>
+                <h2>
+                    <strong>Main features:</strong>
+                </h2>
 
                 <ul>
                     <li>

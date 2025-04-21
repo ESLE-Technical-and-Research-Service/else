@@ -137,7 +137,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
                 <div className="w-full mt-4 sm:mt-6">
                     <div className="text-gray-700 text-base sm:text-lg mb-2 sm:mb-4 break-words">{description}</div>
                     <div
-                        className="prose prose-blue max-w-none text-sm sm:text-base md:text-lg leading-relaxed !text-gray-800 [&_ul]:!list-disc [&_ul]:!pl-6 [&_li]:!marker:text-blue-600 [&_li]:!text-gray-900 [&_li]:mb-2 sm:[&_li]:mb-3 [&_strong]:block [&_strong]:mb-2 [&_p]:mb-2 sm:[&_p]:mb-3">
+                        className="prose prose-blue max-w-none text-sm sm:text-base md:text-lg leading-relaxed
+                        !text-gray-800 [&_ul]:!list-disc [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
+                        [&_li]:!text-gray-900 [&_li]:mb-2 sm:[&_li]:mb-3 [&_strong]:block [&_strong]:mb-2
+                        [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8">
                         {detailedDescription}
                     </div>
                 </div>
