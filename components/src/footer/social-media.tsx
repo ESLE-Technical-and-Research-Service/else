@@ -10,7 +10,7 @@ export default function SocialMedia() {
         <div>
             <h3 className="font-bold mb-2">
                 {
-                    language === "PLN"
+                    language === "PL"
                         ? "Media społecznościowe"
                         : "Social Media"
                 }

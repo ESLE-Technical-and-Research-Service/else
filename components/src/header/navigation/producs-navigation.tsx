@@ -61,7 +61,7 @@ export default function ProductNavigation({
                     href="/products"
                     onClick={(e) => handleClickAction(e, 'products')}
                 >
-                    {language === Language.PLN ? "Produkty" : "Products"}
+                    {language === Language.PL ? "Produkty" : "Products"}
                 </Link>
 
                 {/* Mobile Dropdown – static positioning */}

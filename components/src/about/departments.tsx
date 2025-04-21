@@ -16,18 +16,18 @@ export default function Departments() {
     const [departments] = useState([
         {
             img: waterAndSewageDep,
-            alt: language === Language.PLN ? "Dział WOD-KAN" : "Water and Sewage Department",
-            title: language === Language.PLN ? "DZIAŁ WOD-KAN" : "WATER AND SEWAGE DEPARTMENT",
-            description: language === Language.PLN
+            alt: language === Language.PL ? "Dział WOD-KAN" : "Water and Sewage Department",
+            title: language === Language.PL ? "DZIAŁ WOD-KAN" : "WATER AND SEWAGE DEPARTMENT",
+            description: language === Language.PL
                 ? "Dostawa specjalistycznych urządzeń i systemów dla sieci wod-kan, szkolenia z obsługi, serwis gwarancyjny i pogwarancyjny."
                 : "Delivery of specialized devices and systems for water and sewage networks, user training, warranty and post-warranty service.",
             link: "/about/departments/water-and-sewage"
         },
         {
             img: maritimeDepImg,
-            alt: language === Language.PLN ? "Dział morski" : "Maritime Department",
-            title: language === Language.PLN ? "DZIAŁ MORSKI" : "MARITIME DEPARTMENT",
-            description: language === Language.PLN
+            alt: language === Language.PL ? "Dział morski" : "Maritime Department",
+            title: language === Language.PL ? "DZIAŁ MORSKI" : "MARITIME DEPARTMENT",
+            description: language === Language.PL
                 ? "Wyposażenie statków, okrętów, stacji brzegowych, statków powietrznych, śmigłowców w urządzenia radiowe i nawigacyjne."
                 : "Equipping ships, vessels, coastal stations, aircraft, and helicopters with radio and navigation devices.",
             link: "/about/departments/maritime"
@@ -64,7 +64,7 @@ export default function Departments() {
                         </p>
                         <CheckButton href={dep.link}>
                             {isVisible && (
-                                language === Language.PLN
+                                language === Language.PL
                                     ? "Dowiedz się więcej"
                                     : "Explore more"
                             )}

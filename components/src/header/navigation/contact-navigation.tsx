@@ -10,7 +10,7 @@ export default function ContactNavigation() {
         <>
             <li data-testid="contact-menu" className={`${classes.navItem}`}>
                 <Link className="hover:underline" href="/contact">
-                    {language === Language.PLN ? "Kontakt" : "Contact"}
+                    {language === Language.PL ? "Kontakt" : "Contact"}
                 </Link>
             </li>
         </>

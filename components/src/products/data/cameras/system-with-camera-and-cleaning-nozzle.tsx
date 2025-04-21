@@ -3,6 +3,7 @@ import {CamerasForSewageInspectionCategory} from "../categories";
 import sysWithCamAndCleaningNozzle01 from "../../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_01.webp";
 import sysWithCamAndCleaningNozzle02 from "../../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_02.webp";
 import sysWithCamAndCleaningNozzle03 from "../../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_03.webp";
+import sysWithCamAndCleaningNozzle04 from "../../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_04.webp";
 import {CamerasTags} from "../tags/cameras-tags";
 
 export const SystemWithCameraAndCleaningNozzle: ProductItem = {
@@ -15,6 +16,7 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
         sysWithCamAndCleaningNozzle01,
         sysWithCamAndCleaningNozzle02,
         sysWithCamAndCleaningNozzle03,
+        sysWithCamAndCleaningNozzle04,
     ],
     description: {
         textPL: "System z kamerą oraz dyszą czyszczącą to wszechstronne rozwiązanie do efektywnego udrażniania przyłączy oraz czyszczenia kanałów głównych. Z jego wieloma funkcjami pomiarowymi, łatwością obsługi oraz elastyczną konfiguracją, stanowi on wszechstronne rozwiązanie do inspekcji sieci wod-kan.",
@@ -99,11 +101,11 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
         CamerasTags.TrolleyAssistantTag,
         CamerasTags.DN150Tag,
         CamerasTags.GeoSenseTag,
-        CamerasTags.CamerasForSewageInspectionCategory,
+        CamerasTags.CamerasForSewageInspectionTag,
         CamerasTags.SystemWithCameraAndCleaningNozzleTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
         CamerasTags.HDSystemsTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.InspectionSystemForLateralPipesTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,

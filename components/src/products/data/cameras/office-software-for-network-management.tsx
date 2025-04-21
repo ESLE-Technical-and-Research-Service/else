@@ -163,7 +163,7 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
     tags: [
         CamerasTags.CamerasForSewageInspectionTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,
         CamerasTags.OfficeSoftwareForNetworkManagementTag,

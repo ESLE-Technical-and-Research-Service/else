@@ -37,7 +37,7 @@ export default function ServicesNavigation({
                 href="/services"
                 onClick={(e) => handleClickAction(e, 'services')}
             >
-                {language === Language.PLN ? "Serwisy" : "Services"}
+                {language === Language.PL ? "Serwisy" : "Services"}
             </Link>
 
             {/* Mobile Dropdown */}

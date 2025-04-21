@@ -17,7 +17,7 @@ const BackCard: React.FC<BackCardProps> = ({lang, className = ""}) => {
         >
             <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-blue-200 rounded-l-2xl"/>
             <div className="mb-3 text-base text-gray-700 font-medium z-10">
-                {lang === Language.PLN ? "Wróć do poprzedniej strony" : "Go back to previous page"}
+                {lang === Language.PL ? "Wróć do poprzedniej strony" : "Go back to previous page"}
             </div>
             <BackButton />
         </div>

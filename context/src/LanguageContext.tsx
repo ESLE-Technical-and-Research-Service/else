@@ -18,7 +18,7 @@ export const LanguageProvider = ({children}: { children: ReactNode }) => {
         const normalizedLang = userLang.toLowerCase();
 
         if (normalizedLang.startsWith("pl")) {
-            setLanguage(Language.PLN);
+            setLanguage(Language.PL);
         } else {
             setLanguage(Language.ENG);
         }

@@ -33,7 +33,7 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
                 href="/about"
                 onClick={(e) => handleClickAction(e, 'about')}
             >
-                {language === Language.PLN ? "O nas" : "About Us"}
+                {language === Language.PL ? "O nas" : "About Us"}
             </Link>
 
             {/* Mobile Dropdown */}

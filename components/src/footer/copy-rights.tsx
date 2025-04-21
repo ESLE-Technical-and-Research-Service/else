@@ -7,7 +7,7 @@ export default function CopyRights() {
     return (
         <div data-testid="copy-rights" className="text-sm text-gray-600 mt-6">
             &copy; {new Date().getFullYear()} ELSE - Technical and Research Service. {
-            language === "PLN"
+            language === "PL"
                 ? "Wszelkie prawa zastrzeżone."
                 : "All rights reserved."
         }

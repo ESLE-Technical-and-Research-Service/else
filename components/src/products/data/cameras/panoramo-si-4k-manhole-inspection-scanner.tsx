@@ -4,6 +4,8 @@ import panoramoSi4KScanner03 from "../../../../../assets/images/products/cameras
 import panoramoSi4KScanner04 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_04.webp";
 import panoramoSi4KScanner05 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_05.webp";
 import panoramoSi4KScanner06 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_06.webp";
+import panoramoSi4KScanner07 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_07.webp";
+import panoramoSi4KScanner08 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_08.webp";
 
 import {CamerasTags} from "../tags/cameras-tags";
 import {CamerasForSewageInspectionCategory} from "../categories";
@@ -17,11 +19,13 @@ export const PanoramoSi4kManholeInspectionScanner = {
     href: "/products/water-sewage/cameras/360-panoramo-si-4k-manhole-inspection-scanner",
     images: [
         panoramoSi4KScanner06,
-        panoramoSi4KScanner05,
-        panoramoSi4KScanner04,
-        panoramoSi4KScanner03,
-        panoramoSi4KScanner02,
         panoramoSi4KScanner01,
+        panoramoSi4KScanner02,
+        panoramoSi4KScanner03,
+        panoramoSi4KScanner04,
+        panoramoSi4KScanner05,
+        panoramoSi4KScanner07,
+        panoramoSi4KScanner08,
     ],
     description: {
         textPL: "Skaner do inspekcji studzienek PANORAMO SI 4K to narzędzie umożliwiające trójwymiarowe skanowanie studzienek w ultrawysokiej rozdzielczości. Wykorzystuje technologię chmury punktów do precyzyjnych pomiarów i inwentaryzacji uszkodzeń. Dostępny w wersji zabudowanej na pojeździe lub przenośnej, skaner oferuje elastyczną konfigurację i jest zaprojektowany do obsługi przez jedną osobę.",
@@ -116,7 +120,7 @@ export const PanoramoSi4kManholeInspectionScanner = {
         CamerasTags.Scanners360Panoramo4KTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
         CamerasTags.Systems4KTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,
         CamerasTags.AITag,

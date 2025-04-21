@@ -138,7 +138,7 @@ export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
         CamerasTags.RotaxTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
         CamerasTags.HDSystemsTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,
         CamerasTags.AITag,

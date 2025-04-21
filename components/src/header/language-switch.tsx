@@ -33,12 +33,12 @@ export default function LanguageSwitch() {
                 data-testid="pl-lang-switch"
                 className={
                     `px-2 py-2 rounded-4xl ${
-                        language === Language.PLN
+                        language === Language.PL
                             ? classes.languageSwitchOn
                             : classes.languageSwitchOff
                     }`
                 }
-                onClick={() => switchLanguage(Language.PLN)}
+                onClick={() => switchLanguage(Language.PL)}
             >
                 <Image src={plFlag} alt={"Flag of Poland"} width={24} height={24} />
             </button>

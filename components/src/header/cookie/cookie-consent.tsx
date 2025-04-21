@@ -23,14 +23,14 @@ export default function CookieConsent({
             <main data-testid="cookie-consent-container" className={classes.cookieConsent}>
                 <div>
                     <h2 data-testid="cookie-consent-header">
-                        {language === Language.PLN
+                        {language === Language.PL
                             ? "Szanujemy Twoją prywatność"
                             : "We Value Your Privacy"
                         }
                     </h2>
 
                     <p data-testid="consent-text-p1">
-                        {language === Language.PLN
+                        {language === Language.PL
                             ? "Ta strona internetowa używa plików cookie oraz podobnych technologii w celu poprawy " +
                             "Twojego doświadczenia podczas przeglądania, analizy ruchu oraz zrozumienia, jak " +
                             "wchodzisz w interakcję z naszymi treściami. Akceptując, zgadzasz się na przetwarzanie " +
@@ -43,20 +43,20 @@ export default function CookieConsent({
 
                     <ul data-testid="consent-text-p2">
                         <li>
-                            {language === Language.PLN
+                            {language === Language.PL
                                 ? "Śledzenia Twojego zachowania na stronach (np. kliknięcia, " +
                                 "przewijanie, odwiedzane treści)"
                                 : "Track your behavior across pages (e.g. clicks, scrolls, visited content)"
                             }
                         </li>
                         <li>
-                            {language === Language.PLN
+                            {language === Language.PL
                                 ? "Monitorowania aktywności sesji i wzorców nawigacji"
                                 : "Monitor session activity and navigation patterns"
                             }
                         </li>
                         <li>
-                            {language === Language.PLN
+                            {language === Language.PL
                                 ? "Analizowania użycia w celu poprawy funkcjonalności i personalizacji treści"
                                 : "Analyze usage to improve functionality and personalize content"
                             }
@@ -65,7 +65,7 @@ export default function CookieConsent({
 
                     <p data-testid="consent-text-p3">
                         {
-                            language === Language.PLN
+                            language === Language.PL
                                 ? "Możemy również używać narzędzi stron trzecich (np. platform analitycznych) do " +
                                 "zbierania anonimowych danych o Twoich interakcjach na tej stronie.\n" +
                                 "\n" +
@@ -82,14 +82,14 @@ export default function CookieConsent({
                 <div className={classes.buttons}>
                     <ConfirmButton onClick={handleAcceptConsentAction}>
                         {
-                            language === Language.PLN
+                            language === Language.PL
                                 ? "Akceptuj"
                                 : "Accept"
                         }
                     </ConfirmButton>
                     <RejectButton onClick={handleRejectConsentAction}>
                         {
-                            language === Language.PLN
+                            language === Language.PL
                                 ? "Odrzuć"
                                 : "Reject"
                         }

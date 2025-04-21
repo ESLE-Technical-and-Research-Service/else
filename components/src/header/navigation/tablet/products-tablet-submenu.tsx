@@ -35,7 +35,7 @@ export default function ProductsTabletSubmenu({
                             href={item.href}
                             onClick={(e) => handleClickAction(e, item.submenuName)}
                         >
-                            {language === Language.PLN ? item.labelPL : item.labelENG}
+                            {language === Language.PL ? item.labelPL : item.labelENG}
                         </Link>
                     </li>
                     {

@@ -16,7 +16,7 @@ export const LanguageTestComponent = () => {
             </button>
             <button
                 data-testid="pl-switch"
-                onClick={() => switchLanguage(Language.PLN)}
+                onClick={() => switchLanguage(Language.PL)}
                 type="button"
             >
                 PLN

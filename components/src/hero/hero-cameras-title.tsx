@@ -8,7 +8,7 @@ export default function HeroCamerasTitle() {
     return (
         <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold drop-shadow-2xl leading-tight">
             {
-                language === Language.PLN
+                language === Language.PL
                     ? "Kamery inspekcyjne do kanalizacji i sieci wodno-kanalizacyjnych"
                     : "Inspection Cameras for Sewers and Water Networks"
             }

@@ -1,9 +1,11 @@
-import pushrodPortableSys06 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_06.webp";
 import pushrodPortableSys01 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_01.webp";
 import pushrodPortableSys02 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_02.webp";
 import pushrodPortableSys03 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_03.webp";
 import pushrodPortableSys04 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_04.webp";
 import pushrodPortableSys05 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_05.webp";
+import pushrodPortableSys06 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_06.webp";
+import pushrodPortableSys07 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_07.webp";
+import pushrodPortableSys08 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_08.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags/cameras-tags";
 import {ProductItem} from "../../../types/ProductItem";
@@ -21,6 +23,8 @@ export const PushrodPortableSystem: ProductItem = {
         pushrodPortableSys03,
         pushrodPortableSys04,
         pushrodPortableSys05,
+        pushrodPortableSys07,
+        pushrodPortableSys08,
     ],
     description: {
         textPL: "Przenośny system popychany  to lekkie i wytrzymałe rozwiązanie do inspekcji trudno dostępnych miejsc i małych kanałów. Z długim przewodem, wszechstronnymi funkcjami pomiarowymi i możliwością podłączenia różnych kamer, te systemy są niezastąpione w warunkach niedostępnych dla samochodu",

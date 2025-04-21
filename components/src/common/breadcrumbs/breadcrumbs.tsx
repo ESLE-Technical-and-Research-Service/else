@@ -6,12 +6,16 @@ import Link from "next/link";
 import {Language} from "../../../../context/src/types/Language";
 import {Fragment} from "react";
 import {ChevronRightIcon} from "@heroicons/react/24/outline";
+import {SectionsNames} from "../../types/Sections";
+import {getBreadcrumbLabel} from '../../utils/breadcrumbs-label-map';
 
 export default function Breadcrumbs() {
     const pathname = usePathname();
     const {language} = useLanguage();
     const segments = pathname.split("/").filter(Boolean);
 
+    const homePathName = language === Language.PL ? SectionsNames.HOME.PL : SectionsNames.HOME.ENG;
+    
     const getPathUtil = (index: number) => {
         return "/" + segments.slice(0, index + 1).join("/");
     };
@@ -23,7 +27,7 @@ export default function Breadcrumbs() {
                     <Link href="/" className="hover:underline">
                         {
                             segments.length > 0 && <span className="mx-2">
-                            {language === Language.PLN ? "Strona główna" : "Home"}
+                            {homePathName}
                         </span>
                         }
                     </Link>
@@ -39,15 +43,17 @@ export default function Breadcrumbs() {
                     const isLast = indx === segments.length - 1;
                     const formattedSegment = segment.replace(/-/g, " ")
                         .replace(/\b\w/g, c => c.toUpperCase());
+                    const langKey = language === Language.PL ? 'pl' : 'en';
+                    const mappedName = getBreadcrumbLabel(path, langKey) || formattedSegment;
 
                     return (
                         <Fragment key={indx}>
                             <li>
                                 {isLast ? (
-                                    <span>{formattedSegment}</span>
+                                    <span>{mappedName}</span>
                                 ) : (
                                     <Link href={path} className="hover:underline">
-                                        {formattedSegment}
+                                        {mappedName}
                                     </Link>
                                 )}
                             </li>
@@ -63,5 +69,5 @@ export default function Breadcrumbs() {
                 })}
             </ol>
         </nav>
-    )
+    );
 }

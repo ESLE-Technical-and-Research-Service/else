@@ -25,7 +25,7 @@ export default function ProductsGrid({products}: ProductsGridProps) {
                             {product.images[0] && (
                                 <Image
                                     src={product.images[0]}
-                                    alt={language === Language.PLN ? product.name.namePL : product.name.nameENG}
+                                    alt={language === Language.PL ? product.name.namePL : product.name.nameENG}
                                     fill
                                     className="object-contain group-hover:scale-105 transition-transform duration-300 p-4"
                                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -35,7 +35,7 @@ export default function ProductsGrid({products}: ProductsGridProps) {
                         <div className="p-3 bg-gradient-to-b from-white to-gray-50">
                             <h3 className="text-sm font-bold text-center text-gray-700 leading-snug line-clamp-2 min-h-[2.5rem]
                             group-hover:text-gray-900 transition-colors duration-300">
-                                {language === Language.PLN ? product.name.namePL : product.name.nameENG}
+                                {language === Language.PL ? product.name.namePL : product.name.nameENG}
                             </h3>
                         </div>
                     </Link>

@@ -10,7 +10,7 @@ export default function FooterNavigation() {
         <div>
             <h3 className="font-bold mb-2">
                 {
-                    language === "PLN"
+                    language === "PL"
                         ? "Nawigacja"
                         : "Navigation"
                 }
@@ -19,7 +19,7 @@ export default function FooterNavigation() {
                 <li>
                     <Link className="hover:underline" href="/home">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Strona główna"
                                 : "Home"
                         }
@@ -28,7 +28,7 @@ export default function FooterNavigation() {
                 <li>
                     <Link className="hover:underline" href="/services">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Serwisy"
                                 : "Services"
                         }
@@ -37,7 +37,7 @@ export default function FooterNavigation() {
                 <li>
                     <Link className="hover:underline" href="/contact">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Kontakt"
                                 : "Contact"
                         }
@@ -46,7 +46,7 @@ export default function FooterNavigation() {
                 <li>
                     <Link className="hover:underline" href="/service-24-7">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Serwis 24/7"
                                 : "Service 24/7"
                         }

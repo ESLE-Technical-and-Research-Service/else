@@ -10,7 +10,7 @@ export default function AboutUsFooter() {
         <div>
             <h3 className="font-bold mb-2">
                 {
-                    language === "PLN"
+                    language === "PL"
                         ? "O Nas"
                         : "About Us"
                 }
@@ -19,7 +19,7 @@ export default function AboutUsFooter() {
                 <li>
                     <Link href="/about/profile">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Opis działalności"
                                 : "Company Profile"
                         }
@@ -28,7 +28,7 @@ export default function AboutUsFooter() {
                 <li>
                     <Link className="hover:underline" href="/about/departments">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Nasze działy"
                                 : "Our Departments"
                         }
@@ -37,7 +37,7 @@ export default function AboutUsFooter() {
                 <li>
                     <Link className="hover:underline" href="/about/management">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Władze spółki"
                                 : "Management"
                         }
@@ -46,7 +46,7 @@ export default function AboutUsFooter() {
                 <li>
                     <Link className="hover:underline" href="/about/certificates">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Certyfikaty"
                                 : "Certificates"
                         }
@@ -55,7 +55,7 @@ export default function AboutUsFooter() {
                 <li>
                     <Link className="hover:underline" href="/about/locations">
                         {
-                            language === "PLN"
+                            language === "PL"
                                 ? "Lokalizacje"
                                 : "Locations"
                         }

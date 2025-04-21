@@ -53,7 +53,7 @@ export default function ManufacturersFilters({
     return (
         <main className="w-full bg-white rounded shadow p-4">
             <h2 className="text-lg text-[var(--main-color)] font-semibold mb-4">
-                {language === Language.PLN ? "Producenci:" : "Manufacturers:"}
+                {language === Language.PL ? "Producenci:" : "Manufacturers:"}
             </h2>
             <div className="flex flex-col gap-2">
                 {

@@ -53,7 +53,7 @@ export default function ProductsDesktopSubmenu({
                             onClick={(e) => handleClickAction(e, item.submenuName)}
                         >
                             {
-                                language === Language.PLN
+                                language === Language.PL
                                     ? item.labelPL
                                     : item.labelENG
                             }

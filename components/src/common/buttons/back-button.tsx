@@ -22,7 +22,7 @@ export default function BackButton() {
             <ArrowLeftIcon
                 className="h-5 w-5 text-[var(--main-color)] group-hover:text-[var(--main-color)]
                 transition-colors duration-200"/>
-            {language === Language.PLN ? "Wróć" : "Back"}
+            {language === Language.PL ? "Wróć" : "Back"}
         </button>
     )
 }

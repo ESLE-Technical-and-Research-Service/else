@@ -20,7 +20,7 @@ describe("LanguageProvider", () => {
 
             await waitFor(() => {
                 const langEl = screen.getByTestId("lang");
-                expect(langEl).toHaveTextContent(Language.PLN);
+                expect(langEl).toHaveTextContent(Language.PL);
             });
         });
 
@@ -81,7 +81,7 @@ describe("LanguageProvider", () => {
           expect(translationText.textContent).toEqual("This is a test");
 
           await userEvent.click(screen.getByTestId("pl-switch"));
-          expect(langEl).toHaveTextContent(Language.PLN);
+          expect(langEl).toHaveTextContent(Language.PL);
           expect(translationText.textContent).toEqual("To jest test");
 
           await userEvent.click(screen.getByTestId("eng-switch"));

@@ -1,7 +1,7 @@
 export const CamerasForSewageInspectionCategory = {
     namePL: "Kamery do inspekcji kanalizacji / sieci wod-kan",
     nameENG: "Cameras for sewage inspection / water networks",
-    link: "/products/water-sewage/cameras/telescopic-camera",
+    link: "/products/water-sewage/cameras",
 };
 
 export const InspectionSystemsCategory = {

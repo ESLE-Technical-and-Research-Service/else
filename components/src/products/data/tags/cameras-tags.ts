@@ -181,7 +181,7 @@ export const CamerasTags: Record<string, Tag> = {
     HDSystemsTag,
     InspectionSystemForLateralPipesTag,
     LeakTestingSystemTag,
-    MainlineSewerInspectionSystemsTag: PipeRunMeasurementInMainSewerSystemsTag,
+    PipeRunMeasurementInMainSewerSystemsTag,
     MobileCameraTag,
     OfficeSoftwareForNetworkManagementTag,
     PanoramoTag,

@@ -3,6 +3,8 @@ import compactPortableSys01 from "../../../../../assets/images/products/cameras/
 import compactPortableSys03 from "../../../../../assets/images/products/cameras/compact_portable_sys_03.webp";
 import compactPortableSys04 from "../../../../../assets/images/products/cameras/compact_portable_sys_04.webp";
 import compactPortableSys05 from "../../../../../assets/images/products/cameras/compact_portable_sys_05.webp";
+import compactPortableSys06 from "../../../../../assets/images/products/cameras/compact_portable_sys_06.webp";
+import compactPortableSys07 from "../../../../../assets/images/products/cameras/compact_portable_sys_07.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags/cameras-tags";
 import {ProductItem} from "../../../types/ProductItem";
@@ -10,7 +12,7 @@ import {ProductItem} from "../../../types/ProductItem";
 export const CompactTrolleySystems: ProductItem = {
     name: {
         namePL: "Kompaktowe systemy przenośne z wózkiem samojezdnym",
-        nameENG: "Compact trolley systems",
+        nameENG: "Compact portable systems with a self-propelled trolley",
     },
     href: "/products/water-sewage/cameras/compact-trolley-systems",
     images: [
@@ -19,6 +21,8 @@ export const CompactTrolleySystems: ProductItem = {
         compactPortableSys03,
         compactPortableSys04,
         compactPortableSys05,
+        compactPortableSys06,
+        compactPortableSys07,
     ],
     description: {
         textPL: "Kompaktowe systemy przenośne z wózkiem samojezdnym to mobilne i elastyczne rozwiązania do inspekcji kanałów. Z ich wszechstronnymi funkcjami pomiarowymi, łatwością transportu i obsługi, te systemy są idealne dla różnorodnych zadań związanych z eksploatacją kanałów.",

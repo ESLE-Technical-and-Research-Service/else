@@ -131,7 +131,7 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
         CamerasTags.Scanners360PanoramoTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
         CamerasTags.Systems4KTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,
         CamerasTags.AITag,

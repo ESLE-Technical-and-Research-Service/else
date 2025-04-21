@@ -7,6 +7,10 @@ import inspectionSystemForLateralPipes03
     from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_03.webp";
 import inspectionSystemForLateralPipes04
     from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_04.webp";
+import inspectionSystemForLateralPipes05
+    from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_05.webp";
+import inspectionSystemForLateralPipes06
+    from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_06.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags/cameras-tags";
 
@@ -21,6 +25,8 @@ export const InspectionSystemForLateralPipes: ProductItem = {
         inspectionSystemForLateralPipes02,
         inspectionSystemForLateralPipes03,
         inspectionSystemForLateralPipes04,
+        inspectionSystemForLateralPipes05,
+        inspectionSystemForLateralPipes06,
     ],
     description: {
         textPL: "Nasz system inspekcyjny to innowacyjne rozwiązanie do przeglądu przyłączy z kanału głównego w jakości HD. Oferuje elastyczną konfiguracje dzięki modułowej konstrukcji, a specjalne funkcje takie jak GeoSense umożliwia realistyczne odwzorowanie przebiegu rury w ziemi. Zaprojektowany do obsługi przez jedną osobę, system umożliwia szybkie przesyłanie wyników inspekcji do klienta. Elektryczny podnośnik ramienia pozwala wprowadzać kamerę do przyłącza w dowolnej średnicy kanału.",
@@ -119,7 +125,7 @@ export const InspectionSystemForLateralPipes: ProductItem = {
         CamerasTags.CamerasForSewageInspectionTag,
         CamerasTags.SpecializedChassisForVehiclesTag,
         CamerasTags.HDSystemsTag,
-        CamerasTags.MainlineSewerInspectionSystemsTag,
+        CamerasTags.PipeRunMeasurementInMainSewerSystemsTag,
         CamerasTags.InspectionSystemForLateralPipesTag,
         CamerasTags.ExplosiveProofInspectionSystemsTag,
         CamerasTags.ChassisMountedSystemsTag,

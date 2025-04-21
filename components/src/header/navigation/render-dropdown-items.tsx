@@ -22,7 +22,7 @@ export const renderDropdownItems = (
             className="block px-4 py-2 text-gray-700 hover:bg-gray-200 whitespace-nowrap"
             onClick={onDropdownAction ? onDropdownAction(item.href) : undefined}
             >
-                {language === Language.PLN ? item.labelPL : item.labelENG}
+                {language === Language.PL ? item.labelPL : item.labelENG}
             </Link>
         </li>
     ))

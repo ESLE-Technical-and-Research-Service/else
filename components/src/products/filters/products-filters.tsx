@@ -48,13 +48,13 @@ export default function ProductsFilters({
     return (
         <main className="w-full bg-white rounded shadow p-4">
             <h2 className="text-lg text-[var(--main-color)] font-semibold mb-4">
-                {language === Language.PLN ? "Filtry" : "Filters"}
+                {language === Language.PL ? "Filtry" : "Filters"}
             </h2>
             <div className="flex flex-col gap-2">
                 {
                     Object.values(productsTags)
                         .sort((a: Tag, b: Tag) =>
-                            (language === Language.PLN ? a.namePL.localeCompare(b.namePL) : a.nameENG.localeCompare(b.nameENG))
+                            (language === Language.PL ? a.namePL.localeCompare(b.namePL) : a.nameENG.localeCompare(b.nameENG))
                         )
                         .map((tag: Tag, idx: number) => (
                             <label key={idx} className="flex items-center gap-2 cursor-pointer">
@@ -65,7 +65,7 @@ export default function ProductsFilters({
                                     onChange={e => handleSetFilter(tag.nameENG, e.target.checked)}
                                 />
                                 <span className="text-black">
-                            {language === Language.PLN ? tag.namePL : tag.nameENG}
+                            {language === Language.PL ? tag.namePL : tag.nameENG}
                         </span>
                             </label>
                         ))

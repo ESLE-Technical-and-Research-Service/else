@@ -3,21 +3,19 @@
 import HeroImage from "../hero/hero-image";
 import {getCamerasHeroImagesSlides} from "../hero/hero-images-list";
 import HeroCamerasTitle from "../hero/hero-cameras-title";
-import {useIntersectionObserver} from "../../../hooks/useIntersectionObserver";
 import ProductsGrid from "./products-grid";
 import {camerasItems} from "./data/camerasItems";
 import {useEffect, useState} from "react";
 import {ProductItem} from "../types/ProductItem";
 import ProductsFilters from "./filters/products-filters";
 import {ProductsCategories} from "../types/ProductsCategories";
-import {XMarkIcon, FunnelIcon} from "@heroicons/react/24/outline";
+import {FunnelIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import ManufacturersFilters from "./filters/manufacturers-filters";
 import Breadcrumbs from "../common/breadcrumbs/breadcrumbs";
 import {useSearchParams} from "next/navigation";
 import {Tag} from "../types/Tag";
 
 export default function Cameras() {
-    const {elementRef, isVisible} = useIntersectionObserver();
     const [camerasProducts, setCamerasProducts] = useState<ProductItem[]>(camerasItems);
     const [allCamerasProducts] = useState<ProductItem[]>(camerasItems);
     const [showFilters, setShowFilters] = useState(false);
@@ -103,9 +101,6 @@ export default function Cameras() {
             <div className="md:hidden px-4 py-8">
                 <ProductsGrid products={camerasProducts}/>
             </div>
-            {/*<div ref={elementRef}>*/}
-            {/*    <HeaderDivider title={{labelPL: "Producenci", labelENG: "Manufacturers"}} isVisible={isVisible}/>*/}
-            {/*</div>*/}
         </main>
     )
 }
