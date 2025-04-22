@@ -32,7 +32,7 @@ export default function Cameras() {
             setCamerasProducts(filteredProducts);
         }
 
-    }, []);
+    }, [allCamerasProducts, searchParams]);
 
     const camerasImagesSlides = getCamerasHeroImagesSlides();
 
@@ -82,11 +82,6 @@ export default function Cameras() {
             <div
                 className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0">
                 <div className="w-80 shrink-0 mt-8">
-                    <ManufacturersFilters
-                        setProducts={setCamerasProducts}
-                        allProducts={allCamerasProducts}
-                        category={ProductsCategories.CAMERAS}
-                    />
                     <ProductsFilters
                         setProducts={setCamerasProducts}
                         allProducts={allCamerasProducts}

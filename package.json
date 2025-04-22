@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:unit": "jest",
-    "test:e2e": "playwright test --workers=3",
+    "test:e2e": "playwright test --workers=3 --reporter=html",
     "test:e2e:debug": "playwright test --workers=3 --debug",
     "clean:build": "find . -name '.next' -type d -prune -exec rm -rf '{}' +",
     "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
