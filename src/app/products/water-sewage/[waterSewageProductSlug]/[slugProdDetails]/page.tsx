@@ -3,10 +3,10 @@
 import {usePathname} from "next/navigation";
 import {ProductItem} from "../../../../../../components/src/types/ProductItem";
 import getProductsListByCategory from "../../../../../../components/src/utils/get-products-by-category";
-import ProductDetails from "../../../../../../components/src/products/ProductDetails";
 import {useLanguage} from "../../../../../../context/src/LanguageContext";
 import Breadcrumbs from "../../../../../../components/src/common/breadcrumbs/breadcrumbs";
 import BackButton from "../../../../../../components/src/common/buttons/back-button";
+import ProductDetails from "../../../../../../components/src/products/product-details";
 
 export default function WaterAndSewageProductDetails() {
     const {language} = useLanguage();

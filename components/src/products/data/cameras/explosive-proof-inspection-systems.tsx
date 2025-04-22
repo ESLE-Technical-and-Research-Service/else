@@ -8,7 +8,7 @@ import explosiveProofInspecSys04
     from "../../../../../assets/images/products/cameras/explosive_proof_inspec_sys_04.webp";
 import explosiveProofInspecSys05
     from "../../../../../assets/images/products/cameras/explosive_proof_inspec_sys_05.webp";
-import {InspectionSystemsCategory} from "../categories";
+import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags/cameras-tags";
 import {IBAK} from "../manufacturers/IBAK";
 
@@ -92,7 +92,7 @@ export const ExplosiveProofInspectionSystems = {
         ),
     },
     manufacturers: [IBAK],
-    category: [InspectionSystemsCategory],
+    category: [CamerasForSewageInspectionCategory],
     tags: [
         CamerasTags.TransmitterForLocationTag,
         CamerasTags.TrolleyAssistantTag,

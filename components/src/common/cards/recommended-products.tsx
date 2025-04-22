@@ -27,8 +27,8 @@ export default function RecommendedProducts({lang, tags, category, viewedProduct
             <h2 className="sm:text-lg md:text-2xl lg:text-3xl font-semibold mb-4 text-black text-center mt-6 mb-4">
                 {
                     lang === Language.PL
-                        ? "Polecane produkty dla Ciebie"
-                        : "Products recommended for you"
+                        ? "Powiązane produkty"
+                        : "Related Products"
                 }
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">

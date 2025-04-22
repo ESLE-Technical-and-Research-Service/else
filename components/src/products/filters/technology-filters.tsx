@@ -6,21 +6,36 @@ import {Tag} from "../../types/Tag";
 import {CamerasTags} from "../data/tags/cameras-tags";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {Language} from "../../../../context/src/types/Language";
-import {useState} from "react";
+import {useState, useMemo, useEffect} from "react";
+import {WaterSewageTags} from "../data/tags/water-sewage-tags";
+import FilterClearButton from "../../common/buttons/filter-clear-button";
+import {useSearchParams} from "next/navigation";
+import {PressureVehiclesTags} from "../data/tags/pressure-vehicles-tags";
 
 type ProductsFiltersProps = {
     setProducts: (products: ProductItem[]) => void
     allProducts: ProductItem[],
-    category: ProductsCategories
+    categories: ProductsCategories
 };
 
-export default function ProductsFilters({
-                                            setProducts,
-                                            allProducts,
-                                            category,
-                                        }: ProductsFiltersProps) {
+export default function TechnologyFilters({
+                                              setProducts,
+                                              allProducts,
+                                              categories,
+                                          }: ProductsFiltersProps) {
     const {language} = useLanguage();
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const searchParams = useSearchParams();
+    const nameParam = searchParams.get('name');
+    const paramTags = useMemo(
+        () => nameParam ? nameParam.split(',').map(s => s.trim()).filter(Boolean) : [],
+        [nameParam]
+    );
+
+    const [selectedTags, setSelectedTags] = useState<string[]>(paramTags);
+
+    useEffect(() => {
+        setSelectedTags(paramTags);
+    }, [nameParam]);
 
     function handleSetFilter(tagName: string, checked: boolean) {
         let updatedTags: string[];
@@ -35,21 +50,29 @@ export default function ProductsFilters({
             setProducts(allProducts);
         } else {
             const filteredProducts: ProductItem[] = allProducts.filter((product: ProductItem) =>
-                product.tags && product.tags.some(
-                    (tag: Tag | undefined) => tag && updatedTags.includes(tag.nameENG)
+                    product.tags && product.tags.some(
+                        (tag: Tag | undefined) => tag && updatedTags.includes(tag.nameENG)
                     )
             );
             setProducts(filteredProducts);
         }
     }
 
-    const productsTags = categoryTags(category);
+    function handleClearFilter() {
+        setSelectedTags([]);
+        setProducts(allProducts);
+    }
+
+    const productsTags = categoryTags(categories);
 
     return (
         <main className="w-full bg-white rounded shadow p-4">
-            <h2 className="text-lg text-[var(--main-color)] font-semibold mb-4">
-                {language === Language.PL ? "Filtry" : "Filters"}
-            </h2>
+            <div className="flex justify-between items-center gap-2 mb-4">
+                <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
+                    {language === Language.PL ? "Technologia:" : "Technology:"}
+                </h2>
+                <FilterClearButton language={language} handleClearFilter={handleClearFilter}/>
+            </div>
             <div className="flex flex-col gap-2">
                 {
                     Object.values(productsTags)
@@ -80,11 +103,13 @@ function categoryTags(category: ProductsCategories): Record<string, Tag> {
         case ProductsCategories.CAMERAS:
             return CamerasTags;
         case ProductsCategories.PRESSURE_VEHICLES:
-            return CamerasTags
+            return PressureVehiclesTags;
         case ProductsCategories.MILLING_ROBOTS:
             return CamerasTags;
         case ProductsCategories.ACCESSORIES:
             return CamerasTags;
+        case ProductsCategories.WATER_SEWAGE:
+            return WaterSewageTags;
         default:
             throw new Error('Invalid TAGs category');
     }

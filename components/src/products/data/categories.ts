@@ -1,17 +1,32 @@
-export const CamerasForSewageInspectionCategory = {
+import {Category} from "../../types/Category";
+
+export const CamerasForSewageInspectionCategory: Category = {
     namePL: "Kamery do inspekcji kanalizacji / sieci wod-kan",
     nameENG: "Cameras for sewage inspection / water networks",
     link: "/products/water-sewage/cameras",
 };
 
-export const InspectionSystemsCategory = {
-    namePL: "Systemy inspekcyjne",
-    nameENG: "Inspection systems",
-    link: "/products/water-sewage/cameras/explosive-proof-inspection-systems",
+export const MillingRobotsForSewerRepairAndRenovationCategory: Category = {
+    namePL: "Roboty frezujące do napraw i renowacji kanałów",
+    nameENG: "Milling robots for sewer repair and renovation",
+    link: "/products/water-sewage/milling-robots",
 };
 
-export const MobileCameraCategory = {
-    namePL: "Kamera mobilna",
-    nameENG: "Mobile camera",
-    link: "/products/water-sewage/cameras/mobile-camera",
+export const MultipurposeVehiclesForPressureSewerCleaningCategory: Category = {
+    namePL: "Wielofunkcyjne pojazdy do ciśnieniowego czyszczenia kanalizacji",
+    nameENG: "Multipurpose vehicles for pressure sewer cleaning",
+    link: "/products/water-sewage/pressure-vehicles",
 };
+
+export const SpecializedVehicleBodies: Category = {
+    namePL: "Specjalistyczne zabudowy na pojazdach",
+    nameENG: "Specialized vehicle bodies",
+    link: "/products/water-sewage/vehicle-bodies",
+};
+
+export const waterSewageCategories: Category[] = [
+    CamerasForSewageInspectionCategory,
+    MillingRobotsForSewerRepairAndRenovationCategory,
+    MultipurposeVehiclesForPressureSewerCleaningCategory,
+    SpecializedVehicleBodies,
+];

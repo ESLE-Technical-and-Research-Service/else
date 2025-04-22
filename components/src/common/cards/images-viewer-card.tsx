@@ -1,3 +1,5 @@
+'use client';
+
 import {Language} from "../../../../context/src/types/Language";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/24/outline";
 import Image, {StaticImageData} from "next/image";

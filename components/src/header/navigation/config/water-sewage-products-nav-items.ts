@@ -1,4 +1,4 @@
-import {camerasItems} from "../../../products/data/camerasItems";
+import {camerasItems, pressureVehiclesItems} from "../../../products/data/product-items";
 import {ProductItem} from "../../../types/ProductItem";
 
 export type ProductNavItem = {
@@ -9,6 +9,7 @@ export type ProductNavItem = {
 
 const waterSewageProductsNavItems = (): ProductNavItem[] => [
     ...mapProductsToNavItems(camerasItems),
+    ...mapProductsToNavItems(pressureVehiclesItems),
 ];
 
 function mapProductsToNavItems(products: ProductItem[]) {
@@ -26,5 +27,6 @@ function mapProductsToNavItems(products: ProductItem[]) {
 }
 
 mapProductsToNavItems(camerasItems);
+mapProductsToNavItems(pressureVehiclesItems);
 
 export default waterSewageProductsNavItems;

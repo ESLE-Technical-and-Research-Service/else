@@ -10,6 +10,8 @@ import {PanoramoSi4kManholeInspectionScanner} from "./cameras/panoramo-si-4k-man
 import {LeakTestingSystem} from "./cameras/leak-testing-system";
 import {SystemWithCameraAndCleaningNozzle} from "./cameras/system-with-camera-and-cleaning-nozzle";
 import {OfficeSoftwareForNetworkManagement} from "./cameras/office-software-for-network-management";
+import {VacuumAndFlushingVehiclesWithRecycling} from "./pressure-vehicles/vacuum-and-flushing-vehicles-with-recycling";
+import {DualFunctionSuctionFlushingVehicles} from "./pressure-vehicles/dual-function-suction-flushing-vehicles";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -23,4 +25,9 @@ export const camerasItems: ProductItem[] = [
     LeakTestingSystem,
     SystemWithCameraAndCleaningNozzle,
     OfficeSoftwareForNetworkManagement,
-]
+];
+
+export const pressureVehiclesItems: ProductItem[] = [
+    DualFunctionSuctionFlushingVehicles,
+    VacuumAndFlushingVehiclesWithRecycling,
+];

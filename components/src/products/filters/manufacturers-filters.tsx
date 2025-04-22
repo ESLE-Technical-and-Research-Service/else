@@ -7,8 +7,9 @@ import {useState} from "react";
 import {Manufacturer} from "../../types/Manufacturer";
 import {IBAK} from "../data/manufacturers/IBAK";
 import {Language} from "../../../../context/src/types/Language";
-import { BECK } from "../data/manufacturers/BECK";
+import {BECK} from "../data/manufacturers/BECK";
 import {NUOVACONTEC} from "../data/manufacturers/NUOVACONTEC";
+import FilterClearButton from "../../common/buttons/filter-clear-button";
 
 type ManufacturersFiltersProps = {
     setProducts: (products: ProductItem[]) => void,
@@ -48,13 +49,21 @@ export default function ManufacturersFilters({
         }
     }
 
+    function handleClearFilter() {
+        setSelectedManufacturers([]);
+        setProducts(allProducts);
+    }
+
     const manufacturersForProductsByCategory = manufacturersByCategory(category);
 
     return (
         <main className="w-full bg-white rounded shadow p-4">
-            <h2 className="text-lg text-[var(--main-color)] font-semibold mb-4">
-                {language === Language.PL ? "Producenci:" : "Manufacturers:"}
-            </h2>
+            <div className="flex justify-between items-center gap-2 mb-4">
+                <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
+                    {language === Language.PL ? "Producenci:" : "Manufacturers:"}
+                </h2>
+                <FilterClearButton language={language} handleClearFilter={handleClearFilter} />
+            </div>
             <div className="flex flex-col gap-2">
                 {
                     Object.values(manufacturersForProductsByCategory)
@@ -86,6 +95,8 @@ function manufacturersByCategory(category: ProductsCategories): Manufacturer[] {
         case ProductsCategories.MILLING_ROBOTS:
             return [];
         case ProductsCategories.ACCESSORIES:
+            return [];
+        default:
             return [];
     }
 }
