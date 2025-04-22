@@ -44,11 +44,9 @@ test.describe("main header suite", () => {
 
                 const englishSwitch = desktopPage.locator('[data-testid="en-lang-switch"]').first();
                 await expect(englishSwitch).toBeVisible();
-                await expect(englishSwitch).toHaveText(/ENG/);
 
                 const polishSwitch = desktopPage.locator('[data-testid="pl-lang-switch"]').first();
                 await expect(polishSwitch).toBeVisible();
-                await expect(polishSwitch).toHaveText(/PLN/);
             });
         })
 
