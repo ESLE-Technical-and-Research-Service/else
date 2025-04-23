@@ -31,10 +31,13 @@ export default function WaterSewageProductLayout() {
         if (slug) {
             if (slug === ProductLinks.CAMERAS) {
                 setProducts(camerasItems);
+                setAllProducts(camerasItems);
             } else if (slug === ProductLinks.PRESSURE_VEHICLES) {
                 setProducts(pressureVehiclesItems);
+                setAllProducts(pressureVehiclesItems);
             } else {
                 setProducts(waterSewageProductItems);
+                setAllProducts(waterSewageProductItems);
             }
         }
 

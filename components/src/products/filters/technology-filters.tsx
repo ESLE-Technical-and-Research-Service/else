@@ -35,7 +35,7 @@ export default function TechnologyFilters({
 
     useEffect(() => {
         setSelectedTags(paramTags);
-    }, [nameParam]);
+    }, [nameParam, paramTags]);
 
     function handleSetFilter(tagName: string, checked: boolean) {
         let updatedTags: string[];

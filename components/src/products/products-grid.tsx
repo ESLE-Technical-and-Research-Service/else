@@ -27,7 +27,7 @@ export default function ProductsGrid({products}: ProductsGridProps) {
                                     src={product.images[0]}
                                     alt={language === Language.PL ? product.name.namePL : product.name.nameENG}
                                     fill
-                                    className="object-contain group-hover:scale-105 transition-transform duration-300 p-4"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300 p-4 rounded-3xl"
                                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 />
                             )}

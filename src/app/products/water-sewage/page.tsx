@@ -17,7 +17,7 @@ import BackButton from "../../../../components/src/common/buttons/back-button";
 export default function WaterAndSewageProducts() {
     const [products, setProducts] = useState<ProductItem[]>([]);
     const [allProducts, setAllProducts] = useState<ProductItem[]>(waterSewageProductItems);
-    const [allCategories, setAllCategories] = useState<Category[]>(waterSewageCategories);
+    const allCategories: Category[] = waterSewageCategories;
 
     useEffect(() => {
         function setupProducts() {

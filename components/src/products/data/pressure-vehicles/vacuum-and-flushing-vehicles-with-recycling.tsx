@@ -29,11 +29,11 @@ export const VacuumAndFlushingVehiclesWithRecycling: ProductItem = {
     },
     href: "/products/water-sewage/pressure-vehicles/vacuum-and-flushing-vehicles-with-recycling",
     images: [
+        vaccumAndFlushingVehImg05,
         vaccumAndFlushingVehImg01,
         vaccumAndFlushingVehImg02,
         vaccumAndFlushingVehImg03,
         vaccumAndFlushingVehImg04,
-        vaccumAndFlushingVehImg05,
         vaccumAndFlushingVehImg06,
         vaccumAndFlushingVehImg07,
         vaccumAndFlushingVehImg10,
