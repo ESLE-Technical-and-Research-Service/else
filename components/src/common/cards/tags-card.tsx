@@ -18,7 +18,9 @@ export default function TagsCard({ tags, lang }: TagsCardProps) {
                     >
                         {lang === Language.PL ? "Tagi:" : "Tags:"}
                     </p>
-                    {tags.map((tag: Tag) => (
+                    {tags
+                        .filter(((tag: Tag | undefined): tag is Tag => !!tag))
+                        .map((tag: Tag) => (
                         <Link
                             href={tag.link}
                             key={tag.link}

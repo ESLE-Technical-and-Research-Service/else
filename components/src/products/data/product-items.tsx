@@ -12,6 +12,10 @@ import {SystemWithCameraAndCleaningNozzle} from "./cameras/system-with-camera-an
 import {OfficeSoftwareForNetworkManagement} from "./cameras/office-software-for-network-management";
 import {VacuumAndFlushingVehiclesWithRecycling} from "./pressure-vehicles/vacuum-and-flushing-vehicles-with-recycling";
 import {DualFunctionSuctionFlushingVehicles} from "./pressure-vehicles/dual-function-suction-flushing-vehicles";
+import {
+    SuctionVehiclesForTransportingHazadousMaterials
+} from "./pressure-vehicles/suction-vehicles-for-transporting-hazadous-materials";
+import {AutomaticStreetInletsCleaningVehicles} from "./pressure-vehicles/automatic-street-inlets-cleaning-vehicles";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -28,6 +32,8 @@ export const camerasItems: ProductItem[] = [
 ];
 
 export const pressureVehiclesItems: ProductItem[] = [
+    AutomaticStreetInletsCleaningVehicles,
     DualFunctionSuctionFlushingVehicles,
+    SuctionVehiclesForTransportingHazadousMaterials,
     VacuumAndFlushingVehiclesWithRecycling,
 ];

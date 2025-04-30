@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from "react";
+import {useEffect, useState, useMemo} from "react";
 import {ProductItem} from "../../../../../components/src/types/ProductItem";
 import {usePathname, useSearchParams} from "next/navigation";
 import {Tag} from "../../../../../components/src/types/Tag";
@@ -20,37 +20,34 @@ import BackButton from "../../../../../components/src/common/buttons/back-button
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
-    const [products, setProducts] = useState<ProductItem[]>([]);
-    const [allProducts, setAllProducts] = useState<ProductItem[]>(waterSewageProductItems);
-    const [showFilters, setShowFilters] = useState<boolean>(false);
     const pathname = usePathname();
     const slug = pathname?.split("/").pop();
     const searchParams = useSearchParams();
 
-    useEffect(() => {
-        if (slug) {
-            if (slug === ProductLinks.CAMERAS) {
-                setProducts(camerasItems);
-                setAllProducts(camerasItems);
-            } else if (slug === ProductLinks.PRESSURE_VEHICLES) {
-                setProducts(pressureVehiclesItems);
-                setAllProducts(pressureVehiclesItems);
-            } else {
-                setProducts(waterSewageProductItems);
-                setAllProducts(waterSewageProductItems);
-            }
-        }
+    // Always get the base products for the current slug
+    const baseProducts = useMemo(() => {
+        if (slug === ProductLinks.CAMERAS) return camerasItems;
+        if (slug === ProductLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
+        return waterSewageProductItems;
+    }, [slug]);
 
+    // Filter products based on searchParams and baseProducts
+    const filteredProducts = useMemo(() => {
         const productName = searchParams.get("name");
+        if (!productName) return baseProducts;
+        return baseProducts.filter((prod: ProductItem) =>
+            prod.tags?.some((tag: Tag | undefined) => tag?.link.split('?name=').pop() === productName)
+        );
+    }, [baseProducts, searchParams]);
 
-        if (productName) {
-            const filteredProducts = allProducts
-                .filter(
-                    (prod: ProductItem) => prod.tags?.some((tag: Tag | undefined) => tag?.link.split('?name=').pop() === productName)
-                );
-            setAllProducts(filteredProducts);
-        }
-    }, [allProducts, searchParams, slug]);
+    const [allProducts, setAllProducts] = useState<ProductItem[]>(filteredProducts);
+
+    useEffect(() => {
+        setAllProducts(filteredProducts);
+    }, [filteredProducts]);
+
+    const [products, setProducts] = useState<ProductItem[]>(filteredProducts);
+    const [showFilters, setShowFilters] = useState<boolean>(false);
 
     const productImageSlides = getHeroImagesByPathname(slug ?? '');
     const productsCategories = getProductsByPathname(slug ?? '');

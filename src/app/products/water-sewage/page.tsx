@@ -13,20 +13,29 @@ import {waterSewageProductItems} from "../../../../components/src/products/data/
 import {Category} from "../../../../components/src/types/Category";
 import {waterSewageCategories} from "../../../../components/src/products/data/categories";
 import BackButton from "../../../../components/src/common/buttons/back-button";
+import {useLanguage} from "../../../../context/src/LanguageContext";
+import {Language} from "../../../../context/src/types/Language";
 
 export default function WaterAndSewageProducts() {
+    const {language} = useLanguage();
     const [products, setProducts] = useState<ProductItem[]>([]);
     const [allProducts, setAllProducts] = useState<ProductItem[]>(waterSewageProductItems);
     const allCategories: Category[] = waterSewageCategories;
 
+    const waterSewageProducts = [
+        ...camerasItems,
+        ...pressureVehiclesItems,
+    ];
+    const sortedProducts = waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
+        language === Language.PL
+            ? a.name.namePL.localeCompare(b.name.namePL)
+            : a.name.nameENG.localeCompare(b.name.nameENG)
+    ));
+
     useEffect(() => {
         function setupProducts() {
-            const waterSewageProducts = [
-                ...camerasItems,
-                ...pressureVehiclesItems,
-            ];
-            setAllProducts(waterSewageProducts)
-            setProducts(waterSewageProducts);
+            setAllProducts(sortedProducts)
+            setProducts(sortedProducts);
         }
         setupProducts()
     }, []);

@@ -32,6 +32,8 @@ export default function TechnologyFilters({
     );
 
     const [selectedTags, setSelectedTags] = useState<string[]>(paramTags);
+    const VISIBLE_COUNT_STEP = 15;
+    const [visibleCount, setVisibleCount] = useState(VISIBLE_COUNT_STEP);
 
     useEffect(() => {
         setSelectedTags(paramTags);
@@ -79,6 +81,7 @@ export default function TechnologyFilters({
                         .sort((a: Tag, b: Tag) =>
                             (language === Language.PL ? a.namePL.localeCompare(b.namePL) : a.nameENG.localeCompare(b.nameENG))
                         )
+                        .slice(0, visibleCount)
                         .map((tag: Tag, idx: number) => (
                             <label key={idx} className="flex items-center gap-2 cursor-pointer">
                                 <input
@@ -88,11 +91,35 @@ export default function TechnologyFilters({
                                     onChange={e => handleSetFilter(tag.nameENG, e.target.checked)}
                                 />
                                 <span className="text-black">
-                            {language === Language.PL ? tag.namePL : tag.nameENG}
-                        </span>
+                                    {language === Language.PL ? tag.namePL : tag.nameENG}
+                                </span>
                             </label>
                         ))
                 }
+                <span className="flex justify-between">
+                {
+                    visibleCount > VISIBLE_COUNT_STEP && (
+                        <button
+                            type="button"
+                            className="mt-2 text-blue-600 hover:underline self-start text-sm mr-8"
+                            onClick={() => setVisibleCount(c => c - VISIBLE_COUNT_STEP)}
+                        >
+                            {language === Language.PL ? 'Pokaż mniej' : 'Show less'}
+                        </button>
+                    )
+                }
+                {
+                    Object.values(productsTags).length > visibleCount && (
+                        <button
+                            type="button"
+                            className="mt-2 text-blue-600 hover:underline self-start text-sm"
+                            onClick={() => setVisibleCount(c => c + VISIBLE_COUNT_STEP)}
+                        >
+                            {language === Language.PL ? 'Pokaż więcej' : 'Show more'}
+                        </button>
+                    )
+                }
+                </span>
             </div>
         </main>
     );
