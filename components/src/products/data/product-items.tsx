@@ -19,6 +19,7 @@ import {AutomaticStreetInletsCleaningVehicles} from "./pressure-vehicles/automat
 import {CompactHighPressureCleaningSystems} from "./pressure-vehicles/compact-high-pressure-cleaning-systems";
 import {CompactSuctionBarrelsOnATrailer} from "./pressure-vehicles/compact-suction-barrels-on-a-trailer";
 import {CreateYourOwnVehicleConfiguration} from "./pressure-vehicles/create-your-own-vehicle-configuration";
+import {ElectricMillingRobot} from "./milling-robots/electric-milling-robot";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -42,4 +43,8 @@ export const pressureVehiclesItems: ProductItem[] = [
     DualFunctionSuctionFlushingVehicles,
     SuctionVehiclesForTransportingHazadousMaterials,
     VacuumAndFlushingVehiclesWithRecycling,
+];
+
+export const millingRobotsItems: ProductItem[] = [
+    ElectricMillingRobot,
 ];

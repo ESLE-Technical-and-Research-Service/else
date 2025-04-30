@@ -7,7 +7,11 @@ import ManufacturersFilters from "../../../../components/src/products/filters/ma
 import {useEffect, useState} from "react";
 import {ProductItem} from "../../../../components/src/types/ProductItem";
 import TechnologyFilters from "../../../../components/src/products/filters/technology-filters";
-import {camerasItems, pressureVehiclesItems} from "../../../../components/src/products/data/product-items";
+import {
+    camerasItems,
+    millingRobotsItems,
+    pressureVehiclesItems
+} from "../../../../components/src/products/data/product-items";
 import CategoryFilters from "../../../../components/src/products/filters/category-filters";
 import {waterSewageProductItems} from "../../../../components/src/products/data/water-sewage-product-items";
 import {Category} from "../../../../components/src/types/Category";
@@ -25,6 +29,7 @@ export default function WaterAndSewageProducts() {
     const waterSewageProducts = [
         ...camerasItems,
         ...pressureVehiclesItems,
+        ...millingRobotsItems,
     ];
     const sortedProducts = waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
         language === Language.PL

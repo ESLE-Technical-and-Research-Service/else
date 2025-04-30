@@ -11,12 +11,18 @@ import {FunnelIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import TechnologyFilters from "../../../../../components/src/products/filters/technology-filters";
 import {waterSewageProductItems} from "../../../../../components/src/products/data/water-sewage-product-items";
 import ProductsGrid from "../../../../../components/src/products/products-grid";
-import {camerasItems, pressureVehiclesItems} from "../../../../../components/src/products/data/product-items";
+import {
+    camerasItems,
+    millingRobotsItems,
+    pressureVehiclesItems
+} from "../../../../../components/src/products/data/product-items";
 import {useLanguage} from "../../../../../context/src/LanguageContext";
 import getProductsByPathname from "../../../../../components/src/utils/get-products-by-pathname";
 import getHeroImagesByPathname from "../../../../../components/src/utils/get-hero-images-by-pathname";
 import HeroTitleByPathnamegetHeroTitle from "../../../../../components/src/utils/get-hero-title-by-pathname";
 import BackButton from "../../../../../components/src/common/buttons/back-button";
+import {StaticImageData} from "next/image";
+import {ProductsCategories} from "../../../../../components/src/types/ProductsCategories";
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
@@ -27,10 +33,11 @@ export default function WaterSewageProductLayout() {
     const baseProducts: ProductItem[] = useMemo(() => {
         if (slug === ProductLinks.CAMERAS) return camerasItems;
         if (slug === ProductLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
+        if (slug === ProductLinks.MILLING_ROBOTS) return millingRobotsItems;
         return waterSewageProductItems;
     }, [slug]);
 
-    const filteredProducts = useMemo(() => {
+    const filteredProducts: ProductItem[] = useMemo(() => {
         const productName = searchParams.get("name");
         if (!productName) return baseProducts;
         return baseProducts.filter((prod: ProductItem) =>
@@ -47,8 +54,8 @@ export default function WaterSewageProductLayout() {
     const [products, setProducts] = useState<ProductItem[]>(filteredProducts);
     const [showFilters, setShowFilters] = useState<boolean>(false);
 
-    const productImageSlides = getHeroImagesByPathname(slug ?? '');
-    const productsCategories = getProductsByPathname(slug ?? '');
+    const productImageSlides: StaticImageData[] = getHeroImagesByPathname(slug ?? '');
+    const productsCategories: ProductsCategories = getProductsByPathname(slug ?? '');
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)] mb-14 mt-4">

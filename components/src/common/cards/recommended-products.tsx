@@ -15,12 +15,19 @@ type RecommendedProductsProps = {
 
 export default function RecommendedProducts({lang, tags, category, viewedProduct}: RecommendedProductsProps) {
     const productsByCategory: ProductItem[] = getProductsByCategory(category[0].nameENG.toLowerCase());
-    const productsWithTags = productsByCategory
+
+    let productsWithTags = productsByCategory
         .filter((product) => product.name.nameENG !== viewedProduct)
         .filter(
             (product) => product.tags && product.tags.some((tag) => tags.includes(tag))
         );
-    const randomProducts = productsWithTags.sort(() => Math.random() - 0.5);
+
+    if (productsWithTags.length === 0) {
+        productsWithTags = productsByCategory
+            .filter((product) => product.name.nameENG !== viewedProduct);
+    }
+
+    const randomProducts: ProductItem[] = productsWithTags.sort(() => Math.random() - 0.5);
 
     return (
         <>
