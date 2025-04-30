@@ -16,6 +16,9 @@ import {
     SuctionVehiclesForTransportingHazadousMaterials
 } from "./pressure-vehicles/suction-vehicles-for-transporting-hazadous-materials";
 import {AutomaticStreetInletsCleaningVehicles} from "./pressure-vehicles/automatic-street-inlets-cleaning-vehicles";
+import {CompactHighPressureCleaningSystems} from "./pressure-vehicles/compact-high-pressure-cleaning-systems";
+import {CompactSuctionBarrelsOnATrailer} from "./pressure-vehicles/compact-suction-barrels-on-a-trailer";
+import {CreateYourOwnVehicleConfiguration} from "./pressure-vehicles/create-your-own-vehicle-configuration";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -33,6 +36,9 @@ export const camerasItems: ProductItem[] = [
 
 export const pressureVehiclesItems: ProductItem[] = [
     AutomaticStreetInletsCleaningVehicles,
+    CompactHighPressureCleaningSystems,
+    CompactSuctionBarrelsOnATrailer,
+    CreateYourOwnVehicleConfiguration,
     DualFunctionSuctionFlushingVehicles,
     SuctionVehiclesForTransportingHazadousMaterials,
     VacuumAndFlushingVehiclesWithRecycling,

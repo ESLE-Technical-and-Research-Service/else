@@ -24,14 +24,12 @@ export default function WaterSewageProductLayout() {
     const slug = pathname?.split("/").pop();
     const searchParams = useSearchParams();
 
-    // Always get the base products for the current slug
-    const baseProducts = useMemo(() => {
+    const baseProducts: ProductItem[] = useMemo(() => {
         if (slug === ProductLinks.CAMERAS) return camerasItems;
         if (slug === ProductLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
         return waterSewageProductItems;
     }, [slug]);
 
-    // Filter products based on searchParams and baseProducts
     const filteredProducts = useMemo(() => {
         const productName = searchParams.get("name");
         if (!productName) return baseProducts;
