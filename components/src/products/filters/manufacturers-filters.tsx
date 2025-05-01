@@ -10,6 +10,7 @@ import {Language} from "../../../../context/src/types/Language";
 import {BECK} from "../data/manufacturers/BECK";
 import {NUOVACONTEC} from "../data/manufacturers/NUOVACONTEC";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
+import {FeierabendAndFockGmbH} from "../data/manufacturers/FeierabendAndFockGmbH";
 
 type ManufacturersFiltersProps = {
     setProducts: (products: ProductItem[]) => void,
@@ -91,12 +92,12 @@ function manufacturersByCategory(category: ProductsCategories): Manufacturer[] {
         case ProductsCategories.CAMERAS:
             return [IBAK, BECK, NUOVACONTEC];
         case ProductsCategories.PRESSURE_VEHICLES:
-            return [];
+            return [FeierabendAndFockGmbH];
         case ProductsCategories.MILLING_ROBOTS:
-            return [];
+            return [IBAK];
         case ProductsCategories.ACCESSORIES:
             return [];
         default:
-            return [];
+            return [IBAK, BECK, NUOVACONTEC, FeierabendAndFockGmbH];
     }
 }

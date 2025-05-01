@@ -11,6 +11,7 @@ import {WaterSewageTags} from "../data/tags/water-sewage-tags";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 import {useSearchParams} from "next/navigation";
 import {PressureVehiclesTags} from "../data/tags/pressure-vehicles-tags";
+import {MillingRobotsTags} from "../data/tags/milling-robots-tags";
 
 type ProductsFiltersProps = {
     setProducts: (products: ProductItem[]) => void
@@ -132,7 +133,7 @@ function categoryTags(category: ProductsCategories): Record<string, Tag> {
         case ProductsCategories.PRESSURE_VEHICLES:
             return PressureVehiclesTags;
         case ProductsCategories.MILLING_ROBOTS:
-            return CamerasTags;
+            return MillingRobotsTags;
         case ProductsCategories.ACCESSORIES:
             return CamerasTags;
         case ProductsCategories.WATER_SEWAGE:

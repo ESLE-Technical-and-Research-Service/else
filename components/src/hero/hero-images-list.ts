@@ -9,9 +9,9 @@ import camerasSlideImg02 from "../../../assets/images/products/camerasHeroImage0
 import pressureVehicleImg02 from "../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_02.webp";
 import pressureVehicleImg05 from "../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_05.webp";
 import pressureVehicleImg08 from "../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_08.webp";
-import millingRobotsImg01 from "../../../assets/images/products/milling-robots/electric_milling_robot_09.webp";
+import millingRobotsImg01 from "../../../assets/images/products/milling-robots/pneumatic_milling_robot_10.webp";
 import millingRobotsImg02 from "../../../assets/images/products/milling-robots/electric_milling_robot_02.webp";
-import millingRobotsImg03 from "../../../assets/images/products/milling-robots/electric_milling_robot_07.webp";
+import millingRobotsImg03 from "../../../assets/images/products/milling-robots/electric_milling_robot_04.webp";
 
 import {StaticImageData} from "next/image";
 

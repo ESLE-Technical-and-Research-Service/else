@@ -23,9 +23,9 @@ export const ElectricMillingRobot: ProductItem = {
     },
     href: "/products/water-sewage/milling-robots/electric-milling-robot",
     images: [
-        electricMillingRobotImg03,
-        electricMillingRobotImg01,
         electricMillingRobotImg02,
+        electricMillingRobotImg01,
+        electricMillingRobotImg03,
         electricMillingRobotImg04,
         electricMillingRobotImg05,
         electricMillingRobotImg06,

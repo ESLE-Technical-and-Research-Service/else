@@ -35,7 +35,7 @@ export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
         descriptionENG: (
             <>
                 <p>
-                    Suction vehicles, trailers, and semi-trailers are manufactured for the collection and transport of liquid waste and hazardous substances in accordance with ADR regulations. The vacuum and high-pressure systems, available in various power levels, along with a multifunctional boom, allow for customization of the vehicle to meet the user's specific needs.
+                    Suction vehicles, trailers, and semi-trailers are manufactured for the collection and transport of liquid waste and hazardous substances in accordance with ADR regulations. The vacuum and high-pressure systems, available in various power levels, along with a multifunctional boom, allow for customization of the vehicle to meet the user&#39;s specific needs.
                 </p>
             </>
         ),

@@ -33,7 +33,7 @@ export const FeierabendAndFockGmbH: Manufacturer = {
             </p>
 
             <p>
-                Their offerings include both complete vehicles and modules that can be mounted on various chassis. The designs are characterized by lightweight and compact construction, facilitating maneuverability in narrow spaces, and durability against environmental conditions through the use of galvanized materials. The company also provides mobile service units, allowing for maintenance and repairs directly at the customer's location.
+                Their offerings include both complete vehicles and modules that can be mounted on various chassis. The designs are characterized by lightweight and compact construction, facilitating maneuverability in narrow spaces, and durability against environmental conditions through the use of galvanized materials. The company also provides mobile service units, allowing for maintenance and repairs directly at the customer&#39;s location.
             </p>
 
             <b>Product offering includes:</b>

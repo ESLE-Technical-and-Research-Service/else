@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "test:unit": "jest",
     "test:e2e": "playwright test --workers=3 --reporter=html",
     "test:e2e:debug": "playwright test --workers=3 --debug",

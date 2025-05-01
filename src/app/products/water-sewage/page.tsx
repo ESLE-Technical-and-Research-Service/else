@@ -4,7 +4,7 @@ import Breadcrumbs from "../../../../components/src/common/breadcrumbs/breadcrum
 import ProductsGrid from "../../../../components/src/products/products-grid";
 import {ProductsCategories} from "../../../../components/src/types/ProductsCategories";
 import ManufacturersFilters from "../../../../components/src/products/filters/manufacturers-filters";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useMemo, Suspense} from "react";
 import {ProductItem} from "../../../../components/src/types/ProductItem";
 import TechnologyFilters from "../../../../components/src/products/filters/technology-filters";
 import {
@@ -31,11 +31,11 @@ export default function WaterAndSewageProducts() {
         ...pressureVehiclesItems,
         ...millingRobotsItems,
     ];
-    const sortedProducts = waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
+    const sortedProducts = useMemo(() => waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
         language === Language.PL
             ? a.name.namePL.localeCompare(b.name.namePL)
             : a.name.nameENG.localeCompare(b.name.nameENG)
-    ));
+    )), [language]);
 
     useEffect(() => {
         function setupProducts() {
@@ -43,7 +43,7 @@ export default function WaterAndSewageProducts() {
             setProducts(sortedProducts);
         }
         setupProducts()
-    }, []);
+    }, [sortedProducts]);
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)]">
@@ -60,18 +60,20 @@ export default function WaterAndSewageProducts() {
                         <ManufacturersFilters
                             setProducts={setProducts}
                             allProducts={allProducts}
-                            category={ProductsCategories.CAMERAS}
+                            category={ProductsCategories.WATER_SEWAGE}
                         />
                         <CategoryFilters
                             setProducts={setProducts}
                             allProducts={allProducts}
                             categories={allCategories}
                         />
-                        <TechnologyFilters
-                            setProducts={setProducts}
-                            allProducts={allProducts}
-                            categories={ProductsCategories.WATER_SEWAGE}
-                        />
+                        <Suspense fallback={<div>Loading filters...</div>}>
+                            <TechnologyFilters
+                                setProducts={setProducts}
+                                allProducts={allProducts}
+                                categories={ProductsCategories.WATER_SEWAGE}
+                            />
+                        </Suspense>
                     </div>
                     <div className="flex-1">
                         <ProductsGrid products={products}/>
