@@ -12,6 +12,7 @@ import pressureVehicleImg08 from "../../../assets/images/products/pressure-vehic
 import millingRobotsImg01 from "../../../assets/images/products/milling-robots/pneumatic_milling_robot_10.webp";
 import millingRobotsImg02 from "../../../assets/images/products/milling-robots/electric_milling_robot_02.webp";
 import millingRobotsImg03 from "../../../assets/images/products/milling-robots/electric_milling_robot_04.webp";
+import accessoriesImg02 from "../../../assets/images/products/nozzles/warthog-wt-ac-01.webp";
 
 import {StaticImageData} from "next/image";
 
@@ -39,4 +40,8 @@ export const getMillingRobotsHeroImagesSlides = (): StaticImageData[] => [
     millingRobotsImg02,
     millingRobotsImg01,
     millingRobotsImg03,
+];
+
+export const getAccessoriesHeroImagesSlides = (): StaticImageData[] => [
+    accessoriesImg02,
 ];

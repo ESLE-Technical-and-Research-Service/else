@@ -8,6 +8,7 @@ import {useEffect, useState, useMemo, Suspense} from "react";
 import {ProductItem} from "../../../../components/src/types/ProductItem";
 import TechnologyFilters from "../../../../components/src/products/filters/technology-filters";
 import {
+    accessoriesItems,
     camerasItems,
     millingRobotsItems,
     pressureVehiclesItems
@@ -26,16 +27,18 @@ export default function WaterAndSewageProducts() {
     const [allProducts, setAllProducts] = useState<ProductItem[]>(waterSewageProductItems);
     const allCategories: Category[] = waterSewageCategories;
 
-    const waterSewageProducts = [
+    const waterSewageProducts: ProductItem[] = useMemo(() => [
         ...camerasItems,
         ...pressureVehiclesItems,
         ...millingRobotsItems,
-    ];
-    const sortedProducts = useMemo(() => waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
+        ...accessoriesItems,
+    ], []);
+
+    const sortedProducts: ProductItem[] = useMemo(() => waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
         language === Language.PL
             ? a.name.namePL.localeCompare(b.name.namePL)
             : a.name.nameENG.localeCompare(b.name.nameENG)
-    )), [language]);
+    )), [language, waterSewageProducts]);
 
     useEffect(() => {
         function setupProducts() {

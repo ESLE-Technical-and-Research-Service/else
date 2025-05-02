@@ -12,17 +12,20 @@ import TechnologyFilters from "../../../../../components/src/products/filters/te
 import {waterSewageProductItems} from "../../../../../components/src/products/data/water-sewage-product-items";
 import ProductsGrid from "../../../../../components/src/products/products-grid";
 import {
+    accessoriesItems,
     camerasItems,
     millingRobotsItems,
     pressureVehiclesItems
 } from "../../../../../components/src/products/data/product-items";
 import {useLanguage} from "../../../../../context/src/LanguageContext";
-import getProductsByPathname from "../../../../../components/src/utils/get-products-by-pathname";
+import getProductsCategoriesByPathname from "../../../../../components/src/utils/get-products-categories-by-pathname";
 import getHeroImagesByPathname from "../../../../../components/src/utils/get-hero-images-by-pathname";
 import HeroTitleByPathnamegetHeroTitle from "../../../../../components/src/utils/get-hero-title-by-pathname";
 import BackButton from "../../../../../components/src/common/buttons/back-button";
 import {StaticImageData} from "next/image";
 import {ProductsCategories} from "../../../../../components/src/types/ProductsCategories";
+import CategoryFilters from "../../../../../components/src/products/filters/category-filters";
+import {accessoriesCategories} from "../../../../../components/src/products/data/categories";
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
@@ -34,6 +37,7 @@ export default function WaterSewageProductLayout() {
         if (slug === ProductLinks.CAMERAS) return camerasItems;
         if (slug === ProductLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
         if (slug === ProductLinks.MILLING_ROBOTS) return millingRobotsItems;
+        if (slug === ProductLinks.ACCESSORIES) return accessoriesItems;
         return waterSewageProductItems;
     }, [slug]);
 
@@ -55,7 +59,7 @@ export default function WaterSewageProductLayout() {
     const [showFilters, setShowFilters] = useState<boolean>(false);
 
     const productImageSlides: StaticImageData[] = getHeroImagesByPathname(slug ?? '');
-    const productsCategories: ProductsCategories = getProductsByPathname(slug ?? '');
+    const productsCategories: ProductsCategories = getProductsCategoriesByPathname(slug ?? '');
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)] mb-14 mt-4">
@@ -100,8 +104,16 @@ export default function WaterSewageProductLayout() {
 
             {/* Desktop Layout: Sidebar Filters + Products Grid (aligned with breadcrumbs, grid sizing unchanged) */}
             <div
-                className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0">
+                className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0"
+            >
                 <div className="w-80 shrink-0 mt-8">
+                    {slug === ProductLinks.ACCESSORIES && (
+                        <CategoryFilters
+                            setProducts={setProducts}
+                            allProducts={allProducts}
+                            categories={accessoriesCategories}
+                        />
+                    )}
                     <TechnologyFilters
                         setProducts={setProducts}
                         allProducts={allProducts}
@@ -118,7 +130,7 @@ export default function WaterSewageProductLayout() {
             </div>
 
             <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
-                <BackButton />
+                <BackButton/>
             </div>
         </main>
     );

@@ -1,7 +1,7 @@
 import {ProductsCategories} from "../types/ProductsCategories";
 import {ProductLinks} from "../types/products";
 
-function getProductsByPathname(productType: string): ProductsCategories {
+function getProductsCategoriesByPathname(productType: string): ProductsCategories {
     switch (productType) {
         case ProductLinks.CAMERAS:
             return ProductsCategories.CAMERAS;
@@ -16,4 +16,4 @@ function getProductsByPathname(productType: string): ProductsCategories {
     }
 }
 
-export default getProductsByPathname;
+export default getProductsCategoriesByPathname;

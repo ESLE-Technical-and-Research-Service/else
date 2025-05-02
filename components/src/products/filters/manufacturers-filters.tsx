@@ -96,7 +96,7 @@ function manufacturersByCategory(category: ProductsCategories): Manufacturer[] {
         case ProductsCategories.MILLING_ROBOTS:
             return [IBAK];
         case ProductsCategories.ACCESSORIES:
-            return [];
+            return [NUOVACONTEC];
         default:
             return [IBAK, BECK, NUOVACONTEC, FeierabendAndFockGmbH];
     }

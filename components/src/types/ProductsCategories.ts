@@ -4,4 +4,5 @@ export enum ProductsCategories {
     MILLING_ROBOTS = "milling-robots",
     ACCESSORIES = "accessories",
     WATER_SEWAGE = "water-sewage",
+    CLEANING_NOZZLES = "cleaning-nozzles"
 }

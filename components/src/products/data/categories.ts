@@ -1,9 +1,21 @@
 import {Category} from "../../types/Category";
 
+export const AccessoriesCategory: Category = {
+    namePL: "Akcesoria",
+    nameENG: "Accessories",
+    link: "/products/accessories",
+};
+
 export const CamerasForSewageInspectionCategory: Category = {
     namePL: "Kamery do inspekcji kanalizacji / sieci wod-kan",
     nameENG: "Cameras for sewage inspection / water networks",
     link: "/products/water-sewage/cameras",
+};
+
+export const CleaningNozzlesForPressureVehiclesCategory: Category = {
+    namePL: "Głowice czyszczące do pojazdów ciśnieniowych",
+    nameENG: "Cleaning nozzles for pressure vehicles",
+    link: "/products/water-sewage/accessories/cleaning-nozzles",
 };
 
 export const MillingRobotsForSewerRepairAndRenovationCategory: Category = {
@@ -25,8 +37,15 @@ export const SpecializedVehicleBodies: Category = {
 };
 
 export const waterSewageCategories: Category[] = [
+    AccessoriesCategory,
     CamerasForSewageInspectionCategory,
+    CleaningNozzlesForPressureVehiclesCategory,
     MillingRobotsForSewerRepairAndRenovationCategory,
     MultipurposeVehiclesForPressureSewerCleaningCategory,
     SpecializedVehicleBodies,
+];
+
+export const accessoriesCategories: Category[] = [
+    AccessoriesCategory,
+    CleaningNozzlesForPressureVehiclesCategory,
 ];

@@ -21,6 +21,12 @@ import {CompactSuctionBarrelsOnATrailer} from "./pressure-vehicles/compact-sucti
 import {CreateYourOwnVehicleConfiguration} from "./pressure-vehicles/create-your-own-vehicle-configuration";
 import {ElectricMillingRobot} from "./milling-robots/electric-milling-robot";
 import {PneumaticMillingRobot} from "./milling-robots/pneumatic-milling-robot";
+import {WarthogX} from "./accessories/nozzles/warthog-x";
+import {WarthogWtClassic} from "./accessories/nozzles/warthog-wt-classic";
+import {WarthogWtPro} from "./accessories/nozzles/warhog-wt-pro";
+import {WarthogMagnumSwitcher} from "./accessories/nozzles/warthog-magnum-switcher";
+import {WarthogMagnumWgr} from "./accessories/nozzles/warthog-magnum-wgr";
+import {WarthogMagnumWhr} from "./accessories/nozzles/warthog-magnum-whr";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -49,4 +55,13 @@ export const pressureVehiclesItems: ProductItem[] = [
 export const millingRobotsItems: ProductItem[] = [
     ElectricMillingRobot,
     PneumaticMillingRobot,
+];
+
+export const accessoriesItems: ProductItem[] = [
+    WarthogX,
+    WarthogMagnumSwitcher,
+    WarthogMagnumWgr,
+    WarthogMagnumWhr,
+    WarthogWtClassic,
+    WarthogWtPro,
 ];

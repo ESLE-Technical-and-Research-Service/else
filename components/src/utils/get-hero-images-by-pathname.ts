@@ -1,6 +1,7 @@
 import {StaticImageData} from "next/image";
 import {ProductLinks} from "../types/products";
 import {
+    getAccessoriesHeroImagesSlides,
     getCamerasHeroImagesSlides,
     getMillingRobotsHeroImagesSlides,
     getPressureVehiclesHeroImagesSlides
@@ -15,7 +16,7 @@ function getProductImageSlides(productType: string): StaticImageData[] {
         case ProductLinks.MILLING_ROBOTS:
             return getMillingRobotsHeroImagesSlides();
         case ProductLinks.ACCESSORIES:
-            return [];
+            return getAccessoriesHeroImagesSlides();
         default:
             return [];
     }

@@ -1,6 +1,11 @@
 import {ProductItem} from "../types/ProductItem";
 import {ProductsCategories} from "../types/ProductsCategories";
-import {camerasItems, millingRobotsItems, pressureVehiclesItems} from "../products/data/product-items";
+import {
+    accessoriesItems,
+    camerasItems,
+    millingRobotsItems,
+    pressureVehiclesItems
+} from "../products/data/product-items";
 import {
     CamerasForSewageInspectionCategory, MillingRobotsForSewerRepairAndRenovationCategory,
     MultipurposeVehiclesForPressureSewerCleaningCategory
@@ -18,7 +23,7 @@ function getProductsListByCategory(category: string): ProductItem[] {
         case MillingRobotsForSewerRepairAndRenovationCategory.nameENG.toLowerCase():
             return millingRobotsItems;
         case ProductsCategories.ACCESSORIES.toLowerCase():
-            return [];
+            return accessoriesItems;
         default:
             return [];
     }
