@@ -12,7 +12,21 @@ const SmallUncloggingNozzlesTag: Tag = {
     link: "/products/accessories/small-unclogging-nozzles",
 };
 
+const RotatingAndVibratingNozzlesTag: Tag = {
+    namePL: "Głowice obrotowe i wibracyjne",
+    nameENG: "Rotating and vibrating nozzles",
+    link: "/products/accessories/rotating-and-vibrating-nozzles",
+};
+
+const WarthogTag: Tag = {
+    namePL: "Warthog",
+    nameENG: "Warthog",
+    link: "/products/accessories/warthog",
+};
+
 export const AccessoriesTags: Record<string, Tag> = {
     CleaningNozzlesTag,
     SmallUncloggingNozzlesTag,
+    RotatingAndVibratingNozzlesTag,
+    WarthogTag,
 };

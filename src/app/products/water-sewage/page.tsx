@@ -20,6 +20,9 @@ import {waterSewageCategories} from "../../../../components/src/products/data/ca
 import BackButton from "../../../../components/src/common/buttons/back-button";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {Language} from "../../../../context/src/types/Language";
+import NextButton from "../../../../components/src/common/buttons/next-button";
+import PreviousButton from "../../../../components/src/common/buttons/previous-button";
+import PageButton from "../../../../components/src/common/buttons/page-button";
 
 export default function WaterAndSewageProducts() {
     const {language} = useLanguage();
@@ -48,6 +51,15 @@ export default function WaterAndSewageProducts() {
         }
         setupProducts()
     }, [sortedProducts]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const PRODUCTS_PER_PAGE = 16;
+    const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+    const paginatedProducts = products.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [products]);
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)]">
@@ -80,7 +92,27 @@ export default function WaterAndSewageProducts() {
                         </Suspense>
                     </div>
                     <div className="flex-1">
-                        <ProductsGrid products={products}/>
+                        <ProductsGrid products={paginatedProducts}/>
+
+                        {/* Pagination Controls */}
+                        {totalPages > 1 && (
+                            <div className="flex justify-center items-center gap-2 mt-6">
+                                <PreviousButton
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                    language={language}
+                                />
+                                {Array.from({length: totalPages}, (_, i) => (
+                                    <PageButton page={i + 1} currentPage={currentPage} setCurrentPage={setCurrentPage} key={i} />
+                                ))}
+                                <NextButton
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                    totalPages={totalPages}
+                                    language={language}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">

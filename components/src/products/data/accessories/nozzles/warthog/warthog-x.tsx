@@ -1,18 +1,18 @@
-import { ProductItem } from "../../../../types/ProductItem";
-import {NUOVACONTEC} from "../../manufacturers/NUOVACONTEC";
+import { ProductItem } from "../../../../../types/ProductItem";
+import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory
-} from "../../categories";
-import {AccessoriesTags} from "../../tags/accessories-tags";
-import warthogXImg01 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-01.webp";
-import warthogXImg02 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-02.webp";
-import warthogXImg03 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-03.webp";
-import warthogXImg04 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-04.webp";
-import warthogXImg05 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-05.webp";
-import warthogXImg06 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-06.webp";
-import warthogXImg07 from "../../../../../../assets/images/products/nozzles/warthog/warthog-x-07.webp";
+} from "../../../categories";
+import {AccessoriesTags} from "../../../tags/accessories-tags";
+import warthogXImg01 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-01.webp";
+import warthogXImg02 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-02.webp";
+import warthogXImg03 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-03.webp";
+import warthogXImg04 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-04.webp";
+import warthogXImg05 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-05.webp";
+import warthogXImg06 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-06.webp";
+import warthogXImg07 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-x-07.webp";
 
 export const WarthogX: ProductItem = {
     name: {
@@ -43,5 +43,8 @@ export const WarthogX: ProductItem = {
         CleaningNozzlesCategory,
         CleaningNozzlesForPressureVehiclesCategory,
     ],
-    tags: [AccessoriesTags.CleaningNozzlesTag, CleaningNozzlesCategory, CleaningNozzlesForPressureVehiclesCategory],
+    tags: [
+        AccessoriesTags.CleaningNozzlesTag,
+        AccessoriesTags.WarthogTag,
+    ],
 }

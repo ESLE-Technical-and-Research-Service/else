@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState, useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {ProductItem} from "../../../../../components/src/types/ProductItem";
 import {usePathname, useSearchParams} from "next/navigation";
 import {Tag} from "../../../../../components/src/types/Tag";
@@ -26,6 +26,9 @@ import {StaticImageData} from "next/image";
 import {ProductsCategories} from "../../../../../components/src/types/ProductsCategories";
 import CategoryFilters from "../../../../../components/src/products/filters/category-filters";
 import {accessoriesCategories} from "../../../../../components/src/products/data/categories";
+import {Language} from "../../../../../context/src/types/Language";
+import NextButton from "../../../../../components/src/common/buttons/next-button";
+import PreviousButton from "../../../../../components/src/common/buttons/previous-button";
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
@@ -60,6 +63,15 @@ export default function WaterSewageProductLayout() {
 
     const productImageSlides: StaticImageData[] = getHeroImagesByPathname(slug ?? '');
     const productsCategories: ProductsCategories = getProductsCategoriesByPathname(slug ?? '');
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const PRODUCTS_PER_PAGE = 16;
+    const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+    const paginatedProducts = products.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [products]);
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)] mb-14 mt-4">
@@ -121,12 +133,65 @@ export default function WaterSewageProductLayout() {
                     />
                 </div>
                 <div className="flex-1">
-                    <ProductsGrid products={products}/>
+                    <ProductsGrid products={paginatedProducts}/>
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                        <div className="flex justify-center items-center gap-2 mt-6">
+                            <PreviousButton
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                language={language}
+                            />
+                            {Array.from({length: totalPages}, (_, i) => (
+                                <button
+                                    key={i}
+                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-200 font-semibold shadow text-base transition-all duration-150 focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' : 'bg-white/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}`}
+                                    onClick={() => setCurrentPage(i + 1)}
+                                >
+                                    {i + 1}
+                                </button>
+                            ))}
+                            <NextButton
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                totalPages={totalPages}
+                                language={language}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
             {/* ProductsGrid: Mobile Only */}
             <div className="md:hidden px-4 py-8">
-                <ProductsGrid products={products}/>
+                <ProductsGrid products={paginatedProducts}/>
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                    <div className="flex justify-center items-center gap-2 mt-6">
+                        <button
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow transition-all duration-150 text-base focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                            disabled={currentPage === 1}
+                        >
+                            {language === Language.PL ? 'Poprzednia' : 'Previous'}
+                        </button>
+                        {Array.from({length: totalPages}, (_, i) => (
+                            <button
+                                key={i}
+                                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-200 font-semibold shadow text-base transition-all duration-150 focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' : 'bg-white/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}`}
+                                onClick={() => setCurrentPage(i + 1)}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                        <button
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow transition-all duration-150 text-base focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                            disabled={currentPage === totalPages}
+                        >
+                            {language === Language.PL ? 'Następna' : 'Next'}
+                        </button>
+                    </div>
+                )}
             </div>
 
             <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">

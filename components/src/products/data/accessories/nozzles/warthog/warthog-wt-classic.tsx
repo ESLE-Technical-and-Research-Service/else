@@ -1,15 +1,15 @@
-import {ProductItem} from "../../../../types/ProductItem";
-import {NUOVACONTEC} from "../../manufacturers/NUOVACONTEC";
+import {ProductItem} from "../../../../../types/ProductItem";
+import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory
-} from "../../categories";
-import warthogWtClassicImg01 from "../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-01.webp";
-import warthogWtClassicImg02 from "../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-02.webp";
-import warthogWtClassicImg03 from "../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-03.webp";
-import warthogWtClassicImg04 from "../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-04.webp";
-import {AccessoriesTags} from "../../tags/accessories-tags";
+} from "../../../categories";
+import warthogWtClassicImg01 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-01.webp";
+import warthogWtClassicImg02 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-02.webp";
+import warthogWtClassicImg03 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-03.webp";
+import warthogWtClassicImg04 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-classic-04.webp";
+import {AccessoriesTags} from "../../../tags/accessories-tags";
 
 export const WarthogWtClassic: ProductItem = {
     name: {
@@ -37,5 +37,8 @@ export const WarthogWtClassic: ProductItem = {
         CleaningNozzlesCategory,
         CleaningNozzlesForPressureVehiclesCategory,
     ],
-    tags: [AccessoriesTags.CleaningNozzlesTag],
+    tags: [
+        AccessoriesTags.CleaningNozzlesTag,
+        AccessoriesTags.WarthogTag,
+    ],
 }

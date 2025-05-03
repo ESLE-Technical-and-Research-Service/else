@@ -1,12 +1,12 @@
-import {ProductItem} from "../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types/ProductItem";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory, SmallUncloggingNozzlesCategory
-} from "../../categories";
-import {AccessoriesTags} from "../../tags/accessories-tags";
-import vortexImg01 from "../../../../../../assets/images/products/nozzles/vortex/vortex-01.webp";
-import vortexImg02 from "../../../../../../assets/images/products/nozzles/vortex/vortex-02.webp";
+} from "../../../categories";
+import {AccessoriesTags} from "../../../tags/accessories-tags";
+import vortexImg01 from "../../../../../../../assets/images/products/nozzles/vortex/vortex-01.webp";
+import vortexImg02 from "../../../../../../../assets/images/products/nozzles/vortex/vortex-02.webp";
 
 export const Vortex: ProductItem = {
     name: {

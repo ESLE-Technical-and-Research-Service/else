@@ -48,6 +48,12 @@ export const SmallUncloggingNozzlesCategory: Category = {
     link: "/products/water-sewage/accessories/small-unclogging-nozzles",
 };
 
+export const RotatingAndVibratingNozzlesCategory: Category = {
+    namePL: "Głowice obrotowe i wibracyjne",
+    nameENG: "Rotating and vibrating nozzles",
+    link: "/products/water-sewage/accessories/rotating-and-vibrating-nozzles",
+};
+
 export const waterSewageCategories: Category[] = [
     AccessoriesCategory,
     CamerasForSewageInspectionCategory,
@@ -57,6 +63,7 @@ export const waterSewageCategories: Category[] = [
     MultipurposeVehiclesForPressureSewerCleaningCategory,
     SpecializedVehicleBodies,
     SmallUncloggingNozzlesCategory,
+    RotatingAndVibratingNozzlesCategory,
 ];
 
 export const accessoriesCategories: Category[] = [
@@ -64,4 +71,5 @@ export const accessoriesCategories: Category[] = [
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     SmallUncloggingNozzlesCategory,
+    RotatingAndVibratingNozzlesCategory,
 ];

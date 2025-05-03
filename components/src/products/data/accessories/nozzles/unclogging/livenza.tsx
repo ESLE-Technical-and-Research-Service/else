@@ -1,14 +1,14 @@
-import {ProductItem} from "../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types/ProductItem";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory, SmallUncloggingNozzlesCategory
-} from "../../categories";
-import {AccessoriesTags} from "../../tags/accessories-tags";
-import livenzaImg01 from "../../../../../../assets/images/products/nozzles/livenza/livenza-01.webp";
-import livenzaImg02 from "../../../../../../assets/images/products/nozzles/livenza/livenza-02.webp";
-import livenzaImg03 from "../../../../../../assets/images/products/nozzles/livenza/livenza-03.webp";
-import livenzaImg04 from "../../../../../../assets/images/products/nozzles/livenza/livenza-04.webp";
+} from "../../../categories";
+import {AccessoriesTags} from "../../../tags/accessories-tags";
+import livenzaImg01 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-01.webp";
+import livenzaImg02 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-02.webp";
+import livenzaImg03 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-03.webp";
+import livenzaImg04 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-04.webp";
 
 export const Livenza: ProductItem = {
     name: {
