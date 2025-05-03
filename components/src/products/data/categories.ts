@@ -12,6 +12,12 @@ export const CamerasForSewageInspectionCategory: Category = {
     link: "/products/water-sewage/cameras",
 };
 
+export const CleaningNozzlesCategory: Category = {
+    namePL: "Głowice czyszczące",
+    nameENG: "Cleaning nozzles",
+    link: "/products/water-sewage/accessories/cleaning-nozzles",
+};
+
 export const CleaningNozzlesForPressureVehiclesCategory: Category = {
     namePL: "Głowice czyszczące do pojazdów ciśnieniowych",
     nameENG: "Cleaning nozzles for pressure vehicles",
@@ -36,16 +42,26 @@ export const SpecializedVehicleBodies: Category = {
     link: "/products/water-sewage/vehicle-bodies",
 };
 
+export const SmallUncloggingNozzlesCategory: Category = {
+    namePL: "Małe głowice udrażniające",
+    nameENG: "Small unclogging nozzles",
+    link: "/products/water-sewage/accessories/small-unclogging-nozzles",
+};
+
 export const waterSewageCategories: Category[] = [
     AccessoriesCategory,
     CamerasForSewageInspectionCategory,
+    CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     MillingRobotsForSewerRepairAndRenovationCategory,
     MultipurposeVehiclesForPressureSewerCleaningCategory,
     SpecializedVehicleBodies,
+    SmallUncloggingNozzlesCategory,
 ];
 
 export const accessoriesCategories: Category[] = [
     AccessoriesCategory,
+    CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
+    SmallUncloggingNozzlesCategory,
 ];

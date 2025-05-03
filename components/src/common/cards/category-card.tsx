@@ -20,7 +20,7 @@ export default function CategoryCard({ category, lang }: CategoryCardProps) {
                     {category.map((cat, idx) => (
                         <Link
                             href={cat.link}
-                            key={cat.link}
+                            key={idx}
                             className="inline-block text-blue-600 hover:underline mr-2"
                         >
                             {lang === Language.PL ? cat.namePL : cat.nameENG}

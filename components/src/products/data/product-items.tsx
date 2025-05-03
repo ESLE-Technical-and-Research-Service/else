@@ -27,6 +27,13 @@ import {WarthogWtPro} from "./accessories/nozzles/warhog-wt-pro";
 import {WarthogMagnumSwitcher} from "./accessories/nozzles/warthog-magnum-switcher";
 import {WarthogMagnumWgr} from "./accessories/nozzles/warthog-magnum-wgr";
 import {WarthogMagnumWhr} from "./accessories/nozzles/warthog-magnum-whr";
+import {Arzino} from "./accessories/nozzles/arzino";
+import {Sile} from "./accessories/nozzles/sile";
+import {Livenza} from "./accessories/nozzles/livenza";
+import {Meduna} from "./accessories/nozzles/meduna";
+import {Vortex} from "./accessories/nozzles/vortex";
+import {Cellina} from "./accessories/nozzles/cellina";
+import {Piciul} from "./accessories/nozzles/piciul";
 
 export const camerasItems: ProductItem[] = [
     TelescopicCameraForQuickInspection,
@@ -58,6 +65,13 @@ export const millingRobotsItems: ProductItem[] = [
 ];
 
 export const accessoriesItems: ProductItem[] = [
+    Arzino,
+    Cellina,
+    Livenza,
+    Meduna,
+    Piciul,
+    Sile,
+    Vortex,
     WarthogX,
     WarthogMagnumSwitcher,
     WarthogMagnumWgr,

@@ -1,20 +1,24 @@
 import {ProductItem} from "../../../../types/ProductItem";
-import {AccessoriesCategory, CleaningNozzlesForPressureVehiclesCategory} from "../../categories";
+import {
+    AccessoriesCategory,
+    CleaningNozzlesCategory,
+    CleaningNozzlesForPressureVehiclesCategory
+} from "../../categories";
 import {NUOVACONTEC} from "../../manufacturers/NUOVACONTEC";
 import {AccessoriesTags} from "../../tags/accessories-tags";
-import warthogMagnumWgrImg01 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-01.webp";
-import warthogMagnumWgrImg02 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-02.webp";
-import warthogMagnumWgrImg03 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-03.webp";
-import warthogMagnumWgrImg04 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-04.webp";
-import warthogMagnumWgrImg05 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-05.webp";
-import warthogMagnumWgrImg06 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-06.webp";
-import warthogMagnumWgrImg07 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-07.webp";
-import warthogMagnumWgrImg08 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-08.webp";
-import warthogMagnumWgrImg09 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-09.webp";
-import warthogMagnumWgrImg10 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-10.webp";
-import warthogMagnumWgrImg11 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-11.webp";
-import warthogMagnumWgrImg12 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-12.webp";
-import warthogMagnumWgrImg13 from "../../../../../../assets/images/products/nozzles/warthog-magnum-wgr-13.webp";
+import warthogMagnumWgrImg01 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-01.webp";
+import warthogMagnumWgrImg02 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-02.webp";
+import warthogMagnumWgrImg03 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-03.webp";
+import warthogMagnumWgrImg04 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-04.webp";
+import warthogMagnumWgrImg05 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-05.webp";
+import warthogMagnumWgrImg06 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-06.webp";
+import warthogMagnumWgrImg07 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-07.webp";
+import warthogMagnumWgrImg08 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-08.webp";
+import warthogMagnumWgrImg09 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-09.webp";
+import warthogMagnumWgrImg10 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-10.webp";
+import warthogMagnumWgrImg11 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-11.webp";
+import warthogMagnumWgrImg12 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-12.webp";
+import warthogMagnumWgrImg13 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-wgr-13.webp";
 
 export const WarthogMagnumWgr: ProductItem = {
     name: {
@@ -46,6 +50,10 @@ export const WarthogMagnumWgr: ProductItem = {
         descriptionENG: <></>
     },
     manufacturers: [NUOVACONTEC],
-    category: [AccessoriesCategory, CleaningNozzlesForPressureVehiclesCategory],
+    category: [
+        AccessoriesCategory,
+        CleaningNozzlesCategory,
+        CleaningNozzlesForPressureVehiclesCategory,
+    ],
     tags: [AccessoriesTags.CleaningNozzlesTag],
 }

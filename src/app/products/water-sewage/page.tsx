@@ -38,7 +38,8 @@ export default function WaterAndSewageProducts() {
         language === Language.PL
             ? a.name.namePL.localeCompare(b.name.namePL)
             : a.name.nameENG.localeCompare(b.name.nameENG)
-    )), [language, waterSewageProducts]);
+    )), [language, waterSewageProducts])
+        .sort((a: ProductItem, b: ProductItem) => a.category && b.category ? a.category[0].nameENG.localeCompare(b.category[0].nameENG) : 0);
 
     useEffect(() => {
         function setupProducts() {

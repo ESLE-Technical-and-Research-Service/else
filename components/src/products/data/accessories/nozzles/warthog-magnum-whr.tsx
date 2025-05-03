@@ -1,11 +1,15 @@
 import { ProductItem } from "../../../../types/ProductItem";
 import {NUOVACONTEC} from "../../manufacturers/NUOVACONTEC";
-import {AccessoriesCategory} from "../../categories";
+import {
+    AccessoriesCategory,
+    CleaningNozzlesCategory,
+    CleaningNozzlesForPressureVehiclesCategory
+} from "../../categories";
 import {AccessoriesTags} from "../../tags/accessories-tags";
-import warthogMagnumWhrImg01 from "../../../../../../assets/images/products/nozzles/warthog-magnum-whr-01.webp";
-import warthogMagnumWhrImg02 from "../../../../../../assets/images/products/nozzles/warthog-magnum-whr-02.webp";
-import warthogMagnumWhrImg03 from "../../../../../../assets/images/products/nozzles/warthog-magnum-whr-03.webp";
-import warthogMagnumWhrImg04 from "../../../../../../assets/images/products/nozzles/warthog-magnum-whr-04.webp";
+import warthogMagnumWhrImg01 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-whr-01.webp";
+import warthogMagnumWhrImg02 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-whr-02.webp";
+import warthogMagnumWhrImg03 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-whr-03.webp";
+import warthogMagnumWhrImg04 from "../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-whr-04.webp";
 
 export const WarthogMagnumWhr: ProductItem = {
     name: {
@@ -28,6 +32,10 @@ export const WarthogMagnumWhr: ProductItem = {
         descriptionENG: <></>
     },
     manufacturers: [NUOVACONTEC],
-    category: [AccessoriesCategory],
+    category: [
+        AccessoriesCategory,
+        CleaningNozzlesCategory,
+        CleaningNozzlesForPressureVehiclesCategory,
+    ],
     tags: [AccessoriesTags.CleaningNozzlesTag],
 }
