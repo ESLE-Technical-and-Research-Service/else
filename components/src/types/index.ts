@@ -1,4 +1,5 @@
 export * from "./Category";
+export * from "./Department";
 export * from "./Manufacturer";
 export * from "./ProductDescription";
 export * from "./ProductDetailedDescription";

@@ -16,6 +16,7 @@ export default function HeaderDivider({title, isVisible}: HeaderDividerProps) {
     return (
         <>
             <h1
+                data-testid="header-title"
                 className={`
                 text-4xl font-extrabold text-center text-[var(--font-color)] mt-6
                 transition-all duration-700 ease-out

@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
-import {openMainPageOnTabletAndCloseConsentPopup} from "./utils/openMainPageOnTablet";
-import {waterSewageSubmenuItems} from "../../components/src/header/navigation/config/water-sewage-submenu-items";
-import {DropDownItem} from "../../components/src/header/navigation/render-dropdown-items";
-import {maritimeItems} from "../../components/src/header/navigation/config/maritime-items";
+import {openMainPageOnTabletAndCloseConsentPopup} from "../utils/openMainPageOnTablet";
+import {waterSewageSubmenuItems} from "../../../components/src/header/navigation/config/water-sewage-submenu-items";
+import {DropDownItem} from "../../../components/src/header/navigation/render-dropdown-items";
+import {maritimeItems} from "../../../components/src/header/navigation/config/maritime-items";
 
 test.describe("main header suite", () => {
     test.describe("tablet version", () => {
