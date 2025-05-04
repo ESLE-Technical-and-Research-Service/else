@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import leakTestingSystem01 from "../../../../../assets/images/products/cameras/leak_testing_system_01.webp";
 import leakTestingSystem02 from "../../../../../assets/images/products/cameras/leak_testing_system_02.webp";
 import leakTestingSystem03 from "../../../../../assets/images/products/cameras/leak_testing_system_03.webp";
@@ -6,7 +6,7 @@ import leakTestingSystem04 from "../../../../../assets/images/products/cameras/l
 import leakTestingSystem05 from "../../../../../assets/images/products/cameras/leak_testing_system_05.webp";
 import leakTestingSystem06 from "../../../../../assets/images/products/cameras/leak_testing_system_06.webp";
 
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 import {CamerasForSewageInspectionCategory} from "../categories";
 
 export const LeakTestingSystem: ProductItem = {

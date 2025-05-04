@@ -1,11 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     SmallUncloggingNozzlesCategory,
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import piciulImg01 from "../../../../../../../assets/images/products/nozzles/piciul/piciul-01.webp";
 import piciulImg02 from "../../../../../../../assets/images/products/nozzles/piciul/piciul-02.webp";
 import piciulImg03 from "../../../../../../../assets/images/products/nozzles/piciul/piciul-03.webp";

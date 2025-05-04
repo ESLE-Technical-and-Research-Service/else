@@ -1,12 +1,18 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
-import compactHiPressCleaningSysImg01 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_01.webp";
-import compactHiPressCleaningSysImg02 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_02.webp";
-import compactHiPressCleaningSysImg03 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_03.webp";
-import compactHiPressCleaningSysImg04 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_04.webp";
-import compactHiPressCleaningSysImg05 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_05.webp";
-import compactHiPressCleaningSysImg06 from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_06.webp";
+import {PressureVehiclesTags} from "../tags";
+import compactHiPressCleaningSysImg01
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_01.webp";
+import compactHiPressCleaningSysImg02
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_02.webp";
+import compactHiPressCleaningSysImg03
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_03.webp";
+import compactHiPressCleaningSysImg04
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_04.webp";
+import compactHiPressCleaningSysImg05
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_05.webp";
+import compactHiPressCleaningSysImg06
+    from "../../../../../assets/images/products/pressure-vehicles/compact_high_pressure_cleaning_sys_06.webp";
 
 export const CompactHighPressureCleaningSystems: ProductItem = {
     name: {

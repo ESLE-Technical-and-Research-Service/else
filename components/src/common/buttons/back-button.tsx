@@ -1,7 +1,7 @@
 'use client';
 
 import {ArrowLeftIcon} from "@heroicons/react/24/outline";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types";
 import React from "react";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useRouter} from "next/navigation";

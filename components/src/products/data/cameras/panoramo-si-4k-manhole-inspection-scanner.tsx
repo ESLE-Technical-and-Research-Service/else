@@ -1,13 +1,21 @@
-import panoramoSi4KScanner01 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_01.webp";
-import panoramoSi4KScanner02 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_02.webp";
-import panoramoSi4KScanner03 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_03.webp";
-import panoramoSi4KScanner04 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_04.webp";
-import panoramoSi4KScanner05 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_05.webp";
-import panoramoSi4KScanner06 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_06.webp";
-import panoramoSi4KScanner07 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_07.webp";
-import panoramoSi4KScanner08 from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_08.webp";
+import panoramoSi4KScanner01
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_01.webp";
+import panoramoSi4KScanner02
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_02.webp";
+import panoramoSi4KScanner03
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_03.webp";
+import panoramoSi4KScanner04
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_04.webp";
+import panoramoSi4KScanner05
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_05.webp";
+import panoramoSi4KScanner06
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_06.webp";
+import panoramoSi4KScanner07
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_07.webp";
+import panoramoSi4KScanner08
+    from "../../../../../assets/images/products/cameras/panoramo_si_4k_manhole_scanner_08.webp";
 
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {IBAK} from "../manufacturers/IBAK";
 

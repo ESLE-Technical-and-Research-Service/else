@@ -1,7 +1,7 @@
 'use client';
 
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
-import {Language} from "./types/Language";
+import {Language} from "../../components/src/types";
 
 interface LanguageContextProps {
     language: Language;
@@ -11,10 +11,10 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider = ({children}: { children: ReactNode }) => {
-    const [language, setLanguage] = useState<Language>(Language.ENG);
+    const [language, setLanguage] = useState<Language>(Language.PL);
 
     useEffect(() => {
-        const userLang = navigator.language || navigator.languages?.[0] || "en";
+        const userLang = navigator.language || navigator.languages?.[0] || "pl";
         const normalizedLang = userLang.toLowerCase();
 
         if (normalizedLang.startsWith("pl")) {

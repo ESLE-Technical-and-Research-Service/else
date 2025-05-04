@@ -3,11 +3,10 @@
 import {usePathname} from "next/navigation";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import Link from "next/link";
-import {Language} from "../../../../context/src/types/Language";
+import {Language, SectionsNames} from "../../types";
 import {Fragment} from "react";
 import {ChevronRightIcon} from "@heroicons/react/24/outline";
-import {SectionsNames} from "../../types/Sections";
-import {getBreadcrumbLabel} from '../../utils/breadcrumbs-label-map';
+import {getBreadcrumbLabel} from '../../utils';
 
 export default function Breadcrumbs() {
     const pathname = usePathname();

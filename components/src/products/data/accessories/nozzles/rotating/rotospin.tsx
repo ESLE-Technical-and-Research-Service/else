@@ -1,11 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     RotatingAndVibratingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import rotospinImg01 from "../../../../../../../assets/images/products/nozzles/rotospin/rotospin-01.webp";
 import rotospinImg02 from "../../../../../../../assets/images/products/nozzles/rotospin/rotospin-02.webp";
 import rotospinImg03 from "../../../../../../../assets/images/products/nozzles/rotospin/rotospin-03.webp";

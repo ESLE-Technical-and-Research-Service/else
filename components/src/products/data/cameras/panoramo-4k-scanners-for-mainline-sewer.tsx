@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import scanners360Panoramo01 from "../../../../../assets/images/products/cameras/scanners_360_01.webp";
 import scanners360Panoramo02 from "../../../../../assets/images/products/cameras/scanners_360_02.webp";
@@ -7,7 +7,7 @@ import scanners360Panoramo04 from "../../../../../assets/images/products/cameras
 import scanners360Panoramo05 from "../../../../../assets/images/products/cameras/scanners_360_05.webp";
 import scanners360Panoramo06 from "../../../../../assets/images/products/cameras/scanners_360_06.webp";
 
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
 
 export const Panoramo4KScannersForMainlineSewer: ProductItem = {

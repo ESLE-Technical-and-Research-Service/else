@@ -1,4 +1,4 @@
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types/Language";
 
 type FilterClearButtonProps = {
     language: Language;

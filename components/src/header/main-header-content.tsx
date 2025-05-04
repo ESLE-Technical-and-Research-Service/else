@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import LanguageSwitch from "./language-switch";
 import MainNavigation from "./navigation/main-navigation";
 

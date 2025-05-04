@@ -1,12 +1,18 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
-import dualSuctionAndJettingVeh01 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_01.webp";
-import dualSuctionAndJettingVeh02 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_02.webp";
-import dualSuctionAndJettingVeh03 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_03.webp";
-import dualSuctionAndJettingVeh04 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_04.webp";
-import dualSuctionAndJettingVeh05 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_05.webp";
-import dualSuctionAndJettingVeh06 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_06.webp";
+import {PressureVehiclesTags} from "../tags";
+import dualSuctionAndJettingVeh01
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_01.webp";
+import dualSuctionAndJettingVeh02
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_02.webp";
+import dualSuctionAndJettingVeh03
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_03.webp";
+import dualSuctionAndJettingVeh04
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_04.webp";
+import dualSuctionAndJettingVeh05
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_05.webp";
+import dualSuctionAndJettingVeh06
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_06.webp";
 
 export const DualFunctionSuctionFlushingVehicles: ProductItem = {
     name: {
@@ -30,11 +36,16 @@ export const DualFunctionSuctionFlushingVehicles: ProductItem = {
         descriptionPL: (
             <>
                 <p>
-                    Pojazdy te służą do skutecznego i ekonomicznego czyszczenia kanalizacji. Są dostępne ze zbiornikami w różnych rozmiarach, materiałach i rodzajach ich opróżniania dla podwozi 2-, 3- i 4-osiowych.
+                    Pojazdy te służą do skutecznego i ekonomicznego czyszczenia kanalizacji. Są dostępne ze zbiornikami
+                    w różnych rozmiarach, materiałach i rodzajach ich opróżniania dla podwozi 2-, 3- i 4-osiowych.
                 </p>
 
                 <p>
-                    Zbiornik na osad można opróżnić za pomocą pneumatycznej przegrody lub poprzez przechylenie go do tyłu. Przestrzeń na wodę dla systemu czyszczącego znajduje się w tylnej części dużego zbiornika lub w bocznych zbiornikach po obu stronach pojazdu. Dzięki tym zbiornikom zwiększa się ilość transportowanej wody oraz zasłaniają one cylindryczny zbiornik główny, dzięki czemu pojazd wygląda niezwykle estetycznie.
+                    Zbiornik na osad można opróżnić za pomocą pneumatycznej przegrody lub poprzez przechylenie go do
+                    tyłu. Przestrzeń na wodę dla systemu czyszczącego znajduje się w tylnej części dużego zbiornika lub
+                    w bocznych zbiornikach po obu stronach pojazdu. Dzięki tym zbiornikom zwiększa się ilość
+                    transportowanej wody oraz zasłaniają one cylindryczny zbiornik główny, dzięki czemu pojazd wygląda
+                    niezwykle estetycznie.
                 </p>
 
                 <p>
@@ -45,11 +56,15 @@ export const DualFunctionSuctionFlushingVehicles: ProductItem = {
         descriptionENG: (
             <>
                 <p>
-                    These vehicles are designed for effective and economical sewer cleaning. They are available with tanks in various sizes, materials, and emptying methods, suitable for 2-, 3-, and 4-axle chassis.
+                    These vehicles are designed for effective and economical sewer cleaning. They are available with
+                    tanks in various sizes, materials, and emptying methods, suitable for 2-, 3-, and 4-axle chassis.
                 </p>
 
                 <p>
-                    The sludge tank can be emptied either by a pneumatic partition or by tilting it backwards. The water compartment for the cleaning system is located at the rear of the main tank or in side tanks on both sides of the vehicle. These additional tanks increase the amount of water that can be transported and also cover the cylindrical main tank, giving the vehicle a highly aesthetic appearance.
+                    The sludge tank can be emptied either by a pneumatic partition or by tilting it backwards. The water
+                    compartment for the cleaning system is located at the rear of the main tank or in side tanks on both
+                    sides of the vehicle. These additional tanks increase the amount of water that can be transported
+                    and also cover the cylindrical main tank, giving the vehicle a highly aesthetic appearance.
                 </p>
 
                 <p>

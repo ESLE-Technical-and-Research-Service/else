@@ -1,11 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import warthogWtProImg01 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-pro-01.webp";
 import warthogWtProImg02 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-pro-02.webp";
 import warthogWtProImg03 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-wt-pro-03.webp";

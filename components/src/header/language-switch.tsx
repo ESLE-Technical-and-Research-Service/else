@@ -2,7 +2,7 @@
 
 import classes from "./language-switch.module.css";
 import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../../../context/src/types/Language";
+import {Language} from "../types";
 import plFlag from "../../../assets/images/icons/Flag_of_Poland_Flat_Round-64x64.png";
 import ukFlag from "../../../assets/images/icons/Flag_of_United_Kingdom_Flat_Round-64x64.png";
 import Image from "next/image";

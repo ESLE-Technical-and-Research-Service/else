@@ -1,4 +1,4 @@
-import {Manufacturer} from "../../../types/Manufacturer";
+import {Manufacturer} from "../../../types";
 import logo from "../../../../../assets/images/manufacturers/ibak_logo.webp";
 
 export const IBAK: Manufacturer = {

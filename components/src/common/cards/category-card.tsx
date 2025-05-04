@@ -1,7 +1,6 @@
-import {Language} from "../../../../context/src/types/Language";
+import {Category, Language} from "../../types";
 import Link from "next/link";
 import React from "react";
-import {Category} from "../../types/Category";
 
 type CategoryCardProps = {
     category: Category[],

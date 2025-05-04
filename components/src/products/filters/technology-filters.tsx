@@ -1,27 +1,20 @@
 'use client';
 
-import {ProductItem} from "../../types/ProductItem";
-import {ProductsCategories} from "../../types/ProductsCategories";
-import {Tag} from "../../types/Tag";
-import {CamerasTags} from "../data/tags/cameras-tags";
+import {Language, ProductItem, ProductsCategories, Tag} from "../../types";
+import {AccessoriesTags, CamerasTags, MillingRobotsTags, PressureVehiclesTags, WaterSewageTags} from "../data/tags";
 import {useLanguage} from "../../../../context/src/LanguageContext";
-import {Language} from "../../../../context/src/types/Language";
-import {useState, useMemo, useEffect} from "react";
-import {WaterSewageTags} from "../data/tags/water-sewage-tags";
+import {useEffect, useMemo, useState} from "react";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 import {useSearchParams} from "next/navigation";
-import {PressureVehiclesTags} from "../data/tags/pressure-vehicles-tags";
-import {MillingRobotsTags} from "../data/tags/milling-robots-tags";
-import {AccessoriesTags} from "../data/tags/accessories-tags";
 
 type ProductsFiltersProps = {
-    setProducts: (products: ProductItem[]) => void
+    setProductsAction: (products: ProductItem[]) => void
     allProducts: ProductItem[],
     categories: ProductsCategories
 };
 
 export default function TechnologyFilters({
-                                              setProducts,
+                                              setProductsAction,
                                               allProducts,
                                               categories,
                                           }: ProductsFiltersProps) {
@@ -51,20 +44,20 @@ export default function TechnologyFilters({
         setSelectedTags(updatedTags);
 
         if (updatedTags.length === 0) {
-            setProducts(allProducts);
+            setProductsAction(allProducts);
         } else {
             const filteredProducts: ProductItem[] = allProducts.filter((product: ProductItem) =>
                     product.tags && product.tags.some(
                         (tag: Tag | undefined) => tag && updatedTags.includes(tag.nameENG)
                     )
             );
-            setProducts(filteredProducts);
+            setProductsAction(filteredProducts);
         }
     }
 
     function handleClearFilter() {
         setSelectedTags([]);
-        setProducts(allProducts);
+        setProductsAction(allProducts);
     }
 
     const productsTags = categoryTags(categories);

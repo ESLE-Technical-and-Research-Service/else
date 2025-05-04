@@ -1,10 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
-    CleaningNozzlesForPressureVehiclesCategory, RotatingAndVibratingNozzlesCategory
+    CleaningNozzlesForPressureVehiclesCategory,
+    RotatingAndVibratingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import tremolImg01 from "../../../../../../../assets/images/products/nozzles/tremol/tremol-01.webp";
 import tremolImg02 from "../../../../../../../assets/images/products/nozzles/tremol/tremol-02.webp";
 import tremolImg03 from "../../../../../../../assets/images/products/nozzles/tremol/tremol-03.webp";

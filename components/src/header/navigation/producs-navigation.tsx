@@ -1,6 +1,6 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types/Language";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React, {useEffect, useState} from "react";
@@ -69,7 +69,7 @@ export default function ProductNavigation({
                     <ProductsMobileSubmenu
                         handleClickAction={handleClickAction}
                         dropdownSubmenu={dropdownSubmenu}
-                        onDropdownItemActivate={onDropdownItemActivate}
+                        onDropdownItemActivateAction={onDropdownItemActivate}
                     />
                 )}
 
@@ -78,7 +78,7 @@ export default function ProductNavigation({
                     <ProductsTabletSubmenu
                         handleClickAction={handleClickAction}
                         dropdownSubmenu={dropdownSubmenu}
-                        onDropdownItemActivate={onDropdownItemActivate}
+                        onDropdownItemActivateAction={onDropdownItemActivate}
                     />
                 )}
 
@@ -86,9 +86,9 @@ export default function ProductNavigation({
                 {!isMobile && !isTouchTablet && (
                     <ProductsDesktopSubmenu
                         handleClickAction={handleClickAction}
-                        onDropdownItemActivate={onDropdownItemActivate}
-                        handleMouseEnter={handleMouseEnter}
-                        handleMouseLeave={handleMouseLeave}
+                        onDropdownItemActivateAction={onDropdownItemActivate}
+                        handleMouseEnterAction={handleMouseEnter}
+                        handleMouseLeaveAction={handleMouseLeave}
                         hoveredSubmenu={hoveredSubmenu}
                     />
                 )}

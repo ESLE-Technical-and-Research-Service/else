@@ -1,6 +1,6 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";

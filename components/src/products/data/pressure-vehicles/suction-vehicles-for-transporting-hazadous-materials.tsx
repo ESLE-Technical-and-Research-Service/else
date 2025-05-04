@@ -1,11 +1,16 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
-import sucVehForTransHazMatImg01 from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_01.webp";
-import sucVehForTransHazMatImg02 from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_02.webp";
-import sucVehForTransHazMatImg03 from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_03.webp";
-import sucVehForTransHazMatImg04 from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_04.webp";
-import sucVehForTransHazMatImg05 from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_05.webp";
+import {PressureVehiclesTags} from "../tags";
+import sucVehForTransHazMatImg01
+    from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_01.webp";
+import sucVehForTransHazMatImg02
+    from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_02.webp";
+import sucVehForTransHazMatImg03
+    from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_03.webp";
+import sucVehForTransHazMatImg04
+    from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_04.webp";
+import sucVehForTransHazMatImg05
+    from "../../../../../assets/images/products/pressure-vehicles/suction_veh_for_transp_haz_mat_05.webp";
 
 export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
     name: {
@@ -28,14 +33,19 @@ export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
         descriptionPL: (
             <>
                 <p>
-                    Pojazdy ssące, naczepy i przyczepy produkowane są do odbioru i transportu odpadów płynnych oraz substancji niebezpiecznych zgodnie z ADR. System podciśnieniowy i wysokociśnieniowy o różnej mocy oraz wielofunkcyjne ramię, pozwalają na indywidualne dopasowanie pojazdu do potrzeb użytkownika.
+                    Pojazdy ssące, naczepy i przyczepy produkowane są do odbioru i transportu odpadów płynnych oraz
+                    substancji niebezpiecznych zgodnie z ADR. System podciśnieniowy i wysokociśnieniowy o różnej mocy
+                    oraz wielofunkcyjne ramię, pozwalają na indywidualne dopasowanie pojazdu do potrzeb użytkownika.
                 </p>
             </>
         ),
         descriptionENG: (
             <>
                 <p>
-                    Suction vehicles, trailers, and semi-trailers are manufactured for the collection and transport of liquid waste and hazardous substances in accordance with ADR regulations. The vacuum and high-pressure systems, available in various power levels, along with a multifunctional boom, allow for customization of the vehicle to meet the user&#39;s specific needs.
+                    Suction vehicles, trailers, and semi-trailers are manufactured for the collection and transport of
+                    liquid waste and hazardous substances in accordance with ADR regulations. The vacuum and
+                    high-pressure systems, available in various power levels, along with a multifunctional boom, allow
+                    for customization of the vehicle to meet the user&#39;s specific needs.
                 </p>
             </>
         ),

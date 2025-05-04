@@ -1,6 +1,6 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MillingRobotsForSewerRepairAndRenovationCategory} from "../categories";
-import {MillingRobotsTags} from "../tags/milling-robots-tags";
+import {MillingRobotsTags} from "../tags";
 import electricMillingRobotImg01
     from "../../../../../assets/images/products/milling-robots/electric_milling_robot_01.webp";
 import electricMillingRobotImg02

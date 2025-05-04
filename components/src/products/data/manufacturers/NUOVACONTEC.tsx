@@ -1,4 +1,4 @@
-import {Manufacturer} from "../../../types/Manufacturer";
+import {Manufacturer} from "../../../types";
 import logo from "../../../../../assets/images/manufacturers/nuovacontec_logo.webp";
 
 export const NUOVACONTEC: Manufacturer = {

@@ -1,4 +1,4 @@
-import {Tag} from "../../../types/Tag";
+import {Tag} from "../../../types";
 
 const BuildInSystemsOnTheChassisTag: Tag = {
     namePL: "Systemy zabudowane na podwoziu",

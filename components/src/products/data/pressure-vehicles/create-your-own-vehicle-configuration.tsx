@@ -1,10 +1,14 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
-import customVehicleImg01 from "../../../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_01.webp";
-import customVehicleImg02 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_02.webp";
-import customVehicleImg03 from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_04.webp";
-import customVehicleImg04 from "../../../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_08.webp";
+import {PressureVehiclesTags} from "../tags";
+import customVehicleImg01
+    from "../../../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_01.webp";
+import customVehicleImg02
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_02.webp";
+import customVehicleImg03
+    from "../../../../../assets/images/products/pressure-vehicles/dual_function_suction_and_jetting_veh_04.webp";
+import customVehicleImg04
+    from "../../../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_08.webp";
 
 export const CreateYourOwnVehicleConfiguration: ProductItem = {
     name: {
@@ -26,7 +30,10 @@ export const CreateYourOwnVehicleConfiguration: ProductItem = {
         descriptionPL: (
             <>
                 <p>
-                    Stwórz własny pojazd dostosowany do Twoich potrzeb. Oferujemy indywidualną konfigurację umożliwiającą idealne dopasowanie do infrastruktury miejskiej. Wybieraj spośród różnych rodzajów podwozia, rozmiarów zbiorników, długości ramienia oraz pomp ssących i ciśnieniowych. Dodatkowe zbiorniki po obu stronach zabudowy zapewniają jeszcze większą funkcjonalność.
+                    Stwórz własny pojazd dostosowany do Twoich potrzeb. Oferujemy indywidualną konfigurację
+                    umożliwiającą idealne dopasowanie do infrastruktury miejskiej. Wybieraj spośród różnych rodzajów
+                    podwozia, rozmiarów zbiorników, długości ramienia oraz pomp ssących i ciśnieniowych. Dodatkowe
+                    zbiorniki po obu stronach zabudowy zapewniają jeszcze większą funkcjonalność.
                 </p>
             </>
         ),
@@ -36,7 +43,9 @@ export const CreateYourOwnVehicleConfiguration: ProductItem = {
                     Create your own vehicle tailored to your needs.
                 </p>
                 <p>
-                    We offer an individual configuration that enables perfect adjustment to urban infrastructure. Choose from different chassis types, tank sizes, arm lengths, as well as suction and pressure pumps. Additional tanks on both sides of the structure ensure even greater functionality.
+                    We offer an individual configuration that enables perfect adjustment to urban infrastructure. Choose
+                    from different chassis types, tank sizes, arm lengths, as well as suction and pressure pumps.
+                    Additional tanks on both sides of the structure ensure even greater functionality.
                 </p>
             </>
         ),

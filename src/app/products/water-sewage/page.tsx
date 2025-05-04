@@ -2,10 +2,9 @@
 
 import Breadcrumbs from "../../../../components/src/common/breadcrumbs/breadcrumbs";
 import ProductsGrid from "../../../../components/src/products/products-grid";
-import {ProductsCategories} from "../../../../components/src/types/ProductsCategories";
+import {Category, Language, ProductItem, ProductsCategories} from "../../../../components/src/types";
 import ManufacturersFilters from "../../../../components/src/products/filters/manufacturers-filters";
-import {useEffect, useState, useMemo, Suspense} from "react";
-import {ProductItem} from "../../../../components/src/types/ProductItem";
+import {Suspense, useEffect, useMemo, useState} from "react";
 import TechnologyFilters from "../../../../components/src/products/filters/technology-filters";
 import {
     accessoriesItems,
@@ -15,11 +14,9 @@ import {
 } from "../../../../components/src/products/data/product-items";
 import CategoryFilters from "../../../../components/src/products/filters/category-filters";
 import {waterSewageProductItems} from "../../../../components/src/products/data/water-sewage-product-items";
-import {Category} from "../../../../components/src/types/Category";
 import {waterSewageCategories} from "../../../../components/src/products/data/categories";
 import BackButton from "../../../../components/src/common/buttons/back-button";
 import {useLanguage} from "../../../../context/src/LanguageContext";
-import {Language} from "../../../../context/src/types/Language";
 import NextButton from "../../../../components/src/common/buttons/next-button";
 import PreviousButton from "../../../../components/src/common/buttons/previous-button";
 import PageButton from "../../../../components/src/common/buttons/page-button";
@@ -74,18 +71,18 @@ export default function WaterAndSewageProducts() {
                 >
                     <div className="w-80 shrink-0 mt-8">
                         <ManufacturersFilters
-                            setProducts={setProducts}
+                            setProductsAction={setProducts}
                             allProducts={allProducts}
                             category={ProductsCategories.WATER_SEWAGE}
                         />
                         <CategoryFilters
-                            setProducts={setProducts}
+                            setProductsAction={setProducts}
                             allProducts={allProducts}
                             categories={allCategories}
                         />
                         <Suspense fallback={<div>Loading filters...</div>}>
                             <TechnologyFilters
-                                setProducts={setProducts}
+                                setProductsAction={setProducts}
                                 allProducts={allProducts}
                                 categories={ProductsCategories.WATER_SEWAGE}
                             />

@@ -1,25 +1,22 @@
 'use client';
 
-import {ProductItem} from "../../types/ProductItem";
-import {ProductsCategories} from "../../types/ProductsCategories";
+import {Language, Manufacturer, ProductItem, ProductsCategories} from "../../types";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useState} from "react";
-import {Manufacturer} from "../../types/Manufacturer";
 import {IBAK} from "../data/manufacturers/IBAK";
-import {Language} from "../../../../context/src/types/Language";
 import {BECK} from "../data/manufacturers/BECK";
 import {NUOVACONTEC} from "../data/manufacturers/NUOVACONTEC";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 import {FeierabendAndFockGmbH} from "../data/manufacturers/FeierabendAndFockGmbH";
 
 type ManufacturersFiltersProps = {
-    setProducts: (products: ProductItem[]) => void,
+    setProductsAction: (products: ProductItem[]) => void,
     allProducts: ProductItem[],
     category: ProductsCategories,
 };
 
 export default function ManufacturersFilters({
-                                                 setProducts,
+                                                 setProductsAction,
                                                  allProducts,
                                                  category,
                                              }: ManufacturersFiltersProps) {
@@ -36,7 +33,7 @@ export default function ManufacturersFilters({
         setSelectedManufacturers(updatedManufacturers);
 
         if (updatedManufacturers.length === 0) {
-            setProducts(allProducts);
+            setProductsAction(allProducts);
         } else {
             const filteredProducts: ProductItem[] = allProducts.filter((product: ProductItem) =>
                     product.manufacturers && product.manufacturers.some(
@@ -46,13 +43,13 @@ export default function ManufacturersFilters({
                             )
                     )
             );
-            setProducts(filteredProducts);
+            setProductsAction(filteredProducts);
         }
     }
 
     function handleClearFilter() {
         setSelectedManufacturers([]);
-        setProducts(allProducts);
+        setProductsAction(allProducts);
     }
 
     const manufacturersForProductsByCategory = manufacturersByCategory(category);

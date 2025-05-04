@@ -1,11 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     RotatingAndVibratingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import ravedisImg01 from "../../../../../../../assets/images/products/nozzles/ravedis/ravedis-01.webp";
 import ravedisImg02 from "../../../../../../../assets/images/products/nozzles/ravedis/ravedis-02.webp";
 import ravedisImg03 from "../../../../../../../assets/images/products/nozzles/ravedis/ravedis-03.webp";

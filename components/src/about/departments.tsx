@@ -1,14 +1,14 @@
 'use client';
 
 import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../../../context/src/types/Language";
+import {Language} from "../types";
 import Image from "next/image";
 import waterAndSewageDep from "../../../assets/images/waterAndSewageDep.png";
 import maritimeDepImg from "../../../assets/images/meritimeDep.png";
 import {useState} from "react";
 import CheckButton from "../common/buttons/check-button";
 import HeaderDivider from "../common/header-divider";
-import { useIntersectionObserver } from "../../../hooks/useIntersectionObserver";
+import {useIntersectionObserver} from "../../../hooks/useIntersectionObserver";
 
 export default function Departments() {
     const {language} = useLanguage();

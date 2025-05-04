@@ -9,7 +9,7 @@ import explosiveProofInspecSys04
 import explosiveProofInspecSys05
     from "../../../../../assets/images/products/cameras/explosive_proof_inspec_sys_05.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
 
 export const ExplosiveProofInspectionSystems = {

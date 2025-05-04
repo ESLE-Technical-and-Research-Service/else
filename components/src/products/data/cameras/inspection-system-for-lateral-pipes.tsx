@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import inspectionSystemForLateralPipes01
     from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_01.webp";
 import inspectionSystemForLateralPipes02
@@ -12,7 +12,7 @@ import inspectionSystemForLateralPipes05
 import inspectionSystemForLateralPipes06
     from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_06.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 
 export const InspectionSystemForLateralPipes: ProductItem = {
     name: {

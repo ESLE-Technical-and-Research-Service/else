@@ -1,20 +1,29 @@
-import {ProductItem} from "../../../../../types/ProductItem";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {ProductItem} from "../../../../../types";
+import {AccessoriesTags} from "../../../tags";
 import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory
 } from "../../../categories";
-import warthogMagnumSwitcherImg01 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-01.webp";
-import warthogMagnumSwitcherImg02 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-02.webp";
-import warthogMagnumSwitcherImg03 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-03.webp";
-import warthogMagnumSwitcherImg04 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-04.webp";
-import warthogMagnumSwitcherImg05 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-05.webp";
-import warthogMagnumSwitcherImg06 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-06.webp";
-import warthogMagnumSwitcherImg07 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-07.webp";
-import warthogMagnumSwitcherImg08 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-08.webp";
-import warthogMagnumSwitcherImg09 from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-09.webp";
+import warthogMagnumSwitcherImg01
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-01.webp";
+import warthogMagnumSwitcherImg02
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-02.webp";
+import warthogMagnumSwitcherImg03
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-03.webp";
+import warthogMagnumSwitcherImg04
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-04.webp";
+import warthogMagnumSwitcherImg05
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-05.webp";
+import warthogMagnumSwitcherImg06
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-06.webp";
+import warthogMagnumSwitcherImg07
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-07.webp";
+import warthogMagnumSwitcherImg08
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-08.webp";
+import warthogMagnumSwitcherImg09
+    from "../../../../../../../assets/images/products/nozzles/warthog/warthog-magnum-switcher-09.webp";
 
 export const WarthogMagnumSwitcher: ProductItem = {
     name: {

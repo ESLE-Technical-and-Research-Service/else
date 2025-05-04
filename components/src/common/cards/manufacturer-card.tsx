@@ -1,7 +1,6 @@
-import {Language} from "../../../../context/src/types/Language";
+import {Language, Manufacturer} from "../../types";
 import Image from "next/image";
 import React from "react";
-import {Manufacturer} from "../../types/Manufacturer";
 
 type ManufacturerCardProps = {
     manufacturers: Manufacturer[],

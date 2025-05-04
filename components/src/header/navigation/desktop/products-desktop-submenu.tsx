@@ -2,7 +2,7 @@
 
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../../context/src/types/Language";
+import {Language} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
 import {useLanguage} from "../../../../../context/src/LanguageContext";
@@ -10,17 +10,17 @@ import {MenuItem, productsMenuItems} from "../config/products-menu-items";
 
 type ProductsDesktopSubmenuProps = {
     handleClickAction: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, submenu: string) => void;
-    onDropdownItemActivate: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void;
-    handleMouseEnter: (submenu: string) => void;
-    handleMouseLeave: () => void;
+    onDropdownItemActivateAction: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void;
+    handleMouseEnterAction: (submenu: string) => void;
+    handleMouseLeaveAction: () => void;
     hoveredSubmenu: string | null;
 }
 
 export default function ProductsDesktopSubmenu({
                                                    handleClickAction,
-                                                   onDropdownItemActivate,
-                                                   handleMouseEnter,
-                                                   handleMouseLeave,
+                                                   onDropdownItemActivateAction,
+                                                   handleMouseEnterAction,
+                                                   handleMouseLeaveAction,
                                                    hoveredSubmenu
                                                }: ProductsDesktopSubmenuProps) {
     const {language} = useLanguage();
@@ -38,8 +38,8 @@ export default function ProductsDesktopSubmenu({
                 <li
                     key={idx}
                     className={`${classes.navItem} relative`}
-                    onMouseEnter={() => handleMouseEnter(item.submenuName)}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={() => handleMouseEnterAction(item.submenuName)}
+                    onMouseLeave={handleMouseLeaveAction}
                 >
                     <div
                         key={idx + 1}
@@ -69,7 +69,7 @@ export default function ProductsDesktopSubmenu({
                             }`}
                             data-testid={`${item.submenuName}-submenu-desktop-items`}
                         >
-                            {renderDropdownItems(item.items, language, onDropdownItemActivate)}
+                            {renderDropdownItems(item.items, language, onDropdownItemActivateAction)}
                         </ul>
                     </div>
                 </li>

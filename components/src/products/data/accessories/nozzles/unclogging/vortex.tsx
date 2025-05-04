@@ -1,10 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
-    CleaningNozzlesForPressureVehiclesCategory, SmallUncloggingNozzlesCategory
+    CleaningNozzlesForPressureVehiclesCategory,
+    SmallUncloggingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import vortexImg01 from "../../../../../../../assets/images/products/nozzles/vortex/vortex-01.webp";
 import vortexImg02 from "../../../../../../../assets/images/products/nozzles/vortex/vortex-02.webp";
 

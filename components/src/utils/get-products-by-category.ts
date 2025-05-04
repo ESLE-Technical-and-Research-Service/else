@@ -7,7 +7,8 @@ import {
     pressureVehiclesItems
 } from "../products/data/product-items";
 import {
-    CamerasForSewageInspectionCategory, MillingRobotsForSewerRepairAndRenovationCategory,
+    CamerasForSewageInspectionCategory,
+    MillingRobotsForSewerRepairAndRenovationCategory,
     MultipurposeVehiclesForPressureSewerCleaningCategory
 } from "../products/data/categories";
 

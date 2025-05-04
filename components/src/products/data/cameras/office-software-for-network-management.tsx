@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import officeSoftware01 from "../../../../../assets/images/products/cameras/office_software_01.webp";
 import officeSoftware02 from "../../../../../assets/images/products/cameras/office_software_02.webp";
 import officeSoftware03 from "../../../../../assets/images/products/cameras/office_software_03.webp";
@@ -6,7 +6,7 @@ import officeSoftware04 from "../../../../../assets/images/products/cameras/offi
 import officeSoftware05 from "../../../../../assets/images/products/cameras/office_software_05.webp";
 import officeSoftware06 from "../../../../../assets/images/products/cameras/office_software_06.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 
 export const OfficeSoftwareForNetworkManagement: ProductItem = {
     name: {

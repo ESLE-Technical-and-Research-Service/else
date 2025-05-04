@@ -1,5 +1,4 @@
-import {Language} from "../../../../context/src/types/Language";
-import {Tag} from "../../types/Tag";
+import {Language, Tag} from "../../types";
 import Link from "next/link";
 import React from "react";
 

@@ -1,4 +1,4 @@
-import {Manufacturer} from "../../../types/Manufacturer";
+import {Manufacturer} from "../../../types";
 import logo from "../../../../../assets/images/manufacturers/assmann_sonderfahrzeuge.webp";
 
 export const ASSMANN: Manufacturer = {

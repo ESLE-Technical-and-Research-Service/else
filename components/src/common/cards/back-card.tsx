@@ -1,5 +1,5 @@
 import React from "react";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types/Language";
 import BackButton from "../buttons/back-button";
 
 interface BackCardProps {

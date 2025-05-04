@@ -1,10 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
-    CleaningNozzlesForPressureVehiclesCategory, RotatingAndVibratingNozzlesCategory
+    CleaningNozzlesForPressureVehiclesCategory,
+    RotatingAndVibratingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import rdsVImg01 from "../../../../../../../assets/images/products/nozzles/rds-v/rds-v-01.webp";
 import rdsVImg02 from "../../../../../../../assets/images/products/nozzles/rds-v/rds-v-02.webp";
 import rdsVImg03 from "../../../../../../../assets/images/products/nozzles/rds-v/rds-v-03.webp";

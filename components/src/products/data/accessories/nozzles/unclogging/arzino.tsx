@@ -1,11 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     SmallUncloggingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import arzinoImg01 from "../../../../../../../assets/images/products/nozzles/arzino/arzino-01.webp";
 import arzinoImg02 from "../../../../../../../assets/images/products/nozzles/arzino/arzino-02.webp";
 import arzinoImg03 from "../../../../../../../assets/images/products/nozzles/arzino/arzino-03.webp";

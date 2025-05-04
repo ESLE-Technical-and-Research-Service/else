@@ -2,7 +2,7 @@
 
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../../context/src/types/Language";
+import {Language} from "../../../types/Language";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
 import {useLanguage} from "../../../../../context/src/LanguageContext";
@@ -11,13 +11,13 @@ import {MenuItem, productsMenuItems} from "../config/products-menu-items";
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, dropdown: string) => void;
     dropdownSubmenu: string | null;
-    onDropdownItemActivate: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void;
+    onDropdownItemActivateAction: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void;
 }
 
 export default function ProductsMobileSubmenu({
                                                   handleClickAction,
                                                   dropdownSubmenu,
-                                                  onDropdownItemActivate
+                                                  onDropdownItemActivateAction
                                               }: ProductNavigationProps) {
     const {language} = useLanguage();
     const productsItems: MenuItem[] = productsMenuItems;
@@ -54,7 +54,7 @@ export default function ProductsMobileSubmenu({
                                 data-testid={`${item.submenuName}-mobile-submenu-items`}
                                 className={`mt-2 bg-white border-b border-t border-gray-300`}
                             >
-                                {renderDropdownItems(item.items, language, onDropdownItemActivate, true)}
+                                {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
                             </ul>
                         )
                     }

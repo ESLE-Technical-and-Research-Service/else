@@ -1,12 +1,18 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
-import automaticStreetInletsCleaningVehicles01 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_01.webp";
-import automaticStreetInletsCleaningVehicles02 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_02.webp";
-import automaticStreetInletsCleaningVehicles03 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_03.webp";
-import automaticStreetInletsCleaningVehicles04 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_04.webp";
-import automaticStreetInletsCleaningVehicles05 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_05.webp";
-import automaticStreetInletsCleaningVehicles06 from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_06.webp";
+import {PressureVehiclesTags} from "../tags";
+import automaticStreetInletsCleaningVehicles01
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_01.webp";
+import automaticStreetInletsCleaningVehicles02
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_02.webp";
+import automaticStreetInletsCleaningVehicles03
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_03.webp";
+import automaticStreetInletsCleaningVehicles04
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_04.webp";
+import automaticStreetInletsCleaningVehicles05
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_05.webp";
+import automaticStreetInletsCleaningVehicles06
+    from "../../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_06.webp";
 
 export const AutomaticStreetInletsCleaningVehicles: ProductItem = {
     name: {

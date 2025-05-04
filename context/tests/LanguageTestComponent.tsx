@@ -1,5 +1,5 @@
 import {useLanguage} from "../src/LanguageContext";
-import {Language} from "../src/types/Language";
+import {Language} from "../../components/src/types";
 
 export const LanguageTestComponent = () => {
     const { language, switchLanguage } = useLanguage();

@@ -1,5 +1,5 @@
-import {ProductItem} from "../../../../../types/ProductItem";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {ProductItem} from "../../../../../types";
+import {AccessoriesTags} from "../../../tags";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,

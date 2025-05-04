@@ -2,7 +2,7 @@ import {ProductItem} from "../types/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
 import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../../../context/src/types/Language";
+import {Language} from "../types/Language";
 
 type ProductsGridProps = {
     products: ProductItem[]

@@ -1,11 +1,15 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
+import {PressureVehiclesTags} from "../tags";
 import {FeierabendAndFockGmbH} from "../manufacturers/FeierabendAndFockGmbH";
-import compSuctionBarrelrsOnATrailerImg01 from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_01.webp";
-import compSuctionBarrelrsOnATrailerImg02 from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_02.webp";
-import compSuctionBarrelrsOnATrailerImg03 from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_03.webp";
-import compSuctionBarrelrsOnATrailerImg04 from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_04.webp";
+import compSuctionBarrelsOnATrailerImg01
+    from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_01.webp";
+import compSuctionBarrelsOnATrailerImg02
+    from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_02.webp";
+import compSuctionBarrelsOnATrailerImg03
+    from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_03.webp";
+import compSuctionBarrelsOnATrailerImg04
+    from "../../../../../assets/images/products/pressure-vehicles/compact_suction_barrels_on_a_trailer_04.webp";
 
 export const CompactSuctionBarrelsOnATrailer: ProductItem = {
     name: {
@@ -14,10 +18,10 @@ export const CompactSuctionBarrelsOnATrailer: ProductItem = {
     },
     href: "/products/water-sewage/pressure-vehicles/compact-suction-barrels-on-a-trailer",
     images: [
-        compSuctionBarrelrsOnATrailerImg01,
-        compSuctionBarrelrsOnATrailerImg02,
-        compSuctionBarrelrsOnATrailerImg03,
-        compSuctionBarrelrsOnATrailerImg04,
+        compSuctionBarrelsOnATrailerImg01,
+        compSuctionBarrelsOnATrailerImg02,
+        compSuctionBarrelsOnATrailerImg03,
+        compSuctionBarrelsOnATrailerImg04,
     ],
     description: {
         textPL: "Mała szerokość, idealna do manewrowania w wąskich obszarach, niska masa własna, duża objętość zbiornika, oszczędność miejsca, modułowa konstrukcja, idealne rozmieszczenie elementów dla optymalnego rozkładu masy, prosta konserwacja, duża paleta do układania węża.",

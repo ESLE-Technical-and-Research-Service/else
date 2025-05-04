@@ -1,14 +1,11 @@
 'use client';
 
 import {useEffect, useMemo, useState} from "react";
-import {ProductItem} from "../../../../../components/src/types/ProductItem";
+import {Language, ProductItem, ProductLinks, ProductsCategories, Tag} from "../../../../../components/src/types";
 import {usePathname, useSearchParams} from "next/navigation";
-import {Tag} from "../../../../../components/src/types/Tag";
-import {ProductLinks} from "../../../../../components/src/types/products";
 import HeroImage from "../../../../../components/src/hero/hero-image";
 import Breadcrumbs from "../../../../../components/src/common/breadcrumbs/breadcrumbs";
 import {FunnelIcon, XMarkIcon} from "@heroicons/react/24/outline";
-import TechnologyFilters from "../../../../../components/src/products/filters/technology-filters";
 import {waterSewageProductItems} from "../../../../../components/src/products/data/water-sewage-product-items";
 import ProductsGrid from "../../../../../components/src/products/products-grid";
 import {
@@ -22,13 +19,13 @@ import getProductsCategoriesByPathname from "../../../../../components/src/utils
 import getHeroImagesByPathname from "../../../../../components/src/utils/get-hero-images-by-pathname";
 import HeroTitleByPathnamegetHeroTitle from "../../../../../components/src/utils/get-hero-title-by-pathname";
 import BackButton from "../../../../../components/src/common/buttons/back-button";
-import {StaticImageData} from "next/image";
-import {ProductsCategories} from "../../../../../components/src/types/ProductsCategories";
-import CategoryFilters from "../../../../../components/src/products/filters/category-filters";
+import Image, {StaticImageData} from "next/image";
 import {accessoriesCategories} from "../../../../../components/src/products/data/categories";
-import {Language} from "../../../../../context/src/types/Language";
 import NextButton from "../../../../../components/src/common/buttons/next-button";
 import PreviousButton from "../../../../../components/src/common/buttons/previous-button";
+import logo from "../../../../../assets/images/logoElse.webp";
+import TechnologyFilters from "../../../../../components/src/products/filters/technology-filters";
+import CategoryFilters from "../../../../../components/src/products/filters/category-filters";
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
@@ -73,6 +70,25 @@ export default function WaterSewageProductLayout() {
         setCurrentPage(1);
     }, [products]);
 
+    if (!Object.values(ProductLinks).includes(slug as ProductLinks)) {
+        return (
+            <main className="w-full overflow-y-auto bg-[var(--foreground)]">
+                <div className="hidden md:flex w-full max-w-screen-2xl mx-auto mt-8 pt-4 pb-2">
+                    <Breadcrumbs/>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                    <Image src={logo} alt="ELSE logo" />
+                    <h2 className="text-2xl font-bold mt-8 text-center text-gray-800">
+                        {language === Language.PL ? "Wybrana kategoria nie istnieje" : "Selected category does not exist"}
+                    </h2>
+                    <div className="w-full flex justify-center pt-4 pb-2 mb-8">
+                        <BackButton />
+                    </div>
+                </div>
+            </main>
+        )
+    };
+
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)] mb-14 mt-4">
             <HeroImage
@@ -106,7 +122,7 @@ export default function WaterSewageProductLayout() {
                             <XMarkIcon className="h-6 w-6 text-gray-800"/>
                         </button>
                         <TechnologyFilters
-                            setProducts={setProducts}
+                            setProductsAction={setProducts}
                             allProducts={allProducts}
                             categories={productsCategories}
                         />
@@ -121,13 +137,13 @@ export default function WaterSewageProductLayout() {
                 <div className="w-80 shrink-0 mt-8">
                     {slug === ProductLinks.ACCESSORIES && (
                         <CategoryFilters
-                            setProducts={setProducts}
+                            setProductsAction={setProducts}
                             allProducts={allProducts}
                             categories={accessoriesCategories}
                         />
                     )}
                     <TechnologyFilters
-                        setProducts={setProducts}
+                        setProductsAction={setProducts}
                         allProducts={allProducts}
                         categories={productsCategories}
                     />

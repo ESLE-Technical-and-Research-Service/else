@@ -1,10 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
-    CleaningNozzlesForPressureVehiclesCategory, SmallUncloggingNozzlesCategory
+    CleaningNozzlesForPressureVehiclesCategory,
+    SmallUncloggingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import cellinaImg01 from "../../../../../../../assets/images/products/nozzles/cellina/cellina-01.webp";
 
 export const Cellina: ProductItem = {

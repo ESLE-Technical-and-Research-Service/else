@@ -1,19 +1,17 @@
 'use client';
 
 import {useLanguage} from "../../../../context/src/LanguageContext";
-import {Category} from "../../types/Category";
-import {Language} from "../../../../context/src/types/Language";
+import {Category, Language, ProductItem} from "../../types";
 import {useState} from "react";
-import {ProductItem} from "../../types/ProductItem";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 
 type CategoryFiltersProps = {
-    setProducts: (products: ProductItem[]) => void,
+    setProductsAction: (products: ProductItem[]) => void,
     allProducts: ProductItem[],
     categories: Category[],
 }
 
-export default function CategoryFilters({setProducts, allProducts, categories}: CategoryFiltersProps) {
+export default function CategoryFilters({setProductsAction, allProducts, categories}: CategoryFiltersProps) {
     const {language} = useLanguage();
     const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
 
@@ -28,20 +26,20 @@ export default function CategoryFilters({setProducts, allProducts, categories}: 
         setSelectedCategories(updatedCategories);
 
         if (updatedCategories.length === 0) {
-            setProducts(allProducts);
+            setProductsAction(allProducts);
         } else {
             const filteredProducts: ProductItem[] = allProducts.filter((product: ProductItem) =>
                     product.category && product.category.some(
                         (cat: Category | undefined) => cat && updatedCategories.includes(cat)
                     )
             );
-            setProducts(filteredProducts);
+            setProductsAction(filteredProducts);
         }
     }
 
     function handleClearFilter() {
         setSelectedCategories([]);
-        setProducts(allProducts);
+        setProductsAction(allProducts);
     }
 
     return (

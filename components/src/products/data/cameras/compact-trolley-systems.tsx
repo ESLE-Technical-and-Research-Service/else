@@ -6,8 +6,8 @@ import compactPortableSys05 from "../../../../../assets/images/products/cameras/
 import compactPortableSys06 from "../../../../../assets/images/products/cameras/compact_portable_sys_06.webp";
 import compactPortableSys07 from "../../../../../assets/images/products/cameras/compact_portable_sys_07.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
-import {ProductItem} from "../../../types/ProductItem";
+import {CamerasTags} from "../tags";
+import {ProductItem} from "../../../types";
 
 export const CompactTrolleySystems: ProductItem = {
     name: {

@@ -7,8 +7,8 @@ import pushrodPortableSys06 from "../../../../../assets/images/products/cameras/
 import pushrodPortableSys07 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_07.webp";
 import pushrodPortableSys08 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_08.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
-import {ProductItem} from "../../../types/ProductItem";
+import {CamerasTags} from "../tags";
+import {ProductItem} from "../../../types";
 
 export const PushrodPortableSystem: ProductItem = {
     name: {

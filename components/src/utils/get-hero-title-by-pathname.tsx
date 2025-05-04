@@ -1,4 +1,4 @@
-import {Language} from "../../../context/src/types/Language";
+import {Language} from "../types/Language";
 import {JSX} from "react";
 import {ProductLinks} from "../types/products";
 import HeroImageTitle from "../hero/hero-image-title";

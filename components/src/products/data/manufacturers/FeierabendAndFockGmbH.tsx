@@ -1,4 +1,4 @@
-import { Manufacturer } from "../../../types/Manufacturer";
+import {Manufacturer} from "../../../types";
 import logo from "../../../../../assets/images/manufacturers/feierabend_und_fock.png";
 
 export const FeierabendAndFockGmbH: Manufacturer = {

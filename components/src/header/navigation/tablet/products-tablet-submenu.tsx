@@ -2,7 +2,7 @@
 
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../../context/src/types/Language";
+import {Language} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
 import {useLanguage} from "../../../../../context/src/LanguageContext";
@@ -11,21 +11,20 @@ import {MenuItem, productsMenuItems} from "../config/products-menu-items";
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, submenu: string) => void;
     dropdownSubmenu: string | null;
-    onDropdownItemActivate: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void
+    onDropdownItemActivateAction: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void
 }
 
 export default function ProductsTabletSubmenu({
                                                   handleClickAction,
                                                   dropdownSubmenu,
-                                                  onDropdownItemActivate
+                                                  onDropdownItemActivateAction
                                               }: ProductNavigationProps) {
     const {language} = useLanguage();
-    const productsItems: MenuItem[] = productsMenuItems;
 
     return (
         <ul data-testid="products-tablet-dropdown-menu"
             className={`${classes.dropdownMenu} ${classes.tabletDropdown} mt-2 rounded-lg`}>
-            {productsItems.map((item: MenuItem) => (
+            {productsMenuItems.map((item: MenuItem) => (
                 <>
                     <li className={classes.navItem} key={item.submenuName}>
                         <Link
@@ -45,7 +44,7 @@ export default function ProductsTabletSubmenu({
                                 data-testid={`${item.submenuName}-submenu-tablet-items`}
                                 className={`mt-2 bg-[var(--foreground)] border-b border-t border-gray-300`}
                             >
-                                {renderDropdownItems(item.items, language, onDropdownItemActivate, true)}
+                                {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
                             </ul>
                         )
                     }

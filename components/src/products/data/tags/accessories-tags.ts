@@ -1,4 +1,4 @@
-import {Tag} from "../../../types/Tag";
+import {Tag} from "../../../types";
 
 const CleaningNozzlesTag: Tag = {
     namePL: "Głowice czyszczące",

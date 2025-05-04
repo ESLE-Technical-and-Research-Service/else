@@ -1,5 +1,5 @@
 import {CamerasTags} from "./cameras-tags";
-import {Tag} from "../../../types/Tag";
+import {Tag} from "../../../types";
 import {PressureVehiclesTags} from "./pressure-vehicles-tags";
 import {MillingRobotsTags} from "./milling-robots-tags";
 

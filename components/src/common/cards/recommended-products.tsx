@@ -1,8 +1,5 @@
-import {Language} from "../../../../context/src/types/Language";
-import {Tag} from "../../types/Tag";
-import {Category} from "../../types/Category";
+import {Category, Language, ProductItem, Tag} from "../../types";
 import getProductsByCategory from "../../utils/get-products-by-category";
-import {ProductItem} from "../../types/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
 

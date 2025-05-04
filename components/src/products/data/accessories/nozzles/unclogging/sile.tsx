@@ -1,10 +1,10 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory
 } from "../../../categories";
-import { AccessoriesTags } from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import sileImg01 from "../../../../../../../assets/images/products/nozzles/sile/sile-01.webp";
 import sileImg02 from "../../../../../../../assets/images/products/nozzles/sile/sile-02.webp";
 import sileImg03 from "../../../../../../../assets/images/products/nozzles/sile/sile-03.webp";

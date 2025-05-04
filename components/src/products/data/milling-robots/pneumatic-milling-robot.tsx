@@ -1,15 +1,23 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {ProductItem} from "../../../types";
 import {MillingRobotsForSewerRepairAndRenovationCategory} from "../categories";
-import {MillingRobotsTags} from "../tags/milling-robots-tags";
+import {MillingRobotsTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
-import pneumaticMillingRobotImg01 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_03.webp";
-import pneumaticMillingRobotImg02 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_05.webp";
-import pneumaticMillingRobotImg03 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_06.webp";
-import pneumaticMillingRobotImg04 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_07.webp";
-import pneumaticMillingRobotImg05 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_08.webp";
-import pneumaticMillingRobotImg06 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_09.webp";
-import pneumaticMillingRobotImg07 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_10.webp";
-import pneumaticMillingRobotImg08 from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_11.webp";
+import pneumaticMillingRobotImg01
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_03.webp";
+import pneumaticMillingRobotImg02
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_05.webp";
+import pneumaticMillingRobotImg03
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_06.webp";
+import pneumaticMillingRobotImg04
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_07.webp";
+import pneumaticMillingRobotImg05
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_08.webp";
+import pneumaticMillingRobotImg06
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_09.webp";
+import pneumaticMillingRobotImg07
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_10.webp";
+import pneumaticMillingRobotImg08
+    from "../../../../../assets/images/products/milling-robots/pneumatic_milling_robot_11.webp";
 
 export const PneumaticMillingRobot: ProductItem = {
     name: {

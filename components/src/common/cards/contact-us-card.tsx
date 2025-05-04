@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {ArrowRightIcon} from "@heroicons/react/24/outline";
 import React from "react";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types";
 
 type ContactUsCardProps = {
     lang: Language;

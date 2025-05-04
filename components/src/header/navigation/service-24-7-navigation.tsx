@@ -1,6 +1,6 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../../context/src/types/Language";
+import {Language} from "../../types/Language";
 import React from "react";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 

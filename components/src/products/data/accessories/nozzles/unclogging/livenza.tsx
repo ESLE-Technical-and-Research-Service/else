@@ -1,10 +1,11 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
-    CleaningNozzlesForPressureVehiclesCategory, SmallUncloggingNozzlesCategory
+    CleaningNozzlesForPressureVehiclesCategory,
+    SmallUncloggingNozzlesCategory
 } from "../../../categories";
-import {AccessoriesTags} from "../../../tags/accessories-tags";
+import {AccessoriesTags} from "../../../tags";
 import livenzaImg01 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-01.webp";
 import livenzaImg02 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-02.webp";
 import livenzaImg03 from "../../../../../../../assets/images/products/nozzles/livenza/livenza-03.webp";
