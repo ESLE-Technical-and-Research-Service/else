@@ -12,10 +12,14 @@ export default function ProductsGrid({products}: ProductsGridProps) {
     const {language} = useLanguage();
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div data-testid="products-grid-container" className="w-full max-w-7xl mx-auto px-4 py-8">
+            <div
+                data-testid="products-grid"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            >
                 {products.map((product, index) => (
                     <Link
+                        data-testid="product-link"
                         href={product.href}
                         key={index}
                         className="group bg-white overflow-hidden rounded-xl border border-gray-100 hover:border-gray-200 

@@ -46,6 +46,7 @@ export default function WaterAndSewageProducts() {
             setAllProducts(sortedProducts)
             setProducts(sortedProducts);
         }
+
         setupProducts()
     }, [sortedProducts]);
 
@@ -59,9 +60,12 @@ export default function WaterAndSewageProducts() {
     }, [products]);
 
     return (
-        <main className="w-full overflow-y-auto bg-[var(--foreground)]">
+        <main data-testid="water-sewage-department-products" className="w-full overflow-y-auto bg-[var(--foreground)]">
             <div className=" mb-14 mt-4">
-                <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2">
+                <div
+                    data-testid="water-sewage-departments-products-breadcrumbs"
+                    className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2"
+                >
                     <Breadcrumbs/>
                 </div>
 
@@ -69,7 +73,7 @@ export default function WaterAndSewageProducts() {
                 <div
                     className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0"
                 >
-                    <div className="w-80 shrink-0 mt-8">
+                    <div data-testid="water-sewage-departments-products-filters" className="w-80 shrink-0 mt-8">
                         <ManufacturersFilters
                             setProductsAction={setProducts}
                             allProducts={allProducts}
@@ -93,14 +97,18 @@ export default function WaterAndSewageProducts() {
 
                         {/* Pagination Controls */}
                         {totalPages > 1 && (
-                            <div className="flex justify-center items-center gap-2 mt-6">
+                            <div
+                                data-testid="water-sewage-department-products-pagination-controls"
+                                className="flex justify-center items-center gap-2 mt-6"
+                            >
                                 <PreviousButton
                                     currentPage={currentPage}
                                     setCurrentPage={setCurrentPage}
                                     language={language}
                                 />
                                 {Array.from({length: totalPages}, (_, i) => (
-                                    <PageButton page={i + 1} currentPage={currentPage} setCurrentPage={setCurrentPage} key={i} />
+                                    <PageButton page={i + 1} currentPage={currentPage} setCurrentPage={setCurrentPage}
+                                                key={i}/>
                                 ))}
                                 <NextButton
                                     currentPage={currentPage}
@@ -113,7 +121,7 @@ export default function WaterAndSewageProducts() {
                     </div>
                 </div>
                 <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
-                    <BackButton />
+                    <BackButton/>
                 </div>
             </div>
         </main>

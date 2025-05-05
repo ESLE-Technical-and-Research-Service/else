@@ -8,6 +8,7 @@ import {BECK} from "../data/manufacturers/BECK";
 import {NUOVACONTEC} from "../data/manufacturers/NUOVACONTEC";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 import {FeierabendAndFockGmbH} from "../data/manufacturers/FeierabendAndFockGmbH";
+import {ASSMANN} from "../data/manufacturers/ASSMANN";
 
 type ManufacturersFiltersProps = {
     setProductsAction: (products: ProductItem[]) => void,
@@ -55,28 +56,30 @@ export default function ManufacturersFilters({
     const manufacturersForProductsByCategory = manufacturersByCategory(category);
 
     return (
-        <main className="w-full bg-white rounded shadow p-4">
+        <main data-testid="manufacturers-filters-container" className="w-full bg-white rounded shadow p-4">
             <div className="flex justify-between items-center gap-2 mb-4">
                 <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
                     {language === Language.PL ? "Producenci:" : "Manufacturers:"}
                 </h2>
-                <FilterClearButton language={language} handleClearFilter={handleClearFilter} />
+                <FilterClearButton language={language} handleClearFilter={handleClearFilter}/>
             </div>
-            <div className="flex flex-col gap-2">
+            <div data-testid="manufacturers-filters" className="flex flex-col gap-2">
                 {
                     Object.values(manufacturersForProductsByCategory)
                         .sort((a: Manufacturer, b: Manufacturer) => a.name.localeCompare(b.name))
                         .map((manufacturer: Manufacturer, idx: number) => (
-                            <label key={idx} className="flex items-center gap-2 cursor-pointer">
-                                <input
-                                    type="checkbox"
-                                    checked={selectedManufacturers.includes(manufacturer.name)}
-                                    onChange={(e) => handleSetFilter(manufacturer.name, e.target.checked)}
-                                />
-                                <span className="text-black">
-                                    {manufacturer.name.toUpperCase()}
+                            <div key={idx}>
+                                <label key={idx} className="flex items-center gap-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedManufacturers.includes(manufacturer.name)}
+                                        onChange={(e) => handleSetFilter(manufacturer.name, e.target.checked)}
+                                    />
+                                    <span className="text-black">
+                                    {manufacturer.name}
                                 </span>
-                            </label>
+                                </label>
+                            </div>
                         ))
                 }
             </div>
@@ -95,6 +98,6 @@ function manufacturersByCategory(category: ProductsCategories): Manufacturer[] {
         case ProductsCategories.ACCESSORIES:
             return [NUOVACONTEC];
         default:
-            return [IBAK, BECK, NUOVACONTEC, FeierabendAndFockGmbH];
+            return [IBAK, BECK, NUOVACONTEC, FeierabendAndFockGmbH, ASSMANN];
     }
 }

@@ -22,7 +22,7 @@ export default function Breadcrumbs() {
     return (
         <nav className="text-medium text-gray-500 dark:text-gray-400 mb-4 mt-6 ml-8">
             <ol className="flex flex-wrap items-center space-x">
-                <li>
+                <li data-testid="breadcrumbs-home-link">
                     <Link href="/" className="hover:underline">
                         {
                             segments.length > 0 && <span className="mx-2">
@@ -49,7 +49,7 @@ export default function Breadcrumbs() {
                         <Fragment key={indx}>
                             <li>
                                 {isLast ? (
-                                    <span>{mappedName}</span>
+                                    <span data-testid="breadcrumbs-current-page-link">{mappedName}</span>
                                 ) : (
                                     <Link href={path} className="hover:underline">
                                         {mappedName}
