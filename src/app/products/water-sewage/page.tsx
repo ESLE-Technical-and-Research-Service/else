@@ -20,6 +20,7 @@ import {useLanguage} from "../../../../context/src/LanguageContext";
 import NextButton from "../../../../components/src/common/buttons/next-button";
 import PreviousButton from "../../../../components/src/common/buttons/previous-button";
 import PageButton from "../../../../components/src/common/buttons/page-button";
+import {ArrowLeftIcon, ArrowRightIcon, FunnelIcon, XMarkIcon} from "@heroicons/react/24/outline";
 
 export default function WaterAndSewageProducts() {
     const {language} = useLanguage();
@@ -55,6 +56,8 @@ export default function WaterAndSewageProducts() {
     const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
     const paginatedProducts = products.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE);
 
+    const [showFilters, setShowFilters] = useState<boolean>(false);
+
     useEffect(() => {
         setCurrentPage(1);
     }, [products]);
@@ -68,6 +71,50 @@ export default function WaterAndSewageProducts() {
                 >
                     <Breadcrumbs/>
                 </div>
+
+                {/* Mobile Filters Button */}
+                <div
+                    data-testid="water-sewage-product-filters-button-container-mobile"
+                    className="md:hidden px-4 pt-4"
+                >
+                    <button
+                        className="flex items-center gap-2 px-4 py-2 bg-gray-200 rounded text-gray-800"
+                        onClick={() => setShowFilters(true)}
+                    >
+                        <FunnelIcon className="h-5 w-5"/>
+                        Filters
+                    </button>
+                </div>
+
+                {/* Mobile Filters Drawer */}
+                {showFilters && (
+                    <div className="fixed inset-0 z-40 flex">
+                        <div className="absolute inset-0 bg-black opacity-40" onClick={() => setShowFilters(false)}></div>
+                        <div
+                            className="relative bg-white w-72 max-w-full h-full max-h-screen shadow-lg z-50 p-4 flex flex-col overflow-y-auto">
+                            <button className="self-end mb-4" onClick={() => setShowFilters(false)}>
+                                <XMarkIcon className="h-6 w-6 text-gray-800"/>
+                            </button>
+                            <Suspense fallback={<div>{language === Language.PL ? "Ładowanie filtrów..." : "Loading filters..."}</div>}>
+                                <ManufacturersFilters
+                                    setProductsAction={setProducts}
+                                    allProducts={allProducts}
+                                    category={ProductsCategories.WATER_SEWAGE}
+                                />
+                                <CategoryFilters
+                                    setProductsAction={setProducts}
+                                    allProducts={allProducts}
+                                    categories={allCategories}
+                                />
+                                <TechnologyFilters
+                                    setProductsAction={setProducts}
+                                    allProducts={allProducts}
+                                    categories={ProductsCategories.WATER_SEWAGE}
+                                />
+                            </Suspense>
+                        </div>
+                    </div>
+                )}
 
                 {/*    Desktop version      */}
                 <div
@@ -84,7 +131,7 @@ export default function WaterAndSewageProducts() {
                             allProducts={allProducts}
                             categories={allCategories}
                         />
-                        <Suspense fallback={<div>Loading filters...</div>}>
+                        <Suspense fallback={<div>{language === Language.PL ? "Ładowanie filtrów..." : "Loading filters..."}</div>}>
                             <TechnologyFilters
                                 setProductsAction={setProducts}
                                 allProducts={allProducts}
@@ -120,6 +167,52 @@ export default function WaterAndSewageProducts() {
                         )}
                     </div>
                 </div>
+
+                {/* ProductsGrid: Mobile Only */}
+                <div className="md:hidden px-4 py-8">
+                    <ProductsGrid products={paginatedProducts}/>
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                        <div className="flex justify-center items-center gap-2 mt-6">
+                            <button
+                                className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow transition-all duration-150 text-base focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                                disabled={currentPage === 1}
+                            >
+                                <ArrowLeftIcon className="h-5 w-5 text-gray-800"/>
+                            </button>
+                            {Array.from({length: totalPages}, (_, i) => (
+                                <button
+                                    key={i}
+                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border 
+                                    border-blue-200 font-semibold shadow text-base transition-all duration-150 
+                                    focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 
+                                    focus:border-[var(--main-color-secondary)] z-10 ${
+                                        currentPage === i + 1 
+                                            ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' 
+                                            : 'bg-white/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}
+                                            `}
+                                    onClick={() => setCurrentPage(i + 1)}
+                                >
+                                    {i + 1}
+                                </button>
+                            ))}
+                            <button
+                                className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300
+                                 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow
+                                 transition-all duration-150 text-base focus:outline-none
+                                 focus:ring-[var(--main-color-secondary)] focus:ring-2
+                                 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10
+                                 disabled:opacity-50 disabled:cursor-not-allowed"
+                                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                                disabled={currentPage === totalPages}
+                            >
+                                <ArrowRightIcon className="h-5 w-5 text-gray-800"/>
+                            </button>
+                        </div>
+                    )}
+                </div>
+
                 <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
                     <BackButton/>
                 </div>

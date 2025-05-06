@@ -24,18 +24,18 @@ export default function ProductsMobileSubmenu({
 
     return (
         <ul
-            data-testid="products-mobile-menu"
+            data-testid="products-mobile-menu-container"
             className={
                 `mt-2 bg-white border-b border-t border-gray-300`
             }
         >
-            {productsItems.map((item: MenuItem) => (
+            {productsItems.map((item: MenuItem, indx: number) => (
                 <li
-                    key={item.submenuName}
+                    key={indx}
                     className={classes.navItem}
                 >
                     <Link
-                        key={item.submenuName}
+                        key={indx + 1}
                         data-testid={`products-${item.submenuName}-mobile-submenu-link`}
                         className="hover:underline cursor-pointer flex items-center"
                         href={item.href}
@@ -50,7 +50,7 @@ export default function ProductsMobileSubmenu({
                     {
                         dropdownSubmenu === item.submenuName && (
                             <ul
-                                key={item.submenuName}
+                                key={indx + 2}
                                 data-testid={`${item.submenuName}-mobile-submenu-items`}
                                 className={`mt-2 bg-white border-b border-t border-gray-300`}
                             >

@@ -33,6 +33,7 @@ export default function Breadcrumbs() {
                 </li>
                 {segments.length > 0 &&
                     <ChevronRightIcon
+                        data-testid="breadcrumbs-arrow-icon"
                         className="inline-flex h-5 w-5 text-[var(--main-color-accent) mx-1] mr-1"
                         aria-hidden="true"
                     />
@@ -49,9 +50,17 @@ export default function Breadcrumbs() {
                         <Fragment key={indx}>
                             <li>
                                 {isLast ? (
-                                    <span data-testid="breadcrumbs-current-page-link">{mappedName}</span>
+                                    <span
+                                        data-testid="breadcrumbs-current-page-link"
+                                    >
+                                        {mappedName}
+                                    </span>
                                 ) : (
-                                    <Link href={path} className="hover:underline">
+                                    <Link
+                                        data-testid={`breadcrumbs-link-${segment}`}
+                                        href={path}
+                                        className="hover:underline"
+                                    >
                                         {mappedName}
                                     </Link>
                                 )}

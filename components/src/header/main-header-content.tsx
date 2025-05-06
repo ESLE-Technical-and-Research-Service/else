@@ -63,7 +63,11 @@ export default function MainHeaderContent() {
             >
                 <div className="p-4 flex flex-col gap-6">
                     <div className="flex justify-end">
-                        <button className="text-2xl font-bold" onClick={() => setIsMenuOpen(false)}>
+                        <button
+                            data-testid="mobile-menu-close-button"
+                            className="text-2xl font-bold"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
                             &times;
                         </button>
                     </div>

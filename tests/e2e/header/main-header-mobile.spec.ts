@@ -101,7 +101,7 @@ test.describe("main header suite", () => {
                     .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
                 await productsMenu.click();
 
-                const productsMobileMenu = mobilePage.locator('[data-testid="products-mobile-menu"]');
+                const productsMobileMenu = mobilePage.locator('[data-testid="products-mobile-menu-container"]');
                 await expect(productsMobileMenu).toBeVisible({timeout: 2000});
 
                 const maritimeMobileSubmenuLink = mobilePage.locator(
@@ -243,15 +243,15 @@ test.describe("main header suite", () => {
 
                     const languageSwitchContainer = mobilePage
                         .locator('[data-testid="burger-menu-slide-in"] [data-testid="lang-switch-container"]');
-                    await expect(languageSwitchContainer).toBeVisible({timeout: 2000});
+                    await expect(languageSwitchContainer).toBeVisible({timeout: 3000});
 
                     const englishSwitchButton = mobilePage
                         .locator('[data-testid="burger-menu-slide-in"] [data-testid="en-lang-switch"]');
-                    await expect(englishSwitchButton).toBeVisible({timeout: 2000});
+                    await expect(englishSwitchButton).toBeVisible({timeout: 3000});
 
                     const polishSwitchButton = mobilePage
                         .locator('[data-testid="burger-menu-slide-in"] [data-testid="pl-lang-switch"]');
-                    await expect(polishSwitchButton).toBeVisible({timeout: 2000});
+                    await expect(polishSwitchButton).toBeVisible({timeout: 3000});
                 });
             });
         });

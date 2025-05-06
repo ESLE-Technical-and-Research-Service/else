@@ -63,9 +63,15 @@ export default function TechnologyFilters({
     const productsTags = categoryTags(categories);
 
     return (
-        <main data-testid="technology-filters-container" className="w-full bg-white rounded shadow p-4">
+        <main
+            data-testid="technology-filters-container"
+            className="w-full bg-white rounded shadow p-4"
+        >
             <div className="flex justify-between items-center gap-2 mb-4">
-                <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
+                <h2
+                    data-testid="technology-filters-title"
+                    className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0"
+                >
                     {language === Language.PL ? "Technologia:" : "Technology:"}
                 </h2>
                 <FilterClearButton language={language} handleClearFilter={handleClearFilter}/>

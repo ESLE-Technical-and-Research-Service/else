@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import ProductNavigation from "./producs-navigation";
+import ProductNavigation from "./products-navigation";
 import AboutUsNavigation from "./about-us-navigation";
 import ServicesNavigation from "./services-navigation";
 import Service24by7Navigation from "./service-24-7-navigation";
 import ContactNavigation from "./contact-navigation";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
+import {useRouter} from "next/navigation";
 
 type MainNavigationProps = {
     isMobile?: boolean;
@@ -14,6 +15,7 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [dropdownSubmenu, setDropdownSubmenu] = useState<string | null>(null);
     const isTouchTablet = useIsTouchTablet();
+    const router = useRouter();
 
     const toggleDropdown = (menu: string) => {
         setOpenDropdown(openDropdown === menu ? null : menu);
@@ -29,6 +31,11 @@ export default function MainNavigation({isMobile = false}: MainNavigationProps) 
 
             if (menu === "water-sewage" || menu === "maritime") {
                 toggleDropdownSubmenu(menu);
+                if (menu === "water-sewage") {
+                    router.push("/products/water-sewage");
+                } else if (menu === "maritime") {
+                    router.push("/products/maritime");
+                }
             } else {
                 toggleDropdown(menu);
             }

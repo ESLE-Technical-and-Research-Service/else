@@ -1,15 +1,18 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "../../utils/openMainPageOnDesktop";
-import {navigateToWaterAndSewageProductsPage} from "../../utils/navigation/navigateProductsMenu";
+import {navigateToWaterAndSewageProductsPageOnDesktop} from "../../utils/navigation/navigateProductsMenuOnDesktop";
 import {
-    AccessoriesCategory, CamerasForSewageInspectionCategory,
+    AccessoriesCategory,
+    CamerasForSewageInspectionCategory,
     CleaningNozzlesCategory,
     CleaningNozzlesForPressureVehiclesCategory,
     MillingRobotsForSewerRepairAndRenovationCategory,
-    MultipurposeVehiclesForPressureSewerCleaningCategory, SmallUncloggingNozzlesCategory,
+    MultipurposeVehiclesForPressureSewerCleaningCategory,
+    SmallUncloggingNozzlesCategory,
     waterSewageCategories
 } from "../../../../components/src/products/data/categories";
 import {WaterSewageTags} from "../../../../components/src/products/data/tags";
+import {Language} from "../../../../components/src/types";
 
 test.describe("water sewage products suite", () => {
     test.describe("english version", () => {
@@ -17,8 +20,7 @@ test.describe("water sewage products suite", () => {
 
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser);
-            const waterAndeSewageMenuLink = await navigateToWaterAndSewageProductsPage(desktopPage)
-            await waterAndeSewageMenuLink.click();
+            await navigateToWaterAndSewageProductsPageOnDesktop(desktopPage);
         });
 
         test("display water and sewage products manufacturers names", async () => {
@@ -94,11 +96,11 @@ test.describe("water sewage products suite", () => {
             await productsContainer.waitFor({state: "visible"});
             await expect(productsContainer).toBeVisible();
 
-            const productsGridContainer = desktopPage.getByTestId("products-grid-container");
+            const productsGridContainer = desktopPage.getByTestId("products-grid-container").first();
             await productsGridContainer.waitFor({state: "visible"});
             await expect(productsGridContainer).toBeVisible();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
@@ -118,11 +120,11 @@ test.describe("water sewage products suite", () => {
         });
 
         test("display 16 products per page", async () => {
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).toBe(16);
 
             for (let i = 0; i < productsCount; i++) {
@@ -153,11 +155,11 @@ test.describe("water sewage products suite", () => {
             await cameraCategory.waitFor({state: "visible"});
             await cameraCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -193,11 +195,11 @@ test.describe("water sewage products suite", () => {
             await pressureVehicleCategory.waitFor({state: "visible"});
             await pressureVehicleCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -232,11 +234,11 @@ test.describe("water sewage products suite", () => {
             await millingRobotsCategory.waitFor({state: "visible"});
             await millingRobotsCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -271,11 +273,11 @@ test.describe("water sewage products suite", () => {
             await accessoryCategory.waitFor({state: "visible"});
             await accessoryCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -312,11 +314,11 @@ test.describe("water sewage products suite", () => {
                 await cleaningNozzleCategory.waitFor({state: "visible"});
                 await cleaningNozzleCategory.click();
 
-                const productsGrid = desktopPage.getByTestId("products-grid");
+                const productsGrid = desktopPage.getByTestId("products-grid").first();
                 await productsGrid.waitFor({state: "visible"});
                 await expect(productsGrid).toBeVisible();
 
-                const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+                const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
 
                 for (let i = 0; i < productsCount; i++) {
@@ -353,11 +355,11 @@ test.describe("water sewage products suite", () => {
                 await cleaningNozzleForPressureVehiclesCategory.waitFor({state: "visible"});
                 await cleaningNozzleForPressureVehiclesCategory.click();
 
-                const productsGrid = desktopPage.getByTestId("products-grid");
+                const productsGrid = desktopPage.getByTestId("products-grid").first();
                 await productsGrid.waitFor({state: "visible"});
                 await expect(productsGrid).toBeVisible();
 
-                const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+                const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
 
                 for (let i = 0; i < productsCount; i++) {
@@ -392,11 +394,11 @@ test.describe("water sewage products suite", () => {
             await uncloggingNozzleCategory.waitFor({state: "visible"});
             await uncloggingNozzleCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -422,8 +424,7 @@ test.describe("water sewage products suite", () => {
 
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser, "pl-PL");
-            const waterAndeSewageLink = await navigateToWaterAndSewageProductsPage(desktopPage);
-            await waterAndeSewageLink.click();
+            await navigateToWaterAndSewageProductsPageOnDesktop(desktopPage, Language.PL);
         });
 
         test("renders product filters with correct path and labels in polish", async () => {
@@ -440,11 +441,11 @@ test.describe("water sewage products suite", () => {
             await productsContainer.waitFor({state: "visible"});
             await expect(productsContainer).toBeVisible();
 
-            const productsGridContainer = desktopPage.getByTestId("products-grid-container");
+            const productsGridContainer = desktopPage.getByTestId("products-grid-container").first();
             await productsGridContainer.waitFor({state: "visible"});
             await expect(productsGridContainer).toBeVisible();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
@@ -520,11 +521,11 @@ test.describe("water sewage products suite", () => {
             await millingRobotsCategory.waitFor({state: "visible"});
             await millingRobotsCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -559,11 +560,11 @@ test.describe("water sewage products suite", () => {
             await accessoryCategory.waitFor({state: "visible"});
             await accessoryCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -598,11 +599,11 @@ test.describe("water sewage products suite", () => {
             await cameraCategory.waitFor({state: "visible"});
             await cameraCategory.click();
 
-            const productsGrid = desktopPage.getByTestId("products-grid");
+            const productsGrid = desktopPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
             await expect(productsGrid).toBeVisible();
 
-            const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+            const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
 
             for (let i = 0; i < productsCount; i++) {
@@ -640,11 +641,11 @@ test.describe("water sewage products suite", () => {
                 await cleaningNozzleCategory.waitFor({state: "visible"});
                 await cleaningNozzleCategory.click();
 
-                const productsGrid = desktopPage.getByTestId("products-grid");
+                const productsGrid = desktopPage.getByTestId("products-grid").first();
                 await productsGrid.waitFor({state: "visible"});
                 await expect(productsGrid).toBeVisible();
 
-                const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+                const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
 
                 for (let i = 0; i < productsCount; i++) {
@@ -681,11 +682,11 @@ test.describe("water sewage products suite", () => {
                 await cleaningNozzleForPressureVehiclesCategory.waitFor({state: "visible"});
                 await cleaningNozzleForPressureVehiclesCategory.click();
 
-                const productsGrid = desktopPage.getByTestId("products-grid");
+                const productsGrid = desktopPage.getByTestId("products-grid").first();
                 await productsGrid.waitFor({state: "visible"});
                 await expect(productsGrid).toBeVisible();
 
-                const productsCount = await desktopPage.locator('[data-testid="product-link"]').count();
+                const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
 
                 for (let i = 0; i < productsCount; i++) {

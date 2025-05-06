@@ -24,6 +24,7 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
 
     return (
         <div
+            data-testid="hero-image-container"
             className={`relative w-full overflow-hidden `}
             style={{ height: `${heroHeight ? heroHeight : 60}vh` }}
         >
@@ -34,6 +35,7 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
                     className={`absolute top-0 left-0 w-full h-full transition-opacity duration-2000 ease-in-out ${currentIndex === index ? "opacity-100" : "opacity-0"}`}
                 >
                     <Image
+                        data-testid={`hero-image-${index}`}
                         src={slide}
                         alt={`ELSE Hero Image ${index + 1}`}
                         fill
