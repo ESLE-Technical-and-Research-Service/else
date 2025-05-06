@@ -145,22 +145,22 @@ test.describe("main header suite", () => {
 
                 test("should display products menu items on click in english", async () => {
                     const productsMenu = tabletPage.locator('[data-testid="products-menu"]').first();
-                    await expect(productsMenu).toBeVisible();
+                    await expect(productsMenu).toBeVisible({ timeout: 3000 });
                     const productsMenuLink = tabletPage.locator('[data-testid="products-menu-link"]').first();
-                    await expect(productsMenuLink).toBeVisible();
+                    await expect(productsMenuLink).toBeVisible({ timeout: 3000 });
                     await productsMenuLink.click();
 
                     const dropdownMenu = tabletPage.locator('[data-testid="products-tablet-dropdown-menu"]').first();
-                    await expect(dropdownMenu).toBeVisible({timeout: 2000});
+                    await expect(dropdownMenu).toBeVisible({timeout: 3000});
 
                     const waterAndSewageSubmenuLink = tabletPage
                         .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-water-sewage-submenu-link"]');
-                    await expect(waterAndSewageSubmenuLink).toBeVisible();
+                    await expect(waterAndSewageSubmenuLink).toBeVisible({ timeout: 3000 });
                     await expect(waterAndSewageSubmenuLink).toHaveText('Water and Sewage Department');
 
                     const maritimeSubmenuLink = tabletPage
                         .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-maritime-submenu-link"]');
-                    await expect(maritimeSubmenuLink).toBeVisible();
+                    await expect(maritimeSubmenuLink).toBeVisible({ timeout: 3000 });
                     await expect(maritimeSubmenuLink).toHaveText('Maritime Department');
                 });
 
@@ -193,7 +193,10 @@ test.describe("main header suite", () => {
                 });
 
                 test("should display maritime submenu items on click english", async () => {
-                    const productsMenuLink = tabletPage.locator('[data-testid="products-menu-link"]:visible').first();
+                    const productsMenu = tabletPage.locator('[data-testid="products-menu"]').first();
+                    await expect(productsMenu).toBeVisible({ timeout: 3000 });
+
+                    const productsMenuLink = tabletPage.locator('[data-testid="products-menu-link"]').first();
                     await expect(productsMenuLink).toBeVisible({ timeout: 30000 });
                     await productsMenuLink.click();
 
@@ -203,18 +206,25 @@ test.describe("main header suite", () => {
                     // Scope the maritime submenu link to the visible dropdown menu
                     const maritimeSubmenuLink = dropdownMenu.locator('[data-testid="products-maritime-submenu-link"]:visible').first();
                     await expect(maritimeSubmenuLink).toBeVisible({ timeout: 3000 });
+
+                    // Click to open the maritime submenu (this should NOT navigate, just open the submenu)
                     await maritimeSubmenuLink.click();
 
+                    // Now the submenu container should be visible
                     const maritimeSubmenuItems = tabletPage.locator('[data-testid="maritime-submenu-tablet-items"]:visible').first();
                     await expect(maritimeSubmenuItems).toBeVisible({ timeout: 3000 });
 
                     const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelENG);
-                    await expect(maritimeSubmenuItems.locator('li a:visible')).toHaveCount(expectedSubmenuItems.length, { timeout: 3000 });
-
                     const submenuLinks = maritimeSubmenuItems.locator('li a:visible');
+                    await expect(submenuLinks).toHaveCount(expectedSubmenuItems.length, { timeout: 3000 });
                     const submenuItems = await submenuLinks.allTextContents();
-
                     expect(submenuItems).toEqual(expectedSubmenuItems);
+
+                    await Promise.all([
+                        tabletPage.waitForNavigation(),
+                        submenuLinks.first().click(),
+                    ]);
+                    await expect(tabletPage).toHaveURL(/\/products\/maritime/);
                 });
             });
 

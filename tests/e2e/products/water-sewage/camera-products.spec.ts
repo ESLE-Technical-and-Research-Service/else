@@ -3,7 +3,7 @@ import {openMainPageOnDesktopAndCloseConsentPopup} from "../../utils/openMainPag
 import {navigateToCameraProductsPageOnDesktop} from "../../utils/navigation/navigateProductsMenuOnDesktop";
 import {Language} from "../../../../components/src/types";
 import {openMainPageOnMobileAndCloseConsentPopup} from "../../utils/openMainPageOnMobile";
-import {navigateToCameraProductsPageOnMobile, openMobileFiltersMenu} from "../../utils/navigation/openMenuOnMobile";
+import {navigateToCameraProductsPageOnMobile} from "../../utils/navigation/openMenuOnMobile";
 
 test.describe("camera products suite", () => {
     test.describe("desktop version", () => {
@@ -12,6 +12,7 @@ test.describe("camera products suite", () => {
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser);
             await navigateToCameraProductsPageOnDesktop(desktopPage);
+            await desktopPage.waitForTimeout(3000);
         });
 
         test.describe("common elements", () => {

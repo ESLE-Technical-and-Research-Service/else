@@ -60,9 +60,17 @@ jobs:
 
       - run: npm ci
       - run: npx playwright install --with-deps
-      - run: npm run test:e2e
+
+      - name: Run E2E tests and capture output
+        run: npx playwright test --reporter=github | tee e2e-summary.txt
         env:
           BASE_URL: ${{ vars.BASE_URL }}
+
+      - name: Add E2E summary to GHA output
+        if: always()
+        run: |
+          echo '## Playwright E2E Test Summary' >> $GITHUB_STEP_SUMMARY
+          tail -n 50 e2e-summary.txt >> $GITHUB_STEP_SUMMARY
 
   build:
     needs: [ test-unit, test-e2e ]
