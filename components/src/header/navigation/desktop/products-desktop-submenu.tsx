@@ -24,7 +24,6 @@ export default function ProductsDesktopSubmenu({
                                                    hoveredSubmenu
                                                }: ProductsDesktopSubmenuProps) {
     const {language} = useLanguage();
-    const productsItems: MenuItem[] = productsMenuItems;
 
     return (
         <ul
@@ -34,7 +33,7 @@ export default function ProductsDesktopSubmenu({
                 absolute left-0 mt-2 w-64 bg-white border border-gray-300 shadow-lg rounded-lg z-10`
             }
         >
-            {productsItems.map((item: MenuItem, idx: number) => (
+            {productsMenuItems.map((item: MenuItem, idx: number) => (
                 <li
                     key={idx}
                     className={`${classes.navItem} relative`}

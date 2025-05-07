@@ -49,3 +49,15 @@ export async function navigateToCameraProductsPageOnTablet(page: Page, language:
     await cameraLink.waitFor({state: "visible"});
     await cameraLink.click();
 }
+
+export async function navigateToPressureVehiclesProductsPageOnTablet(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnTablet(page, language);
+
+    const waterAndSewageSubmenuTabletItems = page.getByTestId("water-sewage-submenu-tablet-items");
+    await waterAndSewageSubmenuTabletItems.waitFor({state: "visible"});
+    await expect(waterAndSewageSubmenuTabletItems).toBeVisible({timeout: 3000});
+
+    const pressureVehiclesLink = page.getByTestId("pressure-vehicles-dropdown-submenu-link");
+    await pressureVehiclesLink.waitFor({state: "visible"});
+    await pressureVehiclesLink.click();
+}

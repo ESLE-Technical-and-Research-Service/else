@@ -91,12 +91,22 @@ export default function WaterAndSewageProducts() {
 
                 {/* Mobile Filters Drawer */}
                 {showFilters && (
-                    <div className="fixed inset-0 z-40 flex">
+                    <div
+                        data-testid="water-sewage-departments-products-filters-drawer"
+                        className="fixed inset-0 z-40 flex"
+                    >
                         <div className="absolute inset-0 bg-black opacity-40" onClick={() => setShowFilters(false)}></div>
                         <div
+                            data-testid="water-sewage-departments-products-filters-close-button-container"
                             className="relative bg-white w-72 max-w-full h-full max-h-screen shadow-lg z-50 p-4 flex flex-col overflow-y-auto">
-                            <button className="self-end mb-4" onClick={() => setShowFilters(false)}>
-                                <XMarkIcon className="h-6 w-6 text-gray-800"/>
+                            <button
+                                className="self-end mb-4"
+                                onClick={() => setShowFilters(false)}
+                            >
+                                <XMarkIcon
+                                    data-testid="water-sewage-departments-products-filters-close-button"
+                                    className="h-6 w-6 text-gray-800"
+                                />
                             </button>
                             <Suspense fallback={<div>{language === Language.PL ? "Ładowanie filtrów..." : "Loading filters..."}</div>}>
                                 <ManufacturersFilters

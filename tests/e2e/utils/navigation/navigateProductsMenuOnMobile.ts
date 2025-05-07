@@ -72,6 +72,22 @@ export async function openProductsFiltersMenuOnMobile(page: Page, language: Lang
     await filtersMenuButton.click();
 }
 
+export async function closeProductsFiltersMenuOnMobile(page: Page): Promise<void> {
+    const filtersDrawer = page.getByTestId("water-sewage-departments-products-filters-drawer");
+    await filtersDrawer.waitFor({ state: "visible" });
+    await expect(filtersDrawer).toBeVisible({ timeout: 3000 });
+
+    const filtersMenuButtonContainer = page.locator('[data-testid="water-sewage-departments-products-filters-close-button-container"]').first();
+    await filtersMenuButtonContainer.waitFor({ state: "visible" });
+    await expect(filtersMenuButtonContainer).toBeVisible({ timeout: 3000 });
+
+    const filtersMenuButton = page.locator('[data-testid="water-sewage-departments-products-filters-close-button"]').first();
+    await filtersMenuButton.waitFor({ state: "visible" });
+    await expect(filtersMenuButton).toBeVisible({ timeout: 3000 });
+
+    await filtersMenuButton.click();
+}
+
 export async function openMobileFiltersMenu(page: Page, language: Language = Language.ENG): Promise<void> {
     const filtersMenuButtonContainer = page.getByTestId("water-sewage-product-filters-button-container");
     await filtersMenuButtonContainer.waitFor({ state: "visible" });
@@ -132,4 +148,14 @@ export async function navigateToCameraProductsPageOnMobile(page: Page, language:
     await camerasSubmenuLink.waitFor({ state: "visible" });
     await expect(camerasSubmenuLink).toBeVisible();
     await camerasSubmenuLink.click();
+}
+
+export async function navigateToPressureVehiclesProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const pressureVehiclesSubmenuLink = burgerMenu.getByTestId("pressure-vehicles-dropdown-submenu-link");
+    await pressureVehiclesSubmenuLink.waitFor({ state: "visible" });
+    await expect(pressureVehiclesSubmenuLink).toBeVisible();
+    await pressureVehiclesSubmenuLink.click();
 }

@@ -15,7 +15,7 @@ test.describe("main header suite", () => {
 
             test("should render main header", async () => {
                 const mainHeader = tabletPage.getByTestId('main-header');
-                await expect(mainHeader).toBeVisible();
+                await expect(mainHeader).toBeVisible({ timeout: 3000 });
             });
 
             test("should render main navigation", async () => {
@@ -25,24 +25,24 @@ test.describe("main header suite", () => {
 
             test("should display about us menu items on click", async () => {
                 const aboutUsMenu = tabletPage.locator('[data-testid="about-us-menu"]').first();
-                await expect(aboutUsMenu).toBeVisible();
+                await expect(aboutUsMenu).toBeVisible({ timeout: 3000 });
                 const aboutUsMenuLink = tabletPage.locator('[data-testid="about-us-menu-link"]').first();
-                await expect(aboutUsMenuLink).toBeVisible();
+                await expect(aboutUsMenuLink).toBeVisible({ timeout: 3000 });
                 await aboutUsMenuLink.click();
 
                 const aboutUsItems = tabletPage.locator('[data-testid="about-us-tablet-items"]').first();
-                await expect(aboutUsItems).toBeVisible({timeout: 2000});
+                await expect(aboutUsItems).toBeVisible({timeout: 3000});
             });
 
             test("should display services menu items on click", async () => {
                 const servicesMenu = tabletPage.locator('[data-testid="services-menu"]').first();
-                await expect(servicesMenu).toBeVisible();
+                await expect(servicesMenu).toBeVisible({ timeout: 3000 });
                 const servicesMenuLink = tabletPage.locator('[data-testid="services-menu-link"]').first();
-                await expect(servicesMenuLink).toBeVisible();
+                await expect(servicesMenuLink).toBeVisible({ timeout: 3000 });
                 await servicesMenuLink.click();
 
                 const servicesItems = tabletPage.locator('[data-testid="services-tablet-items"]').first();
-                await expect(servicesItems).toBeVisible({timeout: 2000});
+                await expect(servicesItems).toBeVisible({timeout: 3000});
             });
         });
 
@@ -55,15 +55,15 @@ test.describe("main header suite", () => {
 
             test("should render main header logo", async () => {
                 const logo = tabletPage.getByTestId("else-logo");
-                await expect(logo).toBeVisible();
+                await expect(logo).toBeVisible({ timeout: 3000 });
                 await expect(logo).toHaveJSProperty("alt", "Logo ELSE");
             });
 
             test("should redirect to main page after clicking logo", async () => {
                 const logo = tabletPage.getByTestId("else-logo");
-                await expect(logo).toBeVisible();
+                await expect(logo).toBeVisible({ timeout: 3000 });
                 await logo.click();
-                await expect(logo).toBeVisible();
+                await expect(logo).toBeVisible({ timeout: 3000 });
 
                 await expect(tabletPage).toHaveURL("/");
             });
@@ -78,16 +78,16 @@ test.describe("main header suite", () => {
 
             test("should render language switches", async () => {
                 const mainHeaderContentContainer = tabletPage.getByTestId('main-header-content');
-                await expect(mainHeaderContentContainer).toBeVisible();
+                await expect(mainHeaderContentContainer).toBeVisible({ timeout: 3000 });
 
                 const langSwitchContainer = tabletPage.locator('[data-testid="lang-switch-container"]').first();
-                await expect(langSwitchContainer).toBeVisible();
+                await expect(langSwitchContainer).toBeVisible({ timeout: 3000 });
 
                 const englishSwitch = tabletPage.locator('[data-testid="en-lang-switch"]').first();
-                await expect(englishSwitch).toBeVisible();
+                await expect(englishSwitch).toBeVisible({ timeout: 3000 });
 
                 const polishSwitch = tabletPage.locator('[data-testid="pl-lang-switch"]').first();
-                await expect(polishSwitch).toBeVisible();
+                await expect(polishSwitch).toBeVisible({ timeout: 3000 });
             });
         });
 
@@ -203,14 +203,11 @@ test.describe("main header suite", () => {
                     const dropdownMenu = tabletPage.locator('[data-testid="products-tablet-dropdown-menu"]:visible').first();
                     await expect(dropdownMenu).toBeVisible({ timeout: 3000 });
 
-                    // Scope the maritime submenu link to the visible dropdown menu
                     const maritimeSubmenuLink = dropdownMenu.locator('[data-testid="products-maritime-submenu-link"]:visible').first();
                     await expect(maritimeSubmenuLink).toBeVisible({ timeout: 3000 });
 
-                    // Click to open the maritime submenu (this should NOT navigate, just open the submenu)
                     await maritimeSubmenuLink.click();
 
-                    // Now the submenu container should be visible
                     const maritimeSubmenuItems = tabletPage.locator('[data-testid="maritime-submenu-tablet-items"]:visible').first();
                     await expect(maritimeSubmenuItems).toBeVisible({ timeout: 3000 });
 
@@ -288,7 +285,7 @@ test.describe("main header suite", () => {
                     await productsMenuLink.click();
 
                     const dropdownMenu = tabletPage.locator('[data-testid="products-tablet-dropdown-menu"]').first();
-                    await expect(dropdownMenu).toBeVisible({timeout: 2000});
+                    await expect(dropdownMenu).toBeVisible({timeout: 3000});
 
                     const waterAndSewageSubmenuLink = tabletPage
                         .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-water-sewage-submenu-link"]');

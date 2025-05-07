@@ -60,3 +60,21 @@ export async function navigateToCameraProductsPageOnDesktop(page: Page, language
 
     await cameraLink.click();
 }
+
+export async function navigateToPressureVehicleProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateProductsMenuOnDesktop(page, language);
+    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+
+    const pressureVehiclesLink = page.getByTestId("pressure-vehicles-dropdown-submenu-link").first();
+    await pressureVehiclesLink.hover();
+    await expect(pressureVehiclesLink).toBeVisible();
+    const pressureVehiclesLinkText = await pressureVehiclesLink.textContent();
+
+    if (language === Language.PL) {
+        expect(pressureVehiclesLinkText).toBe("Samochody ciśnieniowe");
+    } else {
+        expect(pressureVehiclesLinkText).toBe("Pressure Vehicles");
+    }
+
+    await pressureVehiclesLink.click();
+}

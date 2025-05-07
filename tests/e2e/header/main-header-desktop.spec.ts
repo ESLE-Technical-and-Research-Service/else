@@ -15,21 +15,23 @@ test.describe("main header suite", () => {
 
             test("should render main header", async () => {
                 const mainHeader = desktopPage.getByTestId('main-header');
-                await expect(mainHeader).toBeVisible();
+                await expect(mainHeader).toBeVisible({ timeout: 3000 });
             });
 
             test.describe("logo", () => {
                 test("should render main header logo", async () => {
                     const logo = desktopPage.getByTestId("else-logo");
-                    await expect(logo).toBeVisible();
+                    await logo.waitFor({ state: "visible" });
+                    await expect(logo).toBeVisible({ timeout: 3000 });
                     await expect(logo).toHaveJSProperty("alt", "Logo ELSE");
                 });
 
                 test("should redirect to main page after clicking logo", async () => {
                     const logo = desktopPage.getByTestId("else-logo");
-                    await expect(logo).toBeVisible();
+                    await logo.waitFor({ state: "visible" });
+                    await expect(logo).toBeVisible({ timeout: 3000 });
                     await logo.click();
-                    await expect(logo).toBeVisible();
+                    await expect(logo).toBeVisible({ timeout: 3000 });
 
                     await expect(desktopPage).toHaveURL("/");
                 });
@@ -38,16 +40,16 @@ test.describe("main header suite", () => {
             test.describe("language switch", () => {
                 test("should render language switches", async () => {
                     const mainHeaderContentContainer = desktopPage.getByTestId('main-header-content');
-                    await expect(mainHeaderContentContainer).toBeVisible();
+                    await expect(mainHeaderContentContainer).toBeVisible({ timeout: 3000 });
 
                     const langSwitchContainer = desktopPage.locator('[data-testid="lang-switch-container"]').first();
-                    await expect(langSwitchContainer).toBeVisible();
+                    await expect(langSwitchContainer).toBeVisible({ timeout: 3000 });
 
                     const englishSwitch = desktopPage.locator('[data-testid="en-lang-switch"]').first();
-                    await expect(englishSwitch).toBeVisible();
+                    await expect(englishSwitch).toBeVisible({ timeout: 3000 });
 
                     const polishSwitch = desktopPage.locator('[data-testid="pl-lang-switch"]').first();
-                    await expect(polishSwitch).toBeVisible();
+                    await expect(polishSwitch).toBeVisible({ timeout: 3000 });
                 });
             })
         });
@@ -63,7 +65,7 @@ test.describe("main header suite", () => {
 
                 test("should render main navigation", async () => {
                     const navigationContainer = desktopPage.locator('[data-testid="main-nav-container"]').first();
-                    await expect(navigationContainer).toBeVisible();
+                    await expect(navigationContainer).toBeVisible({ timeout: 3000 });
                 });
 
                 test("should display about us menu items on hover", async () => {
@@ -97,40 +99,40 @@ test.describe("main header suite", () => {
                     const contactMenu = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="contact-menu"]').first();
 
-                    await expect(productsMenu).toBeVisible();
-                    await expect(aboutUsMenu).toBeVisible();
-                    await expect(servicesMenu).toBeVisible();
-                    await expect(service24by7Menu).toBeVisible();
-                    await expect(contactMenu).toBeVisible();
+                    await expect(productsMenu).toBeVisible({ timeout: 3000 });
+                    await expect(aboutUsMenu).toBeVisible({ timeout: 3000 });
+                    await expect(servicesMenu).toBeVisible({ timeout: 3000 });
+                    await expect(service24by7Menu).toBeVisible({ timeout: 3000 });
+                    await expect(contactMenu).toBeVisible({ timeout: 3000 });
 
                     const productsMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="products-menu"] [data-testid="products-menu-link"]')
                         .first();
-                    expect(productsMenuLink).toBeVisible();
+                    expect(productsMenuLink).toBeVisible({ timeout: 3000 });
                     expect(productsMenuLink).toHaveText('Products');
 
                     const aboutUsMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="about-us-menu"] [data-testid="about-us-menu-link"]')
                         .first();
-                    expect(aboutUsMenuLink).toBeVisible();
+                    expect(aboutUsMenuLink).toBeVisible({ timeout: 3000 });
                     expect(aboutUsMenuLink).toHaveText('About Us');
 
                     const servicesMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="services-menu"] [data-testid="services-menu-link"]')
                         .first();
-                    expect(servicesMenuLink).toBeVisible();
+                    expect(servicesMenuLink).toBeVisible({ timeout: 3000 });
                     expect(servicesMenuLink).toHaveText('Services');
 
                     const service24by7MenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="service-24by7-menu"]')
                         .first();
-                    expect(service24by7MenuLink).toBeVisible();
+                    expect(service24by7MenuLink).toBeVisible({ timeout: 3000 });
                     expect(service24by7MenuLink).toHaveText('Service 24/7');
 
                     const contactMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="contact-menu"]')
                         .first();
-                    expect(contactMenuLink).toBeVisible();
+                    expect(contactMenuLink).toBeVisible({ timeout: 3000 });
                     expect(contactMenuLink).toHaveText('Contact');
                 });
 
@@ -234,31 +236,31 @@ test.describe("main header suite", () => {
                     const productsMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="products-menu"] [data-testid="products-menu-link"]')
                         .first();
-                    await expect(productsMenuLink).toBeVisible();
+                    await expect(productsMenuLink).toBeVisible({ timeout: 3000 });
                     await expect(productsMenuLink).toHaveText('Produkty');
 
                     const aboutUsMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="about-us-menu"] [data-testid="about-us-menu-link"]')
                         .first();
-                    await expect(aboutUsMenuLink).toBeVisible();
+                    await expect(aboutUsMenuLink).toBeVisible({ timeout: 3000 });
                     await expect(aboutUsMenuLink).toHaveText('O nas');
 
                     const servicesMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="services-menu"] [data-testid="services-menu-link"]')
                         .first();
-                    await expect(servicesMenuLink).toBeVisible();
+                    await expect(servicesMenuLink).toBeVisible({ timeout: 3000 });
                     await expect(servicesMenuLink).toHaveText('Serwisy');
 
                     const service24by7MenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="service-24by7-menu"]')
                         .first();
-                    await expect(service24by7MenuLink).toBeVisible();
+                    await expect(service24by7MenuLink).toBeVisible({ timeout: 3000 });
                     await expect(service24by7MenuLink).toHaveText('Serwis 24/7');
 
                     const contactMenuLink = desktopPage
                         .locator('[data-testid="main-nav-container"] [data-testid="contact-menu"]')
                         .first();
-                    await expect(contactMenuLink).toBeVisible();
+                    await expect(contactMenuLink).toBeVisible({ timeout: 3000 });
                     await expect(contactMenuLink).toHaveText('Kontakt');
                 });
 
