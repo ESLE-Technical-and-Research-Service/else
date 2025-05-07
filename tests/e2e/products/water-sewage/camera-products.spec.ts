@@ -3,7 +3,12 @@ import {openMainPageOnDesktopAndCloseConsentPopup} from "../../utils/openMainPag
 import {navigateToCameraProductsPageOnDesktop} from "../../utils/navigation/navigateProductsMenuOnDesktop";
 import {Language} from "../../../../components/src/types";
 import {openMainPageOnMobileAndCloseConsentPopup} from "../../utils/openMainPageOnMobile";
-import {navigateToCameraProductsPageOnMobile} from "../../utils/navigation/openMenuOnMobile";
+import {
+    navigateToCameraProductsPageOnMobile,
+    openMobileFiltersMenu
+} from "../../utils/navigation/navigateProductsMenuOnMobile";
+import {openMainPageOnTabletAndCloseConsentPopup} from "../../utils/openMainPageOnTablet";
+import {navigateToCameraProductsPageOnTablet} from "../../utils/navigation/navigateProductsMenuOnTablet";
 
 test.describe("camera products suite", () => {
     test.describe("desktop version", () => {
@@ -209,13 +214,147 @@ test.describe("camera products suite", () => {
             await navigateToCameraProductsPageOnMobile(mobilePage);
         });
 
-        test("display products grid", async () => {
-            const productsGridContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-cameras");
-            await productsGridContainer.waitFor({ state: "visible" });
-            await expect(productsGridContainer).toBeVisible();
+        test.describe("common elements", () => {
+            test("display products grid with product titles and images", async () => {
+                const productsGridContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-cameras");
+                await productsGridContainer.waitFor({state: "visible"});
+                await expect(productsGridContainer).toBeVisible();
 
-            const productsCount = await mobilePage.locator('[data-testid="product-link"]').count();
-            expect(productsCount).not.toBe(0);
+                const visibleProducts = mobilePage.locator('[data-testid="product-link"]:visible');
+                const productsCount = await visibleProducts.count();
+                expect(productsCount).not.toBe(0);
+
+                for (let i = 0; i < productsCount; i++) {
+                    const product = visibleProducts.nth(i);
+
+                    const productTitle = await product.textContent();
+
+                    expect(productTitle).not.toBeNull();
+                    expect(productTitle).not.toBeUndefined();
+                    expect(productTitle).not.toBe("");
+                }
+            });
+        });
+
+        test.describe("english version", () => {
+            test("display products technology filters in english", async () => {
+                await openMobileFiltersMenu(mobilePage);
+
+                const technologyFiltersContainer = mobilePage.getByTestId("technology-filters-container").first();
+                await technologyFiltersContainer.waitFor({state: "visible"});
+                await expect(technologyFiltersContainer).toBeVisible({timeout: 3000});
+
+                const technologyFilters = mobilePage.getByTestId("technology-filters").first();
+                await expect(technologyFilters).toBeVisible({timeout: 3000});
+
+                const technologyFiltersTitle = mobilePage.getByTestId("technology-filters-title").first();
+                const technologyFiltersText = await technologyFiltersTitle.textContent();
+                expect(technologyFiltersText).toBe("Technology:");
+
+                const technologyFiltersCount = await mobilePage.locator('[data-testid="technology-filters"]').count();
+                expect(technologyFiltersCount).not.toBe(0);
+            });
+        });
+
+        test.describe("polish version", () => {
+            let mobilePage: Page;
+
+            test.beforeEach(async ({browser}) => {
+                mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser, "pl-PL");
+                await navigateToCameraProductsPageOnMobile(mobilePage, Language.PL);
+            });
+
+            test("display products technology filters in polish", async () => {
+                await openMobileFiltersMenu(mobilePage);
+
+                const technologyFiltersContainer = mobilePage.getByTestId("technology-filters-container").first();
+                await technologyFiltersContainer.waitFor({state: "visible"});
+                await expect(technologyFiltersContainer).toBeVisible({timeout: 3000});
+
+                const technologyFilters = mobilePage.getByTestId("technology-filters").first();
+                await expect(technologyFilters).toBeVisible({timeout: 3000});
+
+                const technologyFiltersTitle = mobilePage.getByTestId("technology-filters-title").first();
+                const technologyFiltersText = await technologyFiltersTitle.textContent();
+                expect(technologyFiltersText).toBe("Technologia:");
+
+                const technologyFiltersCount = await mobilePage.locator('[data-testid="technology-filters"]').count();
+                expect(technologyFiltersCount).not.toBe(0);
+            });
+        });
+    });
+
+    test.describe("tablet version", () => {
+        let tabletPage: Page;
+
+        test.beforeEach(async ({browser}) => {
+            tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser);
+            await navigateToCameraProductsPageOnTablet(tabletPage);
+        });
+
+        test.describe("common elements", () => {
+            test("display products grid with product titles and images", async () => {
+                const productsGridContainer = tabletPage.getByTestId("water-sewage-product-desktop-layout-container-cameras");
+                await productsGridContainer.waitFor({state: "visible"});
+                await expect(productsGridContainer).toBeVisible();
+
+                const visibleProducts = tabletPage.locator('[data-testid="product-link"]:visible');
+                const productsCount = await visibleProducts.count();
+                expect(productsCount).not.toBe(0);
+
+                for (let i = 0; i < productsCount; i++) {
+                    const product = visibleProducts.nth(i);
+
+                    const productTitle = await product.textContent();
+
+                    expect(productTitle).not.toBeNull();
+                    expect(productTitle).not.toBeUndefined();
+                    expect(productTitle).not.toBe("");
+                }
+            });
+        });
+
+        test.describe("english version", () => {
+            test("display products technology filters in english", async () => {
+                const technologyFiltersContainer = tabletPage.getByTestId("technology-filters-container").first();
+                await technologyFiltersContainer.waitFor({state: "visible"});
+                await expect(technologyFiltersContainer).toBeVisible({timeout: 3000});
+
+                const technologyFilters = tabletPage.getByTestId("technology-filters").first();
+                await expect(technologyFilters).toBeVisible({timeout: 3000});
+
+                const technologyFiltersTitle = tabletPage.getByTestId("technology-filters-title").first();
+                const technologyFiltersText = await technologyFiltersTitle.textContent();
+                expect(technologyFiltersText).toBe("Technology:");
+
+                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]').count();
+                expect(technologyFiltersCount).not.toBe(0);
+            });
+        });
+
+        test.describe("polish version", () => {
+            let tabletPage: Page;
+
+            test.beforeEach(async ({browser}) => {
+                tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser, "pl-PL");
+                await navigateToCameraProductsPageOnTablet(tabletPage, Language.PL);
+            });
+
+            test("display products technology filters in polish", async () => {
+                const technologyFiltersContainer = tabletPage.getByTestId("technology-filters-container").first();
+                await technologyFiltersContainer.waitFor({state: "visible"});
+                await expect(technologyFiltersContainer).toBeVisible({timeout: 3000});
+
+                const technologyFilters = tabletPage.getByTestId("technology-filters").first();
+                await expect(technologyFilters).toBeVisible({timeout: 3000});
+
+                const technologyFiltersTitle = tabletPage.getByTestId("technology-filters-title").first();
+                const technologyFiltersText = await technologyFiltersTitle.textContent();
+                expect(technologyFiltersText).toBe("Technologia:");
+
+                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]').count();
+                expect(technologyFiltersCount).not.toBe(0);
+            });
         });
     });
 });

@@ -20,7 +20,7 @@ export default function ProductsMobileSubmenu({
                                                   onDropdownItemActivateAction
                                               }: ProductNavigationProps) {
     const {language} = useLanguage();
-    const productsItems: MenuItem[] = productsMenuItems;
+
 
     return (
         <ul
@@ -29,7 +29,7 @@ export default function ProductsMobileSubmenu({
                 `mt-2 bg-white border-b border-t border-gray-300`
             }
         >
-            {productsItems.map((item: MenuItem, indx: number) => (
+            {productsMenuItems.map((item: MenuItem, indx: number) => (
                 <li
                     key={indx}
                     className={classes.navItem}

@@ -78,11 +78,14 @@ export default function WaterAndSewageProducts() {
                     className="md:hidden px-4 pt-4"
                 >
                     <button
+                        data-testid="water-sewage-products-filters-open-button"
                         className="flex items-center gap-2 px-4 py-2 bg-gray-200 rounded text-gray-800"
                         onClick={() => setShowFilters(true)}
                     >
                         <FunnelIcon className="h-5 w-5"/>
-                        Filters
+                        {
+                            language === Language.PL ? "Filtry" : "Filters"
+                        }
                     </button>
                 </div>
 
