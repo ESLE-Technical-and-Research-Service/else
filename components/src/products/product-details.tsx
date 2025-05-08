@@ -24,11 +24,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
 
     return (
         <section
+            data-testid="product-details-section"
             className="w-full flex flex-col md:flex-row gap-8 max-w-screen-2xl mx-auto
             bg-white rounded-xl shadow-lg overflow-hidden my-4 p-0 md:p-10"
         >
             {/* Left column: title, images, description, detailed description */}
             <div
+                data-testid="product-details-left-column"
                 className="w-full md:w-2/3 flex flex-col items-center bg-gray-50 p-4 sm:p-6
                 md:rounded-l-xl border-b md:border-b-0 md:border-r relative"
             >

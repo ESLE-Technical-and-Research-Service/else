@@ -21,12 +21,14 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
             <div className="w-full flex flex-col items-center relative">
                 {selectedImg && (
                     <div
+                        data-testid="images-viewer-card"
                         className="relative w-full aspect-[4/3] max-w-xs sm:max-w-xl mb-4 mx-auto flex
                             items-center justify-center"
                     >
                         {/* Left arrow */}
                         {images.length > 1 && selectedImgIdx > 0 && (
                             <button
+                                data-testid="images-viewer-card-left-arrow"
                                 type="button"
                                 onClick={() => setSelectedImgIdx(selectedImgIdx - 1)}
                                 className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80
@@ -38,6 +40,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                             </button>
                         )}
                         <button
+                            data-testid="images-viewer-card-current-image-button"
                             type="button"
                             className="relative w-full h-full rounded-lg overflow-hidden border shadow-sm
                                 bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -49,6 +52,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                         {/* Right arrow */}
                         {images.length > 1 && selectedImgIdx < images.length - 1 && (
                             <button
+                                data-testid="images-viewer-card-right-arrow"
                                 type="button"
                                 onClick={() => setSelectedImgIdx(selectedImgIdx + 1)}
                                 className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80
@@ -64,9 +68,13 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
 
                 {/* Thumbnails */}
                 {images.length > 1 && (
-                    <div className="flex gap-2 mt-3 flex-wrap justify-center">
+                    <div
+                        data-testid="images-viewer-card-thumbnails-container"
+                        className="flex gap-2 mt-3 flex-wrap justify-center"
+                    >
                         {images.map((img, idx) => (
                             <button
+                                data-testid="images-viewer-card-thumbnail-button"
                                 key={idx}
                                 type="button"
                                 onClick={() => setSelectedImgIdx(idx)}
@@ -83,12 +91,27 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
 
             {/* Dialog for high quality image */}
             {dialogOpen && selectedImg && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
-                     onClick={() => setDialogOpen(false)}>
-                    <div className="relative max-w-3xl w-full p-2 sm:p-4" onClick={e => e.stopPropagation()}>
-                        <button className="absolute top-2 right-2 text-white text-2xl font-bold z-10"
-                                onClick={() => setDialogOpen(false)}>&times;</button>
-                        <div className="relative w-full aspect-[4/3] bg-white rounded-lg overflow-hidden">
+                <div
+                    data-testid="image-viewer-dialog-container"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+                    onClick={() => setDialogOpen(false)}
+                >
+                    <div
+                        data-testid="image-viewer-dialog-content"
+                        className="relative max-w-3xl w-full p-2 sm:p-4"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button
+                            data-testid="image-viewer-dialog-full-image-close-button"
+                            className="absolute top-2 right-2 text-white text-2xl font-bold z-10"
+                            onClick={() => setDialogOpen(false)}
+                        >
+                            &times;
+                        </button>
+                        <div
+                            data-testid="image-viewer-dialog-full-image"
+                            className="relative w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
+                        >
                             <Image src={selectedImg} alt={productName + ' large'} fill style={{objectFit: 'contain'}}
                                    priority/>
                         </div>
@@ -96,5 +119,5 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                 </div>
             )}
         </>
-)
+    )
 }

@@ -24,19 +24,19 @@ test.describe("camera products suite", () => {
             test("display products grid with product titles and images", async () => {
                 const productsContainer = desktopPage.getByTestId("water-sewage-product-container-cameras");
                 await productsContainer.waitFor({state: "visible"});
-                await expect(productsContainer).toBeVisible();
+                await expect(productsContainer).toBeVisible({ timeout: 3000 });
 
                 const cameraProductsGridContainer = desktopPage.getByTestId("water-sewage-product-grid-container-cameras");
                 await cameraProductsGridContainer.waitFor({state: "visible"});
-                await expect(cameraProductsGridContainer).toBeVisible();
+                await expect(cameraProductsGridContainer).toBeVisible({ timeout: 3000 });
 
                 const productsLayoutContainer = desktopPage.getByTestId("water-sewage-product-desktop-layout-container-cameras");
                 await productsLayoutContainer.waitFor({state: "visible"});
-                await expect(productsLayoutContainer).toBeVisible();
+                await expect(productsLayoutContainer).toBeVisible({ timeout: 3000 });
 
                 const productsGrid = desktopPage.getByTestId("products-grid-container").first();
                 await productsGrid.waitFor({state: "visible"});
-                await expect(productsGrid).toBeVisible();
+                await expect(productsGrid).toBeVisible({ timeout: 3000 });
 
                 const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
@@ -49,7 +49,7 @@ test.describe("camera products suite", () => {
                     expect(productTitle).not.toBeNull();
                     expect(productTitle).not.toBeUndefined();
                     expect(productTitle).not.toBe("");
-                    await expect(product.locator('img')).toBeVisible();
+                    await expect(product.locator('img')).toBeVisible({ timeout: 3000 });
                 }
             });
         });
@@ -58,36 +58,36 @@ test.describe("camera products suite", () => {
             test("display breadcrumbs for camera products in english", async () => {
                 const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-cameras");
                 await breadcrumbsContainer.waitFor({state: "visible"});
-                await expect(breadcrumbsContainer).toBeVisible();
+                await expect(breadcrumbsContainer).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link");
                 await breadcrumbsHomeLink.waitFor({state: "visible"});
-                await expect(breadcrumbsHomeLink).toBeVisible();
+                await expect(breadcrumbsHomeLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLinkText = await breadcrumbsHomeLink.textContent();
                 expect(breadcrumbsHomeLinkText).toBe("Home");
 
                 const breadcrumbsArrow = desktopPage.getByTestId("breadcrumbs-arrow-icon");
                 await breadcrumbsArrow.waitFor({state: "visible"});
-                await expect(breadcrumbsArrow).toBeVisible();
+                await expect(breadcrumbsArrow).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLink = desktopPage.getByTestId("breadcrumbs-link-products");
                 await breadcrumbsProductsLink.waitFor({state: "visible"});
-                await expect(breadcrumbsProductsLink).toBeVisible();
+                await expect(breadcrumbsProductsLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLinkText = await breadcrumbsProductsLink.textContent();
                 expect(breadcrumbsProductsLinkText).toBe("Products");
 
                 const breadcrumbsDepartmentLink = desktopPage.getByTestId("breadcrumbs-link-water-sewage");
                 await breadcrumbsDepartmentLink.waitFor({state: "visible"});
-                await expect(breadcrumbsDepartmentLink).toBeVisible();
+                await expect(breadcrumbsDepartmentLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsDepartmentLinkText = await breadcrumbsDepartmentLink.textContent();
                 expect(breadcrumbsDepartmentLinkText).toBe("Water and Sewage Department");
 
                 const breadcrumbCurrentPageItem = desktopPage.getByTestId("breadcrumbs-current-page-link");
                 await breadcrumbCurrentPageItem.waitFor({state: "visible"});
-                await expect(breadcrumbCurrentPageItem).toBeVisible();
+                await expect(breadcrumbCurrentPageItem).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbCurrentPageItemText = await breadcrumbCurrentPageItem.textContent();
                 expect(breadcrumbCurrentPageItemText).toBe("Cameras");
@@ -96,27 +96,27 @@ test.describe("camera products suite", () => {
             test("display products header with the hero image and title in english", async () => {
                 const heroImageTitle = desktopPage.getByTestId("hero-image-title");
                 await heroImageTitle.waitFor({state: "visible"});
-                await expect(heroImageTitle).toBeVisible();
+                await expect(heroImageTitle).toBeVisible({ timeout: 3000 });
 
                 const heroImageTitleText = await heroImageTitle.textContent();
                 expect(heroImageTitleText).toBe("Inspection Cameras for Sewers and Water Networks");
 
                 const heroImageContainer = desktopPage.getByTestId("hero-image-container");
                 await heroImageContainer.waitFor({state: "visible"});
-                await expect(heroImageContainer).toBeVisible();
+                await expect(heroImageContainer).toBeVisible({ timeout: 3000 });
 
                 const heroImage = desktopPage.getByTestId("hero-image-0");
                 await heroImage.waitFor({state: "visible"});
-                await expect(heroImage).toBeVisible();
+                await expect(heroImage).toBeVisible({ timeout: 3000 });
             });
 
             test("display products technology filters in english", async () => {
                 const technologyFiltersContainer = desktopPage.getByTestId("technology-filters-container");
                 await technologyFiltersContainer.waitFor({state: "visible"});
-                await expect(technologyFiltersContainer).toBeVisible();
+                await expect(technologyFiltersContainer).toBeVisible({ timeout: 3000 });
 
                 const technologyFilters = desktopPage.getByTestId("technology-filters");
-                await expect(technologyFilters).toBeVisible();
+                await expect(technologyFilters).toBeVisible({ timeout: 3000 });
                 const technologyFiltersTitle = desktopPage.getByTestId("technology-filters-title");
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technology:");
@@ -137,36 +137,36 @@ test.describe("camera products suite", () => {
             test("display breadcrumbs for camera products in polish", async () => {
                 const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-cameras");
                 await breadcrumbsContainer.waitFor({state: "visible"});
-                await expect(breadcrumbsContainer).toBeVisible();
+                await expect(breadcrumbsContainer).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link");
                 await breadcrumbsHomeLink.waitFor({state: "visible"});
-                await expect(breadcrumbsHomeLink).toBeVisible();
+                await expect(breadcrumbsHomeLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLinkText = await breadcrumbsHomeLink.textContent();
                 expect(breadcrumbsHomeLinkText).toBe("Strona główna");
 
                 const breadcrumbsArrow = desktopPage.getByTestId("breadcrumbs-arrow-icon");
                 await breadcrumbsArrow.waitFor({state: "visible"});
-                await expect(breadcrumbsArrow).toBeVisible();
+                await expect(breadcrumbsArrow).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLink = desktopPage.getByTestId("breadcrumbs-link-products");
                 await breadcrumbsProductsLink.waitFor({state: "visible"});
-                await expect(breadcrumbsProductsLink).toBeVisible();
+                await expect(breadcrumbsProductsLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLinkText = await breadcrumbsProductsLink.textContent();
                 expect(breadcrumbsProductsLinkText).toBe("Produkty");
 
                 const breadcrumbsDepartmentLink = desktopPage.getByTestId("breadcrumbs-link-water-sewage");
                 await breadcrumbsDepartmentLink.waitFor({state: "visible"});
-                await expect(breadcrumbsDepartmentLink).toBeVisible();
+                await expect(breadcrumbsDepartmentLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsDepartmentLinkText = await breadcrumbsDepartmentLink.textContent();
                 expect(breadcrumbsDepartmentLinkText).toBe("Dział WOD-KAN");
 
                 const breadcrumbCurrentPageItem = desktopPage.getByTestId("breadcrumbs-current-page-link");
                 await breadcrumbCurrentPageItem.waitFor({state: "visible"});
-                await expect(breadcrumbCurrentPageItem).toBeVisible();
+                await expect(breadcrumbCurrentPageItem).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbCurrentPageItemText = await breadcrumbCurrentPageItem.textContent();
                 expect(breadcrumbCurrentPageItemText).toBe("Kamery");
@@ -175,18 +175,18 @@ test.describe("camera products suite", () => {
             test("display products header with the hero image and title in polish", async () => {
                 const heroImageTitle = desktopPage.getByTestId("hero-image-title");
                 await heroImageTitle.waitFor({state: "visible"});
-                await expect(heroImageTitle).toBeVisible();
+                await expect(heroImageTitle).toBeVisible({ timeout: 3000 });
 
                 const heroImageTitleText = await heroImageTitle.textContent();
                 expect(heroImageTitleText).toBe("Kamery inspekcyjne do kanalizacji i sieci wodno-kanalizacyjnych");
 
                 const heroImageContainer = desktopPage.getByTestId("hero-image-container");
                 await heroImageContainer.waitFor({state: "visible"});
-                await expect(heroImageContainer).toBeVisible();
+                await expect(heroImageContainer).toBeVisible({ timeout: 3000 });
 
                 const heroImage = desktopPage.getByTestId("hero-image-0");
                 await heroImage.waitFor({state: "visible"});
-                await expect(heroImage).toBeVisible();
+                await expect(heroImage).toBeVisible({ timeout: 3000 });
             });
 
             test("display products technology filters in polish", async () => {
@@ -220,7 +220,7 @@ test.describe("camera products suite", () => {
             test("display products grid with product titles and images", async () => {
                 const productsGridContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-cameras");
                 await productsGridContainer.waitFor({state: "visible"});
-                await expect(productsGridContainer).toBeVisible();
+                await expect(productsGridContainer).toBeVisible({ timeout: 3000 });
 
                 const visibleProducts = mobilePage.locator('[data-testid="product-link"]:visible');
                 const productsCount = await visibleProducts.count();
@@ -298,7 +298,7 @@ test.describe("camera products suite", () => {
             test("display products grid with product titles and images", async () => {
                 const productsGridContainer = tabletPage.getByTestId("water-sewage-product-desktop-layout-container-cameras");
                 await productsGridContainer.waitFor({state: "visible"});
-                await expect(productsGridContainer).toBeVisible();
+                await expect(productsGridContainer).toBeVisible({ timeout: 3000 });
 
                 const visibleProducts = tabletPage.locator('[data-testid="product-link"]:visible');
                 const productsCount = await visibleProducts.count();

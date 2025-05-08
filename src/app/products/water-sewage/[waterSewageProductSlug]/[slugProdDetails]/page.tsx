@@ -1,13 +1,12 @@
 'use client';
 
 import {usePathname} from "next/navigation";
-import {ProductItem} from "../../../../../../components/src/types/ProductItem";
+import {Language, ProductItem} from "../../../../../../components/src/types";
 import getProductsListByCategory from "../../../../../../components/src/utils/get-products-by-category";
 import {useLanguage} from "../../../../../../context/src/LanguageContext";
 import Breadcrumbs from "../../../../../../components/src/common/breadcrumbs/breadcrumbs";
 import BackButton from "../../../../../../components/src/common/buttons/back-button";
 import ProductDetails from "../../../../../../components/src/products/product-details";
-import {Language} from "../../../../../../components/src/types/Language";
 import logo from "../../../../../../assets/images/logoElse.webp";
 import Image from "next/image";
 
