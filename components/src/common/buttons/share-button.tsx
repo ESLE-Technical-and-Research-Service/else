@@ -10,6 +10,7 @@ type ShareButtonProps = {
 export default function ShareButton({title, lang}: ShareButtonProps) {
     return (
         <button
+            data-testid="share-button"
             type="button"
             onClick={() => {
                 if (navigator.share) {

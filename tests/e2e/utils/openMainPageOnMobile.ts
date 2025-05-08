@@ -9,6 +9,7 @@ export async function openMainPageOnMobile(browser: Browser, locale: string = "e
         ...devices['iPhone 13']
     });
     const page = await context.newPage();
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto(baseUrl);
     await page.waitForSelector("body");
     return page;

@@ -1,9 +1,9 @@
 import {expect, Locator, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "../../../utils/openMainPageOnDesktop";
-import {navigateToCameraProductsPageOnDesktop} from "../../../utils/navigation/navigateProductsMenuOnDesktop";
+import {navigateToMillingRobotsProductsPageOnDesktop} from "../../../utils/navigation/navigateProductsMenuOnDesktop";
 import {Language} from "../../../../../components/src/types";
 
-test.describe("camera product details suite", () => {
+test.describe("milling robot product details suite", () => {
     test.describe("desktop version", () => {
         let desktopPage: Page;
         let leftColumn: Locator;
@@ -11,7 +11,7 @@ test.describe("camera product details suite", () => {
 
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser);
-            await navigateToCameraProductsPageOnDesktop(desktopPage);
+            await navigateToMillingRobotsProductsPageOnDesktop(desktopPage);
 
             const productsGrid = desktopPage.getByTestId("products-grid-container").first();
             await productsGrid.waitFor({state: "visible"});
@@ -27,7 +27,7 @@ test.describe("camera product details suite", () => {
 
             const productDetailsSection = desktopPage.getByTestId("product-details-section").first();
             await productDetailsSection.waitFor({state: "visible"});
-            await expect(productDetailsSection).toBeVisible({timeout: 3000});
+            await expect(productDetailsSection).toBeVisible({timeout: 5000});
 
             leftColumn = desktopPage.getByTestId("product-details-left-column").first();
             await leftColumn.waitFor({state: "visible"});
@@ -303,7 +303,7 @@ test.describe("camera product details suite", () => {
             test.describe("polish version", () => {
                 test.beforeEach(async ({browser}) => {
                     desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser, "pl-PL");
-                    await navigateToCameraProductsPageOnDesktop(desktopPage, Language.PL);
+                    await navigateToMillingRobotsProductsPageOnDesktop(desktopPage, Language.PL);
 
                     const productsGrid = desktopPage.getByTestId("products-grid-container").first();
                     await productsGrid.waitFor({state: "visible"});

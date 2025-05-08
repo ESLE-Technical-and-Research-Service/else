@@ -11,8 +11,9 @@ export default function TagsCard({ tags, lang }: TagsCardProps) {
     return (
         <>
             {tags.length > 0 && (
-                <div className="mb-2">
+                <div data-testid="tags-card-container" className="mb-2">
                     <p
+                        data-testid="tags-card-title"
                         className="font-semibold text-gray-700 mr-2"
                     >
                         {lang === Language.PL ? "Tagi:" : "Tags:"}
@@ -21,6 +22,7 @@ export default function TagsCard({ tags, lang }: TagsCardProps) {
                         .filter(((tag: Tag | undefined): tag is Tag => !!tag))
                         .map((tag: Tag) => (
                         <Link
+                            data-testid="tags-card-link"
                             href={tag.link}
                             key={tag.link}
                             className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded mr-2 sm:mr-4 mt-2 text-sm sm:text-base hover:bg-blue-200"
