@@ -61,3 +61,15 @@ export async function navigateToPressureVehiclesProductsPageOnTablet(page: Page,
     await pressureVehiclesLink.waitFor({state: "visible"});
     await pressureVehiclesLink.click();
 }
+
+export async function navigateToMillingRobotsProductsPageOnTablet(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnTablet(page, language);
+
+    const waterAndSewageSubmenuTabletItems = page.getByTestId("water-sewage-submenu-tablet-items");
+    await waterAndSewageSubmenuTabletItems.waitFor({state: "visible"});
+    await expect(waterAndSewageSubmenuTabletItems).toBeVisible({timeout: 3000});
+
+    const millingRobotsLink = page.getByTestId("milling-robots-dropdown-submenu-link");
+    await millingRobotsLink.waitFor({state: "visible"});
+    await millingRobotsLink.click();
+}

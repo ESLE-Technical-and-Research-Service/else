@@ -159,3 +159,13 @@ export async function navigateToPressureVehiclesProductsPageOnMobile(page: Page,
     await expect(pressureVehiclesSubmenuLink).toBeVisible();
     await pressureVehiclesSubmenuLink.click();
 }
+
+export async function navigateToMillingRobotsProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const millingRobotsSubmenuLink = burgerMenu.getByTestId("milling-robots-dropdown-submenu-link");
+    await millingRobotsSubmenuLink.waitFor({ state: "visible" });
+    await expect(millingRobotsSubmenuLink).toBeVisible();
+    await millingRobotsSubmenuLink.click();
+}

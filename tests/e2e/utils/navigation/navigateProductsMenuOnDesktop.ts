@@ -78,3 +78,21 @@ export async function navigateToPressureVehicleProductsPageOnDesktop(page: Page,
 
     await pressureVehiclesLink.click();
 }
+
+export async function navigateToMillingRobotsProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateProductsMenuOnDesktop(page, language);
+    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+
+    const millingRobotsLink = page.getByTestId("milling-robots-dropdown-submenu-link").first();
+    await millingRobotsLink.hover();
+    await expect(millingRobotsLink).toBeVisible();
+    const millingRobotsLinkText = await millingRobotsLink.textContent();
+
+    if (language === Language.PL) {
+        expect(millingRobotsLinkText).toBe("Roboty frezujące");
+    } else {
+        expect(millingRobotsLinkText).toBe("Milling Robots");
+    }
+
+    await millingRobotsLink.click();
+}
