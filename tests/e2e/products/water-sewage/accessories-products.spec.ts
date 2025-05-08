@@ -1,127 +1,127 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "../../utils/openMainPageOnDesktop";
-import {navigateToCameraProductsPageOnDesktop} from "../../utils/navigation/navigateProductsMenuOnDesktop";
+import {navigateToAccessoriesProductsPageOnDesktop} from "../../utils/navigation/navigateProductsMenuOnDesktop";
 import {Language} from "../../../../components/src/types";
 import {openMainPageOnMobileAndCloseConsentPopup} from "../../utils/openMainPageOnMobile";
 import {
-    navigateToCameraProductsPageOnMobile,
+    navigateToAccessoriesProductsPageOnMobile,
     openMobileFiltersMenu
 } from "../../utils/navigation/navigateProductsMenuOnMobile";
 import {openMainPageOnTabletAndCloseConsentPopup} from "../../utils/openMainPageOnTablet";
-import {navigateToCameraProductsPageOnTablet} from "../../utils/navigation/navigateProductsMenuOnTablet";
+import {navigateToAccessoriesProductsPageOnTablet} from "../../utils/navigation/navigateProductsMenuOnTablet";
 
-test.describe("camera products suite", () => {
+test.describe("accessories products suite", () => {
     test.describe("desktop version", () => {
         let desktopPage: Page;
 
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser);
-            await navigateToCameraProductsPageOnDesktop(desktopPage);
+            await navigateToAccessoriesProductsPageOnDesktop(desktopPage);
             await desktopPage.waitForTimeout(3000);
         });
 
         test.describe("common elements", () => {
             test("display products grid with product titles and images", async () => {
-                const productsContainer = desktopPage.getByTestId("water-sewage-product-container-cameras");
+                const productsContainer = desktopPage.getByTestId("water-sewage-product-container-accessories").first();
                 await productsContainer.waitFor({state: "visible"});
-                await expect(productsContainer).toBeVisible();
+                await expect(productsContainer).toBeVisible({ timeout: 3000 });
 
-                const cameraProductsGridContainer = desktopPage.getByTestId("water-sewage-product-grid-container-cameras");
-                await cameraProductsGridContainer.waitFor({state: "visible"});
-                await expect(cameraProductsGridContainer).toBeVisible();
+                const accessoriesProductsGridContainer = desktopPage.getByTestId("water-sewage-product-grid-container-accessories").first();
+                await accessoriesProductsGridContainer.waitFor({state: "visible"});
+                await expect(accessoriesProductsGridContainer).toBeVisible({ timeout: 3000 });
 
-                const productsLayoutContainer = desktopPage.getByTestId("water-sewage-product-desktop-layout-container-cameras");
+                const productsLayoutContainer = desktopPage.getByTestId("water-sewage-product-desktop-layout-container-accessories").first();
                 await productsLayoutContainer.waitFor({state: "visible"});
-                await expect(productsLayoutContainer).toBeVisible();
+                await expect(productsLayoutContainer).toBeVisible({ timeout: 3000 });
 
                 const productsGrid = desktopPage.getByTestId("products-grid-container").first();
                 await productsGrid.waitFor({state: "visible"});
-                await expect(productsGrid).toBeVisible();
+                await expect(productsGrid).toBeVisible({ timeout: 3000 });
 
                 const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
                 expect(productsCount).not.toBe(0);
 
                 for (let i = 0; i < productsCount; i++) {
-                    const product = desktopPage.locator('[data-testid="product-link"]').nth(i);
+                    const product = desktopPage.locator('[data-testid="product-link"]:visible').nth(i);
                     await product.waitFor({state: "visible"});
                     const productTitle = await product.textContent();
 
                     expect(productTitle).not.toBeNull();
                     expect(productTitle).not.toBeUndefined();
                     expect(productTitle).not.toBe("");
-                    await expect(product.locator('img')).toBeVisible();
+                    await expect(product.locator('img')).toBeVisible({ timeout: 3000 });
                 }
             });
         });
 
         test.describe("english version", () => {
-            test("display breadcrumbs for camera products in english", async () => {
-                const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-cameras");
+            test("display breadcrumbs for accessories products in english", async () => {
+                const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-accessories").first();
                 await breadcrumbsContainer.waitFor({state: "visible"});
-                await expect(breadcrumbsContainer).toBeVisible();
+                await expect(breadcrumbsContainer).toBeVisible({ timeout: 3000 });
 
-                const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link");
+                const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link").first();
                 await breadcrumbsHomeLink.waitFor({state: "visible"});
-                await expect(breadcrumbsHomeLink).toBeVisible();
+                await expect(breadcrumbsHomeLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLinkText = await breadcrumbsHomeLink.textContent();
                 expect(breadcrumbsHomeLinkText).toBe("Home");
 
                 const breadcrumbsArrow = desktopPage.getByTestId("breadcrumbs-arrow-icon");
                 await breadcrumbsArrow.waitFor({state: "visible"});
-                await expect(breadcrumbsArrow).toBeVisible();
+                await expect(breadcrumbsArrow).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLink = desktopPage.getByTestId("breadcrumbs-link-products");
                 await breadcrumbsProductsLink.waitFor({state: "visible"});
-                await expect(breadcrumbsProductsLink).toBeVisible();
+                await expect(breadcrumbsProductsLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLinkText = await breadcrumbsProductsLink.textContent();
                 expect(breadcrumbsProductsLinkText).toBe("Products");
 
                 const breadcrumbsDepartmentLink = desktopPage.getByTestId("breadcrumbs-link-water-sewage");
                 await breadcrumbsDepartmentLink.waitFor({state: "visible"});
-                await expect(breadcrumbsDepartmentLink).toBeVisible();
+                await expect(breadcrumbsDepartmentLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsDepartmentLinkText = await breadcrumbsDepartmentLink.textContent();
                 expect(breadcrumbsDepartmentLinkText).toBe("Water and Sewage Department");
 
                 const breadcrumbCurrentPageItem = desktopPage.getByTestId("breadcrumbs-current-page-link");
                 await breadcrumbCurrentPageItem.waitFor({state: "visible"});
-                await expect(breadcrumbCurrentPageItem).toBeVisible();
+                await expect(breadcrumbCurrentPageItem).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbCurrentPageItemText = await breadcrumbCurrentPageItem.textContent();
-                expect(breadcrumbCurrentPageItemText).toBe("Cameras");
+                expect(breadcrumbCurrentPageItemText).toBe("Accessories");
             });
 
             test("display products header with the hero image and title in english", async () => {
-                const heroImageTitle = desktopPage.getByTestId("hero-image-title");
+                const heroImageTitle = desktopPage.getByTestId("hero-image-title").first();
                 await heroImageTitle.waitFor({state: "visible"});
-                await expect(heroImageTitle).toBeVisible();
+                await expect(heroImageTitle).toBeVisible({ timeout: 3000 });
 
                 const heroImageTitleText = await heroImageTitle.textContent();
-                expect(heroImageTitleText).toBe("Inspection Cameras for Sewers and Water Networks");
+                expect(heroImageTitleText).toBe("Accessories");
 
-                const heroImageContainer = desktopPage.getByTestId("hero-image-container");
+                const heroImageContainer = desktopPage.getByTestId("hero-image-container").first();
                 await heroImageContainer.waitFor({state: "visible"});
-                await expect(heroImageContainer).toBeVisible();
+                await expect(heroImageContainer).toBeVisible({ timeout: 3000 });
 
                 const heroImage = desktopPage.getByTestId("hero-image-0");
                 await heroImage.waitFor({state: "visible"});
-                await expect(heroImage).toBeVisible();
+                await expect(heroImage).toBeVisible({ timeout: 3000 });
             });
 
             test("display products technology filters in english", async () => {
-                const technologyFiltersContainer = desktopPage.getByTestId("technology-filters-container");
+                const technologyFiltersContainer = desktopPage.getByTestId("technology-filters-container").first();
                 await technologyFiltersContainer.waitFor({state: "visible"});
-                await expect(technologyFiltersContainer).toBeVisible();
+                await expect(technologyFiltersContainer).toBeVisible({ timeout: 3000 });
 
-                const technologyFilters = desktopPage.getByTestId("technology-filters");
-                await expect(technologyFilters).toBeVisible();
-                const technologyFiltersTitle = desktopPage.getByTestId("technology-filters-title");
+                const technologyFilters = desktopPage.getByTestId("technology-filters").first();
+                await expect(technologyFilters).toBeVisible({ timeout: 3000 });
+                const technologyFiltersTitle = desktopPage.getByTestId("technology-filters-title").first();
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technology:");
 
-                const technologyFiltersCount = await desktopPage.locator('[data-testid="technology-filters"]').count();
+                const technologyFiltersCount = await desktopPage.locator('[data-testid="technology-filters"]:visible').count();
                 expect(technologyFiltersCount).not.toBe(0);
             });
         });
@@ -131,78 +131,76 @@ test.describe("camera products suite", () => {
 
             test.beforeEach(async ({browser}) => {
                 desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser, "pl-PL");
-                await navigateToCameraProductsPageOnDesktop(desktopPage, Language.PL);
+                await navigateToAccessoriesProductsPageOnDesktop(desktopPage, Language.PL);
             });
 
-            test("display breadcrumbs for camera products in polish", async () => {
-                const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-cameras");
+            test("display breadcrumbs for accessories products in polish", async () => {
+                const breadcrumbsContainer = desktopPage.getByTestId("water-sewage-product-breadcrumbs-container-accessories").first();
                 await breadcrumbsContainer.waitFor({state: "visible"});
-                await expect(breadcrumbsContainer).toBeVisible();
+                await expect(breadcrumbsContainer).toBeVisible({ timeout: 3000 });
 
-                const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link");
+                const breadcrumbsHomeLink = desktopPage.getByTestId("breadcrumbs-home-link").first();
                 await breadcrumbsHomeLink.waitFor({state: "visible"});
-                await expect(breadcrumbsHomeLink).toBeVisible();
+                await expect(breadcrumbsHomeLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsHomeLinkText = await breadcrumbsHomeLink.textContent();
                 expect(breadcrumbsHomeLinkText).toBe("Strona główna");
 
-                const breadcrumbsArrow = desktopPage.getByTestId("breadcrumbs-arrow-icon");
+                const breadcrumbsArrow = desktopPage.getByTestId("breadcrumbs-arrow-icon").first();
                 await breadcrumbsArrow.waitFor({state: "visible"});
-                await expect(breadcrumbsArrow).toBeVisible();
+                await expect(breadcrumbsArrow).toBeVisible({ timeout: 3000 });
 
-                const breadcrumbsProductsLink = desktopPage.getByTestId("breadcrumbs-link-products");
+                const breadcrumbsProductsLink = desktopPage.getByTestId("breadcrumbs-link-products").first();
                 await breadcrumbsProductsLink.waitFor({state: "visible"});
-                await expect(breadcrumbsProductsLink).toBeVisible();
+                await expect(breadcrumbsProductsLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsProductsLinkText = await breadcrumbsProductsLink.textContent();
                 expect(breadcrumbsProductsLinkText).toBe("Produkty");
 
-                const breadcrumbsDepartmentLink = desktopPage.getByTestId("breadcrumbs-link-water-sewage");
+                const breadcrumbsDepartmentLink = desktopPage.getByTestId("breadcrumbs-link-water-sewage").first();
                 await breadcrumbsDepartmentLink.waitFor({state: "visible"});
-                await expect(breadcrumbsDepartmentLink).toBeVisible();
+                await expect(breadcrumbsDepartmentLink).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbsDepartmentLinkText = await breadcrumbsDepartmentLink.textContent();
                 expect(breadcrumbsDepartmentLinkText).toBe("Dział WOD-KAN");
 
-                const breadcrumbCurrentPageItem = desktopPage.getByTestId("breadcrumbs-current-page-link");
+                const breadcrumbCurrentPageItem = desktopPage.getByTestId("breadcrumbs-current-page-link").first();
                 await breadcrumbCurrentPageItem.waitFor({state: "visible"});
-                await expect(breadcrumbCurrentPageItem).toBeVisible();
+                await expect(breadcrumbCurrentPageItem).toBeVisible({ timeout: 3000 });
 
                 const breadcrumbCurrentPageItemText = await breadcrumbCurrentPageItem.textContent();
-                expect(breadcrumbCurrentPageItemText).toBe("Kamery");
+                expect(breadcrumbCurrentPageItemText).toBe("Akcesoria");
             });
 
             test("display products header with the hero image and title in polish", async () => {
-                const heroImageTitle = desktopPage.getByTestId("hero-image-title");
+                const heroImageTitle = desktopPage.getByTestId("hero-image-title").first();
                 await heroImageTitle.waitFor({state: "visible"});
-                await expect(heroImageTitle).toBeVisible();
+                await expect(heroImageTitle).toBeVisible({ timeout: 3000 });
 
                 const heroImageTitleText = await heroImageTitle.textContent();
-                expect(heroImageTitleText).toBe("Kamery inspekcyjne do kanalizacji i sieci wodno-kanalizacyjnych");
+                expect(heroImageTitleText).toBe("Akcesoria");
 
-                const heroImageContainer = desktopPage.getByTestId("hero-image-container");
+                const heroImageContainer = desktopPage.getByTestId("hero-image-container").first();
                 await heroImageContainer.waitFor({state: "visible"});
-                await expect(heroImageContainer).toBeVisible();
+                await expect(heroImageContainer).toBeVisible({ timeout: 3000 });
 
                 const heroImage = desktopPage.getByTestId("hero-image-0");
                 await heroImage.waitFor({state: "visible"});
-                await expect(heroImage).toBeVisible();
+                await expect(heroImage).toBeVisible({ timeout: 3000 });
             });
 
             test("display products technology filters in polish", async () => {
-                const technologyFiltersContainer = desktopPage.getByTestId("technology-filters-container");
+                const technologyFiltersContainer = desktopPage.getByTestId("technology-filters-container").first();
                 await technologyFiltersContainer.waitFor({state: "visible"});
-                await expect(technologyFiltersContainer).toBeVisible({ timeout: 3000});
+                await expect(technologyFiltersContainer).toBeVisible({ timeout: 3000 });
 
-                const technologyFilters = desktopPage.getByTestId("technology-filters");
-                await technologyFilters.waitFor({state: "visible"});
+                const technologyFilters = desktopPage.getByTestId("technology-filters").first();
                 await expect(technologyFilters).toBeVisible({ timeout: 3000 });
-
-                const technologyFiltersTitle = desktopPage.getByTestId("technology-filters-title");
+                const technologyFiltersTitle = desktopPage.getByTestId("technology-filters-title").first();
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technologia:");
 
-                const technologyFiltersCount = await desktopPage.locator('[data-testid="technology-filters"]').count();
+                const technologyFiltersCount = await desktopPage.locator('[data-testid="technology-filters"]:visible').count();
                 expect(technologyFiltersCount).not.toBe(0);
             });
         });
@@ -213,14 +211,14 @@ test.describe("camera products suite", () => {
 
         test.beforeEach(async ({browser}) => {
             mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser);
-            await navigateToCameraProductsPageOnMobile(mobilePage);
+            await navigateToAccessoriesProductsPageOnMobile(mobilePage);
         });
 
         test.describe("common elements", () => {
             test("display products grid with product titles and images", async () => {
-                const productsGridContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-cameras");
+                const productsGridContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-accessories").first();
                 await productsGridContainer.waitFor({state: "visible"});
-                await expect(productsGridContainer).toBeVisible();
+                await expect(productsGridContainer).toBeVisible({ timeout: 3000 });
 
                 const visibleProducts = mobilePage.locator('[data-testid="product-link"]:visible');
                 const productsCount = await visibleProducts.count();
@@ -263,7 +261,7 @@ test.describe("camera products suite", () => {
 
             test.beforeEach(async ({browser}) => {
                 mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser, "pl-PL");
-                await navigateToCameraProductsPageOnMobile(mobilePage, Language.PL);
+                await navigateToAccessoriesProductsPageOnMobile(mobilePage, Language.PL);
             });
 
             test("display products technology filters in polish", async () => {
@@ -280,7 +278,7 @@ test.describe("camera products suite", () => {
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technologia:");
 
-                const technologyFiltersCount = await mobilePage.locator('[data-testid="technology-filters"]').count();
+                const technologyFiltersCount = await mobilePage.locator('[data-testid="technology-filters"]:visible').count();
                 expect(technologyFiltersCount).not.toBe(0);
             });
         });
@@ -291,14 +289,14 @@ test.describe("camera products suite", () => {
 
         test.beforeEach(async ({browser}) => {
             tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser);
-            await navigateToCameraProductsPageOnTablet(tabletPage);
+            await navigateToAccessoriesProductsPageOnTablet(tabletPage);
         });
 
         test.describe("common elements", () => {
             test("display products grid with product titles and images", async () => {
-                const productsGridContainer = tabletPage.getByTestId("water-sewage-product-desktop-layout-container-cameras");
+                const productsGridContainer = tabletPage.getByTestId("water-sewage-product-desktop-layout-container-accessories");
                 await productsGridContainer.waitFor({state: "visible"});
-                await expect(productsGridContainer).toBeVisible();
+                await expect(productsGridContainer).toBeVisible({ timeout: 3000 });
 
                 const visibleProducts = tabletPage.locator('[data-testid="product-link"]:visible');
                 const productsCount = await visibleProducts.count();
@@ -329,7 +327,7 @@ test.describe("camera products suite", () => {
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technology:");
 
-                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]').count();
+                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]:visible').count();
                 expect(technologyFiltersCount).not.toBe(0);
             });
         });
@@ -339,7 +337,7 @@ test.describe("camera products suite", () => {
 
             test.beforeEach(async ({browser}) => {
                 tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser, "pl-PL");
-                await navigateToCameraProductsPageOnTablet(tabletPage, Language.PL);
+                await navigateToAccessoriesProductsPageOnTablet(tabletPage, Language.PL);
             });
 
             test("display products technology filters in polish", async () => {
@@ -354,7 +352,7 @@ test.describe("camera products suite", () => {
                 const technologyFiltersText = await technologyFiltersTitle.textContent();
                 expect(technologyFiltersText).toBe("Technologia:");
 
-                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]').count();
+                const technologyFiltersCount = await tabletPage.locator('[data-testid="technology-filters"]:visible').count();
                 expect(technologyFiltersCount).not.toBe(0);
             });
         });

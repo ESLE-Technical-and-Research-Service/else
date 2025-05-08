@@ -1,9 +1,6 @@
 .navItem {
     position: relative;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    margin-left: 0.5rem;
-    margin-right: 0.8rem;
+    margin: 0.25rem 0.8rem 0.25rem 0.5rem;
 }
 
 .navItem.navItemSubmenu {
@@ -67,7 +64,7 @@
     left: 0;
     z-index: 1000;
     white-space: nowrap;
-    background-color: var(--foreground);
+    background-color: var(--background);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -100,7 +97,7 @@
     left: 0;
     z-index: 1000;
     white-space: nowrap;
-    background-color: var(--foreground);
+    background-color: var(--background);
     padding: 0.5rem 1rem;
     opacity: 1;
     visibility: visible;
@@ -119,7 +116,6 @@
 }
 
 .dropdownMenu li a:hover {
-    background-color: var(--foreground);
     color: var(--main-color-secondary);
 }
 

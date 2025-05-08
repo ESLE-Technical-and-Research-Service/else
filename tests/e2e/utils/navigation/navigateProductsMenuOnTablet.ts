@@ -73,3 +73,15 @@ export async function navigateToMillingRobotsProductsPageOnTablet(page: Page, la
     await millingRobotsLink.waitFor({state: "visible"});
     await millingRobotsLink.click();
 }
+
+export async function navigateToAccessoriesProductsPageOnTablet(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnTablet(page, language);
+
+    const waterAndSewageSubmenuTabletItems = page.getByTestId("water-sewage-submenu-tablet-items");
+    await waterAndSewageSubmenuTabletItems.waitFor({state: "visible"});
+    await expect(waterAndSewageSubmenuTabletItems).toBeVisible({timeout: 3000});
+
+    const accessoriesLink = page.getByTestId("accessories-dropdown-submenu-link");
+    await accessoriesLink.waitFor({state: "visible"});
+    await accessoriesLink.click();
+}

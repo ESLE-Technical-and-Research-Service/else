@@ -49,7 +49,7 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-0"></div>
 
             {/* Title Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-4">
+            <div className="absolute inset-0 text-8xl md:text-5xl lg:text-8xl flex flex-col items-center justify-center text-center text-white z-10 px-4">
                 {heroTitle}
             </div>
 

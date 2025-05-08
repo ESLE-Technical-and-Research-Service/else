@@ -18,7 +18,7 @@ export default function DepartmentCard({departmentDetails, language, isVisible, 
                         w-[500px] rounded-2xl shadow-xl text-center p-6 mt-10
                         transform transition-all duration-700 ease-out
                         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-                        hover:scale-105 transition duration-300 ease-in-out
+                        hover:scale-105 transition duration-300 ease-in-out bg-[var(--background)]
                         `}
         >
             <Image

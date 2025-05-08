@@ -20,7 +20,7 @@ export const renderDropdownItems = (
             <Link
                 data-testid={`${item.href.split("/").pop()?.toLowerCase()}-dropdown-submenu-link`}
                 href={item.href}
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-200 whitespace-nowrap"
+                className="block px-4 py-2 text-[var(--font-color)]  whitespace-nowrap"
                 onClick={onDropdownAction ? onDropdownAction(item.href) : undefined}
             >
                 {language === Language.PL ? item.labelPL : item.labelENG}

@@ -135,6 +135,15 @@ export async function navigateToWaterAndSewageProductsPageOnMobileAndCloseMenu(
         const waterAndSewageSubmenuLink = burgerMenu.getByTestId("products-water-sewage-mobile-submenu-link");
         await waterAndSewageSubmenuLink.waitFor({ state: "visible" });
         await expect(waterAndSewageSubmenuLink).toBeVisible({ timeout: 3000 });
+
+        const waterAndSewageSubmenuLinkText = await waterAndSewageSubmenuLink.textContent();
+
+        if (language === Language.PL) {
+            expect(waterAndSewageSubmenuLinkText).toBe("Dział WOD-KAN");
+        } else {
+            expect(waterAndSewageSubmenuLinkText).toBe("Water and Sewage Department");
+        }
+
         await waterAndSewageSubmenuLink.click();
 
         await closeMobileMenu(page);
@@ -147,6 +156,15 @@ export async function navigateToCameraProductsPageOnMobile(page: Page, language:
     const camerasSubmenuLink = burgerMenu.getByTestId("cameras-dropdown-submenu-link");
     await camerasSubmenuLink.waitFor({ state: "visible" });
     await expect(camerasSubmenuLink).toBeVisible();
+
+    const camerasSubmenuLinkText = await camerasSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(camerasSubmenuLinkText).toBe("Kamery");
+    } else {
+        expect(camerasSubmenuLinkText).toBe("Cameras");
+    }
+
     await camerasSubmenuLink.click();
 }
 
@@ -157,6 +175,15 @@ export async function navigateToPressureVehiclesProductsPageOnMobile(page: Page,
     const pressureVehiclesSubmenuLink = burgerMenu.getByTestId("pressure-vehicles-dropdown-submenu-link");
     await pressureVehiclesSubmenuLink.waitFor({ state: "visible" });
     await expect(pressureVehiclesSubmenuLink).toBeVisible();
+
+    const pressureVehiclesSubmenuLinkText = await pressureVehiclesSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(pressureVehiclesSubmenuLinkText).toBe("Pojazdy ciśnieniowe");
+    } else {
+        expect(pressureVehiclesSubmenuLinkText).toBe("Pressure Vehicles");
+    }
+
     await pressureVehiclesSubmenuLink.click();
 }
 
@@ -167,5 +194,33 @@ export async function navigateToMillingRobotsProductsPageOnMobile(page: Page, la
     const millingRobotsSubmenuLink = burgerMenu.getByTestId("milling-robots-dropdown-submenu-link");
     await millingRobotsSubmenuLink.waitFor({ state: "visible" });
     await expect(millingRobotsSubmenuLink).toBeVisible();
+
+    const millingRobotsSubmenuLinkText = await millingRobotsSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(millingRobotsSubmenuLinkText).toBe("Roboty frezujące");
+    } else {
+        expect(millingRobotsSubmenuLinkText).toBe("Milling Robots");
+    }
+
     await millingRobotsSubmenuLink.click();
+}
+
+export async function navigateToAccessoriesProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const accessoriesSubmenuLink = burgerMenu.getByTestId("accessories-dropdown-submenu-link");
+    await accessoriesSubmenuLink.waitFor({ state: "visible" });
+    await expect(accessoriesSubmenuLink).toBeVisible();
+
+    const accessoriesSubmenuLinkText = await accessoriesSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(accessoriesSubmenuLinkText).toBe("Akcesoria");
+    } else {
+        expect(accessoriesSubmenuLinkText).toBe("Accessories");
+    }
+
+    await accessoriesSubmenuLink.click();
 }

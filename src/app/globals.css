@@ -25,7 +25,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background: #f8f8f8;
-    --foreground: #b8b8b8;
+    --foreground: #dedede;
     --main-color: #332A1B;
     --main-color-secondary: #FF0000;
     --main-color-accent-dark: #9c0000;

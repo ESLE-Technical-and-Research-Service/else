@@ -96,3 +96,21 @@ export async function navigateToMillingRobotsProductsPageOnDesktop(page: Page, l
 
     await millingRobotsLink.click();
 }
+
+export async function navigateToAccessoriesProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateProductsMenuOnDesktop(page, language);
+    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+
+    const accessoriesLink = page.getByTestId("accessories-dropdown-submenu-link").first();
+    await accessoriesLink.hover();
+    await expect(accessoriesLink).toBeVisible();
+    const accessoriesLinkText = await accessoriesLink.textContent();
+
+    if (language === Language.PL) {
+        expect(accessoriesLinkText).toBe("Akcesoria");
+    } else {
+        expect(accessoriesLinkText).toBe("Accessories");
+    }
+
+    await accessoriesLink.click();
+}
