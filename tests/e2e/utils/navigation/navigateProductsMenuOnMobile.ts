@@ -208,6 +208,27 @@ export async function navigateToPressureVehiclesProductsPageOnMobile(page: Page,
     await pressureVehiclesSubmenuLink.click();
 }
 
+export async function navigateToPressureVehiclesProductsPageOnMobileAndCloseMenu(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const pressureVehiclesSubmenuLink = burgerMenu.getByTestId("pressure-vehicles-dropdown-submenu-link");
+    await pressureVehiclesSubmenuLink.waitFor({ state: "visible" });
+    await expect(pressureVehiclesSubmenuLink).toBeVisible();
+
+    const pressureVehiclesSubmenuLinkText = await pressureVehiclesSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(pressureVehiclesSubmenuLinkText).toBe("Samochody ciśnieniowe");
+    } else {
+        expect(pressureVehiclesSubmenuLinkText).toBe("Pressure Vehicles");
+    }
+
+    await pressureVehiclesSubmenuLink.click();
+
+    await closeMobileMenu(page);
+}
+
 export async function navigateToMillingRobotsProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateToWaterAndSewageProductsPageOnMobile(page, language);
 
@@ -265,4 +286,25 @@ export async function navigateToAccessoriesProductsPageOnMobile(page: Page, lang
     }
 
     await accessoriesSubmenuLink.click();
+}
+
+export async function navigateToAccessoriesProductsPageOnMobileAndCloseMenu(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const accessoriesSubmenuLink = burgerMenu.getByTestId("accessories-dropdown-submenu-link");
+    await accessoriesSubmenuLink.waitFor({ state: "visible" });
+    await expect(accessoriesSubmenuLink).toBeVisible();
+
+    const accessoriesSubmenuLinkText = await accessoriesSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(accessoriesSubmenuLinkText).toBe("Akcesoria");
+    } else {
+        expect(accessoriesSubmenuLinkText).toBe("Accessories");
+    }
+
+    await accessoriesSubmenuLink.click();
+
+    await closeMobileMenu(page);
 }

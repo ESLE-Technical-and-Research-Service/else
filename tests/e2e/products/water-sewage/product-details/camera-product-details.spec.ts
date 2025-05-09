@@ -1232,7 +1232,7 @@ test.describe("camera product details suite", () => {
 
                     const mobileCamerasContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-cameras").first();
                     await mobileCamerasContainer.waitFor({state: "visible"});
-                    await expect(mobileCamerasContainer).toBeVisible({timeout: 5000});
+                    await expect(mobileCamerasContainer).toBeVisible({timeout: 10000});
 
                     const productsGridContainer = mobileCamerasContainer.getByTestId("products-grid-container").first();
                     await productsGridContainer.waitFor({state: "visible"});

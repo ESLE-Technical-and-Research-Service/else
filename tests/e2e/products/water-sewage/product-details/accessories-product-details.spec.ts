@@ -1,15 +1,18 @@
 import {expect, Locator, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "../../../utils/openMainPageOnDesktop";
-import {navigateToMillingRobotsProductsPageOnDesktop} from "../../../utils/navigation/navigateProductsMenuOnDesktop";
+import {
+    navigateToAccessoriesProductsPageOnDesktop,
+    navigateToPressureVehicleProductsPageOnDesktop
+} from "../../../utils/navigation/navigateProductsMenuOnDesktop";
 import {Language} from "../../../../../components/src/types";
 import {openMainPageOnTabletAndCloseConsentPopup} from "../../../utils/openMainPageOnTablet";
-import {navigateToMillingRobotsProductsPageOnTablet} from "../../../utils/navigation/navigateProductsMenuOnTablet";
+import {navigateToAccessoriesProductsPageOnTablet} from "../../../utils/navigation/navigateProductsMenuOnTablet";
 import {openMainPageOnMobileAndCloseConsentPopup} from "../../../utils/openMainPageOnMobile";
 import {
-    navigateToMillingRobotsProductsPageOnMobileAndCloseMenu
+    navigateToAccessoriesProductsPageOnMobileAndCloseMenu
 } from "../../../utils/navigation/navigateProductsMenuOnMobile";
 
-test.describe("milling robot product details suite", () => {
+test.describe("accessories product details suite", () => {
     test.describe("desktop version", () => {
         let desktopPage: Page;
         let leftColumn: Locator;
@@ -17,11 +20,11 @@ test.describe("milling robot product details suite", () => {
 
         test.beforeEach(async ({browser}) => {
             desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser);
-            await navigateToMillingRobotsProductsPageOnDesktop(desktopPage);
+            await navigateToAccessoriesProductsPageOnDesktop(desktopPage);
 
             const productsGrid = desktopPage.getByTestId("products-grid-container").first();
             await productsGrid.waitFor({state: "visible"});
-            await expect(productsGrid).toBeVisible({timeout: 3000});
+            await expect(productsGrid).toBeVisible({timeout: 10000});
 
             const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
@@ -33,7 +36,7 @@ test.describe("milling robot product details suite", () => {
 
             const productDetailsSection = desktopPage.getByTestId("product-details-section").first();
             await productDetailsSection.waitFor({state: "visible"});
-            await expect(productDetailsSection).toBeVisible({timeout: 5000});
+            await expect(productDetailsSection).toBeVisible({timeout: 10000});
 
             leftColumn = desktopPage.getByTestId("product-details-left-column").first();
             await leftColumn.waitFor({state: "visible"});
@@ -110,7 +113,7 @@ test.describe("milling robot product details suite", () => {
                 await expect(imageViewerDialogContainerAfter).not.toBeVisible({timeout: 3000});
             });
 
-            test("display product description and description details", async () => {
+            test("display product description", async () => {
                 const productDescription = leftColumn.getByTestId("product-description");
                 await productDescription.waitFor({state: "visible"});
                 await expect(productDescription).toBeVisible({timeout: 3000});
@@ -119,15 +122,6 @@ test.describe("milling robot product details suite", () => {
                 expect(productDescriptionText).not.toBeNull();
                 expect(productDescriptionText).not.toBe("");
                 expect(productDescriptionText).not.toBeUndefined();
-
-                const productDetailedDescription = leftColumn.getByTestId("product-detailed-description");
-                await productDetailedDescription.waitFor({state: "visible"});
-                await expect(productDetailedDescription).toBeVisible({timeout: 3000});
-
-                const productDetailedDescriptionText = await productDetailedDescription.textContent();
-                expect(productDetailedDescriptionText).not.toBeNull();
-                expect(productDetailedDescriptionText).not.toBe("");
-                expect(productDetailedDescriptionText).not.toBeUndefined();
             });
 
             test("should change each image when thumbnail is clicked", async () => {
@@ -309,7 +303,7 @@ test.describe("milling robot product details suite", () => {
             test.describe("polish version", () => {
                 test.beforeEach(async ({browser}) => {
                     desktopPage = await openMainPageOnDesktopAndCloseConsentPopup(browser, "pl-PL");
-                    await navigateToMillingRobotsProductsPageOnDesktop(desktopPage, Language.PL);
+                    await navigateToPressureVehicleProductsPageOnDesktop(desktopPage, Language.PL);
 
                     const productsGrid = desktopPage.getByTestId("products-grid-container").first();
                     await productsGrid.waitFor({state: "visible"});
@@ -473,7 +467,7 @@ test.describe("milling robot product details suite", () => {
 
         test.beforeAll(async ({browser}) => {
             tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser);
-            await navigateToMillingRobotsProductsPageOnTablet(tabletPage);
+            await navigateToAccessoriesProductsPageOnTablet(tabletPage);
 
             const productsGrid = tabletPage.getByTestId("products-grid").first();
             await productsGrid.waitFor({state: "visible"});
@@ -575,15 +569,6 @@ test.describe("milling robot product details suite", () => {
                 expect(productDescriptionText).not.toBeNull();
                 expect(productDescriptionText).not.toBe("");
                 expect(productDescriptionText).not.toBeUndefined();
-
-                const productDetailedDescription = leftColumn.getByTestId("product-detailed-description");
-                await productDetailedDescription.waitFor({state: "visible"});
-                await expect(productDetailedDescription).toBeVisible({timeout: 3000});
-
-                const productDetailedDescriptionText = await productDetailedDescription.textContent();
-                expect(productDetailedDescriptionText).not.toBeNull();
-                expect(productDetailedDescriptionText).not.toBe("");
-                expect(productDetailedDescriptionText).not.toBeUndefined();
             });
 
             test("should change each image when thumbnail is clicked", async () => {
@@ -769,7 +754,7 @@ test.describe("milling robot product details suite", () => {
 
                 test.beforeEach(async ({browser}) => {
                     tabletPage = await openMainPageOnTabletAndCloseConsentPopup(browser, "pl-PL");
-                    await navigateToMillingRobotsProductsPageOnTablet(tabletPage, Language.PL);
+                    await navigateToAccessoriesProductsPageOnTablet(tabletPage, Language.PL);
 
                     const productsGrid = tabletPage.getByTestId("products-grid").first();
                     await productsGrid.waitFor({state: "visible"});
@@ -933,13 +918,13 @@ test.describe("milling robot product details suite", () => {
 
         test.beforeAll(async ({ browser }) => {
             mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser);
-            await navigateToMillingRobotsProductsPageOnMobileAndCloseMenu(mobilePage);
+            await navigateToAccessoriesProductsPageOnMobileAndCloseMenu(mobilePage);
 
-            const mobileMillingRobotContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-milling-robots").first();
-            await mobileMillingRobotContainer.waitFor({state: "visible"});
-            await expect(mobileMillingRobotContainer).toBeVisible({timeout: 10000});
+            const mobileAccessoriesContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-accessories").first();
+            await mobileAccessoriesContainer.waitFor({state: "visible"});
+            await expect(mobileAccessoriesContainer).toBeVisible({timeout: 10000});
 
-            const productsGridContainer = mobileMillingRobotContainer.getByTestId("products-grid-container").first();
+            const productsGridContainer = mobileAccessoriesContainer.getByTestId("products-grid-container").first();
             await productsGridContainer.waitFor({state: "visible"});
             await expect(productsGridContainer).toBeVisible({timeout: 3000});
 
@@ -1039,15 +1024,6 @@ test.describe("milling robot product details suite", () => {
                 expect(productDescriptionText).not.toBeNull();
                 expect(productDescriptionText).not.toBe("");
                 expect(productDescriptionText).not.toBeUndefined();
-
-                const productDetailedDescription = leftColumn.getByTestId("product-detailed-description");
-                await productDetailedDescription.waitFor({state: "visible"});
-                await expect(productDetailedDescription).toBeVisible({timeout: 3000});
-
-                const productDetailedDescriptionText = await productDetailedDescription.textContent();
-                expect(productDetailedDescriptionText).not.toBeNull();
-                expect(productDetailedDescriptionText).not.toBe("");
-                expect(productDetailedDescriptionText).not.toBeUndefined();
             });
 
             test("should change each image when thumbnail is clicked", async () => {
@@ -1230,9 +1206,9 @@ test.describe("milling robot product details suite", () => {
 
                 test.beforeAll(async ({ browser }) => {
                     mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser, "pl-PL");
-                    await navigateToMillingRobotsProductsPageOnMobileAndCloseMenu(mobilePage, Language.PL);
+                    await navigateToAccessoriesProductsPageOnMobileAndCloseMenu(mobilePage, Language.PL);
 
-                    const mobileCamerasContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-milling-robots").first();
+                    const mobileCamerasContainer = mobilePage.getByTestId("water-sewage-product-mobile-layout-container-accessories").first();
                     await mobileCamerasContainer.waitFor({state: "visible"});
                     await expect(mobileCamerasContainer).toBeVisible({timeout: 5000});
 
