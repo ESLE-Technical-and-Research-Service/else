@@ -1,6 +1,6 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../types/Language";
+import {Language} from "../../types";
 import React from "react";
 
 export type DropDownItem = {
@@ -20,7 +20,7 @@ export const renderDropdownItems = (
             <Link
                 data-testid={`${item.href.split("/").pop()?.toLowerCase()}-dropdown-submenu-link`}
                 href={item.href}
-                className="block px-4 py-2 text-[var(--font-color)]  whitespace-nowrap"
+                className="block px-4 py-2 text-[var(--font-color)]  whitespace-nowrap bg-white"
                 onClick={onDropdownAction ? onDropdownAction(item.href) : undefined}
             >
                 {language === Language.PL ? item.labelPL : item.labelENG}

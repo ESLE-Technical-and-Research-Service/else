@@ -32,7 +32,6 @@ export default function MainHeaderContent() {
         <>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center w-full">
-                {/*<div className="flex-none">/!* Logo *!/</div>*/}
                 <div className="flex-grow flex justify-center">
                     <MainNavigation />
                 </div>

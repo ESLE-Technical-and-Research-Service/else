@@ -45,7 +45,8 @@ export async function navigateToWaterAndSewageProductsPageOnDesktop(page: Page, 
 
 export async function navigateToCameraProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateProductsMenuOnDesktop(page, language);
-    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    const waterAndSewageLink = await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    await waterAndSewageLink.hover();
 
     const cameraLink = page.getByTestId("cameras-dropdown-submenu-link");
     await cameraLink.hover();
@@ -63,7 +64,8 @@ export async function navigateToCameraProductsPageOnDesktop(page: Page, language
 
 export async function navigateToPressureVehicleProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateProductsMenuOnDesktop(page, language);
-    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    const waterAndSewageLink = await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    await waterAndSewageLink.hover();
 
     const pressureVehiclesLink = page.getByTestId("pressure-vehicles-dropdown-submenu-link").first();
     await pressureVehiclesLink.hover();
@@ -81,7 +83,8 @@ export async function navigateToPressureVehicleProductsPageOnDesktop(page: Page,
 
 export async function navigateToMillingRobotsProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateProductsMenuOnDesktop(page, language);
-    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    const waterAndSewageLink = await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    await waterAndSewageLink.hover();
 
     const millingRobotsLink = page.getByTestId("milling-robots-dropdown-submenu-link").first();
     await millingRobotsLink.hover();
@@ -99,7 +102,8 @@ export async function navigateToMillingRobotsProductsPageOnDesktop(page: Page, l
 
 export async function navigateToAccessoriesProductsPageOnDesktop(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateProductsMenuOnDesktop(page, language);
-    await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    const waterAndSewageLink = await navigateToWaterAndSewageProductsMenuLinkOnDesktop(page, language);
+    await waterAndSewageLink.hover();
 
     const accessoriesLink = page.getByTestId("accessories-dropdown-submenu-link").first();
     await accessoriesLink.hover();

@@ -35,6 +35,7 @@ export async function navigateToWaterAndSewageProductsMenuLinkOnTablet(page: Pag
 export async function navigateToWaterAndSewageProductsPageOnTablet(page: Page, language: Language = Language.ENG): Promise<void> {
     const waterAndSewageLink = await navigateToWaterAndSewageProductsMenuLinkOnTablet(page, language);
     await waterAndSewageLink.waitFor({state: "visible"});
+    await expect(waterAndSewageLink).toBeVisible({timeout: 3000});
     await waterAndSewageLink.click();
 }
 
@@ -47,6 +48,7 @@ export async function navigateToCameraProductsPageOnTablet(page: Page, language:
 
     const cameraLink = page.getByTestId("cameras-dropdown-submenu-link");
     await cameraLink.waitFor({state: "visible"});
+    await expect(cameraLink).toBeVisible({ timeout: 3000 });
     await cameraLink.click();
 }
 

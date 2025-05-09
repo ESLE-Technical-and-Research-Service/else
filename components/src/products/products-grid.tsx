@@ -1,8 +1,7 @@
-import {ProductItem} from "../types/ProductItem";
+import {Language, ProductItem} from "../types";
 import Image from "next/image";
 import Link from "next/link";
 import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../types/Language";
 
 type ProductsGridProps = {
     products: ProductItem[]

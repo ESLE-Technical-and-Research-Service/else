@@ -168,6 +168,27 @@ export async function navigateToCameraProductsPageOnMobile(page: Page, language:
     await camerasSubmenuLink.click();
 }
 
+export async function navigateToCameraProductsPageOnMobileAndCloseMenu(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const camerasSubmenuLink = burgerMenu.getByTestId("cameras-dropdown-submenu-link");
+    await camerasSubmenuLink.waitFor({ state: "visible" });
+    await expect(camerasSubmenuLink).toBeVisible();
+
+    const camerasSubmenuLinkText = await camerasSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(camerasSubmenuLinkText).toBe("Kamery");
+    } else {
+        expect(camerasSubmenuLinkText).toBe("Cameras");
+    }
+
+    await camerasSubmenuLink.click();
+
+    await closeMobileMenu(page);
+}
+
 export async function navigateToPressureVehiclesProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {
     await navigateToWaterAndSewageProductsPageOnMobile(page, language);
 
@@ -204,6 +225,27 @@ export async function navigateToMillingRobotsProductsPageOnMobile(page: Page, la
     }
 
     await millingRobotsSubmenuLink.click();
+}
+
+export async function navigateToMillingRobotsProductsPageOnMobileAndCloseMenu(page: Page, language: Language = Language.ENG): Promise<void> {
+    await navigateToWaterAndSewageProductsPageOnMobile(page, language);
+
+    const burgerMenu = page.getByTestId("burger-menu-slide-in");
+    const millingRobotsSubmenuLink = burgerMenu.getByTestId("milling-robots-dropdown-submenu-link");
+    await millingRobotsSubmenuLink.waitFor({ state: "visible" });
+    await expect(millingRobotsSubmenuLink).toBeVisible();
+
+    const millingRobotsSubmenuLinkText = await millingRobotsSubmenuLink.textContent();
+
+    if (language === Language.PL) {
+        expect(millingRobotsSubmenuLinkText).toBe("Roboty frezujące");
+    } else {
+        expect(millingRobotsSubmenuLinkText).toBe("Milling Robots");
+    }
+
+    await millingRobotsSubmenuLink.click();
+
+    await closeMobileMenu(page);
 }
 
 export async function navigateToAccessoriesProductsPageOnMobile(page: Page, language: Language = Language.ENG): Promise<void> {

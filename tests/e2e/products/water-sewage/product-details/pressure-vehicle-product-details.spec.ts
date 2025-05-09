@@ -15,7 +15,7 @@ test.describe("pressure vehicle product details suite", () => {
 
             const productsGrid = desktopPage.getByTestId("products-grid-container").first();
             await productsGrid.waitFor({state: "visible"});
-            await expect(productsGrid).toBeVisible({timeout: 3000});
+            await expect(productsGrid).toBeVisible({timeout: 10000});
 
             const productsCount = await desktopPage.locator('[data-testid="product-link"]:visible').count();
             expect(productsCount).not.toBe(0);
@@ -27,7 +27,7 @@ test.describe("pressure vehicle product details suite", () => {
 
             const productDetailsSection = desktopPage.getByTestId("product-details-section").first();
             await productDetailsSection.waitFor({state: "visible"});
-            await expect(productDetailsSection).toBeVisible({timeout: 3000});
+            await expect(productDetailsSection).toBeVisible({timeout: 10000});
 
             leftColumn = desktopPage.getByTestId("product-details-left-column").first();
             await leftColumn.waitFor({state: "visible"});

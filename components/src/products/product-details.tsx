@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {ProductItem} from "../types/ProductItem";
-import {Language} from "../types/Language";
+import {Language, ProductItem} from "../types";
 import ContactUsCard from "../common/cards/contact-us-card";
 import elseLogo from "../../../assets/images/logoElse.webp";
 import {ManufacturerCard} from "../common/cards/manufacturer-card";
