@@ -1,4 +1,4 @@
-import {ProductItem} from "../../types/ProductItem";
+import {ProductItem} from "../../types";
 import {
     CompactTrolleySystems,
     ExplosiveProofInspectionSystems,

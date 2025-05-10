@@ -9,4 +9,4 @@ export * from "./Tag";
 export * from "./Sections";
 export * from "./Language";
 export * from "./ProductsCategories";
-export * from "./products";
+export * from "./NavigationLinks";

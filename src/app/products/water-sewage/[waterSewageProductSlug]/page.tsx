@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useMemo, useState} from "react";
-import {Language, ProductItem, ProductLinks, ProductsCategories, Tag} from "../../../../../components/src/types";
+import {Language, ProductItem, NavigationLinks, ProductsCategories, Tag} from "../../../../../components/src/types";
 import {usePathname, useSearchParams} from "next/navigation";
 import HeroImage from "../../../../../components/src/hero/hero-image";
 import Breadcrumbs from "../../../../../components/src/common/breadcrumbs/breadcrumbs";
@@ -17,7 +17,7 @@ import {
 import {useLanguage} from "../../../../../context/src/LanguageContext";
 import getProductsCategoriesByPathname from "../../../../../components/src/utils/get-products-categories-by-pathname";
 import getHeroImagesByPathname from "../../../../../components/src/utils/get-hero-images-by-pathname";
-import HeroTitleByPathnamegetHeroTitle from "../../../../../components/src/utils/get-hero-title-by-pathname";
+import HeroTitleByPathName from "../../../../../components/src/utils/get-hero-title-by-pathname";
 import BackButton from "../../../../../components/src/common/buttons/back-button";
 import Image, {StaticImageData} from "next/image";
 import {accessoriesCategories} from "../../../../../components/src/products/data/categories";
@@ -34,10 +34,10 @@ export default function WaterSewageProductLayout() {
     const searchParams = useSearchParams();
 
     const baseProducts: ProductItem[] = useMemo(() => {
-        if (slug === ProductLinks.CAMERAS) return camerasItems;
-        if (slug === ProductLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
-        if (slug === ProductLinks.MILLING_ROBOTS) return millingRobotsItems;
-        if (slug === ProductLinks.ACCESSORIES) return accessoriesItems;
+        if (slug === NavigationLinks.CAMERAS) return camerasItems;
+        if (slug === NavigationLinks.PRESSURE_VEHICLES) return pressureVehiclesItems;
+        if (slug === NavigationLinks.MILLING_ROBOTS) return millingRobotsItems;
+        if (slug === NavigationLinks.ACCESSORIES) return accessoriesItems;
         return waterSewageProductItems;
     }, [slug]);
 
@@ -70,7 +70,7 @@ export default function WaterSewageProductLayout() {
         setCurrentPage(1);
     }, [products]);
 
-    if (!Object.values(ProductLinks).includes(slug as ProductLinks)) {
+    if (!Object.values(NavigationLinks).includes(slug as NavigationLinks)) {
         return (
             <main className="w-full overflow-y-auto bg-[var(--foreground)]">
                 <div className="hidden md:flex w-full max-w-screen-2xl mx-auto mt-8 pt-4 pb-2">
@@ -97,7 +97,7 @@ export default function WaterSewageProductLayout() {
         >
             <HeroImage
                 heroSlides={productImageSlides}
-                heroTitle={<HeroTitleByPathnamegetHeroTitle productType={slug ?? ''} language={language}/>}
+                heroTitle={<HeroTitleByPathName pathname={slug ?? ''} language={language}/>}
                 heroHeight={30}
             />
 
@@ -151,7 +151,7 @@ export default function WaterSewageProductLayout() {
                 className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0"
             >
                 <div className="w-80 shrink-0 mt-8">
-                    {slug === ProductLinks.ACCESSORIES && (
+                    {slug === NavigationLinks.ACCESSORIES && (
                         <CategoryFilters
                             setProductsAction={setProducts}
                             allProducts={allProducts}
