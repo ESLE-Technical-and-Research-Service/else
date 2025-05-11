@@ -3,6 +3,7 @@ import {Service} from "../../types/Service";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import AnimatedDivider from "../dividers/animated-divider";
 
 type ServiceCardProps = {
     language: Language;
@@ -16,11 +17,11 @@ export default function ServiceCard({language, index, service}: ServiceCardProps
         <motion.article
             key={index}
             className={`mb-16 last:mb-0 pb-12 border-b border-gray-200 flex flex-col ${flexDirection} items-center gap-8`}
-            style={{ position: 'relative' }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.35, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            style={{position: 'relative'}}
+            initial={{opacity: 0, y: 60}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.7, delay: index * 0.45, ease: "easeOut"}}
+            viewport={{once: true, amount: 0.3}}
         >
             <div className="md:w-1/2 mb-6 md:mb-0">
                 <Image
@@ -40,7 +41,7 @@ export default function ServiceCard({language, index, service}: ServiceCardProps
                                     </span>
                         {language === 'PL' ? service.name.namePL : service.name.nameENG}
                     </h2>
-                    <span className="inline-block w-10 h-1 bg-[var(--font-color-accent)] rounded transition-all group-hover:w-16"></span>
+                    <AnimatedDivider delay={index + 1}/>
                 </header>
                 <div className="prose prose-lg max-w-none text-gray-700 mb-6">
                     <p>

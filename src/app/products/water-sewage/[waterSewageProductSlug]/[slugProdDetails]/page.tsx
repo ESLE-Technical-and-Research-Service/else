@@ -24,7 +24,7 @@ export default function WaterAndSewageProductDetails() {
     if (!productDetails) {
         return (
             <main className="w-full overflow-y-auto bg-[var(--foreground)]">
-                <div className="hidden md:flex w-full max-w-screen-2xl mx-auto mt-8 pt-4 pb-2">
+                <div className="hidden md:flex w-full max-w-6xl mx-auto mt-8 pt-4 pb-2">
                     <Breadcrumbs/>
                 </div>
                 <div className="flex flex-col items-center justify-center">
@@ -41,7 +41,7 @@ export default function WaterAndSewageProductDetails() {
     }
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)]">
-            <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2">
+            <div className="hidden md:flex w-full max-w-6xl mx-auto pt-4 pb-2">
                 <Breadcrumbs/>
             </div>
             {productDetails && <ProductDetails product={productDetails} lang={language}/>}

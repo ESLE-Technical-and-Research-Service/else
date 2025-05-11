@@ -8,7 +8,7 @@ import TagsCard from "../common/cards/tags-card";
 import CategoryCard from "../common/cards/category-card";
 import ImagesViewerCard from "../common/cards/images-viewer-card";
 import ShareButton from "../common/buttons/share-button";
-import HeaderDivider from "../common/header-divider";
+import HeaderDivider from "../common/dividers/header-divider";
 import RecommendedProducts from "../common/cards/recommended-products";
 
 interface ProductDetailsProps {
@@ -24,7 +24,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
     return (
         <section
             data-testid="product-details-section"
-            className="w-full flex flex-col md:flex-row gap-8 max-w-screen-2xl mx-auto
+            className="w-full flex flex-col md:flex-row gap-8 max-w-6xl mx-auto
             bg-white rounded-xl shadow-lg overflow-hidden my-4 p-0 md:p-10"
         >
             {/* Left column: title, images, description, detailed description */}

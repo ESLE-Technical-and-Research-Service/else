@@ -42,7 +42,7 @@ export default function ProductsTabletSubmenu({
                             <ul
                                 key={item.submenuName}
                                 data-testid={`${item.submenuName}-submenu-tablet-items`}
-                                className={`mt-2 bg-[var(--background)] border-b border-t border-gray-300`}
+                                className={`mt-2 bg-white border-b border-t border-gray-300`}
                             >
                                 {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
                             </ul>

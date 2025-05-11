@@ -67,7 +67,7 @@ export default function WaterAndSewageProducts() {
             <div className=" mb-14 mt-4">
                 <div
                     data-testid="water-sewage-departments-products-breadcrumbs"
-                    className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2"
+                    className="hidden md:flex w-full max-w-6xl mx-auto pt-4 pb-2"
                 >
                     <Breadcrumbs/>
                 </div>
@@ -131,9 +131,9 @@ export default function WaterAndSewageProducts() {
 
                 {/*    Desktop version      */}
                 <div
-                    className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0"
+                    className="hidden md:flex flex-row gap-1 justify-center items-start w-full  max-w-6xl mx-auto px-4 py-0"
                 >
-                    <div data-testid="water-sewage-departments-products-filters" className="w-80 shrink-0 mt-8">
+                    <div data-testid="water-sewage-departments-products-filters" className="w-70 shrink-0 mt-8">
                         <ManufacturersFilters
                             setProductsAction={setProducts}
                             allProducts={allProducts}
@@ -226,7 +226,7 @@ export default function WaterAndSewageProducts() {
                     )}
                 </div>
 
-                <div className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
+                <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
                     <BackButton/>
                 </div>
             </div>

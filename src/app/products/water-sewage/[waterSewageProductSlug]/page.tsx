@@ -73,7 +73,7 @@ export default function WaterSewageProductLayout() {
     if (!Object.values(NavigationLinks).includes(slug as NavigationLinks)) {
         return (
             <main className="w-full overflow-y-auto bg-[var(--foreground)]">
-                <div className="hidden md:flex w-full max-w-screen-2xl mx-auto mt-8 pt-4 pb-2">
+                <div className="hidden md:flex w-full  max-w-6xl mx-auto mt-8 pt-4 pb-2">
                     <Breadcrumbs/>
                 </div>
                 <div className="flex flex-col items-center justify-center">
@@ -103,7 +103,7 @@ export default function WaterSewageProductLayout() {
 
             <div
                 data-testid={`water-sewage-product-breadcrumbs-container-${slug}`}
-                className="hidden md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2"
+                className="hidden md:flex w-full max-w-6xl mx-auto pt-4 pb-2"
             >
                 <Breadcrumbs/>
             </div>
@@ -148,7 +148,7 @@ export default function WaterSewageProductLayout() {
             {/* Desktop Layout: Sidebar Filters + Products Grid (aligned with breadcrumbs, grid sizing unchanged) */}
             <div
                 data-testid={`water-sewage-product-desktop-layout-container-${slug}`}
-                className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-screen-2xl mx-auto px-4 py-0"
+                className="hidden md:flex flex-row gap-1 justify-center items-start w-full max-w-6xl mx-auto px-4 py-0"
             >
                 <div className="w-80 shrink-0 mt-8">
                     {slug === NavigationLinks.ACCESSORIES && (

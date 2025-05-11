@@ -3,7 +3,7 @@
 import {useLanguage} from "../../../context/src/LanguageContext";
 import {Department} from "../types";
 import {useState} from "react";
-import HeaderDivider from "../common/header-divider";
+import HeaderDivider from "../common/dividers/header-divider";
 import {useIntersectionObserver} from "../../../hooks/useIntersectionObserver";
 import {waterAndSewageDepartment} from "./data/water-and-sewage-department";
 import {maritimeDepartment} from "./data/maritime-department";
@@ -15,7 +15,7 @@ export default function Departments() {
     const [departments] = useState<Department[]>([waterAndSewageDepartment, maritimeDepartment]);
 
     return (
-        <article id="departments" className="w-full overflow-y-auto mt-6">
+        <article id="departments" className="max-w-4xl mx-auto mt-18">
             <HeaderDivider title={{ labelPL: "CZYM SIĘ ZAJMUJEMY?", labelENG:"WHAT DO WE DO?"}} isVisible={isVisible}/>
 
             <div ref={elementRef} data-testid="main-departments-cards" className="flex justify-center gap-20 flex-wrap px-4 mt-4 mb-20">

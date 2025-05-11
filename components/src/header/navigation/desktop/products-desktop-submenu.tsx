@@ -60,7 +60,7 @@ export default function ProductsDesktopSubmenu({
 
                         <ul
                             key={idx + 3}
-                            className={`absolute top-0 left-full ml-2 min-w-[200px] bg-[var(--background)] 
+                            className={`absolute top-0 left-full ml-2 min-w-[200px] bg-white 
                                     border border-gray-300 shadow-lg rounded-lg z-10 ${
                                 hoveredSubmenu === item.submenuName
                                     ? 'block'
