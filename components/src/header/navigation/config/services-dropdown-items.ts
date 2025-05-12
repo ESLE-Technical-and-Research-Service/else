@@ -7,7 +7,7 @@ export const servicesDropdownItems: DropDownItem[] = [
         labelENG: "Cameras service",
     },
     {
-        href: "/services/pressure-vehicles",
+        href: "/services/pressure-vehicles-service",
         labelPL: "Serwis samochodów ciśnieniowych",
         labelENG: "Pressure Vehicles Service"
     },

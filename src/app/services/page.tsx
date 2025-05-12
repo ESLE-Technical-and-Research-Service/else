@@ -35,7 +35,12 @@ export default function ServicesPage() {
 
             <section className="max-w-4xl mx-auto px-4 py-16 mt-10">
                 {servicesItems.map((service, index) => (
-                    <ServiceCard language={language} index={index} service={service} key={index}/>
+                    <ServiceCard
+                        language={language}
+                        index={index}
+                        service={service}
+                        key={index}
+                    />
                 ))}
                 <div className="text-center mt-16">
                     <Link

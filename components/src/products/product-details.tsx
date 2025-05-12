@@ -33,9 +33,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
                 className="w-full md:w-2/3 flex flex-col items-center bg-gray-50 p-4 sm:p-6
                 md:rounded-l-xl border-b md:border-b-0 md:border-r relative"
             >
-                <ShareButton lang={lang} title={productName} />
-                <HeaderDivider title={{ labelPL: product.name.namePL, labelENG: product.name.nameENG }} isVisible={true} />
-                <ImagesViewerCard images={product.images} productName={productName} lang={lang} />
+                <ShareButton lang={lang} title={productName}/>
+                <HeaderDivider title={{labelPL: product.name.namePL, labelENG: product.name.nameENG}} isVisible={true}/>
+                <ImagesViewerCard images={product.images} productName={productName} lang={lang}/>
 
                 {/* Description */}
                 <div className="w-full mt-4 sm:mt-6">
@@ -65,7 +65,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
                 <ManufacturerCard manufacturers={product.manufacturers} lang={lang}/>
                 <CategoryCard category={product.category} lang={lang}/>
                 <TagsCard tags={product.tags} lang={lang}/>
-                <ContactUsCard lang={lang}/>
+                <ContactUsCard
+                    lang={lang}
+                    text={{
+                        textPL: "Masz pytania odnośnie produktu?",
+                        textENG: "Do you have questions about this product?"
+                    }}
+                />
                 <Image
                     data-testid="else-logo"
                     src={elseLogo}

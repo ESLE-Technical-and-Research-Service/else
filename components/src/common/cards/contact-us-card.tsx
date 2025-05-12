@@ -5,9 +5,13 @@ import {Language} from "../../types";
 
 type ContactUsCardProps = {
     lang: Language;
+    text: {
+        textPL: string;
+        textENG: string;
+    }
 }
 
-export default function ContactUsCard({lang}: ContactUsCardProps) {
+export default function ContactUsCard({lang, text}: ContactUsCardProps) {
     return (
         <div
             data-testid="contact-us-card-container"
@@ -22,8 +26,8 @@ export default function ContactUsCard({lang}: ContactUsCardProps) {
             >
                 {
                     lang === Language.PL
-                        ? "Masz pytania odnośnie produktu?"
-                        : "Do you have questions about this product?"
+                        ? text.textPL
+                        : text.textENG
                 }
             </div>
             <Link
