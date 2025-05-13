@@ -19,10 +19,11 @@ export default function ContactUsCard({lang, text}: ContactUsCardProps) {
             border-blue-100 shadow-lg flex flex-col items-center text-center relative
             overflow-hidden"
         >
-            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-blue-200 rounded-l-2xl"/>
+            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[var(--main-color-secondary)]
+            to-[var(--main-color-accent-dark)] rounded-l-2xl"/>
             <div
                 data-testid="contact-us-card-title"
-                className="mb-3 text-base text-gray-700 font-medium z-10"
+                className="mb-3 text-base md:text-xl text-gray-700 font-medivdium z-10"
             >
                 {
                     lang === Language.PL
@@ -36,11 +37,11 @@ export default function ContactUsCard({lang, text}: ContactUsCardProps) {
                 <a
                     data-testid="contact-us-card-link"
                     className="inline-flex items-center gap-2 px-6 py-2 rounded-xl border
-                border-blue-300 bg-white/80 hover:bg-blue-50 text-blue-700 font-semibold
-                shadow transition-all duration-150 text-base focus:outline-none focus:ring-2
+                border-[var(--background-gradient-end)] bg-white/80 hover:bg-blue-50 text-[var(--background-gradient-end)] font-semibold
+                shadow transition-all duration-150 text-base md:text-xl focus:outline-none focus:ring-2
                 focus:ring-blue-200 hover:-translate-y-0.5 z-10">
                     {lang === Language.PL ? "Skontaktuj się z nami" : "Contact Us"}
-                    <ArrowRightIcon className="h-5 w-5 text-blue-400 group-hover:text-blue-700
+                    <ArrowRightIcon className="h-5 w-5 text-[var(--main-color)] hover:text-[var(--main-color-secondary)]
                     transition-colors duration-200"
                     />
                 </a>

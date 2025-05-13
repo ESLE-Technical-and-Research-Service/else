@@ -18,13 +18,24 @@ export default function ServiceDetailsPage() {
     const {language} = useLanguage();
     const pathname = usePathname();
     const slug = pathname.split("/").pop();
-    const imagesRef = useRef(null);
-    const isInCenter = useInView(imagesRef, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+    const articleImagesRef1 = useRef(null);
+    const articleImagesRef2 = useRef(null);
+    const isInCenter1 = useInView(articleImagesRef1, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+    const isInCenter2 = useInView(articleImagesRef2, {amount: 0.5, margin: "-10% 0px -10% 0px"});
 
     const service: Service = useMemo(() => {
         if (slug === NavigationLinks.CAM_SERVICE) return CameraService;
         return CameraService;
     }, [slug]);
+
+    let scaleValue = 1.15;
+    if (typeof window !== 'undefined') {
+        if (window.innerWidth < 768) {
+            scaleValue = 1.03;
+        } else if (window.innerWidth < 1024) {
+            scaleValue = 1;
+        }
+    }
 
     return (
         <main className="w-full bg-[var(--background)]">
@@ -58,7 +69,7 @@ export default function ServiceDetailsPage() {
                         }}
                         isVisible={true}
                     />
-                    <p className="mt-18 mb-18 text-[var(--font-color)]">
+                    <p className="mt-18 mb-18 text-[var(--font-color)] text-base sm:text-lg md:text-xl leading-10">
                         {
                             language === Language.PL
                                 ? service.description.textPL
@@ -67,11 +78,11 @@ export default function ServiceDetailsPage() {
                     </p>
 
                     <motion.div
-                        ref={imagesRef}
-                        animate={{scale: isInCenter ? 1.15 : 1}}
+                        ref={articleImagesRef1}
+                        animate={{scale: isInCenter1 ? scaleValue : 1}}
                         initial={{scale: 1}}
                         transition={{duration: 1.2, ease: "easeOut", type: "spring", stiffness: 80, damping: 30}}
-                        className="mt-32 mb-10 flex flex-col items-center justify-center relative min-h-[520px]"
+                        className="mt-10 md:mt-32 mb-10 flex flex-col items-center justify-center relative min-h-[520px]"
                     >
 
                         <div className="relative z-10 w-4/5 md:w-3/5 mb-4 md:mb-0">
@@ -84,21 +95,21 @@ export default function ServiceDetailsPage() {
                             />
                         </div>
 
-                        <div className="relative w-4/5 md:absolute md:z-30 md:left-16 md:bottom-[-2.5rem] md:w-2/5">
+                        <div className="relative w-4/5 md:absolute mt-16 md:mt-0 md:z-30 md:left-16 md:bottom-[-2.5rem] md:w-2/5">
                             <Image
                                 src={service.images[0]}
                                 alt={language === 'PL' ? service.name.namePL : service.name.nameENG}
                                 className="rounded-3xl shadow-xl object-cover w-full h-40 md:h-64 border-4
-                                \hover:scale-105 transition-all duration-300 border-white bg-white"
+                                hover:scale-105 transition-all duration-300 border-white bg-white"
                                 style={{objectPosition: 'center'}}
                             />
                         </div>
                     </motion.div>
 
-                    <div className="mt-48">
+                    <div className="mt-24 md:mt-48">
                         <div
                             data-testid="product-detailed-description"
-                            className="prose prose-blue max-w-none text-sm sm:text-base md:text-lg leading-relaxed
+                            className="prose prose-blue max-w-none text-base sm:text-lg md:text-xl leading-10
                         !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                         [&_li]:!text-gray-900 [&_li]:mb-4 sm:[&_li]:mb-6 [&_strong]:block [&_strong]:mb-2
                         [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4"
@@ -111,7 +122,21 @@ export default function ServiceDetailsPage() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center mt-16 mb-16 mx-auto">
+                    <motion.div
+                        ref={articleImagesRef2}
+                        animate={{scale: isInCenter2 ? scaleValue : 1}}
+                        initial={{scale: 1}}
+                        transition={{duration: 1.2, ease: "easeOut", type: "spring", stiffness: 80, damping: 30}}
+                        className="mt-4 md:mt-32 mb-2 md:mb-32 md:mb-10 flex flex-col items-center justify-center relative min-h-[320px]"
+                    >
+                        <Image
+                            src={service.images[2]}
+                            alt={'Cameras Service image'}
+                            className="rounded-2xl shadow-xl max-w-2xl hover:scale-105 transition-all duration-300 w-3/3"
+                        />
+                    </motion.div>
+
+                    <div className="flex justify-center mt-10 mb-10 mx-auto">
                         <ContactUsCard
                             lang={language}
                             text={{
@@ -121,7 +146,7 @@ export default function ServiceDetailsPage() {
                         />
                     </div>
 
-                    <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-10 justify-center">
+                    <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 md:mt-20 mt-4 mb-10 justify-center">
                         <BackButton/>
                     </div>
                 </section>

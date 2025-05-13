@@ -14,13 +14,13 @@ export default function BackButton() {
         <button
             onClick={() => router.back()}
             className="inline-flex items-center gap-2 px-6 py-2 rounded-xl border
-            border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold
+            border-[var(--background-gradient-end)] bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold
             shadow transition-all duration-150 text-lg focus:outline-none focus:ring-[var(--main-color-secondary)]
-            focus:ring-[var(--main-color-secondary)] focus:border-[var(--main-color-secondary)]
+            focus:border-[var(--main-color-secondary)]
             hover:-translate-y-0.5 z-10"
         >
             <ArrowLeftIcon
-                className="h-5 w-5 text-[var(--main-color)] group-hover:text-[var(--main-color)]
+                className="h-5 w-5 text-[var(--main-color)] hover:text-[var(--font-color-accent)]
                 transition-colors duration-200"/>
             {language === Language.PL ? "Wróć" : "Back"}
         </button>
