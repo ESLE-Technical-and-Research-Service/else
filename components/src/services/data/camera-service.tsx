@@ -32,12 +32,17 @@ export const CameraService: Service = {
         textPL: (
             <>
                 <section>
-                    <p>
-                        ELSE oferuje autoryzowany serwis kamer inspekcyjnych, zapewniając ich niezawodne działanie przez
-                        długie lata. Dzięki bogatemu doświadczeniu od 1989 roku oraz odpowiedniemu zapleczu
+                    <p className="text-center md:text-2xl text-base leading-10">
+                        <span className="font-extrabold">ELSE</span> oferuje autoryzowany serwis kamer inspekcyjnych, zapewniając ich niezawodne działanie przez
+                        długie lata. <span className="font-extrabold">Dzięki bogatemu doświadczeniu od 1989 roku</span> oraz odpowiedniemu zapleczu
                         technicznemu, gwarantujemy wysoką jakość świadczonych usług.
                     </p>
-                    <h3>Zakres naszych usług:</h3>
+
+                    <div className="flex flex-col items-center mt-32 font-bold">
+                        <h3 className="text-center text-4xl mb-3">Zakres naszych usług:</h3>
+                        <AnimatedDivider delay={1} />
+                    </div>
+
                     <ul>
                         {[
                             "Serwis gwarancyjny i pogwarancyjny urządzeń inspekcyjnych.",
@@ -59,7 +64,7 @@ export const CameraService: Service = {
                         ))}
                     </ul>
 
-                    <p>
+                    <p className="mt-20 md:mt-32 text-base md:text-2xl text-center leading-10">
                         Dzięki naszemu autoryzowanemu serwisowi możesz być pewien, że Twoje urządzenia są w dobrych
                         rękach. Nasze długoletnie doświadczenie będzie służyć Twoim potrzebom w serwisie kamer
                         inspekcyjnych każdego producenta.
@@ -71,9 +76,11 @@ export const CameraService: Service = {
         textENG: (
             <>
                 <section>
-                    <p>
-                        ELSE provides comprehensive services for the maintenance and operation of CCTV systems. Our
-                        offerings ensure optimal performance and longevity of your surveillance equipment.
+                    <p className="text-center md:text-2xl text-base leading-10">
+                        <span className="font-extrabold">ELSE</span> offers authorized servicing of inspection cameras,
+                        ensuring their reliable operation for many years. With extensive experience
+                        <span className="font-extrabold"> since 1989</span> and the necessary technical facilities,
+                        we guarantee high-quality services.
                     </p>
 
                     <div className="flex flex-col items-center mt-32 font-bold">
@@ -102,13 +109,25 @@ export const CameraService: Service = {
                         ))}
                     </ul>
 
-                    <p className="mt-20 md:mt-32 text-base md:text-2xl text-center">
-                        Our experienced technicians are available to assist with any issues and ensure your surveillance
-                        system operates efficiently.
+                    <p className="mt-20 md:mt-32 text-base md:text-2xl text-center leading-10">
+                        With our authorized service, you can be confident that your equipment is in good hands.
+                        Our many years of experience serve your needs in servicing inspection cameras from any manufacturer.
                     </p>
                 </section>
 
             </>
+        ),
+    },
+    summary: {
+        summaryPL: (
+            <p className="text-center md:text-2xl text-base">
+                <span className="font-extrabold">ELSE</span> zapewnia kompleksowy serwis systemów kamer inspekcyjnych, gwarantując ich niezawodne działanie i długowieczność. Dzięki wieloletniemu doświadczeniu i zaawansowanemu zapleczu technicznemu, oferujemy usługi najwyższej jakości, dostosowane do potrzeb inspekcji sieci kanalizacyjnych i wodociągowych.
+            </p>
+        ),
+        summaryENG: (
+            <p className="text-center md:text-2xl text-base">
+                <span className="font-extrabold">ELSE</span> provides expert maintenance and support for inspection camera systems, ensuring their optimal performance and longevity. Leveraging decades of experience and advanced technical facilities, we deliver high-quality services tailored to the needs of sewage and water network inspections.
+            </p>
         ),
     }
 }

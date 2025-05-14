@@ -1,9 +1,7 @@
 'use client';
 
 import {useLanguage} from "../../../context/src/LanguageContext";
-import {Language} from "../../../components/src/types";
 import {servicesItems} from "../../../components/src/services/data/services-items";
-import Link from "next/link";
 import ServiceCard from "../../../components/src/common/cards/service-card";
 import Breadcrumbs from "../../../components/src/common/breadcrumbs/breadcrumbs";
 import SectionHeader from "../../../components/src/header/section/section-header";
@@ -42,18 +40,9 @@ export default function ServicesPage() {
                         key={index}
                     />
                 ))}
-                <div className="text-center mt-16">
-                    <Link
-                        href="/contact"
-                        className="inline-block bg-[var(--font-color-accent)] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[var(--font-color)] transition"
-                        style={{color: '#fff'}}
-                    >
-                        {language === Language.PL ? 'Skontaktuj się z nami' : 'Contact Us'}
-                    </Link>
-                </div>
             </section>
 
-            <div className="flex md:flex w-full max-w-4xl mx-auto pt-4 pb-2 mb-4 justify-center">
+            <div className="flex md:flex w-full max-w-4xl mx-auto pt-4 pb-2 mb-20 justify-center">
                 <BackButton/>
             </div>
 

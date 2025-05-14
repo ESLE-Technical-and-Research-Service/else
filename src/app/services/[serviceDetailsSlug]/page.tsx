@@ -13,6 +13,8 @@ import Image from "next/image";
 import {motion, useInView} from "framer-motion";
 import ContactUsCard from "../../../../components/src/common/cards/contact-us-card";
 import BackButton from "../../../../components/src/common/buttons/back-button";
+import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {PressureVehiclesService} from "../../../../components/src/services/data/pressure-vehicles-service";
 
 export default function ServiceDetailsPage() {
     const {language} = useLanguage();
@@ -20,11 +22,14 @@ export default function ServiceDetailsPage() {
     const slug = pathname.split("/").pop();
     const articleImagesRef1 = useRef(null);
     const articleImagesRef2 = useRef(null);
+    const badgeRef = useRef(null);
     const isInCenter1 = useInView(articleImagesRef1, {amount: 0.5, margin: "-10% 0px -10% 0px"});
     const isInCenter2 = useInView(articleImagesRef2, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-10% 0px -10% 0px"});
 
     const service: Service = useMemo(() => {
         if (slug === NavigationLinks.CAM_SERVICE) return CameraService;
+        if (slug === NavigationLinks.PRESSURE_VEHICLES_SERVICE) return PressureVehiclesService;
         return CameraService;
     }, [slug]);
 
@@ -50,7 +55,7 @@ export default function ServiceDetailsPage() {
                         }
                     </h1>
                 }
-                heroHeight={30}
+                heroHeight={40}
             />
 
             <div
@@ -69,7 +74,7 @@ export default function ServiceDetailsPage() {
                         }}
                         isVisible={true}
                     />
-                    <p className="mt-18 mb-18 text-[var(--font-color)] text-base sm:text-lg md:text-xl leading-10">
+                    <p className="mt-18 mb-18 text-[var(--font-color)] text-center md:text-2xl text-base leading-10">
                         {
                             language === Language.PL
                                 ? service.description.textPL
@@ -110,9 +115,10 @@ export default function ServiceDetailsPage() {
                         <div
                             data-testid="product-detailed-description"
                             className="prose prose-blue max-w-none text-base sm:text-lg md:text-xl leading-10
-                        !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
+                        !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-20 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                         [&_li]:!text-gray-900 [&_li]:mb-4 sm:[&_li]:mb-6 [&_strong]:block [&_strong]:mb-2
-                        [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4"
+                        [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4
+                        [&_h3]:mb-2 sm:[&_h3]:mb-4 [&_h3]:mt-4 sm:[&_h3]:mt-8"
                         >
                             {
                                 language === Language.PL
@@ -127,7 +133,7 @@ export default function ServiceDetailsPage() {
                         animate={{scale: isInCenter2 ? scaleValue : 1}}
                         initial={{scale: 1}}
                         transition={{duration: 1.2, ease: "easeOut", type: "spring", stiffness: 80, damping: 30}}
-                        className="mt-4 md:mt-32 mb-2 md:mb-32 md:mb-10 flex flex-col items-center justify-center relative min-h-[320px]"
+                        className="mt-4 md:mt-32 mb-2 md:mb-32 flex flex-col items-center justify-center relative min-h-[320px]"
                     >
                         <Image
                             src={service.images[2]}
@@ -135,6 +141,32 @@ export default function ServiceDetailsPage() {
                             className="rounded-2xl shadow-xl max-w-2xl hover:scale-105 transition-all duration-300 w-3/3"
                         />
                     </motion.div>
+
+                    <div className="mt-24 md:mt-48 mb-24 md:mb-32">
+                        <motion.div
+                            ref={badgeRef}
+                            initial={{ color: "var(--font-color)" }}
+                            animate={{ color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)" }}
+                            transition={{ duration: 15, delay: 1, ease: "easeInOut", type: "tween" }}
+                            className="flex justify-center mb-10"
+                        >
+                            <CheckBadgeIcon className="w-20 h-20" style={{ color: "inherit" }} />
+                        </motion.div>
+                        <div
+                            data-testid="product-detailed-description"
+                            className="prose prose-blue max-w-none text-base sm:text-lg md:text-xl leading-10
+                        !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-20 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
+                        [&_li]:!text-gray-900 [&_li]:mb-4 sm:[&_li]:mb-6 [&_strong]:block [&_strong]:mb-2
+                        [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4
+                        [&_h3]:mb-2 sm:[&_h3]:mb-4 [&_h3]:mt-4 sm:[&_h3]:mt-8"
+                        >
+                            {
+                                language === Language.PL
+                                    ? service.summary.summaryPL
+                                    : service.summary.summaryENG
+                            }
+                        </div>
+                    </div>
 
                     <div className="flex justify-center mt-10 mb-10 mx-auto">
                         <ContactUsCard

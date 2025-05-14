@@ -21,4 +21,8 @@ export type Service = {
         textPL: JSX.Element,
         textENG: JSX.Element,
     };
+    summary: {
+        summaryPL: JSX.Element,
+        summaryENG: JSX.Element,
+    },
 }
