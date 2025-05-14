@@ -89,7 +89,7 @@ export const CameraService: Service = {
                             "Firmware updates and software configuration.",
                             "Training for staff on system operation and best practices."
                         ].map((text, idx) => (
-                            <motion.li
+                            <motion.div
                                 key={idx}
                                 initial={{ x: 100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
@@ -98,7 +98,7 @@ export const CameraService: Service = {
                                 style={{ listStyle: 'none' }}
                             >
                                 <ListElementCard text={text} />
-                            </motion.li>
+                            </motion.div>
                         ))}
                     </ul>
 

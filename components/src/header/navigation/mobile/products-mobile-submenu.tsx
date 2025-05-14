@@ -2,7 +2,7 @@
 
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../types/Language";
+import {Language} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
 import {useLanguage} from "../../../../../context/src/LanguageContext";

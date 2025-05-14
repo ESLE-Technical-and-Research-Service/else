@@ -7,6 +7,7 @@ import React from "react";
 import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
 import {servicesDropdownItems} from "./config/services-dropdown-items";
+import ServicesMobileSubmenu from "./mobile/services-mobile-submenu";
 
 type ServicesNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
@@ -42,9 +43,10 @@ export default function ServicesNavigation({
 
             {/* Mobile Dropdown */}
             {isMobile && openDropdown === 'services' && (
-                <ul className={`mt-2 bg-white border border-gray-200 rounded-lg`}>
-                    {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
-                </ul>
+                // <ul className={`mt-2 bg-white border border-gray-200 rounded-lg`}>
+                //     {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
+                // </ul>
+                <ServicesMobileSubmenu handleClickAction={handleClickAction} />
             )}
 
             {/* Tablet Dropdown */}

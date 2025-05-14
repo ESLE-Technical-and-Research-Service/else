@@ -1,7 +1,7 @@
 import {act, render, screen} from "@testing-library/react";
-import HeroImage from "../../src/hero/hero-image";
 import {LanguageProvider} from "../../../context/src/LanguageContext";
 import {StaticImageData} from "next/image";
+import HeroImage from "../../src/hero/hero-image";
 
 jest.mock("../../src/hero/hero-images-list");
 jest.mock("next/image", () => ({
@@ -9,6 +9,15 @@ jest.mock("next/image", () => ({
     // eslint-disable-next-line @next/next/no-img-element
     default: ({ alt }: { alt: string }) => <img alt={alt} />,
 }));
+jest.mock("framer-motion", () => {
+    return {
+        motion: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            div: (props: any) => <div {...props} />,
+        },
+        useInView: jest.fn(() => [true, jest.fn()]), // Mocking useInView
+    };
+});
 
 Object.defineProperty(window.navigator, 'language', {
     value: 'en',

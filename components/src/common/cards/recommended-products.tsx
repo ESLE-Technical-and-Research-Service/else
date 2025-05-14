@@ -32,7 +32,7 @@ export default function RecommendedProducts({lang, tags, category, viewedProduct
                 <div data-testid="recommended-products-card-container">
                     <h2
                         data-testid="recommended-products-card-title"
-                        className="sm:text-lg md:text-2xl lg:text-3xl font-semibold mb-4 text-black text-center mt-6 mb-4"
+                        className="sm:text-lg md:text-2xl lg:text-3xl font-semibold mt-8 text-black text-center mb-4"
                     >
                         {
                             lang === Language.PL
@@ -45,7 +45,10 @@ export default function RecommendedProducts({lang, tags, category, viewedProduct
                         className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
                     >
                         {randomProducts.slice(0, 4).map((product: ProductItem, indx: number) => (
-                            <div key={indx} className="bg-white p-4 rounded-lg shadow-md">
+                            <div
+                                key={indx}
+                                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-shadow duration-300"
+                            >
                                 <Link
                                     data-testid="recommended-product-link"
                                     href={product.href}

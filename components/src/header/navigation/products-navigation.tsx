@@ -53,47 +53,45 @@ export default function ProductNavigation({
     };
 
     return (
-        <>
-            <li data-testid="products-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
-                <Link
-                    data-testid="products-menu-link"
-                    className={`${classes.navLink} hover:underline cursor-pointer`}
-                    href="/products"
-                    onClick={(e) => handleClickAction(e, 'products')}
-                >
-                    {language === Language.PL ? "Produkty" : "Products"}
-                </Link>
+        <li data-testid="products-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
+            <Link
+                data-testid="products-menu-link"
+                className={`${classes.navLink} hover:underline cursor-pointer`}
+                href="/products"
+                onClick={(e) => handleClickAction(e, 'products')}
+            >
+                {language === Language.PL ? "Produkty" : "Products"}
+            </Link>
 
-                {/* Mobile Dropdown – static positioning */}
-                {isMobile && openDropdown === 'products' && (
-                    <ProductsMobileSubmenu
-                        handleClickAction={handleClickAction}
-                        dropdownSubmenu={dropdownSubmenu}
-                        onDropdownItemActivateAction={onDropdownItemActivate}
-                    />
-                )}
+            {/* Mobile Dropdown – static positioning */}
+            {isMobile && openDropdown === 'products' && (
+                <ProductsMobileSubmenu
+                    handleClickAction={handleClickAction}
+                    dropdownSubmenu={dropdownSubmenu}
+                    onDropdownItemActivateAction={onDropdownItemActivate}
+                />
+            )}
 
-                {/* Tablet Dropdown – absolute positioning (triggered by click) */}
-                {!isMobile && isTouchTablet && openDropdown === 'products' && (
-                    <ProductsTabletSubmenu
-                        handleClickAction={handleClickAction}
-                        dropdownSubmenu={dropdownSubmenu}
-                        onDropdownItemActivateAction={onDropdownItemActivate}
-                    />
-                )}
+            {/* Tablet Dropdown – absolute positioning (triggered by click) */}
+            {!isMobile && isTouchTablet && openDropdown === 'products' && (
+                <ProductsTabletSubmenu
+                    handleClickAction={handleClickAction}
+                    dropdownSubmenu={dropdownSubmenu}
+                    onDropdownItemActivateAction={onDropdownItemActivate}
+                />
+            )}
 
-                {/* Desktop Dropdown – absolute positioning; always rendered and controlled by CSS hover */}
-                {!isMobile && !isTouchTablet && (
-                    <ProductsDesktopSubmenu
-                        handleClickAction={handleClickAction}
-                        onDropdownItemActivateAction={onDropdownItemActivate}
-                        handleMouseEnterAction={handleMouseEnter}
-                        handleMouseLeaveAction={handleMouseLeave}
-                        hoveredSubmenu={hoveredSubmenu}
-                    />
-                )}
+            {/* Desktop Dropdown – absolute positioning; always rendered and controlled by CSS hover */}
+            {!isMobile && !isTouchTablet && (
+                <ProductsDesktopSubmenu
+                    handleClickAction={handleClickAction}
+                    onDropdownItemActivateAction={onDropdownItemActivate}
+                    handleMouseEnterAction={handleMouseEnter}
+                    handleMouseLeaveAction={handleMouseLeave}
+                    hoveredSubmenu={hoveredSubmenu}
+                />
+            )}
 
-            </li>
-        </>
+        </li>
     );
 }
