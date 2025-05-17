@@ -4,6 +4,7 @@ import camServiceHeroImg
 import camServiceImg01 from "../../../../assets/images/products/cameras/explosive_proof_inspec_sys_01.webp";
 import camServiceImg02 from "../../../../assets/images/products/cameras/leak_testing_system_06.webp";
 import camServiceImg03 from "../../../../assets/images/products/cameras/explosive_proof_inspec_sys_02.webp";
+import camServiceImg04 from "../../../../assets/images/products/cameras/compact_portable_sys_01.webp";
 import ListElementCard from "../../common/cards/list-element-card";
 import AnimatedDivider from "../../common/dividers/animated-divider";
 import { motion } from "framer-motion";
@@ -23,6 +24,7 @@ export const CameraService: Service = {
         camServiceImg01,
         camServiceImg02,
         camServiceImg03,
+        camServiceImg04,
     ],
     description: {
         textPL: "Serwis kamer oferowany przez firmę ELSE Technical and Research Service Co. Ltd Sp. z o.o. koncentruje się na kompleksowej obsłudze systemów inspekcji kanalizacji i sieci wodno-kanalizacyjnych. Dzięki wieloletniemu doświadczeniu (działalność od 1989 roku) oraz autoryzacji producenta IBAK, firma zapewnia wysoką jakość usług serwisowych.",
@@ -104,7 +106,7 @@ export const CameraService: Service = {
                                 transition={{ duration: 0.6, delay: idx * 0.15 }}
                                 style={{ listStyle: 'none' }}
                             >
-                                <ListElementCard text={text} />
+                                <ListElementCard text={text} key={idx} />
                             </motion.div>
                         ))}
                     </ul>

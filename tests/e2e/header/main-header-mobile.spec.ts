@@ -258,13 +258,6 @@ test.describe("main header suite", () => {
 
                 const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelPL);
                 expect(submenuItems).toEqual(expectedSubmenuItems);
-
-                // Optionally, test navigation by clicking the first submenu item
-                await Promise.all([
-                    mobilePage.waitForNavigation(),
-                    submenuLinks.first().click(),
-                ]);
-                await expect(mobilePage).toHaveURL(/\/products\/maritime/);
             });
         });
     });

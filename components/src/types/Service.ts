@@ -24,5 +24,5 @@ export type Service = {
     summary: {
         summaryPL: JSX.Element,
         summaryENG: JSX.Element,
-    },
+    } | null,
 }

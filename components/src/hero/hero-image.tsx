@@ -25,12 +25,12 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
         return () => clearInterval(intervalId);
     });
 
-    let scaleValue = 1.15;
+    let scaleValue = 0.90;
     if (typeof window !== 'undefined') {
         if (window.innerWidth < 768) {
-            scaleValue = 1.03;
+            scaleValue = 0.95;
         } else if (window.innerWidth < 1024) {
-            scaleValue = 1;
+            scaleValue = 0.85;
         }
     }
 
@@ -38,8 +38,8 @@ export default function HeroImage({ heroSlides, heroTitle, heroHeight }: HeroIma
         <motion.div
             ref={heroImageRef}
             data-testid="hero-image-container"
-            initial={{ scale: scaleValue }}
-            animate={{ scale: isOutOfView ? scaleValue : 1 }}
+            initial={{ scale: 1 }}
+            animate={{ scale: isOutOfView ? 1 : scaleValue }}
             transition={{ duration: 1.2, ease: "easeOut", type: "spring", stiffness: 80, damping: 30}}
             className={`relative w-full overflow-hidden `}
             style={{ height: `${heroHeight ? heroHeight : 60}vh` }}
