@@ -10,3 +10,4 @@ export * from "./Sections";
 export * from "./Language";
 export * from "./ProductsCategories";
 export * from "./NavigationLinks";
+export * from "./PageLayout";
