@@ -6,4 +6,5 @@ export enum PageLayout {
     GRID = "grid",
     TIMELINE = "timeline",
     CARDS = "cards",
+    MASONRY = "masonry",
 }

@@ -18,6 +18,7 @@ import GridLayout from "../../../../components/src/services/layouts/GridLayout";
 import ExpandedLayout from "../../../../components/src/services/layouts/ExpandedLayout";
 import TimelineLayout from "../../../../components/src/services/layouts/TimelineLayout";
 import CardsLayout from "../../../../components/src/services/layouts/CardsLayout";
+import MasonryLayout from "../../../../components/src/services/layouts/MasonryLayout";
 
 export default function ServiceDetailsPage() {
     const {language} = useLanguage();
@@ -150,6 +151,14 @@ export default function ServiceDetailsPage() {
                 articleImagesRef1={articleImagesRef1}
                 scaleValue={scaleValue}
                 imagesStyle={imagesStyle}
+            />;
+
+        case PageLayout.MASONRY:
+            return <MasonryLayout 
+                service={service}
+                language={language}
+                badgeRef={badgeRef}
+                isBadgeInCenter={isBadgeInCenter}
             />;
 
         case PageLayout.DEFAULT:

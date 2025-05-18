@@ -1,12 +1,15 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ImagesGridCard from "../../common/cards/images-grid-card";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
+import Link from "next/link";
+import {servicesDropdownItems} from "../../header/navigation/config/services-dropdown-items";
+import {DropDownItem} from "../../header/navigation/render-dropdown-items";
 
 type SidebarLayoutProps = {
     service: Service;
@@ -23,13 +26,13 @@ type SidebarLayoutProps = {
 };
 
 export default function SidebarLayout({
-    service,
-    language,
-    isInCenter1,
-    articleImagesRef1,
-    scaleValue,
-    imagesStyle,
-}: SidebarLayoutProps) {
+                                          service,
+                                          language,
+                                          isInCenter1,
+                                          articleImagesRef1,
+                                          scaleValue,
+                                          imagesStyle,
+                                      }: SidebarLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
@@ -63,58 +66,59 @@ export default function SidebarLayout({
                             </h2>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#description" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
+                                    <a href="#description"
+                                       className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
                                         {language === Language.PL ? "Opis" : "Description"}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#details" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
+                                    <a href="#details"
+                                       className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
                                         {language === Language.PL ? "Szczegóły" : "Details"}
                                     </a>
                                 </li>
                                 {service.summary && (
                                     <li>
-                                        <a href="#summary" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
+                                        <a href="#summary"
+                                           className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
                                             {language === Language.PL ? "Podsumowanie" : "Summary"}
                                         </a>
                                     </li>
                                 )}
                                 <li>
-                                    <a href="#contact" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
+                                    <a href="#contact"
+                                       className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
                                         {language === Language.PL ? "Kontakt" : "Contact"}
                                     </a>
                                 </li>
                             </ul>
-                            
+
                             <div className="mt-8">
                                 <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
                                     {language === Language.PL ? "Powiązane usługi" : "Related Services"}
                                 </h2>
                                 <ul className="space-y-2">
-                                    <li>
-                                        <a href="/services/cam-service" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
-                                            {language === Language.PL ? "Serwis kamer" : "Camera Service"}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/services/pressure-vehicles-service" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
-                                            {language === Language.PL ? "Serwis pojazdów ciśnieniowych" : "Pressure Vehicles Service"}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/services/trainings" className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors">
-                                            {language === Language.PL ? "Szkolenia" : "Trainings"}
-                                        </a>
-                                    </li>
+                                    {servicesDropdownItems
+                                        .filter((item: DropDownItem) => item.href !== service.href)
+                                        .map((item: DropDownItem, idx: number) => (
+                                            <li key={idx}>
+                                                <Link
+                                                    href={item.href}
+                                                    className="text-[var(--main-color-secondary)] hover:text-[var(--main-color)] transition-colors"
+                                                >
+                                                    {language === Language.PL ? item.labelPL : item.labelENG}
+                                                </Link>
+                                            </li>
+                                        ))}
                                 </ul>
                             </div>
-                            
+
                             <div className="mt-8">
                                 <BackButton/>
                             </div>
                         </div>
                     </aside>
-                    
+
                     {/* Main content */}
                     <section className="w-full md:w-3/4 px-4 py-16">
                         <HeaderDivider

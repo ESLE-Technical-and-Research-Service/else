@@ -2,6 +2,7 @@ import {Service} from "../../types/Service";
 import trainingsHeroImg from "../../../../assets/images/hero/trainingHero01.webp";
 import trainingsImg01 from "../../../../assets/images/services/training_01.jpg";
 import trainingsImg02 from "../../../../assets/images/services/training_02.jpg";
+import trainingsImg03 from "../../../../assets/images/products/cameras/compact_portable_sys_07.webp";
 import AnimatedDivider from "../../common/dividers/animated-divider";
 import { motion } from "framer-motion";
 import ListElementCard from "../../common/cards/list-element-card";
@@ -20,6 +21,7 @@ export const Trainings: Service = {
     images: [
         trainingsImg01,
         trainingsImg02,
+        trainingsImg03,
     ],
     description: {
         textPL: "Oferujemy kompleksowe szkolenia z obsługi naszych specjalistycznych urządzeń i systemów dla sieci wodno-kanalizacyjnych. Nasze szkolenia są dostosowane do indywidualnych potrzeb klienta i prowadzone przez doświadczonych specjalistów, co zapewnia efektywne wdrożenie i użytkowanie oferowanych produktów.",
@@ -115,5 +117,16 @@ export const Trainings: Service = {
             </>
         ),
     },
-    summary: null,
+    summary: {
+        summaryPL: (
+            <p className="text-center md:text-2xl text-base leading-10">
+                Nasze programy szkoleniowe mają na celu dostarczenie uczestnikom kompleksowej wiedzy i praktycznych umiejętności niezbędnych do efektywnej obsługi i konserwacji systemów inspekcyjnych. Dzięki zajęciom praktycznym i instruktażowi prowadzonemu przez ekspertów, uczestnicy zyskują pewność w stosowaniu najlepszych praktyk w rzeczywistych sytuacjach. Po pomyślnym ukończeniu szkolenia uczestnicy otrzymują certyfikat potwierdzający ich kompetencje, co zwiększa ich wiarygodność zawodową i wspiera rozwój kariery.
+            </p>
+        ),
+        summaryENG: (
+            <p className="text-center md:text-2xl text-base leading-10">
+                Our training programs are designed to equip participants with comprehensive knowledge and practical skills essential for the effective operation and maintenance of inspection systems. Through hands-on sessions and expert-led instruction, attendees gain the confidence to apply best practices in real-world scenarios. Upon successful completion, participants receive a certification that validates their competencies, enhancing their professional credibility and supporting career advancement.
+            </p>
+        ),
+    },
 }
