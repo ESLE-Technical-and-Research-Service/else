@@ -63,7 +63,7 @@ export default function CarouselLayout({
             <div className="absolute inset-y-1/2 left-4 flex items-center z-10">
                 <button
                     onClick={() => setCurrent((prev) => Math.max(prev - 1, 0))}
-                    className="p-2 rounded-full bg-white shadow hover:scale-110 transition"
+                    className="p-2 rounded-full bg-[var(--background)] shadow hover:scale-110 transition"
                 >
                     ◀
                 </button>
@@ -71,7 +71,7 @@ export default function CarouselLayout({
             <div className="absolute inset-y-1/2 right-4 flex items-center z-10">
                 <button
                     onClick={() => setCurrent((prev) => Math.min(prev + 1, images.length - 1))}
-                    className="p-2 rounded-full bg-white shadow hover:scale-110 transition"
+                    className="p-2 rounded-full bg-[var(--background)] shadow hover:scale-110 transition"
                 >
                     ▶
                 </button>

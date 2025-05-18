@@ -65,7 +65,7 @@ export default function TechnologyFilters({
     return (
         <main
             data-testid="technology-filters-container"
-            className="w-full bg-white rounded shadow p-4"
+            className="w-full bg-[var(--background)] rounded shadow p-4"
         >
             <div className="flex justify-between items-center gap-2 mb-4">
                 <h2

@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f6;
-  --foreground: #F2F2F2;
+  --background: #ffffff;
+  --foreground: #ededed;
   --main-color: #332A1B;
   --main-color-secondary: #FF0000;
   --main-color-accent-dark: #9c0000;
+  --main-color-third: #0378A6;
+  --main-color-third-light: #05B6FC;
   --background-gradient-begining: #FFFFFF;
   --background-gradient-middle: #EDF0EF;
   --background-gradient-end: #006EAC;
@@ -24,11 +26,13 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #f8f8f8;
-    --foreground: #dedede;
+    --background: #ffffff;
+    --foreground: #ededed;
     --main-color: #332A1B;
     --main-color-secondary: #FF0000;
     --main-color-accent-dark: #9c0000;
+    --main-color-third: #0378A6;
+    --main-color-third-light: #05B6FC;
     --background-gradient-begining: #FFFFFF;
     --background-gradient-middle: #EDF0EF;
     --background-gradient-end: #006EAC;

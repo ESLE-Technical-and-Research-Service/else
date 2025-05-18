@@ -13,7 +13,7 @@ import Image from "next/image";
 import {motion, useInView} from "framer-motion";
 import ContactUsCard from "../../../../components/src/common/cards/contact-us-card";
 import BackButton from "../../../../components/src/common/buttons/back-button";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import {PressureVehiclesService} from "../../../../components/src/services/data/pressure-vehicles-service";
 import {Trainings} from "../../../../components/src/services/data/trainings";
 import ImagesGridCard from "../../../../components/src/common/cards/images-grid-card";
@@ -87,7 +87,7 @@ export default function ServiceDetailsPage() {
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-6xl font-bold text-white">
+                    <h1 className="text-6xl font-bold text-[var(--font-color-light)]">
                         {
                             language === Language.PL
                                 ? service.name.namePL
@@ -99,7 +99,7 @@ export default function ServiceDetailsPage() {
             />
 
             <div
-                data-testid="water-sewage-departments-products-breadcrumbs"
+                data-testid="water-sewage-service-details-breadcrumbs"
                 className="hidden md:flex w-full max-w-4xl mx-auto pt-4 pb-2"
             >
                 <Breadcrumbs/>
@@ -163,7 +163,7 @@ export default function ServiceDetailsPage() {
                         >
                             <Image
                                 src={service.images[2]}
-                                alt={'Cameras Service image'}
+                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image`}
                                 className="rounded-2xl shadow-xl max-w-2xl hover:scale-105 transition-all duration-300 w-3/3"
                             />
                         </motion.div>

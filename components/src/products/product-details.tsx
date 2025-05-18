@@ -25,7 +25,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product, lang}: ProductD
         <section
             data-testid="product-details-section"
             className="w-full flex flex-col md:flex-row gap-8 max-w-6xl mx-auto
-            bg-white rounded-xl shadow-lg overflow-hidden my-4 p-0 md:p-10"
+            bg-[var(--background)] rounded-xl shadow-lg overflow-hidden my-4 p-0 md:p-10"
         >
             {/* Left column: title, images, description, detailed description */}
             <div

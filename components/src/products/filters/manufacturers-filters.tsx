@@ -56,7 +56,7 @@ export default function ManufacturersFilters({
     const manufacturersForProductsByCategory = manufacturersByCategory(category);
 
     return (
-        <main data-testid="manufacturers-filters-container" className="w-full bg-white rounded shadow p-4">
+        <main data-testid="manufacturers-filters-container" className="w-full bg-[var(--background)] rounded shadow p-4">
             <div className="flex justify-between items-center gap-2 mb-4">
                 <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
                     {language === Language.PL ? "Producenci:" : "Manufacturers:"}

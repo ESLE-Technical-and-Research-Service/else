@@ -128,7 +128,8 @@ export default function WaterSewageProductLayout() {
                 <div className="fixed inset-0 z-40 flex">
                     <div className="absolute inset-0 bg-black opacity-40" onClick={() => setShowFilters(false)}></div>
                     <div
-                        className="relative bg-white w-72 max-w-full h-full max-h-screen shadow-lg z-50 p-4 flex flex-col overflow-y-auto">
+                        className="relative bg-[var(--background)] w-72 max-w-full h-full max-h-screen
+                        shadow-lg z-50 p-4 flex flex-col overflow-y-auto">
                         <button
                             data-testid="water-sewage-products-filters-close-button"
                             className="self-end mb-4"
@@ -182,7 +183,13 @@ export default function WaterSewageProductLayout() {
                             {Array.from({length: totalPages}, (_, i) => (
                                 <button
                                     key={i}
-                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-200 font-semibold shadow text-base transition-all duration-150 focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' : 'bg-white/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}`}
+                                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border 
+                                    border-blue-200 font-semibold shadow text-base transition-all duration-150 
+                                    focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 
+                                    focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 
+                                        ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' 
+                                        : 'bg-[var(--background)]/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'
+                                    }`}
                                     onClick={() => setCurrentPage(i + 1)}
                                 >
                                     {i + 1}
@@ -212,7 +219,12 @@ export default function WaterSewageProductLayout() {
                         className="flex justify-center items-center gap-2 mt-6"
                     >
                         <button
-                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow transition-all duration-150 text-base focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border
+                            border-blue-300 bg-[var(--background)]/80 hover:bg-blue-50 text-[var(--main-color)]
+                            font-semibold shadow transition-all duration-150 text-base focus:outline-none
+                            focus:ring-[var(--main-color-secondary)] focus:ring-2
+                            focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10
+                            disabled:opacity-50 disabled:cursor-not-allowed"
                             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                             disabled={currentPage === 1}
                         >
@@ -221,14 +233,24 @@ export default function WaterSewageProductLayout() {
                         {Array.from({length: totalPages}, (_, i) => (
                             <button
                                 key={i}
-                                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-200 font-semibold shadow text-base transition-all duration-150 focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' : 'bg-white/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}`}
+                                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border 
+                                border-blue-200 font-semibold shadow text-base transition-all duration-150 
+                                focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 
+                                focus:border-[var(--main-color-secondary)] z-10 ${currentPage === i + 1 
+                                    ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' 
+                                    : 'bg-[var(--background)]/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}`}
                                 onClick={() => setCurrentPage(i + 1)}
                             >
                                 {i + 1}
                             </button>
                         ))}
                         <button
-                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-blue-300 bg-white/80 hover:bg-blue-50 text-[var(--main-color)] font-semibold shadow transition-all duration-150 text-base focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border
+                            border-blue-300 bg-[var(--background)]/80 hover:bg-blue-50 text-[var(--main-color)]
+                            font-semibold shadow transition-all duration-150 text-base focus:outline-none
+                            focus:ring-[var(--main-color-secondary)] focus:ring-2
+                            focus:border-[var(--main-color-secondary)] hover:-translate-y-0.5 z-10
+                            disabled:opacity-50 disabled:cursor-not-allowed"
                             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                             disabled={currentPage === totalPages}
                         >

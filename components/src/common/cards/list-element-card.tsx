@@ -8,7 +8,7 @@ export default function ListElementCard({text}: ListElementCardProps) {
     return (
         <li
             data-testid="contact-us-card-container"
-            className="mt-8 mb-20 px-6 py-6 rounded-2xl bg-white/60 backdrop-blur-md border
+            className="mt-8 mb-20 px-6 py-6 rounded-2xl bg-[var(--background)]/60 backdrop-blur-md border
             border-gray-100 shadow-lg flex flex-col items-center text-center relative
             overflow-hidden hover:-translate-y-0.5 transition-all duration-150 z-10 hover:scale-110"
         >

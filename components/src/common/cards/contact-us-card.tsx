@@ -15,7 +15,7 @@ export default function ContactUsCard({lang, text}: ContactUsCardProps) {
     return (
         <div
             data-testid="contact-us-card-container"
-            className="mt-8 px-6 py-5 rounded-2xl bg-white/60 backdrop-blur-md border
+            className="mt-8 px-6 py-5 rounded-2xl bg-[var(--background)]/60 backdrop-blur-md border
             border-blue-100 shadow-lg flex flex-col items-center text-center relative
             overflow-hidden"
         >
@@ -37,7 +37,7 @@ export default function ContactUsCard({lang, text}: ContactUsCardProps) {
                 <a
                     data-testid="contact-us-card-link"
                     className="inline-flex items-center gap-2 px-6 py-2 rounded-xl border
-                border-[var(--background-gradient-end)] bg-white/80 hover:bg-blue-50 text-[var(--background-gradient-end)] font-semibold
+                border-[var(--background-gradient-end)] bg-[var(--background)]/80 hover:bg-blue-50 text-[var(--background-gradient-end)] font-semibold
                 shadow transition-all duration-150 text-base md:text-xl focus:outline-none focus:ring-2
                 focus:ring-blue-200 hover:-translate-y-0.5 z-10">
                     {lang === Language.PL ? "Skontaktuj się z nami" : "Contact Us"}

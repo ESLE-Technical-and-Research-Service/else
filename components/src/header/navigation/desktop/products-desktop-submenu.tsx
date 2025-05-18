@@ -30,7 +30,7 @@ export default function ProductsDesktopSubmenu({
             data-testid="products-desktop-dropdown-menu"
             className={
                 `${classes.dropdownMenu} ${classes.absoluteDropdown}
-                absolute left-0 mt-2 w-64 bg-white border border-gray-300 shadow-lg rounded-lg z-10`
+                absolute left-0 mt-2 w-64 bg-[var(--background)] border border-gray-300 shadow-lg rounded-lg z-10`
             }
         >
             {productsMenuItems.map((item: MenuItem, idx: number) => (
@@ -60,7 +60,7 @@ export default function ProductsDesktopSubmenu({
 
                         <ul
                             key={idx + 3}
-                            className={`absolute top-0 left-full ml-2 min-w-[200px] bg-white 
+                            className={`absolute top-0 left-full ml-2 min-w-[200px] bg-[var(--background)] 
                                     border border-gray-300 shadow-lg rounded-lg z-10 ${
                                 hoveredSubmenu === item.submenuName
                                     ? 'block'

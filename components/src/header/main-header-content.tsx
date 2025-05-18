@@ -58,7 +58,7 @@ export default function MainHeaderContent() {
             {/* Mobile Slide-in Menu */}
             <div
                 data-testid="burger-menu-slide-in"
-                className={`fixed top-0 right-0 h-full w-2/3 max-w-[300px] bg-white shadow-lg
+                className={`fixed top-0 right-0 h-full w-2/3 max-w-[300px] bg-[var(--background)] shadow-lg
                  transform transition-transform duration-300 z-40
                 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}
             >

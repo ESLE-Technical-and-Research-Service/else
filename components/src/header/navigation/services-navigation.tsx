@@ -43,9 +43,6 @@ export default function ServicesNavigation({
 
             {/* Mobile Dropdown */}
             {isMobile && openDropdown === 'services' && (
-                // <ul className={`mt-2 bg-white border border-gray-200 rounded-lg`}>
-                //     {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
-                // </ul>
                 <ServicesMobileSubmenu handleClickAction={handleClickAction} />
             )}
 
@@ -55,7 +52,7 @@ export default function ServicesNavigation({
                     data-testid="services-tablet-items"
                     className={
                         `${classes.dropdownMenu} ${classes.tabletDropdown} 
-                    mt-2 bg-white border border-gray-200 rounded-lg`
+                    mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`
                     }
                 >
                     {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
@@ -65,7 +62,8 @@ export default function ServicesNavigation({
             {/* Desktop Dropdown */}
             {!isMobile && !isTouchTablet && (
                 <ul data-testid="services-menu-items"
-                    className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
+                    className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 
+                    rounded-lg shadow-lg bg-[var(--background)] border border-gray-200`}>
                     {renderDropdownItems(servicesDropdownItems, language)}
                 </ul>
             )}

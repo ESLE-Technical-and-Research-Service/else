@@ -47,12 +47,13 @@ export default function RecommendedProducts({lang, tags, category, viewedProduct
                         {randomProducts.slice(0, 4).map((product: ProductItem, indx: number) => (
                             <div
                                 key={indx}
-                                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-shadow duration-300"
+                                className="bg-[var(--background)] p-4 rounded-lg shadow-md hover:shadow-lg
+                                hover:scale-105 transition-shadow duration-300"
                             >
                                 <Link
                                     data-testid="recommended-product-link"
                                     href={product.href}
-                                    key={indx}
+                                    key={indx + 1}
                                 >
                                     <Image
                                         data-testid="recommended-product-image"
@@ -61,9 +62,10 @@ export default function RecommendedProducts({lang, tags, category, viewedProduct
                                         width={200}
                                         height={200}
                                         className="w-full h-48 object-cover mb-4"
-                                        key={indx}
+                                        key={indx + 2}
                                     />
                                     <h3
+                                        key={indx + 3}
                                         data-testid="recommended-product-header"
                                         className="text-lg font-semibold mb-2 text-[var(--main-color)] text-center"
                                     >

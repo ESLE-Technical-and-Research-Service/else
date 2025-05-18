@@ -43,7 +43,7 @@ export default function CategoryFilters({setProductsAction, allProducts, categor
     }
 
     return (
-        <main data-testid="category-filters-container" className="w-full bg-white shadow p-4">
+        <main data-testid="category-filters-container" className="w-full bg-[var(--background)] shadow p-4">
             <div className="flex justify-between items-center gap-2 mb-4">
                 <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
                     {

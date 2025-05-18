@@ -38,7 +38,7 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
 
             {/* Mobile Dropdown */}
             {isMobile && openDropdown === 'about' && (
-                <ul className={`mt-2 bg-white border border-gray-200 rounded-lg`}>
+                <ul className={`mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`}>
                     {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
                 </ul>
             )}
@@ -49,7 +49,7 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
                     data-testid="about-us-tablet-items"
                     className={
                     `${classes.dropdownMenu} ${classes.tabletDropdown} 
-                    mt-2 bg-white border border-gray-200 rounded-lg`
+                    mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`
                 }
                 >
                     {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
@@ -58,7 +58,8 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
 
             {/* Desktop Dropdown – always visible on hover, handled by CSS */}
             {!isMobile && !isTouchTablet && (
-                <ul data-testid="about-us-items" className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-white border border-gray-200`}>
+                <ul data-testid="about-us-items" className={`${classes.dropdownMenu} ${classes.absoluteDropdown} a
+                bsolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-[var(--background)] border border-gray-200`}>
                     {renderDropdownItems(aboutUsDropdownItems, language)}
                 </ul>
             )}

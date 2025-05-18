@@ -33,7 +33,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
         startIndex = 0,
     } = props;
 
-    const imageAlt = language === 'PL' ? service.name.namePL : service.name.nameENG;
+    const imageAlt = language === Language.PL ? service.name.namePL : service.name.nameENG;
 
     switch (layoutType) {
         case ImagesGridLayout.COLUMN:

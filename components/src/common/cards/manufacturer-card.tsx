@@ -32,7 +32,8 @@ export const ManufacturerCard = ({manufacturers, lang}: ManufacturerCardProps) =
                                 className="flex flex-col items-center group"
                             >
                                 <div
-                                    className="relative w-20 h-10 sm:w-28 sm:h-14 flex items-center justify-center bg-white overflow-hidden p-2 mb-1"
+                                    className="relative w-20 h-10 sm:w-28 sm:h-14 flex items-center justify-center
+                                    bg-[var(--background)] overflow-hidden p-2 mb-1"
                                 >
                                     <Image
                                         data-testid="manufacturer-logo"

@@ -26,7 +26,7 @@ export default function ProductsMobileSubmenu({
         <ul
             data-testid="products-mobile-menu-container"
             className={
-                `mt-2 bg-white border-b border-t border-gray-300`
+                `mt-2 bg-[var(--background)] border-b border-t border-gray-300`
             }
         >
             {productsMenuItems.map((item: MenuItem, indx: number) => (
@@ -52,7 +52,7 @@ export default function ProductsMobileSubmenu({
                             <ul
                                 key={indx + 2}
                                 data-testid={`${item.submenuName}-mobile-submenu-items`}
-                                className={`mt-2 bg-white border-b border-t border-gray-300`}
+                                className={`mt-2 bg-[var(--background)] border-b border-t border-gray-300`}
                             >
                                 {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
                             </ul>

@@ -21,8 +21,9 @@ export default function ProductsGrid({products}: ProductsGridProps) {
                         data-testid="product-link"
                         href={product.href}
                         key={index}
-                        className="group bg-white overflow-hidden rounded-xl border border-gray-100 hover:border-gray-200 
-                        hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                        className="group bg-[var(--background)] overflow-hidden rounded-xl border
+                        border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all
+                        duration-300 transform hover:-translate-y-1"
                     >
                         <div className="relative aspect-[4/3]">
                             {product.images[0] && (

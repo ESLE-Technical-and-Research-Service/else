@@ -29,7 +29,7 @@ export default function ServicesMobileSubmenu({
         <ul
             data-testid="products-mobile-menu-container"
             className={
-                `mt-2 bg-white border-b border-t border-gray-300`
+                `mt-2 bg-[var(--background)] border-b border-t border-gray-300`
             }
         >
             {servicesDropdownItems.map((item: DropDownItem, idx: number) => (

@@ -31,7 +31,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                                 data-testid="images-viewer-card-left-arrow"
                                 type="button"
                                 onClick={() => setSelectedImgIdx(selectedImgIdx - 1)}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80
+                                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--background)]/80
                                     hover:bg-blue-100 border border-blue-200 rounded-full p-2 shadow
                                     focus:outline-none focus:ring-2 focus:ring-blue-300"
                                 aria-label={lang === Language.PL ? 'Poprzednie zdjęcie' : 'Previous image'}
@@ -43,7 +43,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                             data-testid="images-viewer-card-current-image-button"
                             type="button"
                             className="relative w-full h-full rounded-lg overflow-hidden border shadow-sm
-                                bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                bg-[var(--background)] focus:outline-none focus:ring-2 focus:ring-blue-400"
                             onClick={() => setDialogOpen(true)}
                         >
                             <Image src={selectedImg} alt={productName} fill style={{objectFit: 'contain'}}/>
@@ -55,7 +55,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                                 data-testid="images-viewer-card-right-arrow"
                                 type="button"
                                 onClick={() => setSelectedImgIdx(selectedImgIdx + 1)}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80
+                                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--background)]/80
                                     hover:bg-blue-100 border border-blue-200 rounded-full p-2 shadow
                                     focus:outline-none focus:ring-2 focus:ring-blue-300"
                                 aria-label={lang === Language.PL ? 'Następne zdjęcie' : 'Next image'}
@@ -78,7 +78,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                                 key={idx}
                                 type="button"
                                 onClick={() => setSelectedImgIdx(idx)}
-                                className={`relative w-20 h-14 sm:w-24 sm:h-16 rounded border bg-white 
+                                className={`relative w-20 h-14 sm:w-24 sm:h-16 rounded border bg-[var(--background)] 
                                     overflow-hidden focus:outline-none 
                                     ${selectedImgIdx === idx ? 'ring-2 ring-blue-500' : 'hover:ring-2 hover:ring-blue-300'}`}
                             >
@@ -103,14 +103,14 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                     >
                         <button
                             data-testid="image-viewer-dialog-full-image-close-button"
-                            className="absolute top-2 right-2 text-white text-2xl font-bold z-10"
+                            className="absolute top-2 right-2 text-[var(--font-color-light)] text-2xl font-bold z-10"
                             onClick={() => setDialogOpen(false)}
                         >
                             &times;
                         </button>
                         <div
                             data-testid="image-viewer-dialog-full-image"
-                            className="relative w-full aspect-[4/3] bg-white rounded-lg overflow-hidden"
+                            className="relative w-full aspect-[4/3] bg-[var(--background)] rounded-lg overflow-hidden"
                         >
                             <Image src={selectedImg} alt={productName + ' large'} fill style={{objectFit: 'contain'}}
                                    priority/>
