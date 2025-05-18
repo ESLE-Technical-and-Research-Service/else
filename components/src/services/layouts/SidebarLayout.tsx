@@ -10,6 +10,7 @@ import BackButton from "../../common/buttons/back-button";
 import Link from "next/link";
 import {servicesDropdownItems} from "../../header/navigation/config/services-dropdown-items";
 import {DropDownItem} from "../../header/navigation/render-dropdown-items";
+import {ImagesGridLayout} from "../../types/ImagesGridLayout";
 
 type SidebarLayoutProps = {
     service: Service;
@@ -18,7 +19,7 @@ type SidebarLayoutProps = {
     articleImagesRef1: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
-        imagesLayout: any;
+        imagesLayout: ImagesGridLayout;
         columns: number;
         limit: number;
         startIndex: number;
@@ -99,7 +100,9 @@ export default function SidebarLayout({
                                 </h2>
                                 <ul className="space-y-2">
                                     {servicesDropdownItems
-                                        .filter((item: DropDownItem) => item.href !== service.href)
+                                        .filter((item: DropDownItem) =>
+                                            item.href.split('/').pop() !== service.href.split('/').pop()
+                                        )
                                         .map((item: DropDownItem, idx: number) => (
                                             <li key={idx}>
                                                 <Link

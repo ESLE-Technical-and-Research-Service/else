@@ -51,7 +51,7 @@ export const Trainings: Service = {
                         "Szkolenia prowadzone w siedzibie klienta lub w naszym centrum szkoleniowym.",
                         "Wsparcie poszkoleniowe oraz dostęp do materiałów edukacyjnych.",
                     ].map((text, idx) => (
-                        <motion.div
+                        <motion.li
                             key={idx}
                             initial={{ x: 100, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
@@ -60,7 +60,7 @@ export const Trainings: Service = {
                             style={{ listStyle: 'none' }}
                         >
                             <ListElementCard text={text} key={idx} />
-                        </motion.div>
+                        </motion.li>
                     ))}
                 </ul>
 
@@ -95,7 +95,7 @@ export const Trainings: Service = {
                             "Training sessions conducted at the client's premises or at our training center.",
                             "Post-training support and access to educational materials.",
                         ].map((text, idx) => (
-                            <motion.div
+                            <motion.li
                                 key={idx}
                                 initial={{ x: 100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
@@ -104,7 +104,7 @@ export const Trainings: Service = {
                                 style={{ listStyle: 'none' }}
                             >
                                 <ListElementCard text={text} key={idx} />
-                            </motion.div>
+                            </motion.li>
                         ))}
                     </ul>
 

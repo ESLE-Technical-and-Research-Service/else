@@ -7,6 +7,7 @@ import HeaderDivider from "../../common/dividers/header-divider";
 import ImagesGridCard from "../../common/cards/images-grid-card";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
+import {ImagesGridLayout} from "../../types/ImagesGridLayout";
 
 type CompactLayoutProps = {
     service: Service;
@@ -15,7 +16,7 @@ type CompactLayoutProps = {
     articleImagesRef1: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
-        imagesLayout: any;
+        imagesLayout: ImagesGridLayout;
         columns: number;
         limit: number;
         startIndex: number;

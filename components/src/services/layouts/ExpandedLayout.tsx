@@ -1,15 +1,16 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ImagesGridCard from "../../common/cards/images-grid-card";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import Image from "next/image";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
+import {ImagesGridLayout} from "../../types/ImagesGridLayout";
 
 type ExpandedLayoutProps = {
     service: Service;
@@ -22,7 +23,7 @@ type ExpandedLayoutProps = {
     badgeRef: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
-        imagesLayout: any;
+        imagesLayout: ImagesGridLayout;
         columns: number;
         limit: number;
         startIndex: number;

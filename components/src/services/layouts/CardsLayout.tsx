@@ -1,36 +1,23 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { DocumentTextIcon, PhotoIcon, InformationCircleIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import {motion} from "framer-motion";
+import {DocumentTextIcon, InformationCircleIcon, PhoneIcon, PhotoIcon} from "@heroicons/react/24/outline";
 
 type CardsLayoutProps = {
     service: Service;
     language: Language;
-    isInCenter1: boolean;
-    articleImagesRef1: RefObject<HTMLDivElement | null>;
-    scaleValue: number;
-    imagesStyle: {
-        imagesLayout: any;
-        columns: number;
-        limit: number;
-        startIndex: number;
-    };
 };
 
 export default function CardsLayout({
     service,
     language,
-    isInCenter1,
-    articleImagesRef1,
-    scaleValue,
-    imagesStyle,
 }: CardsLayoutProps) {
     // Animation variants for cards
     const cardVariants = {

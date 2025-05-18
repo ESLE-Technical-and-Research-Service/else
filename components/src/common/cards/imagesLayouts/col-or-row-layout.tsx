@@ -45,7 +45,7 @@ export default function ColOrRowLayout({
                         ? 'md:w-[calc(50%-0.75rem)]'
                         : 'md:w-2/3'
                     } h-64 md:h-[22rem] bg-[var(--background)] border-4 border-white`}
-                    style={{objectPosition: 'center'}}
+                    style={{objectPosition: 'center', objectFit: 'cover' }}
                 />
             ))}
         </motion.div>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
+import {ImagesGridLayout} from "../../types/ImagesGridLayout";
 
 type DefaultLayoutProps = {
     service: Service;
@@ -22,7 +23,7 @@ type DefaultLayoutProps = {
     badgeRef: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
-        imagesLayout: any;
+        imagesLayout: ImagesGridLayout;
         columns: number;
         limit: number;
         startIndex: number;
