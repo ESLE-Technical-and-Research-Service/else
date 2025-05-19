@@ -6,7 +6,7 @@ import {ReactElement, useEffect, useRef, useState} from "react";
 
 type HeroImageProps = {
     heroSlides: StaticImageData[],
-    heroTitle: ReactElement
+    heroTitle: ReactElement | null
     heroHeight?: number
 }
 

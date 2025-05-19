@@ -45,15 +45,15 @@ export default function MasonryLayout({
                     }
                     heroHeight={50}
                 />
-                
+
                 {/* Floating card with brief description */}
                 <motion.div 
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white rounded-xl shadow-xl p-6 max-w-xl w-full mx-4"
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white rounded-xl shadow-xl p-8 max-w-2xl w-full mx-4"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                 >
-                    <p className="text-[var(--font-color)] text-center text-base md:text-lg leading-7">
+                    <p className="text-[var(--font-color)] text-center text-base md:text-lg leading-relaxed">
                         {
                             language === Language.PL
                                 ? service.description.textPL
@@ -79,14 +79,14 @@ export default function MasonryLayout({
                         }}
                         isVisible={true}
                     />
-                    
-                    {/* Masonry Layout */}
-                    <div className="mt-16">
+
+                    {/* Masonry Layout - Simplified with more breathing space */}
+                    <div className="mt-24">
                         {/* First row - 2 columns on desktop, 1 on mobile */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
                             {/* Detailed Description Card - Spans full width on mobile */}
                             <motion.div 
-                                className="bg-white rounded-xl shadow-md p-8 md:col-span-1 h-full"
+                                className="bg-white rounded-xl shadow-md p-10 md:col-span-1 h-full"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -94,11 +94,11 @@ export default function MasonryLayout({
                             >
                                 <div
                                     data-testid="product-detailed-description"
-                                    className="prose prose-blue max-w-none text-base leading-7
-                                    !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-4 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
-                                    [&_li]:!text-gray-900 [&_li]:mb-2 [&_strong]:block [&_strong]:mb-1
-                                    [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
-                                    [&_h3]:mb-2 [&_h3]:mt-4"
+                                    className="prose prose-blue max-w-none text-base leading-relaxed
+                                    !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-10 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
+                                    [&_li]:!text-gray-900 [&_li]:mb-4 [&_strong]:block [&_strong]:mb-2
+                                    [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
+                                    [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
                                     {
                                         language === Language.PL
@@ -107,11 +107,11 @@ export default function MasonryLayout({
                                     }
                                 </div>
                             </motion.div>
-                            
-                            {/* Image Gallery - Staggered grid */}
+
+                            {/* Image Gallery - Simplified grid with more spacing */}
                             {service.images.length > 0 && (
                                 <motion.div 
-                                    className="grid grid-cols-2 gap-3 h-full"
+                                    className="grid grid-cols-2 gap-6 h-full"
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
@@ -121,8 +121,8 @@ export default function MasonryLayout({
                                         <motion.div 
                                             key={index} 
                                             className={`relative overflow-hidden rounded-lg ${
-                                                index === 0 ? 'col-span-2 h-48' : 
-                                                index === 3 ? 'col-span-2 h-40' : 'h-40'
+                                                index === 0 ? 'col-span-2 h-56' : 
+                                                index === 3 ? 'col-span-2 h-48' : 'h-48'
                                             }`}
                                             whileHover={{ scale: 1.03 }}
                                             transition={{ duration: 0.3 }}
@@ -138,12 +138,12 @@ export default function MasonryLayout({
                                 </motion.div>
                             )}
                         </div>
-                        
+
                         {/* Second row - 3 columns on desktop, 1 on mobile */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
                             {/* Contact Card */}
                             <motion.div 
-                                className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-center"
+                                className="bg-white rounded-xl shadow-md p-8 flex flex-col justify-center"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -157,11 +157,11 @@ export default function MasonryLayout({
                                     }}
                                 />
                             </motion.div>
-                            
+
                             {/* Featured Image with Overlay */}
                             {service.images.length > 0 && (
                                 <motion.div 
-                                    className="relative h-64 md:h-auto md:col-span-2 rounded-xl overflow-hidden"
+                                    className="relative h-72 md:h-auto md:col-span-2 rounded-xl overflow-hidden"
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
@@ -174,7 +174,7 @@ export default function MasonryLayout({
                                         className="object-cover"
                                         fill
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                                         <h3 className="text-white text-xl font-semibold">
                                             {language === Language.PL ? "Nasza specjalizacja" : "Our Specialization"}
                                         </h3>
@@ -182,11 +182,11 @@ export default function MasonryLayout({
                                 </motion.div>
                             )}
                         </div>
-                        
+
                         {/* Summary Section */}
                         {service.summary && (
                             <motion.div 
-                                className="mt-12 bg-white rounded-xl shadow-md p-8"
+                                className="mt-16 bg-white rounded-xl shadow-md p-10"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -201,17 +201,17 @@ export default function MasonryLayout({
                                     }}
                                     transition={{ duration: 1.2, delay: 1, ease: "easeInOut", type: "tween", stiffness: 80, damping: 30 }}
                                     viewport={{ once: true, amount: 0.7 }}
-                                    className="flex justify-center mb-10"
+                                    className="flex justify-center mb-12"
                                 >
-                                    <CheckBadgeIcon className="w-20 h-20" style={{ color: "inherit" }} />
+                                    <CheckBadgeIcon className="w-24 h-24" style={{ color: "inherit" }} />
                                 </motion.div>
                                 <div
                                     data-testid="product-detailed-description"
-                                    className="prose prose-blue max-w-none text-base leading-7
-                                    !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-4 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
-                                    [&_li]:!text-gray-900 [&_li]:mb-2 [&_strong]:block [&_strong]:mb-1
-                                    [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
-                                    [&_h3]:mb-2 [&_h3]:mt-4"
+                                    className="prose prose-blue max-w-none text-base leading-relaxed
+                                    !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-10 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
+                                    [&_li]:!text-gray-900 [&_li]:mb-4 [&_strong]:block [&_strong]:mb-2
+                                    [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
+                                    [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
                                     {
                                         language === Language.PL
@@ -222,8 +222,8 @@ export default function MasonryLayout({
                             </motion.div>
                         )}
                     </div>
-                    
-                    <div className="flex justify-center mt-12 mb-6">
+
+                    <div className="flex justify-center mt-16 mb-10">
                         <BackButton/>
                     </div>
                 </section>

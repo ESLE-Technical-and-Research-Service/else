@@ -9,6 +9,7 @@ import ExpandedLayout from "./ExpandedLayout";
 import TimelineLayout from "./TimelineLayout";
 import CardsLayout from "./CardsLayout";
 import MasonryLayout from "./MasonryLayout";
+import GalleryLayout from "./GalleryLayout";
 import { ImageStyleConfig } from "./imageStyles";
 
 export type LayoutSelectorProps = {
@@ -101,6 +102,13 @@ export const getLayoutComponent = ({
         ),
         [PageLayout.MASONRY]: (
             <MasonryLayout
+                {...commonProps}
+                badgeRef={badgeRef}
+                isBadgeInCenter={isBadgeInCenter}
+            />
+        ),
+        [PageLayout.GALLERY]: (
+            <GalleryLayout
                 {...commonProps}
                 badgeRef={badgeRef}
                 isBadgeInCenter={isBadgeInCenter}
