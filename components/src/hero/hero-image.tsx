@@ -37,6 +37,7 @@ export default function HeroImage({heroSlides, heroTitle, heroHeight, descriptio
 
     return (
         <motion.div
+            id="hero-image-container"
             ref={heroImageRef}
             data-testid="hero-image-container"
             initial={{scale: 1}}

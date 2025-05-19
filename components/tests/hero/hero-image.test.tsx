@@ -14,6 +14,10 @@ jest.mock("framer-motion", () => {
         motion: {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             div: (props: any) => <div {...props} />,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            h1: (props: any) => <h1 {...props} />,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            p: (props: any) => <p {...props} />,
         },
         useInView: jest.fn(() => [true, jest.fn()]), // Mocking useInView
     };
