@@ -3,8 +3,8 @@ import camServiceHeroImg
     from "../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_04.webp";
 import camServiceImg01 from "../../../../assets/images/products/cameras/explosive_proof_inspec_sys_01.webp";
 import camServiceImg02 from "../../../../assets/images/products/cameras/leak_testing_system_06.webp";
-import camServiceImg03 from "../../../../assets/images/products/cameras/explosive_proof_inspec_sys_02.webp";
-import camServiceImg04 from "../../../../assets/images/products/cameras/compact_portable_sys_01.webp";
+import camServiceImg03 from "../../../../assets/images/services/cam_service_01.webp";
+import camServiceImg04 from "../../../../assets/images/services/cam_service_02.webp";
 import ListElementCard from "../../common/cards/list-element-card";
 import AnimatedDivider from "../../common/dividers/animated-divider";
 import { motion } from "framer-motion";

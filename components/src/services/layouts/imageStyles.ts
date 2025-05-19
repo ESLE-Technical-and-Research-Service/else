@@ -12,9 +12,9 @@ export type ImageStyleConfig = {
 // Map service slugs to image style configurations
 export const imageStyleMap: Record<string, ImageStyleConfig> = {
     [NavigationLinks.CAM_SERVICE]: {
-        imagesLayout: ImagesGridLayout.ROW,
-        columns: 3,
-        limit: 4,
+        imagesLayout: ImagesGridLayout.COLUMN,
+        columns: 1,
+        limit: 2,
         startIndex: 0,
     },
     [NavigationLinks.PRESSURE_VEHICLES_SERVICE]: {

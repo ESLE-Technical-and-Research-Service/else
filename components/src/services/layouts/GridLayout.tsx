@@ -19,25 +19,26 @@ type GridLayoutProps = {
 };
 
 export default function GridLayout({
-    service,
-    language,
-    badgeRef,
-    isBadgeInCenter,
-}: GridLayoutProps) {
+                                       service,
+                                       language,
+                                       badgeRef,
+                                       isBadgeInCenter,
+                                   }: GridLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-6xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={40}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -56,7 +57,7 @@ export default function GridLayout({
                         }}
                         isVisible={true}
                     />
-                    
+
                     {/* Grid Layout */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                         {/* Description Card */}
@@ -72,10 +73,11 @@ export default function GridLayout({
                                 }
                             </p>
                         </div>
-                        
+
                         {/* Images Card */}
                         {service.images.length > 0 && (
-                            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
+                            <div
+                                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
                                 <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
                                     {language === Language.PL ? "Galeria" : "Gallery"}
                                 </h2>
@@ -93,14 +95,14 @@ export default function GridLayout({
                                 </div>
                                 {service.images.length > 4 && (
                                     <p className="text-center mt-2 text-sm text-[var(--main-color-secondary)]">
-                                        {language === Language.PL 
-                                            ? `+${service.images.length - 4} więcej zdjęć` 
+                                        {language === Language.PL
+                                            ? `+${service.images.length - 4} więcej zdjęć`
                                             : `+${service.images.length - 4} more images`}
                                     </p>
                                 )}
                             </div>
                         )}
-                        
+
                         {/* Contact Card */}
                         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
@@ -114,9 +116,10 @@ export default function GridLayout({
                                 }}
                             />
                         </div>
-                        
+
                         {/* Detailed Description Card */}
-                        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-3">
+                        <div
+                            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-3">
                             <div
                                 data-testid="product-detailed-description"
                                 className="prose prose-blue max-w-none text-base leading-7
@@ -132,22 +135,30 @@ export default function GridLayout({
                                 }
                             </div>
                         </div>
-                        
+
                         {/* Summary Card */}
                         {service.summary && (
-                            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-3">
+                            <div
+                                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-3">
                                 <motion.div
                                     ref={badgeRef}
-                                    initial={{ color: "var(--font-color)", opacity: 0 }}
+                                    initial={{color: "var(--font-color)", opacity: 0}}
                                     animate={{
                                         color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)",
                                         opacity: isBadgeInCenter ? 1 : 0
                                     }}
-                                    transition={{ duration: 1.2, delay: 1, ease: "easeInOut", type: "tween", stiffness: 80, damping: 30 }}
-                                    viewport={{ once: true, amount: 0.7 }}
+                                    transition={{
+                                        duration: 1.2,
+                                        delay: 1,
+                                        ease: "easeInOut",
+                                        type: "tween",
+                                        stiffness: 80,
+                                        damping: 30
+                                    }}
+                                    viewport={{once: true, amount: 0.7}}
                                     className="flex justify-center mb-10"
                                 >
-                                    <CheckBadgeIcon className="w-20 h-20" style={{ color: "inherit" }} />
+                                    <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                                 </motion.div>
                                 <div
                                     data-testid="product-detailed-description"
@@ -166,7 +177,7 @@ export default function GridLayout({
                             </div>
                         )}
                     </div>
-                    
+
                     <div className="flex justify-center mt-12 mb-6">
                         <BackButton/>
                     </div>

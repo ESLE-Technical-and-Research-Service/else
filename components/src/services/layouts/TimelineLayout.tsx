@@ -19,19 +19,19 @@ type TimelineLayoutProps = {
 };
 
 export default function TimelineLayout({
-    service,
-    language,
-    badgeRef,
-    isBadgeInCenter,
-    articleImagesRef1,
-}: TimelineLayoutProps) {
+                                           service,
+                                           language,
+                                           badgeRef,
+                                           isBadgeInCenter,
+                                           articleImagesRef1,
+                                       }: TimelineLayoutProps) {
     // Create timeline points based on the number of images
     const timelinePoints = useMemo(() => {
         // Create an array of timeline points based on the images
         return service.images.map((_, index) => ({
             id: index,
-            title: language === Language.PL 
-                ? `Punkt ${index + 1}` 
+            title: language === Language.PL
+                ? `Punkt ${index + 1}`
                 : `Point ${index + 1}`,
         }));
     }, [service.images, language]);
@@ -41,15 +41,16 @@ export default function TimelineLayout({
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-6xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={40}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -69,20 +70,10 @@ export default function TimelineLayout({
                         isVisible={true}
                     />
 
-                    {/* Introduction */}
-                    <div className="mb-16 text-center">
-                        <p className="mt-8 mb-8 text-[var(--font-color)] md:text-xl text-base leading-8 max-w-3xl mx-auto">
-                            {
-                                language === Language.PL
-                                    ? service.description.textPL
-                                    : service.description.textENG
-                            }
-                        </p>
-                    </div>
-
                     {/* Detailed Description Section */}
                     <div className="mb-16">
-                        <div className="prose prose-blue max-w-none text-base text-[var(--font-color)] leading-7 bg-[var(--background)] rounded-lg shadow-md p-6">
+                        <div
+                            className="prose prose-blue max-w-none text-base text-[var(--font-color)] leading-7 bg-[var(--background)] rounded-lg shadow-md p-6">
                             {/* Render the JSX.Element directly */}
                             {language === Language.PL
                                 ? service.detailedDescription.textPL
@@ -93,18 +84,21 @@ export default function TimelineLayout({
                     {/* Timeline Layout */}
                     <div className="relative">
                         {/* Timeline line - hidden on mobile, visible on larger screens */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--main-color-secondary)] opacity-30 hidden md:block"></div>
+                        <div
+                            className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--main-color-secondary)] opacity-30 hidden md:block"></div>
 
                         {/* Timeline items */}
                         {timelinePoints.map((point, index) => (
-                            <div key={point.id} className={`flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                            <div key={point.id}
+                                 className={`flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                                 {/* Content - full width on mobile, half width on larger screens */}
-                                <div className={`w-full md:w-5/12 mb-6 md:mb-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-center md:text-left`}>
+                                <div
+                                    className={`w-full md:w-5/12 mb-6 md:mb-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-center md:text-left`}>
                                     <motion.div
-                                        initial={{ opacity: 0, y: 30, x: 0 }}
-                                        whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        viewport={{ once: true, amount: 0.5 }}
+                                        initial={{opacity: 0, y: 30, x: 0}}
+                                        whileInView={{opacity: 1, y: 0, x: 0}}
+                                        transition={{duration: 0.8, ease: "easeOut"}}
+                                        viewport={{once: true, amount: 0.5}}
                                     >
                                         <h3 className="text-xl font-semibold mb-2 text-[var(--font-color)]">{point.title}</h3>
                                         <p className="text-[var(--font-color)]">
@@ -117,24 +111,24 @@ export default function TimelineLayout({
 
                                 {/* Timeline dot - centered on mobile */}
                                 <div className="w-full md:w-2/12 flex justify-center my-4 md:my-0">
-                                    <motion.div 
+                                    <motion.div
                                         className="w-10 h-10 rounded-full bg-[var(--main-color)] flex items-center justify-center z-10"
-                                        initial={{ scale: 0 }}
-                                        whileInView={{ scale: 1 }}
-                                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-                                        viewport={{ once: true, amount: 0.5 }}
+                                        initial={{scale: 0}}
+                                        whileInView={{scale: 1}}
+                                        transition={{duration: 0.5, ease: "easeOut", delay: 0.2}}
+                                        viewport={{once: true, amount: 0.5}}
                                     >
-                                        <ClockIcon className="w-5 h-5 text-white" />
+                                        <ClockIcon className="w-5 h-5 text-white"/>
                                     </motion.div>
                                 </div>
 
                                 {/* Image */}
                                 <div className="w-full md:w-5/12">
                                     <motion.div
-                                        initial={{ opacity: 0, y: 30, x: 0 }}
-                                        whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        viewport={{ once: true, amount: 0.5 }}
+                                        initial={{opacity: 0, y: 30, x: 0}}
+                                        whileInView={{opacity: 1, y: 0, x: 0}}
+                                        transition={{duration: 0.8, ease: "easeOut"}}
+                                        viewport={{once: true, amount: 0.5}}
                                         className={`${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}
                                     >
                                         <div className="relative h-48 md:h-64 overflow-hidden rounded-lg shadow-md">
@@ -156,16 +150,23 @@ export default function TimelineLayout({
                         <div className="mt-24 mb-16 bg-[var(--background)] rounded-lg shadow-lg p-8">
                             <motion.div
                                 ref={badgeRef}
-                                initial={{ color: "var(--font-color)", opacity: 0 }}
+                                initial={{color: "var(--font-color)", opacity: 0}}
                                 animate={{
                                     color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)",
                                     opacity: isBadgeInCenter ? 1 : 0
                                 }}
-                                transition={{ duration: 1.2, delay: 1, ease: "easeInOut", type: "tween", stiffness: 80, damping: 30 }}
-                                viewport={{ once: true, amount: 0.7 }}
+                                transition={{
+                                    duration: 1.2,
+                                    delay: 1,
+                                    ease: "easeInOut",
+                                    type: "tween",
+                                    stiffness: 80,
+                                    damping: 30
+                                }}
+                                viewport={{once: true, amount: 0.7}}
                                 className="flex justify-center mb-10"
                             >
-                                <CheckBadgeIcon className="w-20 h-20" style={{ color: "inherit" }} />
+                                <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                             </motion.div>
                             <div
                                 data-testid="product-detailed-description"

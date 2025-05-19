@@ -5,7 +5,7 @@ export const serviceLayoutMap: Record<string, PageLayout> = {
     [NavigationLinks.CAM_SERVICE]: PageLayout.SIDEBAR,
     [NavigationLinks.PRESSURE_VEHICLES_SERVICE]: PageLayout.COMPACT,
     [NavigationLinks.TRAININGS]: PageLayout.TIMELINE,
-    [NavigationLinks.TECH_SUPPORT]: PageLayout.GALLERY,
+    [NavigationLinks.TECH_SUPPORT]: PageLayout.COMPACT,
 
     default: PageLayout.GALLERY
 };

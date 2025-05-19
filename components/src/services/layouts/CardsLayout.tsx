@@ -16,12 +16,12 @@ type CardsLayoutProps = {
 };
 
 export default function CardsLayout({
-    service,
-    language,
-}: CardsLayoutProps) {
+                                        service,
+                                        language,
+                                    }: CardsLayoutProps) {
     // Animation variants for cards
     const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: {opacity: 0, y: 50},
         visible: (i: number) => ({
             opacity: 1,
             y: 0,
@@ -38,15 +38,16 @@ export default function CardsLayout({
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-6xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={40}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -65,18 +66,19 @@ export default function CardsLayout({
                         }}
                         isVisible={true}
                     />
-                    
+
                     {/* Introduction Card */}
-                    <motion.div 
+                    <motion.div
                         className="bg-white rounded-xl shadow-lg p-8 mb-12 max-w-4xl mx-auto overflow-hidden relative"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        initial={{opacity: 0, y: 30}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.6, ease: "easeOut"}}
                     >
-                        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[var(--main-color)] to-[var(--main-color-secondary)]"></div>
+                        <div
+                            className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[var(--main-color)] to-[var(--main-color-secondary)]"></div>
                         <div className="flex items-start">
                             <div className="mr-6">
-                                <InformationCircleIcon className="w-12 h-12 text-[var(--main-color)]" />
+                                <InformationCircleIcon className="w-12 h-12 text-[var(--main-color)]"/>
                             </div>
                             <div>
                                 <h2 className="text-2xl font-semibold mb-4 text-[var(--main-color)]">
@@ -92,20 +94,20 @@ export default function CardsLayout({
                             </div>
                         </div>
                     </motion.div>
-                    
+
                     {/* Cards Layout */}
                     <div className="flex flex-wrap justify-center gap-8 mt-12">
                         {/* Gallery Card */}
-                        <motion.div 
+                        <motion.div
                             className="bg-white rounded-xl shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col"
                             custom={0}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{once: true, amount: 0.2}}
                             variants={cardVariants}
                         >
                             <div className="bg-[var(--main-color)] text-white p-4 flex items-center">
-                                <PhotoIcon className="w-6 h-6 mr-2" />
+                                <PhotoIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
                                     {language === Language.PL ? "Galeria" : "Gallery"}
                                 </h3>
@@ -125,18 +127,18 @@ export default function CardsLayout({
                                 </div>
                             </div>
                         </motion.div>
-                        
+
                         {/* Contact Card */}
-                        <motion.div 
+                        <motion.div
                             className="bg-white rounded-xl shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col"
                             custom={1}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{once: true, amount: 0.2}}
                             variants={cardVariants}
                         >
                             <div className="bg-[var(--main-color-secondary)] text-white p-4 flex items-center">
-                                <PhoneIcon className="w-6 h-6 mr-2" />
+                                <PhoneIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
                                     {language === Language.PL ? "Kontakt" : "Contact"}
                                 </h3>
@@ -151,18 +153,18 @@ export default function CardsLayout({
                                 />
                             </div>
                         </motion.div>
-                        
+
                         {/* Details Card */}
-                        <motion.div 
+                        <motion.div
                             className="bg-white rounded-xl shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col"
                             custom={2}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{once: true, amount: 0.2}}
                             variants={cardVariants}
                         >
                             <div className="bg-[var(--main-color)] text-white p-4 flex items-center">
-                                <DocumentTextIcon className="w-6 h-6 mr-2" />
+                                <DocumentTextIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
                                     {language === Language.PL ? "Szczegóły" : "Details"}
                                 </h3>
@@ -185,15 +187,15 @@ export default function CardsLayout({
                             </div>
                         </motion.div>
                     </div>
-                    
+
                     {/* Summary section - full width */}
                     {service.summary && (
-                        <motion.div 
+                        <motion.div
                             className="mt-12 mb-12 bg-gradient-to-r from-[var(--main-color-secondary)] to-[var(--main-color)] rounded-xl shadow-lg p-1"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            initial={{opacity: 0, y: 30}}
+                            whileInView={{opacity: 1, y: 0}}
+                            transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                            viewport={{once: true, amount: 0.2}}
                         >
                             <div className="bg-white rounded-lg p-8">
                                 <h2 className="text-2xl font-semibold mb-6 text-[var(--main-color)] text-center">
@@ -216,7 +218,7 @@ export default function CardsLayout({
                             </div>
                         </motion.div>
                     )}
-                    
+
                     <div className="flex justify-center mt-8 mb-6">
                         <BackButton/>
                     </div>

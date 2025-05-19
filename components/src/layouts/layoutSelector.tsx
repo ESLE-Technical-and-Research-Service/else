@@ -1,11 +1,8 @@
-import React, { RefObject } from "react";
-import { Language, PageLayout } from "../types";
-import { ContentModel, serviceToContentModel } from "../types/ContentModel";
-import { Service } from "../types/Service";
+import React, {RefObject} from "react";
+import {Language, PageLayout} from "../types";
+import {ContentModel, serviceToContentModel} from "../types/ContentModel";
+import {Service} from "../types/Service";
 import GalleryLayout from "./GalleryLayout";
-
-// Import other layout components as needed
-// These would be the new versions that use ContentModel
 
 export type LayoutSelectorProps = {
     content: ContentModel;
@@ -13,7 +10,6 @@ export type LayoutSelectorProps = {
     layoutType: PageLayout;
     badgeRef?: RefObject<HTMLDivElement | null>;
     isBadgeInCenter?: boolean;
-    // Add other common props as needed
 };
 
 /**
@@ -26,11 +22,8 @@ export const getLayoutComponent = ({
     layoutType,
     badgeRef,
     isBadgeInCenter,
-    // Add other props as needed
 }: LayoutSelectorProps) => {
-    // Map of layout types to their respective components with props
     const layouts = {
-        // Add other layouts as they are converted to use ContentModel
         [PageLayout.GALLERY]: (
             <GalleryLayout
                 content={content}
@@ -39,7 +32,7 @@ export const getLayoutComponent = ({
                 isBadgeInCenter={isBadgeInCenter}
             />
         ),
-        // Default to Gallery layout for now
+
         [PageLayout.DEFAULT]: (
             <GalleryLayout
                 content={content}
@@ -50,6 +43,8 @@ export const getLayoutComponent = ({
         )
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     return layouts[layoutType] || layouts[PageLayout.DEFAULT];
 };
 
@@ -63,25 +58,20 @@ export const getServiceLayout = ({
     layoutType,
     badgeRef,
     isBadgeInCenter,
-    // Add other props as needed
 }: {
     service: Service;
     language: Language;
     layoutType: PageLayout;
     badgeRef?: RefObject<HTMLDivElement | null>;
     isBadgeInCenter?: boolean;
-    // Add other props as needed
 }) => {
-    // Convert Service to ContentModel
-    const content = serviceToContentModel(service, language);
-    
-    // Use the new layout selector with the converted content
+    const content = serviceToContentModel(service);
+
     return getLayoutComponent({
         content,
         language,
         layoutType,
         badgeRef,
         isBadgeInCenter,
-        // Pass other props as needed
     });
 };

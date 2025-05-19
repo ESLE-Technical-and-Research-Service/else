@@ -1,14 +1,14 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {motion} from "framer-motion";
+import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 
 type MasonryLayoutProps = {
     service: Service;
@@ -18,11 +18,11 @@ type MasonryLayoutProps = {
 };
 
 export default function MasonryLayout({
-    service,
-    language,
-    badgeRef,
-    isBadgeInCenter,
-}: MasonryLayoutProps) {
+                                          service,
+                                          language,
+                                          badgeRef,
+                                          isBadgeInCenter,
+                                      }: MasonryLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             {/* Hero Section with Parallax Effect */}
@@ -30,37 +30,17 @@ export default function MasonryLayout({
                 <HeroImage
                     heroSlides={[service.heroImage]}
                     heroTitle={
-                        <motion.h1 
-                            className="text-6xl font-bold text-[var(--font-color-light)]"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                        >
-                            {
-                                language === Language.PL
-                                    ? service.name.namePL
-                                    : service.name.nameENG
-                            }
-                        </motion.h1>
+                        language === Language.PL
+                            ? service.name.namePL
+                            : service.name.nameENG
                     }
-                    heroHeight={50}
+                    heroHeight={70}
+                    description={
+                        language === Language.PL
+                            ? service.description.textPL
+                            : service.description.textENG
+                    }
                 />
-
-                {/* Floating card with brief description */}
-                <motion.div 
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white rounded-xl shadow-xl p-8 max-w-2xl w-full mx-4"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                >
-                    <p className="text-[var(--font-color)] text-center text-base md:text-lg leading-relaxed">
-                        {
-                            language === Language.PL
-                                ? service.description.textPL
-                                : service.description.textENG
-                        }
-                    </p>
-                </motion.div>
             </div>
 
             <div
@@ -85,12 +65,12 @@ export default function MasonryLayout({
                         {/* First row - 2 columns on desktop, 1 on mobile */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
                             {/* Detailed Description Card - Spans full width on mobile */}
-                            <motion.div 
+                            <motion.div
                                 className="bg-white rounded-xl shadow-md p-10 md:col-span-1 h-full"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ duration: 0.6 }}
+                                initial={{opacity: 0, y: 30}}
+                                whileInView={{opacity: 1, y: 0}}
+                                viewport={{once: true, amount: 0.3}}
+                                transition={{duration: 0.6}}
                             >
                                 <div
                                     data-testid="product-detailed-description"
@@ -110,22 +90,22 @@ export default function MasonryLayout({
 
                             {/* Image Gallery - Simplified grid with more spacing */}
                             {service.images.length > 0 && (
-                                <motion.div 
+                                <motion.div
                                     className="grid grid-cols-2 gap-6 h-full"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
+                                    initial={{opacity: 0, y: 30}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, amount: 0.3}}
+                                    transition={{duration: 0.6, delay: 0.2}}
                                 >
                                     {service.images.slice(0, Math.min(4, service.images.length)).map((image, index) => (
-                                        <motion.div 
-                                            key={index} 
+                                        <motion.div
+                                            key={index}
                                             className={`relative overflow-hidden rounded-lg ${
-                                                index === 0 ? 'col-span-2 h-56' : 
-                                                index === 3 ? 'col-span-2 h-48' : 'h-48'
+                                                index === 0 ? 'col-span-2 h-56' :
+                                                    index === 3 ? 'col-span-2 h-48' : 'h-48'
                                             }`}
-                                            whileHover={{ scale: 1.03 }}
-                                            transition={{ duration: 0.3 }}
+                                            whileHover={{scale: 1.03}}
+                                            transition={{duration: 0.3}}
                                         >
                                             <Image
                                                 src={image}
@@ -142,12 +122,12 @@ export default function MasonryLayout({
                         {/* Second row - 3 columns on desktop, 1 on mobile */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
                             {/* Contact Card */}
-                            <motion.div 
+                            <motion.div
                                 className="bg-white rounded-xl shadow-md p-8 flex flex-col justify-center"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ duration: 0.6 }}
+                                initial={{opacity: 0, y: 30}}
+                                whileInView={{opacity: 1, y: 0}}
+                                viewport={{once: true, amount: 0.3}}
+                                transition={{duration: 0.6}}
                             >
                                 <ContactUsCard
                                     lang={language}
@@ -160,13 +140,13 @@ export default function MasonryLayout({
 
                             {/* Featured Image with Overlay */}
                             {service.images.length > 0 && (
-                                <motion.div 
+                                <motion.div
                                     className="relative h-72 md:h-auto md:col-span-2 rounded-xl overflow-hidden"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
-                                    whileHover={{ scale: 1.02 }}
+                                    initial={{opacity: 0, y: 30}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, amount: 0.3}}
+                                    transition={{duration: 0.6, delay: 0.2}}
+                                    whileHover={{scale: 1.02}}
                                 >
                                     <Image
                                         src={service.images[0]}
@@ -174,7 +154,8 @@ export default function MasonryLayout({
                                         className="object-cover"
                                         fill
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                                         <h3 className="text-white text-xl font-semibold">
                                             {language === Language.PL ? "Nasza specjalizacja" : "Our Specialization"}
                                         </h3>
@@ -185,25 +166,32 @@ export default function MasonryLayout({
 
                         {/* Summary Section */}
                         {service.summary && (
-                            <motion.div 
+                            <motion.div
                                 className="mt-16 bg-white rounded-xl shadow-md p-10"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ duration: 0.6 }}
+                                initial={{opacity: 0, y: 30}}
+                                whileInView={{opacity: 1, y: 0}}
+                                viewport={{once: true, amount: 0.3}}
+                                transition={{duration: 0.6}}
                             >
                                 <motion.div
                                     ref={badgeRef}
-                                    initial={{ color: "var(--font-color)", opacity: 0 }}
+                                    initial={{color: "var(--font-color)", opacity: 0}}
                                     animate={{
                                         color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)",
                                         opacity: isBadgeInCenter ? 1 : 0
                                     }}
-                                    transition={{ duration: 1.2, delay: 1, ease: "easeInOut", type: "tween", stiffness: 80, damping: 30 }}
-                                    viewport={{ once: true, amount: 0.7 }}
+                                    transition={{
+                                        duration: 1.2,
+                                        delay: 1,
+                                        ease: "easeInOut",
+                                        type: "tween",
+                                        stiffness: 80,
+                                        damping: 30
+                                    }}
+                                    viewport={{once: true, amount: 0.7}}
                                     className="flex justify-center mb-12"
                                 >
-                                    <CheckBadgeIcon className="w-24 h-24" style={{ color: "inherit" }} />
+                                    <CheckBadgeIcon className="w-24 h-24" style={{color: "inherit"}}/>
                                 </motion.div>
                                 <div
                                     data-testid="product-detailed-description"

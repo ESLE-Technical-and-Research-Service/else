@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 import { JSX } from "react";
 import { Language } from ".";
+import {Service} from "./Service";
 
 // Generic content model that can be used by layouts
 export type LocalizedText = {
@@ -54,11 +55,11 @@ export type ContentModel = {
     };
     
     // Any additional metadata needed by layouts
-    metadata?: Record<string, any>;
+    metadata?: Record<string, never>;
 };
 
 // Adapter function to convert Service to ContentModel
-export const serviceToContentModel = (service: any, language: Language): ContentModel => {
+export const serviceToContentModel = (service: Service): ContentModel => {
     return {
         title: {
             [Language.PL]: service.name.namePL,

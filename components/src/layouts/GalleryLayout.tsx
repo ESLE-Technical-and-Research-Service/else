@@ -1,14 +1,14 @@
-import React, { RefObject, useState, useRef, useEffect } from "react";
-import { Language } from "../types";
-import { ContentModel, getLocalizedText, getLocalizedJSX } from "../types/ContentModel";
+import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
+import {Language} from "../types";
+import {ContentModel, getLocalizedJSX, getLocalizedText} from "../types/ContentModel";
 import HeroImage from "../hero/hero-image";
 import Breadcrumbs from "../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../common/dividers/header-divider";
 import ContactUsCard from "../common/cards/contact-us-card";
 import BackButton from "../common/buttons/back-button";
 import Image from "next/image";
-import {motion, useInView, useScroll, useTransform} from "framer-motion";
-import { CheckBadgeIcon, ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import {motion} from "framer-motion";
+import {ArrowLeftIcon, ArrowRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
 
 type GalleryLayoutProps = {
     content: ContentModel;
@@ -26,17 +26,15 @@ export default function GalleryLayout({
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const galleryRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(galleryRef, { amount: 0.1, margin: "-20% 0px -20% 0px" });
-    // Removed scroll-based animations
 
     const hasImages = content.images && content.images.length > 0;
 
-    const nextImage = () => {
+    const nextImage = useCallback(() => {
         if (!hasImages) return;
-        setActiveImageIndex((prev) => 
+        setActiveImageIndex((prev) =>
             prev === content.images!.length - 1 ? 0 : prev + 1
         );
-    };
+    }, [content.images, hasImages]);
 
     const prevImage = () => {
         if (!hasImages) return;
@@ -54,7 +52,7 @@ export default function GalleryLayout({
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [hasImages, content.images?.length]);
+    }, [hasImages, content?.images?.length, content.images, nextImage]);
 
     return (
         <main className="w-full bg-[var(--background)]">
@@ -63,11 +61,12 @@ export default function GalleryLayout({
                 <div className="relative h-[70vh] overflow-hidden">
                     <HeroImage
                         heroSlides={[content.heroImage.src]}
-                        heroTitle={null}
+                        heroTitle={getLocalizedText(content.title, language)}
                         heroHeight={70}
+                        description={getLocalizedText(content.description || {[Language.PL]: "", [Language.ENG]: ""}, language)}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-20">
-                        <motion.h1 
+                        <motion.h1
                             className="text-5xl md:text-7xl font-bold text-white mb-6 text-center px-4"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -110,10 +109,6 @@ export default function GalleryLayout({
                 {/* Gallery Section */}
                 {hasImages && (
                     <div className="mt-16 mb-24" ref={galleryRef}>
-                        {/*<h2 className="text-3xl font-semibold text-center mb-12 text-[var(--font-color)]">*/}
-                        {/*    {language === Language.PL ? "Galeria" : "Gallery"}*/}
-                        {/*</h2>*/}
-
                         <div className="relative">
                             <div className="relative h-[50vh] md:h-[60vh] overflow-hidden rounded-xl">
                                 <motion.div

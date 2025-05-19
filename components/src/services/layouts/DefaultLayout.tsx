@@ -1,13 +1,13 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ImagesGridCard from "../../common/cards/images-grid-card";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import Image from "next/image";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import {ImagesGridLayout} from "../../types/ImagesGridLayout";
@@ -31,31 +31,32 @@ type DefaultLayoutProps = {
 };
 
 export default function DefaultLayout({
-    service,
-    language,
-    isInCenter1,
-    isInCenter2,
-    isBadgeInCenter,
-    articleImagesRef1,
-    articleImagesRef2,
-    badgeRef,
-    scaleValue,
-    imagesStyle,
-}: DefaultLayoutProps) {
+                                          service,
+                                          language,
+                                          isInCenter1,
+                                          isInCenter2,
+                                          isBadgeInCenter,
+                                          articleImagesRef1,
+                                          articleImagesRef2,
+                                          badgeRef,
+                                          scaleValue,
+                                          imagesStyle,
+                                      }: DefaultLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-6xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={40}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -133,16 +134,23 @@ export default function DefaultLayout({
                         <div className="mt-24 md:mt-48 mb-24 md:mb-32">
                             <motion.div
                                 ref={badgeRef}
-                                initial={{ color: "var(--font-color)", opacity: 0 }}
+                                initial={{color: "var(--font-color)", opacity: 0}}
                                 animate={{
                                     color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)",
                                     opacity: isBadgeInCenter ? 1 : 0
                                 }}
-                                transition={{ duration: 1.2, delay: 1, ease: "easeInOut", type: "tween", stiffness: 80, damping: 30 }}
-                                viewport={{ once: true, amount: 0.7 }}
+                                transition={{
+                                    duration: 1.2,
+                                    delay: 1,
+                                    ease: "easeInOut",
+                                    type: "tween",
+                                    stiffness: 80,
+                                    damping: 30
+                                }}
+                                viewport={{once: true, amount: 0.7}}
                                 className="flex justify-center mb-10"
                             >
-                                <CheckBadgeIcon className="w-20 h-20" style={{ color: "inherit" }} />
+                                <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                             </motion.div>
                             <div
                                 data-testid="product-detailed-description"
@@ -171,7 +179,8 @@ export default function DefaultLayout({
                         />
                     </div>
 
-                    <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 md:mt-20 mt-4 mb-10 justify-center">
+                    <div
+                        className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 md:mt-20 mt-4 mb-10 justify-center">
                         <BackButton/>
                     </div>
                 </section>

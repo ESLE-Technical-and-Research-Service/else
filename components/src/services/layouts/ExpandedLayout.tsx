@@ -31,31 +31,32 @@ type ExpandedLayoutProps = {
 };
 
 export default function ExpandedLayout({
-    service,
-    language,
-    isInCenter1,
-    isInCenter2,
-    isBadgeInCenter,
-    articleImagesRef1,
-    articleImagesRef2,
-    badgeRef,
-    scaleValue,
-    imagesStyle,
-}: ExpandedLayoutProps) {
+                                           service,
+                                           language,
+                                           isInCenter1,
+                                           isInCenter2,
+                                           isBadgeInCenter,
+                                           articleImagesRef1,
+                                           articleImagesRef2,
+                                           badgeRef,
+                                           scaleValue,
+                                           imagesStyle,
+                                       }: ExpandedLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-7xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={50}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -127,7 +128,13 @@ export default function ExpandedLayout({
                                 ref={articleImagesRef2}
                                 animate={{scale: isInCenter2 ? scaleValue : 1}}
                                 initial={{scale: 1}}
-                                transition={{duration: 1.5, ease: "easeOut", type: "spring", stiffness: 70, damping: 25}}
+                                transition={{
+                                    duration: 1.5,
+                                    ease: "easeOut",
+                                    type: "spring",
+                                    stiffness: 70,
+                                    damping: 25
+                                }}
                                 className="max-w-5xl mx-auto flex flex-col items-center justify-center relative min-h-[420px]"
                             >
                                 <Image
@@ -143,16 +150,23 @@ export default function ExpandedLayout({
                         <section className="max-w-5xl mx-auto px-6 py-24">
                             <motion.div
                                 ref={badgeRef}
-                                initial={{ color: "var(--font-color)", opacity: 0 }}
+                                initial={{color: "var(--font-color)", opacity: 0}}
                                 animate={{
                                     color: isBadgeInCenter ? "var(--main-color-secondary)" : "var(--font-color)",
                                     opacity: isBadgeInCenter ? 1 : 0
                                 }}
-                                transition={{ duration: 1.5, delay: 1, ease: "easeInOut", type: "tween", stiffness: 70, damping: 25 }}
-                                viewport={{ once: true, amount: 0.7 }}
+                                transition={{
+                                    duration: 1.5,
+                                    delay: 1,
+                                    ease: "easeInOut",
+                                    type: "tween",
+                                    stiffness: 70,
+                                    damping: 25
+                                }}
+                                viewport={{once: true, amount: 0.7}}
                                 className="flex justify-center mb-16"
                             >
-                                <CheckBadgeIcon className="w-28 h-28" style={{ color: "inherit" }} />
+                                <CheckBadgeIcon className="w-28 h-28" style={{color: "inherit"}}/>
                             </motion.div>
                             <div
                                 data-testid="product-detailed-description"

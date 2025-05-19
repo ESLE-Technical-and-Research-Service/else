@@ -1,5 +1,6 @@
 import {Service} from "../../types/Service";
-import technicalSupportHeroImg from "../../../../assets/images/hero/technicalSupportHero01.webp";
+// import technicalSupportHeroImg from "../../../../assets/images/hero/technicalSupportHero01.webp";
+import technicalSupportHeroImg from "../../../../assets/images/services/tech_support_02.jpg";
 import AnimatedDivider from "../../common/dividers/animated-divider";
 import ListElementCard from "../../common/cards/list-element-card";
 import { motion } from "framer-motion";

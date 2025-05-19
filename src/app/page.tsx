@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <main className="w-full overflow-y-auto bg-[var(--foreground)]">
-            <HeroImage heroSlides={heroSlides} heroTitle={<HeroHomeTitle />} heroHeight={60}/>
+            <HeroImage heroSlides={heroSlides} heroTitle={<HeroHomeTitle />} heroHeight={70}/>
             <Departments/>
         </main>
 

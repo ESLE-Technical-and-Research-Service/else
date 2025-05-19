@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
-import { Language } from "../../types";
-import { ContentModel, LocalizedText, LocalizedJSX } from "../../types/ContentModel";
+import React, {useRef} from "react";
+import {Language, PageLayout} from "../../types";
+import {ContentModel, LocalizedJSX, LocalizedText} from "../../types/ContentModel";
 import GalleryLayout from "../GalleryLayout";
-import { getLayoutComponent } from "../layoutSelector";
-import { PageLayout } from "../../types";
+import {getLayoutComponent} from "../layoutSelector";
 
 // Example of using the GalleryLayout with a blog post content model
 const createBlogPostContent = (): ContentModel => {
@@ -37,7 +36,7 @@ const createBlogPostContent = (): ContentModel => {
                 <h2>Artificial Intelligence</h2>
                 <p>
                     Artificial Intelligence (AI) is revolutionizing the way businesses operate and interact with customers.
-                    From chatbots to advanced data analysis systems, AI is becoming an essential tool in every company's arsenal.
+                    From chatbots to advanced data analysis systems, AI is becoming an essential tool in every company&#39;s arsenal.
                 </p>
                 <h2>Blockchain</h2>
                 <p>
@@ -139,7 +138,7 @@ const createProductPageContent = (): ContentModel => {
                     <li><strong>Procesor:</strong> Octa-core 2.8 GHz</li>
                     <li><strong>Pamięć RAM:</strong> 8 GB</li>
                     <li><strong>Pamięć wewnętrzna:</strong> 256 GB</li>
-                    <li><strong>Wyświetlacz:</strong> 6.5" AMOLED</li>
+                    <li><strong>Wyświetlacz:</strong> 6.5&#34; AMOLED</li>
                     <li><strong>Bateria:</strong> 4500 mAh</li>
                 </ul>
                 <h2>Funkcje aparatu</h2>
@@ -156,7 +155,7 @@ const createProductPageContent = (): ContentModel => {
                     <li><strong>Processor:</strong> Octa-core 2.8 GHz</li>
                     <li><strong>RAM:</strong> 8 GB</li>
                     <li><strong>Internal Storage:</strong> 256 GB</li>
-                    <li><strong>Display:</strong> 6.5" AMOLED</li>
+                    <li><strong>Display:</strong> 6.5&#34; AMOLED</li>
                     <li><strong>Battery:</strong> 4500 mAh</li>
                 </ul>
                 <h2>Camera Features</h2>

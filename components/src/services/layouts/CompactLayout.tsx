@@ -1,6 +1,6 @@
-import React, { RefObject } from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language} from "../../types";
+import {Service} from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
@@ -24,27 +24,29 @@ type CompactLayoutProps = {
 };
 
 export default function CompactLayout({
-    service,
-    language,
-    isInCenter1,
-    articleImagesRef1,
-    scaleValue,
-    imagesStyle,
-}: CompactLayoutProps) {
+                                          service,
+                                          language,
+                                          isInCenter1,
+                                          articleImagesRef1,
+                                          scaleValue,
+                                          imagesStyle,
+                                      }: CompactLayoutProps) {
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
                 heroTitle={
-                    <h1 className="text-5xl font-bold text-[var(--font-color-light)]">
-                        {
-                            language === Language.PL
-                                ? service.name.namePL
-                                : service.name.nameENG
-                        }
-                    </h1>
+
+                    language === Language.PL
+                        ? service.name.namePL
+                        : service.name.nameENG
                 }
-                heroHeight={30}
+                heroHeight={70}
+                description={
+                    language === Language.PL
+                        ? service.description.textPL
+                        : service.description.textENG
+                }
             />
 
             <div
@@ -131,7 +133,8 @@ export default function CompactLayout({
                         />
                     </div>
 
-                    <div className="flex md:flex w-full max-w-screen-xl mx-auto pt-2 pb-1 md:mt-10 mt-2 mb-6 justify-center">
+                    <div
+                        className="flex md:flex w-full max-w-screen-xl mx-auto pt-2 pb-1 md:mt-10 mt-2 mb-6 justify-center">
                         <BackButton/>
                     </div>
                 </section>

@@ -1,4 +1,4 @@
-import React, { RefObject, useState, useRef, useEffect } from "react";
+import React, {RefObject, useState, useRef, useEffect, useCallback} from "react";
 import { Language } from "../../types";
 import { Service } from "../../types/Service";
 import HeroImage from "../../hero/hero-image";
@@ -33,11 +33,11 @@ export default function GalleryLayout({
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
     const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, 0]);
 
-    const nextImage = () => {
-        setActiveImageIndex((prev) => 
+    const nextImage = useCallback(() => {
+        setActiveImageIndex((prev) =>
             prev === service.images.length - 1 ? 0 : prev + 1
         );
-    };
+    }, [service?.images]);
 
     const prevImage = () => {
         setActiveImageIndex((prev) => 
@@ -62,27 +62,10 @@ export default function GalleryLayout({
             <div className="relative h-[70vh] overflow-hidden">
                 <HeroImage
                     heroSlides={[service.heroImage]}
-                    heroTitle={null}
+                    heroTitle={language === Language.PL ? service.name.namePL : service.name.nameENG}
                     heroHeight={70}
+                    description={language === Language.PL ? service.description.textPL : service.description.textENG}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-20">
-                    <motion.h1 
-                        className="text-5xl md:text-7xl font-bold text-white mb-6 text-center px-4"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                    >
-                        {language === Language.PL ? service.name.namePL : service.name.nameENG}
-                    </motion.h1>
-                    <motion.p
-                        className="text-lg md:text-xl text-white/90 max-w-2xl text-center px-6"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                    >
-                        {language === Language.PL ? service.description.textPL : service.description.textENG}
-                    </motion.p>
-                </div>
             </div>
 
             <div
@@ -106,10 +89,6 @@ export default function GalleryLayout({
                         {/* Gallery Section */}
                         {service.images.length > 0 && (
                             <div className="mt-16 mb-24" ref={galleryRef}>
-                                <h2 className="text-3xl font-semibold text-center mb-12 text-[var(--font-color)]">
-                                    {language === Language.PL ? "Galeria" : "Gallery"}
-                                </h2>
-
                                 <div className="relative">
                                     <div className="relative h-[50vh] md:h-[60vh] overflow-hidden rounded-xl">
                                         <motion.div
