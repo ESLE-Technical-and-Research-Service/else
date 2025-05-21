@@ -99,9 +99,7 @@ const createBlogPostContent = (): ContentModel => {
             [Language.ENG]: "Want to learn more about technology trends?",
         },
     };
-    
-    // Note: In a real application, you would use actual images
-    // For this example, we're using placeholder values
+
     return {
         title,
         description,
@@ -109,7 +107,7 @@ const createBlogPostContent = (): ContentModel => {
         summary,
         features,
         contact,
-        // Other properties would be added as needed
+        // Other properties
     };
 };
 
@@ -206,7 +204,7 @@ const createProductPageContent = (): ContentModel => {
         mainContent,
         features,
         contact,
-        // Other properties would be added as needed
+        // Other properties
     };
 };
 

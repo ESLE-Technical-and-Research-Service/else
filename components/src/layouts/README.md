@@ -64,10 +64,9 @@ type GalleryLayoutProps = {
 
 ### Layout Selector
 
-The layout selector has been updated to work with the generic `ContentModel` instead of the `Service` type. It also provides an adapter function for backward compatibility.
+The layout selector has been updated to work with the generic `ContentModel`. It also provides an adapter function for backward compatibility.
 
 ```typescript
-// New approach with ContentModel
 export const getLayoutComponent = ({
     content,
     language,
@@ -78,7 +77,7 @@ export const getLayoutComponent = ({
     // ...
 };
 
-// Adapter for backward compatibility
+// Adapter for backward compatibility with `Service` type.
 export const getServiceLayout = ({
     service,
     language,
@@ -95,7 +94,6 @@ export const getServiceLayout = ({
     // Convert Service to ContentModel
     const content = serviceToContentModel(service, language);
     
-    // Use the new layout selector
     return getLayoutComponent({
         content,
         language,
