@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -17,8 +17,8 @@ import sileImg09 from "../../../../../../../assets/images/products/nozzles/sile/
 
 export const Sile: ProductItem = {
     name: {
-        namePL: "Sile",
-        nameENG: "Sile",
+        [Language.PL]: "Sile",
+        [Language.ENG]: "Sile",
     },
     href: "/products/water-sewage/accessories/sile",
     images: [
@@ -33,12 +33,12 @@ export const Sile: ProductItem = {
         sileImg09,
     ],
     description: {
-        textPL: "Małe głowice ze stożkową lub okrągłą główką, ze strumieniem przednim lub bez.",
-        textENG: "Small nozzles with straight or rounded head, with or without inlet stream.",
+        [Language.PL]: "Małe głowice ze stożkową lub okrągłą główką, ze strumieniem przednim lub bez.",
+        [Language.ENG]: "Small nozzles with straight or rounded head, with or without inlet stream.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>
     },
     manufacturers: [],
     category: [

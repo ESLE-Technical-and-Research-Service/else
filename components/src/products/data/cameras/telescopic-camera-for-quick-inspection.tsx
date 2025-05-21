@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import telescopicCamera01 from "../../../../../assets/images/products/cameras/telescopic_camera_01.webp";
 import telescopicCamera02 from "../../../../../assets/images/products/cameras/telescopic_camera_02.webp";
 import telescopicCamera03 from "../../../../../assets/images/products/cameras/telescopic_camera_03.webp";
@@ -8,8 +8,8 @@ import {CamerasForSewageInspectionCategory} from "../categories";
 
 export const TelescopicCameraForQuickInspection: ProductItem = {
     name: {
-        namePL: "Kamera teleskopowa do szybkiej inspekcji",
-        nameENG: "Telescopic camera for quick inspection",
+        [Language.PL]: "Kamera teleskopowa do szybkiej inspekcji",
+        [Language.ENG]: "Telescopic camera for quick inspection",
     },
     href: "/products/water-sewage/cameras/telescopic-camera",
     images: [
@@ -19,11 +19,11 @@ export const TelescopicCameraForQuickInspection: ProductItem = {
         telescopicCamera04
     ],
     description: {
-        textPL: "Kamera teleskopowa do szybkiej inspekcji umożliwia natychmiastową kontrolę od strony studzienki, oferując szybką i skuteczną metodę monitorowania wszelkiego rodzaju zbiorników. Wytrzymała, lekka konstrukcja oraz wbudowane zasilanie sprawiają, że jest to idealne narzędzie w terenie",
-        textENG: "The telescopic inspection camera allows for immediate inspection from the manhole side, offering a quick and effective method for monitoring all types of tanks. Its durable, lightweight design and built-in power supply make it an ideal tool for field use.",
+        [Language.PL]: "Kamera teleskopowa do szybkiej inspekcji umożliwia natychmiastową kontrolę od strony studzienki, oferując szybką i skuteczną metodę monitorowania wszelkiego rodzaju zbiorników. Wytrzymała, lekka konstrukcja oraz wbudowane zasilanie sprawiają, że jest to idealne narzędzie w terenie",
+        [Language.ENG]: "The telescopic inspection camera allows for immediate inspection from the manhole side, offering a quick and effective method for monitoring all types of tanks. Its durable, lightweight design and built-in power supply make it an ideal tool for field use.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>Główne cechy:</p>
 
@@ -52,7 +52,7 @@ export const TelescopicCameraForQuickInspection: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>Main Features:</p>
 

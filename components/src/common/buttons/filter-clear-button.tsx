@@ -1,11 +1,16 @@
-import {Language} from "../../types/Language";
+import {Language} from "../../types";
+import {GetLocalizedText} from "../../utils";
 
 type FilterClearButtonProps = {
-    language: Language;
     handleClearFilter: () => void;
 }
 
-export default function FilterClearButton({language, handleClearFilter}: FilterClearButtonProps) {
+export default function FilterClearButton({handleClearFilter}: FilterClearButtonProps) {
+    const filterText = {
+        [Language.PL]: "Wyczyść",
+        [Language.ENG]: "Clear"
+    }
+
     return (
         <button
             onClick={handleClearFilter}
@@ -13,7 +18,7 @@ export default function FilterClearButton({language, handleClearFilter}: FilterC
             text-[var(--main-color)] border border-gray-300
             hover:bg-gray-200 text-sm font-normal shadow-none"
         >
-            {language === Language.PL ? "Wyczyść" : "Clear"}
+            {GetLocalizedText(filterText)}
         </button>
     )
 }

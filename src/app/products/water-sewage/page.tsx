@@ -21,6 +21,7 @@ import NextButton from "../../../../components/src/common/buttons/next-button";
 import PreviousButton from "../../../../components/src/common/buttons/previous-button";
 import PageButton from "../../../../components/src/common/buttons/page-button";
 import {ArrowLeftIcon, ArrowRightIcon, FunnelIcon, XMarkIcon} from "@heroicons/react/24/outline";
+import {GetLocalizedText} from "../../../../components/src/utils";
 
 export default function WaterAndSewageProducts() {
     const {language} = useLanguage();
@@ -35,12 +36,26 @@ export default function WaterAndSewageProducts() {
         ...accessoriesItems,
     ], []);
 
-    const sortedProducts: ProductItem[] = useMemo(() => waterSewageProducts.sort((a: ProductItem, b: ProductItem) => (
-        language === Language.PL
-            ? a.name.namePL.localeCompare(b.name.namePL)
-            : a.name.nameENG.localeCompare(b.name.nameENG)
-    )), [language, waterSewageProducts])
-        .sort((a: ProductItem, b: ProductItem) => a.category && b.category ? a.category[0].nameENG.localeCompare(b.category[0].nameENG) : 0);
+    const sortedProducts: ProductItem[] = useMemo(() =>
+            waterSewageProducts.sort((a: ProductItem, b: ProductItem) => {
+                // Bezpieczne sprawdzanie właściwości 'name' i odpowiednich języków
+                const aNamePL = a.name?.[Language.PL] || '';
+                const bNamePL = b.name?.[Language.PL] || '';
+                const bNameENG = b.name?.[Language.ENG] || '';
+
+                return language === Language.PL
+                    ? aNamePL.localeCompare(bNamePL)
+                    : aNamePL.localeCompare(bNameENG);
+            })
+                .sort((a: ProductItem, b: ProductItem) => {
+                    // Bezpieczne sprawdzanie właściwości 'category' i 'name'
+                    const aCategory = a.category?.[0]?.name?.[Language.ENG] || '';
+                    const bCategory = b.category?.[0]?.name?.[Language.ENG] || '';
+
+                    return aCategory.localeCompare(bCategory);
+                }),
+        [language, waterSewageProducts]
+    );
 
     useEffect(() => {
         function setupProducts() {
@@ -57,6 +72,16 @@ export default function WaterAndSewageProducts() {
     const paginatedProducts = products.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE);
 
     const [showFilters, setShowFilters] = useState<boolean>(false);
+
+    const filtersHeaderText = {
+        [Language.PL]: "Filtry:",
+        [Language.ENG]: "Filters:",
+    };
+
+    const filtersLoadingText = {
+        [Language.PL]: "Ładowanie filtrów...",
+        [Language.ENG]: "Loading filters...",
+    };
 
     useEffect(() => {
         setCurrentPage(1);
@@ -83,9 +108,7 @@ export default function WaterAndSewageProducts() {
                         onClick={() => setShowFilters(true)}
                     >
                         <FunnelIcon className="h-5 w-5"/>
-                        {
-                            language === Language.PL ? "Filtry" : "Filters"
-                        }
+                        {GetLocalizedText(filtersHeaderText)}
                     </button>
                 </div>
 
@@ -95,7 +118,8 @@ export default function WaterAndSewageProducts() {
                         data-testid="water-sewage-departments-products-filters-drawer"
                         className="fixed inset-0 z-40 flex"
                     >
-                        <div className="absolute inset-0 bg-black opacity-40" onClick={() => setShowFilters(false)}></div>
+                        <div className="absolute inset-0 bg-black opacity-40"
+                             onClick={() => setShowFilters(false)}></div>
                         <div
                             data-testid="water-sewage-departments-products-filters-close-button-container"
                             className="relative bg-[var(--background)] w-72 max-w-full h-full max-h-screen
@@ -109,7 +133,8 @@ export default function WaterAndSewageProducts() {
                                     className="h-6 w-6 text-gray-800"
                                 />
                             </button>
-                            <Suspense fallback={<div>{language === Language.PL ? "Ładowanie filtrów..." : "Loading filters..."}</div>}>
+                            <Suspense fallback={
+                                <div>{GetLocalizedText(filtersLoadingText)}</div>}>
                                 <ManufacturersFilters
                                     setProductsAction={setProducts}
                                     allProducts={allProducts}
@@ -145,7 +170,8 @@ export default function WaterAndSewageProducts() {
                             allProducts={allProducts}
                             categories={allCategories}
                         />
-                        <Suspense fallback={<div>{language === Language.PL ? "Ładowanie filtrów..." : "Loading filters..."}</div>}>
+                        <Suspense fallback={
+                            <div>{GetLocalizedText(filtersLoadingText)}</div>}>
                             <TechnologyFilters
                                 setProductsAction={setProducts}
                                 allProducts={allProducts}
@@ -165,7 +191,6 @@ export default function WaterAndSewageProducts() {
                                 <PreviousButton
                                     currentPage={currentPage}
                                     setCurrentPage={setCurrentPage}
-                                    language={language}
                                 />
                                 {Array.from({length: totalPages}, (_, i) => (
                                     <PageButton page={i + 1} currentPage={currentPage} setCurrentPage={setCurrentPage}
@@ -175,7 +200,6 @@ export default function WaterAndSewageProducts() {
                                     currentPage={currentPage}
                                     setCurrentPage={setCurrentPage}
                                     totalPages={totalPages}
-                                    language={language}
                                 />
                             </div>
                         )}
@@ -207,8 +231,8 @@ export default function WaterAndSewageProducts() {
                                     border-blue-200 font-semibold shadow text-base transition-all duration-150 
                                     focus:outline-none focus:ring-[var(--main-color-secondary)] focus:ring-2 
                                     focus:border-[var(--main-color-secondary)] z-10 ${
-                                        currentPage === i + 1 
-                                            ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105' 
+                                        currentPage === i + 1
+                                            ? 'bg-blue-100 text-[var(--main-color)] border-blue-400 scale-105'
                                             : 'bg-[var(--background)]/80 text-gray-700 hover:bg-blue-50 hover:border-blue-300'}
                                             `}
                                     onClick={() => setCurrentPage(i + 1)}
@@ -232,9 +256,9 @@ export default function WaterAndSewageProducts() {
                     )}
                 </div>
 
-                    <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
-                        <BackButton/>
-                    </div>
+                <div className="flex md:flex w-full max-w-screen-2xl mx-auto pt-4 pb-2 mb-4 justify-center">
+                    <BackButton/>
+                </div>
             </div>
         </main>
     )

@@ -1,5 +1,4 @@
-import {ProductItem} from "../types/ProductItem";
-import {ProductsCategories} from "../types/ProductsCategories";
+import {Language, ProductItem, ProductsCategories} from "../types";
 import {
     accessoriesItems,
     camerasItems,
@@ -15,13 +14,13 @@ import {
 function getProductsListByCategory(category: string): ProductItem[] {
     switch (category) {
         case ProductsCategories.CAMERAS.toLowerCase():
-        case CamerasForSewageInspectionCategory.nameENG.toLowerCase():
+        case CamerasForSewageInspectionCategory.name[Language.ENG].toLowerCase():
             return camerasItems;
         case ProductsCategories.PRESSURE_VEHICLES.toLowerCase():
-        case MultipurposeVehiclesForPressureSewerCleaningCategory.nameENG.toLowerCase():
+        case MultipurposeVehiclesForPressureSewerCleaningCategory.name[Language.ENG].toLowerCase():
             return pressureVehiclesItems;
         case ProductsCategories.MILLING_ROBOTS.toLowerCase():
-        case MillingRobotsForSewerRepairAndRenovationCategory.nameENG.toLowerCase():
+        case MillingRobotsForSewerRepairAndRenovationCategory.name[Language.ENG].toLowerCase():
             return millingRobotsItems;
         case ProductsCategories.ACCESSORIES.toLowerCase():
             return accessoriesItems;

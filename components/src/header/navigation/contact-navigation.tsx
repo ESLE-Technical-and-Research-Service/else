@@ -1,16 +1,20 @@
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../types/Language";
+import {Language} from "../../types";
 import React from "react";
+import {GetLocalizedText} from "../../utils";
 
 export default function ContactNavigation() {
-    const {language} = useLanguage();
+    const contactLinkText = {
+        [Language.PL]: "Kontakt",
+        [Language.ENG]: "Contact",
+    };
+
     return (
         <>
             <li data-testid="contact-menu" className={`${classes.navItem}`}>
                 <Link className="hover:underline" href="/contact">
-                    {language === Language.PL ? "Kontakt" : "Contact"}
+                    {GetLocalizedText(contactLinkText)}
                 </Link>
             </li>
         </>

@@ -1,56 +1,74 @@
-import {Category} from "../../types";
+import {Category, Language} from "../../types";
 
 export const AccessoriesCategory: Category = {
-    namePL: "Akcesoria",
-    nameENG: "Accessories",
+    name: {
+        [Language.PL]: "Akcesoria",
+        [Language.ENG]: "Accessories",
+    },
     link: "/products/accessories",
 };
 
 export const CamerasForSewageInspectionCategory: Category = {
-    namePL: "Kamery do inspekcji kanalizacji / sieci wod-kan",
-    nameENG: "Cameras for sewage inspection / water networks",
+    name: {
+        [Language.PL]: "Kamery do inspekcji kanalizacji / sieci wod-kan",
+        [Language.ENG]: "Cameras for sewage inspection / water networks",
+    },
     link: "/products/water-sewage/cameras",
 };
 
 export const CleaningNozzlesCategory: Category = {
-    namePL: "Głowice czyszczące",
-    nameENG: "Cleaning nozzles",
+    name: {
+        [Language.PL]: "Głowice czyszczące",
+        [Language.ENG]: "Cleaning nozzles",
+    },
     link: "/products/water-sewage/accessories/cleaning-nozzles",
 };
 
 export const CleaningNozzlesForPressureVehiclesCategory: Category = {
-    namePL: "Głowice czyszczące do pojazdów ciśnieniowych",
-    nameENG: "Cleaning nozzles for pressure vehicles",
+    name: {
+        [Language.PL]: "Głowice czyszczące do pojazdów ciśnieniowych",
+        [Language.ENG]: "Cleaning nozzles for pressure vehicles",
+    },
     link: "/products/water-sewage/accessories/cleaning-nozzles",
 };
 
 export const MillingRobotsForSewerRepairAndRenovationCategory: Category = {
-    namePL: "Roboty frezujące do napraw i renowacji kanałów",
-    nameENG: "Milling robots for sewer repair and renovation",
+    name: {
+        [Language.PL]: "Roboty frezujące do napraw i renowacji kanałów",
+        [Language.ENG]: "Milling robots for sewer repair and renovation",
+    },
     link: "/products/water-sewage/milling-robots",
 };
 
 export const MultipurposeVehiclesForPressureSewerCleaningCategory: Category = {
-    namePL: "Wielofunkcyjne pojazdy do ciśnieniowego czyszczenia kanalizacji",
-    nameENG: "Multipurpose vehicles for pressure sewer cleaning",
+    name: {
+        [Language.PL]: "Wielofunkcyjne pojazdy do ciśnieniowego czyszczenia kanalizacji",
+        [Language.ENG]: "Multipurpose vehicles for pressure sewer cleaning",
+    },
     link: "/products/water-sewage/pressure-vehicles",
 };
 
 export const SpecializedVehicleBodies: Category = {
-    namePL: "Specjalistyczne zabudowy na pojazdach",
-    nameENG: "Specialized vehicle bodies",
+    name: {
+        [Language.PL]: "Specjalistyczne zabudowy na pojazdach",
+        [Language.ENG]: "Specialized vehicle bodies",
+    },
     link: "/products/water-sewage/vehicle-bodies",
 };
 
 export const SmallUncloggingNozzlesCategory: Category = {
-    namePL: "Małe głowice udrażniające",
-    nameENG: "Small unclogging nozzles",
+    name: {
+        [Language.PL]: "Małe głowice udrażniające",
+        [Language.ENG]: "Small unclogging nozzles",
+    },
     link: "/products/water-sewage/accessories/small-unclogging-nozzles",
 };
 
 export const RotatingAndVibratingNozzlesCategory: Category = {
-    namePL: "Głowice obrotowe i wibracyjne",
-    nameENG: "Rotating and vibrating nozzles",
+    name: {
+        [Language.PL]: "Głowice obrotowe i wibracyjne",
+        [Language.ENG]: "Rotating and vibrating nozzles",
+    },
     link: "/products/water-sewage/accessories/rotating-and-vibrating-nozzles",
 };
 

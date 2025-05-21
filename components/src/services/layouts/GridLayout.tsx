@@ -1,14 +1,14 @@
 import React, {RefObject} from "react";
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+import {Language, Service} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import {motion} from "framer-motion";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
+import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 
 type GridLayoutProps = {
     service: Service;
@@ -24,21 +24,23 @@ export default function GridLayout({
                                        badgeRef,
                                        isBadgeInCenter,
                                    }: GridLayoutProps) {
+    const descriptionHeader = {
+        [Language.PL]: "Opis",
+        [Language.ENG]: "Description",
+    };
+
+    const galleryHeaderText = {
+        [Language.PL]: "Galeria",
+        [Language.ENG]: "Gallery",
+    };
+
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
-                heroTitle={
-                    language === Language.PL
-                        ? service.name.namePL
-                        : service.name.nameENG
-                }
+                heroTitle={GetLocalizedText(service.name)}
                 heroHeight={70}
-                description={
-                    language === Language.PL
-                        ? service.description.textPL
-                        : service.description.textENG
-                }
+                description={GetLocalizedText(service.description)}
             />
 
             <div
@@ -51,10 +53,7 @@ export default function GridLayout({
             {service && (
                 <section className="max-w-7xl mx-auto px-4 py-16 mt-6">
                     <HeaderDivider
-                        title={{
-                            labelPL: service.title.titlePL,
-                            labelENG: service.title.titleENG,
-                        }}
+                        title={GetLocalizedText(service.title)}
                         isVisible={true}
                     />
 
@@ -63,14 +62,10 @@ export default function GridLayout({
                         {/* Description Card */}
                         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
-                                {language === Language.PL ? "Opis" : "Description"}
+                                {GetLocalizedText(descriptionHeader)}
                             </h2>
                             <p className="text-[var(--font-color)] text-base leading-7">
-                                {
-                                    language === Language.PL
-                                        ? service.description.textPL
-                                        : service.description.textENG
-                                }
+                                {GetLocalizedText(service.description)}
                             </p>
                         </div>
 
@@ -79,14 +74,14 @@ export default function GridLayout({
                             <div
                                 className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
                                 <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
-                                    {language === Language.PL ? "Galeria" : "Gallery"}
+                                    {GetLocalizedText(galleryHeaderText)}
                                 </h2>
                                 <div className="grid grid-cols-2 gap-2">
                                     {service.images.slice(0, 4).map((image, index) => (
                                         <div key={index} className="relative h-32 overflow-hidden rounded-md">
                                             <Image
                                                 src={image}
-                                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image ${index + 1}`}
+                                                alt={`${GetLocalizedText(service.name)} image ${index + 1}`}
                                                 className="object-cover hover:scale-105 transition-transform duration-300"
                                                 fill
                                             />
@@ -104,18 +99,7 @@ export default function GridLayout({
                         )}
 
                         {/* Contact Card */}
-                        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                            <h2 className="text-xl font-semibold mb-4 text-[var(--main-color)]">
-                                {language === Language.PL ? "Kontakt" : "Contact"}
-                            </h2>
-                            <ContactUsCard
-                                lang={language}
-                                text={{
-                                    textPL: "Masz pytania odnośnie uslugi?",
-                                    textENG: "Do you have questions about this service?"
-                                }}
-                            />
-                        </div>
+                        <ContactUsServiceCard />
 
                         {/* Detailed Description Card */}
                         <div
@@ -128,11 +112,7 @@ export default function GridLayout({
                                 [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
                                 [&_h3]:mb-2 [&_h3]:mt-4"
                             >
-                                {
-                                    language === Language.PL
-                                        ? service.detailedDescription.textPL
-                                        : service.detailedDescription.textENG
-                                }
+                                {GetLocalizedJSX(service.detailedDescription)}
                             </div>
                         </div>
 
@@ -161,18 +141,14 @@ export default function GridLayout({
                                     <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                                 </motion.div>
                                 <div
-                                    data-testid="product-detailed-description"
+                                    data-testid="product-summary"
                                     className="prose prose-blue max-w-none text-base leading-7
                                     !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-4 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                                     [&_li]:!text-gray-900 [&_li]:mb-2 [&_strong]:block [&_strong]:mb-1
                                     [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
                                     [&_h3]:mb-2 [&_h3]:mt-4"
                                 >
-                                    {
-                                        language === Language.PL
-                                            ? service.summary.summaryPL
-                                            : service.summary.summaryENG
-                                    }
+                                    {GetLocalizedJSX(service.summary)}
                                 </div>
                             </div>
                         )}

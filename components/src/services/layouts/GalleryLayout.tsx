@@ -1,14 +1,14 @@
-import React, {RefObject, useState, useRef, useEffect, useCallback} from "react";
-import { Language } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
+import {Language, Service} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { CheckBadgeIcon, ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import {motion, useScroll, useTransform} from "framer-motion";
+import {ArrowLeftIcon, ArrowRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
+import {GetLocalizedText} from "../../utils";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 
 type GalleryLayoutProps = {
     service: Service;
@@ -56,15 +56,30 @@ export default function GalleryLayout({
         return () => clearInterval(interval);
     }, [nextImage, service.images.length]);
 
+    const keyFeatures = [
+        {
+            [Language.PL]: "Profesjonalna obsługa",
+            [Language.ENG]: "Professional service",
+        },
+        {
+            [Language.PL]: "Nowoczesne rozwiązania",
+            [Language.ENG]: "Modern solutions",
+        },
+        {
+            [Language.PL]: "Indywidualne podejście",
+            [Language.ENG]: "Individual approach",
+        },
+    ];
+
     return (
         <main className="w-full bg-[var(--background)]">
             {/* Hero Section with Overlay */}
             <div className="relative h-[70vh] overflow-hidden">
                 <HeroImage
                     heroSlides={[service.heroImage]}
-                    heroTitle={language === Language.PL ? service.name.namePL : service.name.nameENG}
+                    heroTitle={GetLocalizedText(service.name)}
                     heroHeight={70}
-                    description={language === Language.PL ? service.description.textPL : service.description.textENG}
+                    description={GetLocalizedText(service.description)}
                 />
             </div>
 
@@ -79,10 +94,7 @@ export default function GalleryLayout({
                 <>
                     <section className="max-w-7xl mx-auto px-4 py-16">
                         <HeaderDivider
-                            title={{
-                                labelPL: service.title.titlePL,
-                                labelENG: service.title.titleENG,
-                            }}
+                            title={GetLocalizedText(service.title)}
                             isVisible={true}
                         />
 
@@ -101,7 +113,7 @@ export default function GalleryLayout({
                                         >
                                             <Image
                                                 src={service.images[activeImageIndex]}
-                                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image ${activeImageIndex + 1}`}
+                                                alt={`${GetLocalizedText(service.name)} image ${activeImageIndex + 1}`}
                                                 className="object-cover"
                                                 fill
                                                 priority
@@ -114,14 +126,16 @@ export default function GalleryLayout({
                                         <div className="absolute inset-0 flex items-center justify-between px-4">
                                             <button 
                                                 onClick={prevImage}
-                                                className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/30 transition-colors"
+                                                className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white
+                                                hover:bg-white/30 transition-colors"
                                                 aria-label="Previous image"
                                             >
                                                 <ArrowLeftIcon className="w-6 h-6" />
                                             </button>
                                             <button 
                                                 onClick={nextImage}
-                                                className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/30 transition-colors"
+                                                className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white
+                                                hover:bg-white/30 transition-colors"
                                                 aria-label="Next image"
                                             >
                                                 <ArrowRightIcon className="w-6 h-6" />
@@ -150,7 +164,8 @@ export default function GalleryLayout({
 
                                 {/* Thumbnails */}
                                 {service.images.length > 1 && (
-                                    <div className="mt-6 flex gap-2 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                                    <div className="mt-6 flex gap-2 overflow-x-auto pb-4 scrollbar-thin
+                                    scrollbar-thumb-gray-300 scrollbar-track-transparent">
                                         {service.images.map((image, index) => (
                                             <button
                                                 key={index}
@@ -190,11 +205,7 @@ export default function GalleryLayout({
                                         [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                         [&_h3]:mb-4 [&_h3]:mt-6"
                                     >
-                                        {
-                                            language === Language.PL
-                                                ? service.detailedDescription.textPL
-                                                : service.detailedDescription.textENG
-                                        }
+                                        GetLocalizedText(service.detailedDescription)
                                     </div>
                                 </motion.div>
 
@@ -215,18 +226,14 @@ export default function GalleryLayout({
                                             <CheckBadgeIcon className="w-24 h-24" style={{ color: "inherit" }} />
                                         </motion.div>
                                         <div
-                                            data-testid="product-detailed-description"
+                                            data-testid="product-summary"
                                             className="prose prose-blue max-w-none text-base leading-relaxed
                                             !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-10 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                                             [&_li]:!text-gray-900 [&_li]:mb-4 [&_strong]:block [&_strong]:mb-2
                                             [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                             [&_h3]:mb-4 [&_h3]:mt-6"
                                         >
-                                            {
-                                                language === Language.PL
-                                                    ? service.summary.summaryPL
-                                                    : service.summary.summaryENG
-                                            }
+                                            GetLocalizedText(service.summary)
                                         </div>
                                     </div>
                                 )}
@@ -237,16 +244,7 @@ export default function GalleryLayout({
                                 <div className="sticky top-8 space-y-8">
                                     {/* Contact Card */}
                                     <div className="bg-white rounded-xl shadow-md p-8">
-                                        <h3 className="text-xl font-semibold mb-6 text-[var(--main-color)]">
-                                            {language === Language.PL ? "Kontakt" : "Contact"}
-                                        </h3>
-                                        <ContactUsCard
-                                            lang={language}
-                                            text={{
-                                                textPL: "Masz pytania odnośnie uslugi?",
-                                                textENG: "Do you have questions about this service?"
-                                            }}
-                                        />
+                                        <ContactUsServiceCard />
                                     </div>
 
                                     {/* Key Features */}
@@ -255,30 +253,14 @@ export default function GalleryLayout({
                                             {language === Language.PL ? "Kluczowe cechy" : "Key Features"}
                                         </h3>
                                         <ul className="space-y-4">
-                                            <li className="flex items-start">
-                                                <span className="text-[var(--main-color)] mr-2">•</span>
-                                                <span className="text-[var(--font-color)]">
-                                                    {language === Language.PL 
-                                                        ? "Profesjonalna obsługa" 
-                                                        : "Professional service"}
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-[var(--main-color)] mr-2">•</span>
-                                                <span className="text-[var(--font-color)]">
-                                                    {language === Language.PL 
-                                                        ? "Nowoczesne rozwiązania" 
-                                                        : "Modern solutions"}
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-[var(--main-color)] mr-2">•</span>
-                                                <span className="text-[var(--font-color)]">
-                                                    {language === Language.PL 
-                                                        ? "Indywidualne podejście" 
-                                                        : "Individual approach"}
-                                                </span>
-                                            </li>
+                                            {keyFeatures.map((feat, idx) => (
+                                                <li key={idx} className="flex items-start">
+                                                    <span className="text-[var(--main-color)] mr-2">•</span>
+                                                    <span className="text-[var(--font-color)]">
+                                                        {GetLocalizedText(feat)}
+                                                    </span>
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>

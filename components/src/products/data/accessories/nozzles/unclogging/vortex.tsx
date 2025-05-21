@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -11,8 +11,8 @@ import vortexImg02 from "../../../../../../../assets/images/products/nozzles/vor
 
 export const Vortex: ProductItem = {
     name: {
-        namePL: "Vortex",
-        nameENG: "Vortex",
+        [Language.PL]: "Vortex",
+        [Language.ENG]: "Vortex",
     },
     href: "/products/water-sewage/accessories/vortex",
     images: [
@@ -20,12 +20,12 @@ export const Vortex: ProductItem = {
         vortexImg02,
     ],
     description: {
-        textPL: "Głowice z okrągłą główką i tylnymi dyszami o kącie 15°+35°.",
-        textENG: "Nozzles with a rounded head and tail disks at an angle of 15°+35°.",
+        [Language.PL]: "Głowice z okrągłą główką i tylnymi dyszami o kącie 15°+35°.",
+        [Language.ENG]: "Nozzles with a rounded head and tail disks at an angle of 15°+35°.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

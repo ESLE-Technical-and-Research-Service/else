@@ -1,6 +1,5 @@
 import React, {RefObject} from "react";
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+import {ImagesGridLayout, Service, serviceToContentModel} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
@@ -8,13 +7,12 @@ import ImagesGridCard from "../../common/cards/images-grid-card";
 import {motion} from "framer-motion";
 import Image from "next/image";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
-import {ImagesGridLayout} from "../../types/ImagesGridLayout";
+import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 
 type DefaultLayoutProps = {
     service: Service;
-    language: Language;
     isInCenter1: boolean;
     isInCenter2: boolean;
     isBadgeInCenter: boolean;
@@ -32,7 +30,6 @@ type DefaultLayoutProps = {
 
 export default function DefaultLayout({
                                           service,
-                                          language,
                                           isInCenter1,
                                           isInCenter2,
                                           isBadgeInCenter,
@@ -46,17 +43,9 @@ export default function DefaultLayout({
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
-                heroTitle={
-                    language === Language.PL
-                        ? service.name.namePL
-                        : service.name.nameENG
-                }
+                heroTitle={GetLocalizedText(service.name)}
                 heroHeight={70}
-                description={
-                    language === Language.PL
-                        ? service.description.textPL
-                        : service.description.textENG
-                }
+                description={GetLocalizedText(service.description)}
             />
 
             <div
@@ -69,24 +58,16 @@ export default function DefaultLayout({
             {service && (
                 <section className="max-w-4xl mx-auto px-4 py-16 mt-6">
                     <HeaderDivider
-                        title={{
-                            labelPL: service.title.titlePL,
-                            labelENG: service.title.titleENG,
-                        }}
+                        title={GetLocalizedText(service.title)}
                         isVisible={true}
                     />
                     <p className="mt-18 mb-18 text-[var(--font-color)] text-center md:text-2xl text-base leading-10">
-                        {
-                            language === Language.PL
-                                ? service.description.textPL
-                                : service.description.textENG
-                        }
+                        {GetLocalizedText(service.description)}
                     </p>
 
                     {service.images.length > 0 && (
                         <ImagesGridCard
-                            service={service}
-                            language={language}
+                            content={serviceToContentModel(service)}
                             isInCenter={isInCenter1}
                             layoutType={imagesStyle.imagesLayout}
                             articleRef={articleImagesRef1}
@@ -106,11 +87,7 @@ export default function DefaultLayout({
                         [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4
                         [&_h3]:mb-2 sm:[&_h3]:mb-4 [&_h3]:mt-4 sm:[&_h3]:mt-8"
                         >
-                            {
-                                language === Language.PL
-                                    ? service.detailedDescription.textPL
-                                    : service.detailedDescription.textENG
-                            }
+                            {GetLocalizedJSX(service.detailedDescription)}
                         </div>
                     </div>
 
@@ -124,7 +101,7 @@ export default function DefaultLayout({
                         >
                             <Image
                                 src={service.images[2]}
-                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image`}
+                                alt={`${GetLocalizedText(service.name)} image`}
                                 className="rounded-2xl shadow-xl max-w-2xl hover:scale-105 transition-all duration-300 w-3/3"
                             />
                         </motion.div>
@@ -153,30 +130,20 @@ export default function DefaultLayout({
                                 <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                             </motion.div>
                             <div
-                                data-testid="product-detailed-description"
+                                data-testid="product-summary"
                                 className="prose prose-blue max-w-none text-base sm:text-lg md:text-xl leading-10
                         !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-20 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                         [&_li]:!text-gray-900 [&_li]:mb-4 sm:[&_li]:mb-6 [&_strong]:block [&_strong]:mb-2
                         [&_p]:mb-2 sm:[&_p]:mb-3 [&_h2]:mb-2 sm:[&_h2]:mb-6 [&_h2]:mt-4 sm:[&_h2]:mt-8 px-4
                         [&_h3]:mb-2 sm:[&_h3]:mb-4 [&_h3]:mt-4 sm:[&_h3]:mt-8"
                             >
-                                {
-                                    language === Language.PL
-                                        ? service.summary.summaryPL
-                                        : service.summary.summaryENG
-                                }
+                                {GetLocalizedJSX(service.summary)}
                             </div>
                         </div>
                     )}
 
                     <div className="flex justify-center mt-10 mb-10 mx-auto">
-                        <ContactUsCard
-                            lang={language}
-                            text={{
-                                textPL: "Masz pytania odnośnie uslugi?",
-                                textENG: "Do you have questions about this service?"
-                            }}
-                        />
+                        <ContactUsServiceCard />
                     </div>
 
                     <div

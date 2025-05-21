@@ -1,20 +1,22 @@
-import {Service} from "../../types/Service";
-import pressureVehiclesServiceHeroImg from "../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_06.webp"
+import {Language, Service} from "../../types";
+import pressureVehiclesServiceHeroImg
+    from "../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_06.webp"
 import pressureVehiclesServiceImg01 from "../../../../assets/images/heroImage_01.jpg";
-import pressureVehiclesServiceImg02 from "../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_05.webp";
+import pressureVehiclesServiceImg02
+    from "../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_05.webp";
 import pressureVehiclesServiceImg03 from "../../../../assets/images/hero/heroImage_04.webp";
 import AnimatedDivider from "../../common/dividers/animated-divider";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import ListElementCard from "../../common/cards/list-element-card";
 
 export const PressureVehiclesService: Service = {
     name: {
-        namePL: "Serwis samochodów ciśnieniowych",
-        nameENG: "Pressure vehicles service",
+        [Language.PL]: "Serwis samochodów ciśnieniowych",
+        [Language.ENG]: "Pressure vehicles service",
     },
     title: {
-      titlePL: "Zapewniamy profesjonalną obsługę i konserwację pojazdów ciśnieniowych, gwarantując ich niezawodność i długowieczność.",
-      titleENG: "We offer professional maintenance and support for pressure vehicles, ensuring their reliability and longevity.",
+      [Language.PL]: "Zapewniamy profesjonalną obsługę i konserwację pojazdów ciśnieniowych, gwarantując ich niezawodność i długowieczność.",
+      [Language.ENG]: "We offer professional maintenance and support for pressure vehicles, ensuring their reliability and longevity.",
     },
     href: "/services/pressure-vehicles",
     heroImage: pressureVehiclesServiceHeroImg,
@@ -24,11 +26,11 @@ export const PressureVehiclesService: Service = {
         pressureVehiclesServiceImg03,
     ],
     description: {
-        textPL: "Specjalizujemy się w kompleksowej obsłudze systemów wysokociśnieniowych w pojazdach specjalistycznych, zapewniając ich bezpieczne i efektywne działanie zgodnie z obowiązującymi normami i przepisami.",
-        textENG: "Our Pressure Vehicles Service specializes in the maintenance and optimization of high-pressure systems within specialized vehicles. We ensure that all pressure components operate safely and efficiently, adhering to industry standards and regulations.",
+        [Language.PL]: "Specjalizujemy się w kompleksowej obsłudze systemów wysokociśnieniowych w pojazdach specjalistycznych, zapewniając ich bezpieczne i efektywne działanie zgodnie z obowiązującymi normami i przepisami.",
+        [Language.ENG]: "Our Pressure Vehicles Service specializes in the maintenance and optimization of high-pressure systems within specialized vehicles. We ensure that all pressure components operate safely and efficiently, adhering to industry standards and regulations.",
     },
     detailedDescription: {
-        textPL: (
+        [Language.PL]: (
             <>
                 <section>
                     <p className="text-center md:text-2xl text-base">
@@ -71,7 +73,7 @@ export const PressureVehiclesService: Service = {
 
             </>
         ),
-        textENG: (
+        [Language.ENG]: (
             <>
                 <section>
                     <p className="text-center md:text-2xl text-base">
@@ -116,12 +118,12 @@ export const PressureVehiclesService: Service = {
         ),
     },
     summary: {
-        summaryPL: (
+        [Language.PL]: (
             <p className="text-center md:text-2xl text-base">
                 <span className="font-extrabold">ELSE</span> zapewnia kompleksowy serwis pojazdów do czyszczenia kanalizacji, łącząc wieloletnie doświadczenie z nowoczesnym zapleczem technicznym. Nasze usługi gwarantują niezawodność i długowieczność specjalistycznych pojazdów ciśnieniowych, spełniając najwyższe standardy branżowe.
             </p>
         ),
-        summaryENG: (
+        [Language.ENG]: (
             <p className="text-center md:text-2xl text-base">
                 <span className="font-extrabold">ELSE</span> delivers expert servicing for high-pressure sewer cleaning vehicles, ensuring optimal performance and compliance with industry standards. Our dedicated team leverages advanced technology and extensive experience to maintain the efficiency and longevity of your specialized equipment.
             </p>

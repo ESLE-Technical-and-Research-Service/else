@@ -2,7 +2,7 @@
 
 import {usePathname} from "next/navigation";
 import {useLanguage} from "../../../../context/src/LanguageContext";
-import {Service} from "../../../../components/src/types/Service";
+import {Service} from "../../../../components/src/types";
 import {useMemo, useRef} from "react";
 import {NavigationLinks} from "../../../../components/src/types";
 import {CameraService} from "../../../../components/src/services/data/camera-service";

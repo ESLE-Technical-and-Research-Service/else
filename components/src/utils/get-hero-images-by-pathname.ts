@@ -1,5 +1,5 @@
 import {StaticImageData} from "next/image";
-import {NavigationLinks} from "../types/NavigationLinks";
+import {NavigationLinks} from "../types";
 import {
     getAccessoriesHeroImagesSlides,
     getCamerasHeroImagesSlides,

@@ -1,4 +1,4 @@
-import {Service} from "../../types/Service";
+import {Service} from "../../types";
 import {CameraService} from "./camera-service";
 import {PressureVehiclesService} from "./pressure-vehicles-service";
 import {TechnicalSupport} from "./technical-support";

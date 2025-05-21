@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types/ProductItem";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -9,20 +9,20 @@ import grisImg01 from "../../../../../../../assets/images/products/nozzles/gris/
 
 export const Gris: ProductItem = {
     name: {
-        namePL: "Gris",
-        nameENG: "Gris",
+        [Language.PL]: "Gris",
+        [Language.ENG]: "Gris",
     },
     href: "/products/water-sewage/accessories/gris",
     images: [
         grisImg01,
     ],
     description: {
-        textPL: "Głowice obrotowe dedykowana do usuwania kamienia wapiennego.",
-        textENG: "Rotating nozzles dedicated to removing gravel.",
+        [Language.PL]: "Głowice obrotowe dedykowana do usuwania kamienia wapiennego.",
+        [Language.ENG]: "Rotating nozzles dedicated to removing gravel.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -13,8 +13,8 @@ import livenzaImg04 from "../../../../../../../assets/images/products/nozzles/li
 
 export const Livenza: ProductItem = {
     name: {
-        namePL: "Livenza",
-        nameENG: "Livenza",
+        [Language.PL]: "Livenza",
+        [Language.ENG]: "Livenza",
     },
     href: "/products/water-sewage/accessories/livenza",
     images: [
@@ -24,12 +24,12 @@ export const Livenza: ProductItem = {
         livenzaImg04,
     ],
     description: {
-        textPL: "Głowice stożkowe z tylnym strumieniem pod kątem 20° z wymiennymi dyszkami.",
-        textENG: "Straight nozzles with a tail stream at an angle of 20° with removable disks.",
+        [Language.PL]: "Głowice stożkowe z tylnym strumieniem pod kątem 20° z wymiennymi dyszkami.",
+        [Language.ENG]: "Straight nozzles with a tail stream at an angle of 20° with removable disks.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>
     },
     manufacturers: [],
     category: [

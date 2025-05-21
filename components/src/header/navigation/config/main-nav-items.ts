@@ -1,29 +1,39 @@
-import {DropDownItem} from "../render-dropdown-items";
+import {DropdownItem, Language} from "../../../types";
 
-export const mainNavItems: DropDownItem[] = [
+export const mainNavItems: DropdownItem[] = [
     {
         href: "/products",
-        labelPL: "Produkty",
-        labelENG: "Products",
+        label: {
+            [Language.PL]: "Produkty",
+            [Language.ENG]: "Products",
+        },
     },
     {
         href: "/about",
-        labelPL: "O nas",
-        labelENG: "About Us",
+        label: {
+            [Language.PL]: "O nas",
+            [Language.ENG]: "About Us",
+        },
     },
     {
         href: "/services",
-        labelPL: "Serwisy",
-        labelENG: "Services",
+        label: {
+            [Language.PL]: "Serwisy",
+            [Language.ENG]: "Services",
+        },
     },
     {
-      href: "/",
-      labelPL: "Serwis 24/7",
-      labelENG: "Service 24/7",
+        href: "/",
+        label: {
+            [Language.PL]: "Serwis 24/7",
+            [Language.ENG]: "Service 24/7",
+        },
     },
     {
         href: "/contact",
-        labelPL: "Kontakt",
-        labelENG: "Contact",
+        label: {
+            [Language.PL]: "Kontakt",
+            [Language.ENG]: "Contact",
+        },
     }
 ]

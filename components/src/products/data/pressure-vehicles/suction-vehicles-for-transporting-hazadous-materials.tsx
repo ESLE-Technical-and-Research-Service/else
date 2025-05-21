@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import sucVehForTransHazMatImg01
@@ -14,8 +14,8 @@ import sucVehForTransHazMatImg05
 
 export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
     name: {
-        namePL: "Pojazdy ssące do przewozu materiałów niebezpiecznych",
-        nameENG: "Suction vehicles for transporting hazardous materials",
+        [Language.PL]: "Pojazdy ssące do przewozu materiałów niebezpiecznych",
+        [Language.ENG]: "Suction vehicles for transporting hazardous materials",
     },
     href: "/products/water-sewage/pressure-vehicles/suction-vehicles-for-transporting-hazadous-materials",
     images: [
@@ -26,11 +26,11 @@ export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
         sucVehForTransHazMatImg05,
     ],
     description: {
-        textPL: "Pojazdy ssące do przewozu materiałów niebezpiecznych: pojazdy ssące, naczepy i przyczepy są dedykowane do transportu odpadów płynnych i substancji niebezpiecznych zgodnie z ADR. Wyposażone w zaawansowane systemy podciśnieniowe i wysokociśnieniowe oraz wielofunkcyjne ramię, gwarantują indywidualne dopasowanie do potrzeb.",
-        textENG: "Suction vehicles for transporting hazardous materials: suction vehicles, trailers, and semi-trailers are designed for transporting liquid waste and hazardous substances in compliance with ADR regulations. Equipped with advanced vacuum and high-pressure systems as well as a multifunctional arm, they ensure tailored solutions to meet specific needs.",
+        [Language.PL]: "Pojazdy ssące do przewozu materiałów niebezpiecznych: pojazdy ssące, naczepy i przyczepy są dedykowane do transportu odpadów płynnych i substancji niebezpiecznych zgodnie z ADR. Wyposażone w zaawansowane systemy podciśnieniowe i wysokociśnieniowe oraz wielofunkcyjne ramię, gwarantują indywidualne dopasowanie do potrzeb.",
+        [Language.ENG]: "Suction vehicles for transporting hazardous materials: suction vehicles, trailers, and semi-trailers are designed for transporting liquid waste and hazardous substances in compliance with ADR regulations. Equipped with advanced vacuum and high-pressure systems as well as a multifunctional arm, they ensure tailored solutions to meet specific needs.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Pojazdy ssące, naczepy i przyczepy produkowane są do odbioru i transportu odpadów płynnych oraz
@@ -39,7 +39,7 @@ export const SuctionVehiclesForTransportingHazadousMaterials: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Suction vehicles, trailers, and semi-trailers are manufactured for the collection and transport of

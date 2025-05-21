@@ -1,24 +1,20 @@
 import React from "react";
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+import {Language, Service} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {DocumentTextIcon, InformationCircleIcon, PhoneIcon, PhotoIcon} from "@heroicons/react/24/outline";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
+import { GetLocalizedJSX, GetLocalizedText } from "../../utils";
 
 type CardsLayoutProps = {
     service: Service;
-    language: Language;
 };
 
-export default function CardsLayout({
-                                        service,
-                                        language,
-                                    }: CardsLayoutProps) {
+export default function CardsLayout({service}: CardsLayoutProps) {
     // Animation variants for cards
     const cardVariants = {
         hidden: {opacity: 0, y: 50},
@@ -33,21 +29,38 @@ export default function CardsLayout({
         })
     };
 
+    const aboutServiceHeaderText = {
+        [Language.PL]: "O usłudze",
+        [Language.ENG]: "About the service",
+    };
+
+    const galleryHeaderText = {
+        [Language.PL]: "Galeria",
+        [Language.ENG]: "Gallery",
+    };
+
+    const contactHeaderText = {
+        [Language.PL]: "Kontakt",
+        [Language.ENG]: "Contact",
+    };
+
+    const deteailsHeaderText = {
+        [Language.PL]: "Szczegóły",
+        [Language.ENG]: "Details",
+    };
+
+    const summaryHeaderText = {
+        [Language.PL]: "Podsumowanie",
+        [Language.ENG]: "Summary"
+    };
+
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
                 heroSlides={[service.heroImage]}
-                heroTitle={
-                    language === Language.PL
-                        ? service.name.namePL
-                        : service.name.nameENG
-                }
+                heroTitle={GetLocalizedText(service.name)}
                 heroHeight={70}
-                description={
-                    language === Language.PL
-                        ? service.description.textPL
-                        : service.description.textENG
-                }
+                description={GetLocalizedText(service.description)}
             />
 
             <div
@@ -60,10 +73,7 @@ export default function CardsLayout({
             {service && (
                 <section className="max-w-7xl mx-auto px-4 py-16 mt-6">
                     <HeaderDivider
-                        title={{
-                            labelPL: service.title.titlePL,
-                            labelENG: service.title.titleENG,
-                        }}
+                        title={GetLocalizedText(service.title)}
                         isVisible={true}
                     />
 
@@ -82,14 +92,10 @@ export default function CardsLayout({
                             </div>
                             <div>
                                 <h2 className="text-2xl font-semibold mb-4 text-[var(--main-color)]">
-                                    {language === Language.PL ? "O usłudze" : "About the service"}
+                                    {GetLocalizedText(aboutServiceHeaderText)}
                                 </h2>
                                 <p className="text-[var(--font-color)] text-lg leading-7">
-                                    {
-                                        language === Language.PL
-                                            ? service.description.textPL
-                                            : service.description.textENG
-                                    }
+                                    {GetLocalizedText(service.description)}
                                 </p>
                             </div>
                         </div>
@@ -109,7 +115,7 @@ export default function CardsLayout({
                             <div className="bg-[var(--main-color)] text-white p-4 flex items-center">
                                 <PhotoIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
-                                    {language === Language.PL ? "Galeria" : "Gallery"}
+                                    {GetLocalizedText(galleryHeaderText)}
                                 </h3>
                             </div>
                             <div className="p-6 flex-grow">
@@ -118,7 +124,7 @@ export default function CardsLayout({
                                         <div key={index} className="relative h-32 overflow-hidden rounded-md">
                                             <Image
                                                 src={image}
-                                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image ${index + 1}`}
+                                                alt={`${GetLocalizedText(service.name)} image ${index + 1}`}
                                                 className="object-cover hover:scale-110 transition-transform duration-500"
                                                 fill
                                             />
@@ -140,17 +146,11 @@ export default function CardsLayout({
                             <div className="bg-[var(--main-color-secondary)] text-white p-4 flex items-center">
                                 <PhoneIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
-                                    {language === Language.PL ? "Kontakt" : "Contact"}
+                                    {GetLocalizedText(contactHeaderText)}
                                 </h3>
                             </div>
                             <div className="p-6 flex-grow flex items-center justify-center">
-                                <ContactUsCard
-                                    lang={language}
-                                    text={{
-                                        textPL: "Masz pytania odnośnie uslugi?",
-                                        textENG: "Do you have questions about this service?"
-                                    }}
-                                />
+                                <ContactUsServiceCard />
                             </div>
                         </motion.div>
 
@@ -166,7 +166,7 @@ export default function CardsLayout({
                             <div className="bg-[var(--main-color)] text-white p-4 flex items-center">
                                 <DocumentTextIcon className="w-6 h-6 mr-2"/>
                                 <h3 className="text-xl font-medium">
-                                    {language === Language.PL ? "Szczegóły" : "Details"}
+                                    {GetLocalizedText(deteailsHeaderText)}
                                 </h3>
                             </div>
                             <div className="p-6 flex-grow max-h-[400px] overflow-y-auto custom-scrollbar">
@@ -178,11 +178,7 @@ export default function CardsLayout({
                                     [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
                                     [&_h3]:mb-2 [&_h3]:mt-4"
                                 >
-                                    {
-                                        language === Language.PL
-                                            ? service.detailedDescription.textPL
-                                            : service.detailedDescription.textENG
-                                    }
+                                    {GetLocalizedJSX(service.detailedDescription)}
                                 </div>
                             </div>
                         </motion.div>
@@ -199,21 +195,17 @@ export default function CardsLayout({
                         >
                             <div className="bg-white rounded-lg p-8">
                                 <h2 className="text-2xl font-semibold mb-6 text-[var(--main-color)] text-center">
-                                    {language === Language.PL ? "Podsumowanie" : "Summary"}
+                                    {GetLocalizedText(summaryHeaderText)}
                                 </h2>
                                 <div
-                                    data-testid="product-detailed-description"
+                                    data-testid="product-summary"
                                     className="prose prose-blue max-w-none text-base leading-7
                                     !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-4 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                                     [&_li]:!text-gray-900 [&_li]:mb-2 [&_strong]:block [&_strong]:mb-1
                                     [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
                                     [&_h3]:mb-2 [&_h3]:mt-4"
                                 >
-                                    {
-                                        language === Language.PL
-                                            ? service.summary.summaryPL
-                                            : service.summary.summaryENG
-                                    }
+                                    {GetLocalizedJSX(service.summary)}
                                 </div>
                             </div>
                         </motion.div>

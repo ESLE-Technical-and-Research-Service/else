@@ -1,13 +1,18 @@
 import {Language} from "../../types";
+import {GetLocalizedText} from "../../utils";
 
 type NextButtonProps = {
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
     totalPages: number;
-    language: Language;
 }
 
-export default function NextButton({currentPage, setCurrentPage, totalPages, language}: NextButtonProps) {
+export default function NextButton({currentPage, setCurrentPage, totalPages}: NextButtonProps) {
+    const nextButtonText = {
+        [Language.PL]: 'Następna',
+        [Language.ENG]: 'Next'
+    };
+
     return (
         <button
             data-testid="pagination-next-button"
@@ -19,7 +24,7 @@ export default function NextButton({currentPage, setCurrentPage, totalPages, lan
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
         >
-            {language === Language.PL ? 'Następna' : 'Next'}
+            {GetLocalizedText(nextButtonText)}
         </button>
     );
 }

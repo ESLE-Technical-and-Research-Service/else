@@ -47,7 +47,7 @@ export default function HeroImage({heroSlides, heroTitle, heroHeight, descriptio
             style={{height: `${heroHeight ? heroHeight : 60}vh`}}
         >
             {/* Hero Image Slides */}
-            {heroSlides.map((slide, index) => (
+            {heroSlides && heroSlides.length > 0 && heroSlides.map((slide, index) => (
                 <div
                     key={index}
                     className={`absolute top-0 left-0 w-full h-full transition-opacity duration-2000 ease-in-out 
@@ -69,7 +69,8 @@ export default function HeroImage({heroSlides, heroTitle, heroHeight, descriptio
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-0"></div>
 
             <div
-                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-20">
+                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent
+                flex flex-col justify-end items-center pb-20">
                 <motion.div
                     className="text-5xl md:text-7xl font-bold text-white mb-6 text-center px-4"
                     initial={{opacity: 0, y: 30}}

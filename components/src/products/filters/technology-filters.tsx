@@ -1,11 +1,11 @@
 'use client';
 
 import {Language, ProductItem, ProductsCategories, Tag} from "../../types";
-import {AccessoriesTags, CamerasTags, MillingRobotsTags, PressureVehiclesTags, WaterSewageTags} from "../data/tags";
 import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useEffect, useMemo, useState} from "react";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
 import {useSearchParams} from "next/navigation";
+import {getCategoryTagsByCategoryName, GetLocalizedText} from "../../utils";
 
 type ProductsFiltersProps = {
     setProductsAction: (products: ProductItem[]) => void
@@ -48,7 +48,7 @@ export default function TechnologyFilters({
         } else {
             const filteredProducts: ProductItem[] = allProducts.filter((product: ProductItem) =>
                     product.tags && product.tags.some(
-                        (tag: Tag | undefined) => tag && updatedTags.includes(tag.nameENG)
+                        (tag: Tag | undefined) => tag && updatedTags.includes(tag.name[Language.ENG])
                     )
             );
             setProductsAction(filteredProducts);
@@ -60,7 +60,22 @@ export default function TechnologyFilters({
         setProductsAction(allProducts);
     }
 
-    const productsTags = categoryTags(categories);
+    const productsTags: Record<string, Tag> = getCategoryTagsByCategoryName(categories);
+
+    const technologyFilterHeaderText = {
+        [Language.PL]: "Technologia:",
+        [Language.ENG]: "Technology:",
+    };
+
+    const showMoreButtonText = {
+        [Language.PL]: "Pokaż więcej",
+        [Language.ENG]: "Show more"
+    };
+
+    const showLessButtonText = {
+        [Language.PL]: "Pokaż mniej",
+        [Language.ENG]: "Show less"
+    };
 
     return (
         <main
@@ -72,16 +87,22 @@ export default function TechnologyFilters({
                     data-testid="technology-filters-title"
                     className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0"
                 >
-                    {language === Language.PL ? "Technologia:" : "Technology:"}
+                    {GetLocalizedText(technologyFilterHeaderText)}
                 </h2>
-                <FilterClearButton language={language} handleClearFilter={handleClearFilter}/>
+                <FilterClearButton handleClearFilter={handleClearFilter}/>
             </div>
             <div data-testid="technology-filters" className="flex flex-col gap-2">
                 {
                     Object.values(productsTags)
-                        .sort((a: Tag, b: Tag) =>
-                            (language === Language.PL ? a.namePL.localeCompare(b.namePL) : a.nameENG.localeCompare(b.nameENG))
-                        )
+                        .sort((a: Tag, b: Tag) => {
+                            const nameA = language === Language.PL 
+                                ? a.name?.[Language.PL] ?? a.name?.[Language.ENG] ?? '' 
+                                : a.name?.[Language.ENG] ?? a.name?.[Language.PL] ?? '';
+                            const nameB = language === Language.PL 
+                                ? b.name?.[Language.PL] ?? b.name?.[Language.ENG] ?? '' 
+                                : b.name?.[Language.ENG] ?? b.name?.[Language.PL] ?? '';
+                            return nameA.localeCompare(nameB);
+                        })
                         .slice(0, visibleCount)
                         .map((tag: Tag, idx: number) => (
                             <div key={idx}>
@@ -89,11 +110,11 @@ export default function TechnologyFilters({
                                     <input
                                         type="checkbox"
                                         className="form-checkbox h-4 w-4 text-blue-600 accent-[var(--main-color-secondary)]"
-                                        checked={selectedTags.includes(tag.nameENG)}
-                                        onChange={e => handleSetFilter(tag.nameENG, e.target.checked)}
+                                        checked={tag.name?.[Language.ENG] ? selectedTags.includes(tag.name[Language.ENG]) : false}
+                                        onChange={e => tag.name?.[Language.ENG] && handleSetFilter(tag.name[Language.ENG], e.target.checked)}
                                     />
                                     <span className="text-black">
-                                    {language === Language.PL ? tag.namePL : tag.nameENG}
+                                    {GetLocalizedText(tag.name)}
                                 </span>
                                 </label>
                             </div>
@@ -108,41 +129,24 @@ export default function TechnologyFilters({
                             className="mt-2 text-blue-600 hover:underline self-start text-sm mr-8"
                             onClick={() => setVisibleCount(c => c - VISIBLE_COUNT_STEP)}
                         >
-                            {language === Language.PL ? 'Pokaż mniej' : 'Show less'}
+                            {GetLocalizedText(showLessButtonText)}
                         </button>
                     )
                 }
-                {
-                    Object.values(productsTags).length > visibleCount && (
-                        <button
-                            data-testid="show-more-button"
-                            type="button"
-                            className="mt-2 text-blue-600 hover:underline self-start text-sm"
-                            onClick={() => setVisibleCount(c => c + VISIBLE_COUNT_STEP)}
-                        >
-                            {language === Language.PL ? "Pokaż więcej" : "Show more"}
-                        </button>
-                    )
-                }
+                    {
+                        Object.values(productsTags).length > visibleCount && (
+                            <button
+                                data-testid="show-more-button"
+                                type="button"
+                                className="mt-2 text-blue-600 hover:underline self-start text-sm"
+                                onClick={() => setVisibleCount(c => c + VISIBLE_COUNT_STEP)}
+                            >
+                                {GetLocalizedText(showMoreButtonText)}
+                            </button>
+                        )
+                    }
                 </span>
             </div>
         </main>
     );
-}
-
-function categoryTags(category: ProductsCategories): Record<string, Tag> {
-    switch (category) {
-        case ProductsCategories.CAMERAS:
-            return CamerasTags;
-        case ProductsCategories.PRESSURE_VEHICLES:
-            return PressureVehiclesTags;
-        case ProductsCategories.MILLING_ROBOTS:
-            return MillingRobotsTags;
-        case ProductsCategories.ACCESSORIES:
-            return AccessoriesTags;
-        case ProductsCategories.WATER_SEWAGE:
-            return WaterSewageTags;
-        default:
-            throw new Error('Invalid TAGs category');
-    }
 }

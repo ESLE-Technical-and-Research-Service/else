@@ -1,7 +1,5 @@
-import {Service} from "../../types/Service";
-import {Language} from "../../types";
 import React, {RefObject} from "react";
-import {ImagesGridLayout} from "../../types/ImagesGridLayout";
+import {ContentModel, ImagesGridLayout} from "../../types";
 import CarouselLayout from "./imagesLayouts/carousel-layout";
 import MasonryLayout from "./imagesLayouts/masonry-layout";
 import ColOrRowLayout from "./imagesLayouts/col-or-row-layout";
@@ -9,8 +7,7 @@ import MixLayout from "./imagesLayouts/mix-layout";
 import QuiltedLayout from "./imagesLayouts/quilted-layout";
 
 type ImagesGridCardProps = {
-    service: Service;
-    language: Language;
+    content: ContentModel;
     isInCenter: boolean;
     layoutType: ImagesGridLayout;
     articleRef: RefObject<HTMLDivElement | null>;
@@ -22,25 +19,21 @@ type ImagesGridCardProps = {
 
 export default function ImagesGridCard(props: ImagesGridCardProps) {
     const {
-        service,
-        language,
+        content,
         isInCenter,
         layoutType,
         articleRef,
         scaleValue,
         columns = 2,
-        limit = service.images.length,
+        limit = content.images?.length || 0,
         startIndex = 0,
     } = props;
-
-    const imageAlt = language === Language.PL ? service.name.namePL : service.name.nameENG;
 
     switch (layoutType) {
         case ImagesGridLayout.COLUMN:
             return <ColOrRowLayout
                 direction={ImagesGridLayout.COLUMN}
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -50,8 +43,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
         case ImagesGridLayout.ROW:
             return <ColOrRowLayout
                 direction={ImagesGridLayout.ROW}
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -60,8 +52,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
             />
         case ImagesGridLayout.MIX:
             return <MixLayout
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -71,8 +62,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
             />
         case ImagesGridLayout.MASONRY:
             return <MasonryLayout
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -82,8 +72,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
             />;
         case ImagesGridLayout.CAROUSEL:
             return <CarouselLayout
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -92,8 +81,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
             />;
         case ImagesGridLayout.QUILTED:
             return <QuiltedLayout
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}
@@ -103,8 +91,7 @@ export default function ImagesGridCard(props: ImagesGridCardProps) {
         default:
             return <ColOrRowLayout
                 direction={ImagesGridLayout.COLUMN}
-                images={service.images}
-                imageAlt={imageAlt}
+                images={content.images || []}
                 articleRef={articleRef}
                 isInCenter={isInCenter}
                 scaleValue={scaleValue}

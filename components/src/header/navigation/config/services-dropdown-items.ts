@@ -1,24 +1,32 @@
-import {DropDownItem} from "../render-dropdown-items";
+import {DropdownItem, Language} from "../../../types";
 
-export const servicesDropdownItems: DropDownItem[] = [
+export const servicesDropdownItems: DropdownItem[] = [
     {
         href: "/services/cam-service",
-        labelPL: "Serwis kamer",
-        labelENG: "Cameras service",
+        label: {
+            [Language.PL]: "Serwis kamer",
+            [Language.ENG]: "Cameras service",
+        },
     },
     {
         href: "/services/pressure-vehicles-service",
-        labelPL: "Serwis samochodów ciśnieniowych",
-        labelENG: "Pressure Vehicles Service"
+        label: {
+            [Language.PL]: "Serwis samochodów ciśnieniowych",
+            [Language.ENG]: "Pressure Vehicles Service"
+        },
     },
     {
         href: "/services/tech-support",
-        labelPL: "Wsparcie techniczne",
-        labelENG: "Technical Support"
+        label: {
+            [Language.PL]: "Wsparcie techniczne",
+            [Language.ENG]: "Technical Support"
+        },
     },
     {
         href: "/services/trainings",
-        labelPL: "Szkolenia",
-        labelENG: "Trainings"
+        label: {
+            [Language.PL]: "Szkolenia",
+            [Language.ENG]: "Trainings"
+        },
     },
 ];

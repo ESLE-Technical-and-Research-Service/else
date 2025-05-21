@@ -1,13 +1,13 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import {Language} from "../../types";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import ProductsMobileSubmenu from "./mobile/products-mobile-submenu";
 import ProductsTabletSubmenu from "./tablet/products-tablet-submenu";
 import ProductsDesktopSubmenu from "./desktop/products-desktop-submenu";
+import {GetLocalizedText} from "../../utils";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
@@ -22,7 +22,6 @@ export default function ProductNavigation({
                                               openDropdown,
                                               dropdownSubmenu
                                           }: ProductNavigationProps) {
-    const {language} = useLanguage();
     const isTouchTablet = useIsTouchTablet();
     const router = useRouter();
     const [hoveredSubmenu, setHoveredSubmenu] = useState<string | null>(null);
@@ -52,6 +51,11 @@ export default function ProductNavigation({
         }
     };
 
+    const productsLinkText = {
+        [Language.PL]: "Produkty",
+        [Language.ENG]: "Products"
+    };
+
     return (
         <li data-testid="products-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
@@ -60,7 +64,7 @@ export default function ProductNavigation({
                 href="/products"
                 onClick={(e) => handleClickAction(e, 'products')}
             >
-                {language === Language.PL ? "Produkty" : "Products"}
+                {GetLocalizedText(productsLinkText)}
             </Link>
 
             {/* Mobile Dropdown – static positioning */}

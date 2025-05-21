@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import compactHiPressCleaningSysImg01
@@ -16,8 +16,8 @@ import compactHiPressCleaningSysImg06
 
 export const CompactHighPressureCleaningSystems: ProductItem = {
     name: {
-        namePL: "Kompaktowe wysokociśnieniowe systemy czyszczące (Feierabend & Fock GmbH)",
-        nameENG: "Compact high-pressure cleaning systems (Feierabend & Fock GmbH)",
+        [Language.PL]: "Kompaktowe wysokociśnieniowe systemy czyszczące (Feierabend & Fock GmbH)",
+        [Language.ENG]: "Compact high-pressure cleaning systems (Feierabend & Fock GmbH)",
     },
     href: "/products/water-sewage/pressure-vehicles/compact-high-pressure-cleaning-systems",
     images: [
@@ -29,14 +29,14 @@ export const CompactHighPressureCleaningSystems: ProductItem = {
         compactHiPressCleaningSysImg06
     ],
     description: {
-        textPL: "Nasze pojazdy są dostosowywane do indywidualnych potrzeb klienta.\n" +
+        [Language.PL]: "Nasze pojazdy są dostosowywane do indywidualnych potrzeb klienta.\n" +
             "    Dostosowanie opiera się na modułowych komponentach.\n" +
             "    Pojazdy oferują lekką i użytkownikowi przyjazną konstrukcję.\n" +
             "    Wnętrze jest wodoodporne.\n" +
             "    Moduły wysokociśnieniowe gwarantują trwałość.\n" +
             "    Napęd z silnika pojazdu zapewnia cichą i ekonomiczną pracę.\n" +
             "\n",
-        textENG: "Our vehicles are customized to meet individual customer needs.\n" +
+        [Language.ENG]: "Our vehicles are customized to meet individual customer needs.\n" +
             "The customization is based on modular components.\n" +
             "The vehicles feature a lightweight and user-friendly design.\n" +
             "The interior is waterproof.\n" +
@@ -44,7 +44,7 @@ export const CompactHighPressureCleaningSystems: ProductItem = {
             "Drive powered by the vehicle's engine guarantees quiet and economical operation.\n",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Pojazdy są budowane w oparciu o nasze główne komponenty modułowe, według Twoich wymagań i potrzeb technicznych. Zabudowa skupia się na dobrze zorganizowanej, lekkiej, przyjaznej dla użytkownika konstrukcji.
@@ -59,7 +59,7 @@ export const CompactHighPressureCleaningSystems: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     The vehicles are built based on our core modular components, tailored to your requirements and technical needs. The body design focuses on a well-organized, lightweight, and user-friendly structure.

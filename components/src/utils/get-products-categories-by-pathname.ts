@@ -1,5 +1,4 @@
-import {ProductsCategories} from "../types/ProductsCategories";
-import {NavigationLinks} from "../types/NavigationLinks";
+import {NavigationLinks, ProductsCategories} from "../types";
 
 function getProductsCategoriesByPathname(productType: string): ProductsCategories {
     switch (productType) {

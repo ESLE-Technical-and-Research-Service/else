@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -10,20 +10,20 @@ import cellinaImg01 from "../../../../../../../assets/images/products/nozzles/ce
 
 export const Cellina: ProductItem = {
     name: {
-        namePL: "Cellina",
-        nameENG: "Cellina",
+        [Language.PL]: "Cellina",
+        [Language.ENG]: "Cellina",
     },
     href: "/products/water-sewage/accessories/cellina",
     images: [
         cellinaImg01,
     ],
     description: {
-        textPL: "Standardowe głowice czyszczące z tylnymi dyszami o kącie 35°.",
-        textENG: "Standard cleaning nozzles with tail disks at an angle of 35°.",
+        [Language.PL]: "Standardowe głowice czyszczące z tylnymi dyszami o kącie 35°.",
+        [Language.ENG]: "Standard cleaning nozzles with tail disks at an angle of 35°.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

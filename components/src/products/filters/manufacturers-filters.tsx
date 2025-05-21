@@ -1,14 +1,9 @@
 'use client';
 
 import {Language, Manufacturer, ProductItem, ProductsCategories} from "../../types";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useState} from "react";
-import {IBAK} from "../data/manufacturers/IBAK";
-import {BECK} from "../data/manufacturers/BECK";
-import {NUOVACONTEC} from "../data/manufacturers/NUOVACONTEC";
 import FilterClearButton from "../../common/buttons/filter-clear-button";
-import {FeierabendAndFockGmbH} from "../data/manufacturers/FeierabendAndFockGmbH";
-import {ASSMANN} from "../data/manufacturers/ASSMANN";
+import {GetLocalizedText, getManufacturersByCategory} from "../../utils";
 
 type ManufacturersFiltersProps = {
     setProductsAction: (products: ProductItem[]) => void,
@@ -21,8 +16,12 @@ export default function ManufacturersFilters({
                                                  allProducts,
                                                  category,
                                              }: ManufacturersFiltersProps) {
-    const {language} = useLanguage();
     const [selectedManufacturers, setSelectedManufacturers] = useState<string[]>([]);
+
+    const manufacturersHeaderText = {
+        [Language.PL]: "Producenci:",
+        [Language.ENG]: "Manufacturers:",
+    };
 
     function handleSetFilter(manufacturerName: string, checked: boolean) {
         let updatedManufacturers: string[];
@@ -53,15 +52,15 @@ export default function ManufacturersFilters({
         setProductsAction(allProducts);
     }
 
-    const manufacturersForProductsByCategory = manufacturersByCategory(category);
+    const manufacturersForProductsByCategory: Manufacturer[] = getManufacturersByCategory(category);
 
     return (
         <main data-testid="manufacturers-filters-container" className="w-full bg-[var(--background)] rounded shadow p-4">
             <div className="flex justify-between items-center gap-2 mb-4">
                 <h2 className="text-lg text-[var(--main-color)] font-semibold mb-0 p-0">
-                    {language === Language.PL ? "Producenci:" : "Manufacturers:"}
+                    {GetLocalizedText(manufacturersHeaderText)}
                 </h2>
-                <FilterClearButton language={language} handleClearFilter={handleClearFilter}/>
+                <FilterClearButton handleClearFilter={handleClearFilter}/>
             </div>
             <div data-testid="manufacturers-filters" className="flex flex-col gap-2">
                 {
@@ -85,19 +84,4 @@ export default function ManufacturersFilters({
             </div>
         </main>
     );
-}
-
-function manufacturersByCategory(category: ProductsCategories): Manufacturer[] {
-    switch (category) {
-        case ProductsCategories.CAMERAS:
-            return [IBAK, BECK, NUOVACONTEC];
-        case ProductsCategories.PRESSURE_VEHICLES:
-            return [FeierabendAndFockGmbH];
-        case ProductsCategories.MILLING_ROBOTS:
-            return [IBAK];
-        case ProductsCategories.ACCESSORIES:
-            return [NUOVACONTEC];
-        default:
-            return [IBAK, BECK, NUOVACONTEC, FeierabendAndFockGmbH, ASSMANN];
-    }
 }

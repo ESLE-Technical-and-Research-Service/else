@@ -1,26 +1,34 @@
-import {Tag} from "../../../types";
+import {Language, Tag} from "../../../types";
 
 const CleaningNozzlesTag: Tag = {
-    namePL: "Głowice czyszczące",
-    nameENG: "Cleaning nozzles",
+    name: {
+        [Language.PL]: "Głowice czyszczące",
+        [Language.ENG]: "Cleaning nozzles",
+    },
     link: "/products/accessories/cleaning-nozzles",
 };
 
 const SmallUncloggingNozzlesTag: Tag = {
-    namePL: "Małe głowice udrażniające",
-    nameENG: "Small unclogging nozzles",
+    name: {
+        [Language.PL]: "Małe głowice udrażniające",
+        [Language.ENG]: "Small unclogging nozzles",
+    },
     link: "/products/accessories/small-unclogging-nozzles",
 };
 
 const RotatingAndVibratingNozzlesTag: Tag = {
-    namePL: "Głowice obrotowe i wibracyjne",
-    nameENG: "Rotating and vibrating nozzles",
+    name: {
+        [Language.PL]: "Głowice obrotowe i wibracyjne",
+        [Language.ENG]: "Rotating and vibrating nozzles",
+    },
     link: "/products/accessories/rotating-and-vibrating-nozzles",
 };
 
 const WarthogTag: Tag = {
-    namePL: "Warthog",
-    nameENG: "Warthog",
+    name: {
+        [Language.PL]: "Warthog",
+        [Language.ENG]: "Warthog",
+    },
     link: "/products/accessories/warthog",
 };
 

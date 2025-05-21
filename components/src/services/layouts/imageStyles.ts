@@ -1,5 +1,4 @@
-import { NavigationLinks } from "../../types";
-import { ImagesGridLayout } from "../../types/ImagesGridLayout";
+import {ImagesGridLayout, NavigationLinks} from "../../types";
 
 // Define the image style configuration type
 export type ImageStyleConfig = {

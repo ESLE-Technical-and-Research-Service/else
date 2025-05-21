@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {AccessoriesTags} from "../../../tags";
 import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
@@ -27,8 +27,8 @@ import warthogMagnumSwitcherImg09
 
 export const WarthogMagnumSwitcher: ProductItem = {
     name: {
-        namePL: "Warthog Magnum Switcher",
-        nameENG: "Warthog Magnum Switcher",
+        [Language.PL]: "Warthog Magnum Switcher",
+        [Language.ENG]: "Warthog Magnum Switcher",
     },
     href: "/products/water-sewage/accessories/warthog-magnum-switcher",
     images: [
@@ -43,12 +43,12 @@ export const WarthogMagnumSwitcher: ProductItem = {
         warthogMagnumSwitcherImg09,
     ],
     description: {
-        textPL: "Głowica Warthog Magnum Switcher to dwa narzędzia w jednym. Przełącza się pomiędzy ciągnięciem a czyszczeniem bez wyjmowania z rury. Zmienia wzorce strumienia oraz oszczędza czas i zużycie wody.",
-        textENG: "The Warthog Magnum Switcher nozzle is two tools in one. It switches between pulling and cleaning without being removed from the pipe. It changes jet patterns, saving both time and water consumption.",
+        [Language.PL]: "Głowica Warthog Magnum Switcher to dwa narzędzia w jednym. Przełącza się pomiędzy ciągnięciem a czyszczeniem bez wyjmowania z rury. Zmienia wzorce strumienia oraz oszczędza czas i zużycie wody.",
+        [Language.ENG]: "The Warthog Magnum Switcher nozzle is two tools in one. It switches between pulling and cleaning without being removed from the pipe. It changes jet patterns, saving both time and water consumption.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>
     },
     manufacturers: [NUOVACONTEC],
     category: [

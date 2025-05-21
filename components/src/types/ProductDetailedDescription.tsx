@@ -1,6 +1,7 @@
 import {JSX} from "react";
+import {Language} from "./Language";
 
 export type ProductDetailedDescription = {
-    descriptionPL: JSX.Element,
-    descriptionENG: JSX.Element,
+    [Language.PL]: JSX.Element;
+    [Language.ENG]: JSX.Element;
 }

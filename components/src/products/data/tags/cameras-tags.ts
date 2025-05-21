@@ -1,170 +1,226 @@
-import {Tag} from "../../../types";
+import {Language, Tag} from "../../../types";
 
 const TransmitterForSewageTag: Tag = {
-    namePL: "Nadajnik do kanalizacji",
-    nameENG: "Transmitter for sewage",
+    name: {
+        [Language.PL]: "Nadajnik do kanalizacji",
+        [Language.ENG]: "Transmitter for sewage",
+    },
     link: "/products/water-sewage/cameras?name=transmitter-for-sewage",
 };
 
 const TrolleyAssistantTag: Tag = {
-    namePL: "Asystent jazdy wózka",
-    nameENG: "Trolley assistant",
+    name: {
+        [Language.PL]: "Asystent jazdy wózka",
+        [Language.ENG]: "Trolley assistant",
+    },
     link: "/products/water-sewage/cameras?name=trolley-assistant",
 };
 
 const ContinuousPipeInspectionTag: Tag = {
-    namePL: "Ciągła owalizacja kanału",
-    nameENG: "Continuous pipe inspection",
+    name: {
+        [Language.PL]: "Ciągła owalizacja kanału",
+        [Language.ENG]: "Continuous pipe inspection",
+    },
     link: "/products/water-sewage/cameras?name=continuous-pipe-inspection",
 };
 
 const DN100Tag: Tag = {
-    namePL: "DN100",
-    nameENG: "DN100",
+    name: {
+        [Language.PL]: "DN100",
+        [Language.ENG]: "DN100",
+    },
     link: "/products/water-sewage/cameras?name=dn100",
 };
 
 const DN150Tag: Tag = {
-    namePL: "DN150",
-    nameENG: "DN150",
+    name: {
+        [Language.PL]: "DN150",
+        [Language.ENG]: "DN150",
+    },
     link: "/products/water-sewage/cameras?name=dn150",
 };
 
 const CamerasForSewageInspectionTag: Tag = {
-    namePL: "Kamery do inspekcji / sieci wod-kan",
-    nameENG: "Cameras for sewage inspection / water networks",
+    name: {
+        [Language.PL]: "Kamery do inspekcji / sieci wod-kan",
+        [Language.ENG]: "Cameras for sewage inspection / water networks",
+    },
     link: "/products/water-sewage/cameras?name=telescopic-camera",
 };
 
 const PanoramoTag: Tag = {
-    namePL: "PANORAMO",
-    nameENG: "PANORAMO",
+    name: {
+        [Language.PL]: "PANORAMO",
+        [Language.ENG]: "PANORAMO",
+    },
     link: "/products/water-sewage/cameras?name=panoramo",
 };
 
 const RotaxTag: Tag = {
-    namePL: "Rotax",
-    nameENG: "Rotax",
+    name: {
+        [Language.PL]: "Rotax",
+        [Language.ENG]: "Rotax",
+    },
     link: "/products/water-sewage/cameras?name=rotax",
 };
 
 const SpecializedChassisForVehiclesTag: Tag = {
-    namePL: "Specjalistyczne zabudowy na pojazdach",
-    nameENG: "Specialized chassis for vehicles",
+    name: {
+        [Language.PL]: "Specjalistyczne zabudowy na pojazdach",
+        [Language.ENG]: "Specialized chassis for vehicles",
+    },
     link: "/products/water-sewage/cameras?name=specialized-chassis-for-vehicles",
 };
 
 const HDSystemsTag: Tag = {
-    namePL: "Systemy HD",
-    nameENG: "HD systems",
+    name: {
+        [Language.PL]: "Systemy HD",
+        [Language.ENG]: "HD systems",
+    },
     link: "/products/water-sewage/cameras?name=hd-systems",
 };
 
 const PipeRunMeasurementInMainSewerSystemsTag: Tag = {
-    namePL: "Systemy inspekcyjne do kanałów głównych",
-    nameENG: "Pipe measurement in main sewers systems",
+    name: {
+        [Language.PL]: "Systemy inspekcyjne do kanałów głównych",
+        [Language.ENG]: "Pipe measurement in main sewers systems",
+    },
     link: "/products/water-sewage/cameras?name=pipe-measurement-in-main-sewers-systems",
 };
 
 const ExplosiveProofInspectionSystemsTag: Tag = {
-    namePL: "Systemy w wersji przeciwwybuchowej Ex",
-    nameENG: "Explosive-proof Ex systems",
+    name: {
+        [Language.PL]: "Systemy w wersji przeciwwybuchowej Ex",
+        [Language.ENG]: "Explosive-proof Ex systems",
+    },
     link: "/products/water-sewage/cameras?name=explosive-proof-inspection-systems",
 };
 
 const ChassisMountedSystemsTag: Tag = {
-    namePL: "Systemy zabudowane na podwoziu",
-    nameENG: "Chassis-mounted systems",
+    name: {
+        [Language.PL]: "Systemy zabudowane na podwoziu",
+        [Language.ENG]: "Chassis-mounted systems",
+    },
     link: "/products/water-sewage/cameras?name=chassis-mounted-systems",
 };
 
 const TransmitterForLocationTag: Tag = {
-    namePL: "Nadajnik do lokalizacji",
-    nameENG: "Transmitter for location",
+    name: {
+        [Language.PL]: "Nadajnik do lokalizacji",
+        [Language.ENG]: "Transmitter for location",
+    },
     link: "/products/water-sewage/cameras?name=transmitter-for-location"
 };
 
 const AITag: Tag = {
-    namePL: "Sztuczna inteligencja AI",
-    nameENG: "Artificial intelligence AI",
+    name: {
+        [Language.PL]: "Sztuczna inteligencja AI",
+        [Language.ENG]: "Artificial intelligence AI",
+    },
     link: "/products/water-sewage/cameras?name=ai"
 }
 
 const SelfPropelledTrolleysTag: Tag = {
-    namePL: "Wózki samojezdne",
-    nameENG: "Self-Propelled Trolleys",
+    name: {
+        [Language.PL]: "Wózki samojezdne",
+        [Language.ENG]: "Self-Propelled Trolleys",
+    },
     link: "/products/water-sewage/cameras?name=self-propelled-trolleys"
 };
 
 const MobileCameraTag: Tag = {
-    namePL: "Kamera przenośna",
-    nameENG: "Mobile camera",
+    name: {
+        [Language.PL]: "Kamera przenośna",
+        [Language.ENG]: "Mobile camera",
+    },
     link: "/products/water-sewage/cameras?name=mobile-camera"
 };
 
 const TrolleySpeedAssistantTag: Tag = {
-    namePL: "Asystent prędkości jazdy wózka",
-    nameENG: "Trolley speed assistant",
+    name: {
+        [Language.PL]: "Asystent prędkości jazdy wózka",
+        [Language.ENG]: "Trolley speed assistant",
+    },
     link: "/products/water-sewage/cameras?name=trolley-speed-assistant"
 };
 
 const CompactPortableSystemsTag: Tag = {
-    namePL: "Kompaktowe systemy przenośne z wózkiem samojezdnym",
-    nameENG: "Compact trolley systems",
+    name: {
+        [Language.PL]: "Kompaktowe systemy przenośne z wózkiem samojezdnym",
+        [Language.ENG]: "Compact trolley systems",
+    },
     link: "/products/water-sewage/cameras?name=compact-trolley-systems"
 };
 
 const PushrodPortableSystemsTag: Tag = {
-    namePL: "Przenośne systemy popychane",
-    nameENG: "Pushrod portable systems",
+    name: {
+        [Language.PL]: "Przenośne systemy popychane",
+        [Language.ENG]: "Pushrod portable systems",
+    },
     link: "/products/water-sewage/cameras?name=pushrod-portable-systems"
 };
 
 const GeoSenseTag: Tag = {
-    namePL: "GeoSense",
-    nameENG: "GeoSense",
+    name: {
+        [Language.PL]: "GeoSense",
+        [Language.ENG]: "GeoSense",
+    },
     link: "/products/water-sewage/cameras?name=geosense"
 };
 
 const InspectionSystemForLateralPipesTag: Tag = {
-    namePL: "System inspekcyjny do przykanalików",
-    nameENG: "Inspection system for lateral pipes",
+    name: {
+        [Language.PL]: "System inspekcyjny do przykanalików",
+        [Language.ENG]: "Inspection system for lateral pipes",
+    },
     link: "/products/water-sewage/cameras?name=inspection-system-for-lateral-pipes"
 };
 
 const Scanners360PanoramoTag: Tag = {
-    namePL: "Skanery 360° PANORAMO",
-    nameENG: "360° Scanners PANORAMO",
+    name: {
+        [Language.PL]: "Skanery 360° PANORAMO",
+        [Language.ENG]: "360° Scanners PANORAMO",
+    },
     link: "/products/water-sewage/cameras?name=360-panoramo-4k-scanners-for-mainline-sewer"
 };
 
 const Scanners360Panoramo4KTag: Tag = {
-    namePL: "Skanery 360° PANORAMO 4K",
-    nameENG: "360° Scanners PANORAMO 4K",
+    name: {
+        [Language.PL]: "Skanery 360° PANORAMO 4K",
+        [Language.ENG]: "360° Scanners PANORAMO 4K",
+    },
     link: "/products/water-sewage/cameras?name=360-panoramo-4k-scanners-for-mainline-sewer"
 };
 
 const Systems4KTag: Tag = {
-    namePL: "Systemy 4K",
-    nameENG: "4K systems",
+    name: {
+        [Language.PL]: "Systemy 4K",
+        [Language.ENG]: "4K systems",
+    },
     link: "/products/water-sewage/cameras?name=4k-systems"
 };
 
 const LeakTestingSystemTag: Tag = {
-    namePL: "Systemy szczelności",
-    nameENG: "Leak testing systems",
+    name: {
+        [Language.PL]: "Systemy szczelności",
+        [Language.ENG]: "Leak testing systems",
+    },
     link: "/products/water-sewage/cameras?name=leak-testing-systems"
 };
 
 const SystemWithCameraAndCleaningNozzleTag: Tag = {
-    namePL: "System z kamerą oraz dysą czyszczącą",
-    nameENG: "System with camera and cleaning nozzle",
+    name: {
+        [Language.PL]: "System z kamerą oraz dysą czyszczącą",
+        [Language.ENG]: "System with camera and cleaning nozzle",
+    },
     link: "/products/water-sewage/cameras?name=system-with-camera-and-cleaning-nozzle"
 };
 
 const OfficeSoftwareForNetworkManagementTag: Tag = {
-    namePL: "Oprogramowanie do zarządzania siećą",
-    nameENG: "Office software for network management",
+    name: {
+        [Language.PL]: "Oprogramowanie do zarządzania siećą",
+        [Language.ENG]: "Office software for network management",
+    },
     link: "/products/water-sewage/cameras?name=office-software-for-network-management"
 };
 

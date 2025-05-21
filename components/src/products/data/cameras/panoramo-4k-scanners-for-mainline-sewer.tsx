@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import scanners360Panoramo01 from "../../../../../assets/images/products/cameras/scanners_360_01.webp";
 import scanners360Panoramo02 from "../../../../../assets/images/products/cameras/scanners_360_02.webp";
@@ -12,8 +12,8 @@ import {IBAK} from "../manufacturers/IBAK";
 
 export const Panoramo4KScannersForMainlineSewer: ProductItem = {
     name: {
-        namePL: "Skanery 360° Panorama 4K do kanałów głównych",
-        nameENG: "360° Panorama 4K scanners for mainline sewage",
+        [Language.PL]: "Skanery 360° Panorama 4K do kanałów głównych",
+        [Language.ENG]: "360° Panorama 4K scanners for mainline sewage",
     },
     href: "/products/water-sewage/cameras/360-panoramo-4k-scanners-for-mainline-sewer",
     images: [
@@ -25,11 +25,11 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
         scanners360Panoramo06,
     ],
     description: {
-        textPL: "Skanery PANORAMO 4K umożliwiają trójwymiarowe obrazowanie kanałów w ultra wysokiej rozdzielczości. Zapewniają szybki, pełen widok wnętrza kanału oraz dokładne pomiary spadków, średnicy i uszkodzeń. Z łatwością obsługiwane przez jedną osobę, nasze skanery to kompleksowe, modułowe rozwiązanie dopasowane do indywidualnych potrzeb użytkownika. Skontaktuj się z nami, aby dowiedzieć się więcej",
-        textENG: "PANORAMO 4K scanners enable three-dimensional imaging of sewer pipes in ultra-high resolution. They provide a fast, complete view of the pipe interior along with precise measurements of slopes, diameter, and defects. Easily operated by a single person, our scanners offer a comprehensive, modular solution tailored to individual user needs. Contact us to learn more."
+        [Language.PL]: "Skanery PANORAMO 4K umożliwiają trójwymiarowe obrazowanie kanałów w ultra wysokiej rozdzielczości. Zapewniają szybki, pełen widok wnętrza kanału oraz dokładne pomiary spadków, średnicy i uszkodzeń. Z łatwością obsługiwane przez jedną osobę, nasze skanery to kompleksowe, modułowe rozwiązanie dopasowane do indywidualnych potrzeb użytkownika. Skontaktuj się z nami, aby dowiedzieć się więcej",
+        [Language.ENG]: "PANORAMO 4K scanners enable three-dimensional imaging of sewer pipes in ultra-high resolution. They provide a fast, complete view of the pipe interior along with precise measurements of slopes, diameter, and defects. Easily operated by a single person, our scanners offer a comprehensive, modular solution tailored to individual user needs. Contact us to learn more."
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <h2>
                     <strong>Główne cechy:</strong>
@@ -75,7 +75,7 @@ export const Panoramo4KScannersForMainlineSewer: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <h2>
                     <strong>Main features:</strong>

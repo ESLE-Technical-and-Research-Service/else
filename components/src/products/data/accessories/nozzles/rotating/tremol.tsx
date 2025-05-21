@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -16,8 +16,8 @@ import tremolImg07 from "../../../../../../../assets/images/products/nozzles/tre
 
 export const Tremol: ProductItem = {
     name: {
-        namePL: "Tremol",
-        nameENG: "Tremol",
+        [Language.PL]: "Tremol",
+        [Language.ENG]: "Tremol",
     },
     href: "/products/water-sewage/accessories/tremol",
     images: [
@@ -30,12 +30,12 @@ export const Tremol: ProductItem = {
         tremolImg01,
     ],
     description: {
-        textPL: "Głowice czyszczące z obrotowymi strumieniami o kącie (85° / 90°). Idealne do usuwania tłuszczu i kamienia ze ścian rur, przed inspekcją kamerą lub przy wycinaniu korzeni. W celu bardziej skutecznego czyszczenia zalecany jest centralizator, umożliwiający uniesienie głowicy z dna kanału.",
-        textENG: "Cleaning nozzles with rotating jets at an angle (85° / 90°). Ideal for removing grease and scale from pipe walls, prior to camera inspection or root cutting. For more effective cleaning, the use of a centralizer is recommended to lift the nozzle off the bottom of the pipe.",
+        [Language.PL]: "Głowice czyszczące z obrotowymi strumieniami o kącie (85° / 90°). Idealne do usuwania tłuszczu i kamienia ze ścian rur, przed inspekcją kamerą lub przy wycinaniu korzeni. W celu bardziej skutecznego czyszczenia zalecany jest centralizator, umożliwiający uniesienie głowicy z dna kanału.",
+        [Language.ENG]: "Cleaning nozzles with rotating jets at an angle (85° / 90°). Ideal for removing grease and scale from pipe walls, prior to camera inspection or root cutting. For more effective cleaning, the use of a centralizer is recommended to lift the nozzle off the bottom of the pipe.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

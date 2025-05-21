@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -16,8 +16,8 @@ import arzinoImg07 from "../../../../../../../assets/images/products/nozzles/arz
 
 export const Arzino: ProductItem = {
     name: {
-        namePL: "Arzino",
-        nameENG: "Arzino",
+        [Language.PL]: "Arzino",
+        [Language.ENG]: "Arzino",
     },
     href: "/products/water-sewage/accessories/arzino",
     images: [
@@ -30,12 +30,12 @@ export const Arzino: ProductItem = {
         arzinoImg07,
     ],
     description: {
-        textPL: "Jajowaty kształt umożliwia swobodne prowadzenie jej w krzywiznach kanału. W wersji ze stali nierdzewnej dostępna na zamówienie.",
-        textENG: "The oval shape allows it to move smoothly through pipe bends. A stainless steel version is available on request.",
+        [Language.PL]: "Jajowaty kształt umożliwia swobodne prowadzenie jej w krzywiznach kanału. W wersji ze stali nierdzewnej dostępna na zamówienie.",
+        [Language.ENG]: "The oval shape allows it to move smoothly through pipe bends. A stainless steel version is available on request.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

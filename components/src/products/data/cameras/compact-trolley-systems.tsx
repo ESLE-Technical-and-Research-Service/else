@@ -7,12 +7,12 @@ import compactPortableSys06 from "../../../../../assets/images/products/cameras/
 import compactPortableSys07 from "../../../../../assets/images/products/cameras/compact_portable_sys_07.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags";
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 
 export const CompactTrolleySystems: ProductItem = {
     name: {
-        namePL: "Kompaktowe systemy przenośne z wózkiem samojezdnym",
-        nameENG: "Compact portable systems with a self-propelled trolley",
+        [Language.PL]: "Kompaktowe systemy przenośne z wózkiem samojezdnym",
+        [Language.ENG]: "Compact portable systems with a self-propelled trolley",
     },
     href: "/products/water-sewage/cameras/compact-trolley-systems",
     images: [
@@ -25,11 +25,11 @@ export const CompactTrolleySystems: ProductItem = {
         compactPortableSys07,
     ],
     description: {
-        textPL: "Kompaktowe systemy przenośne z wózkiem samojezdnym to mobilne i elastyczne rozwiązania do inspekcji kanałów. Z ich wszechstronnymi funkcjami pomiarowymi, łatwością transportu i obsługi, te systemy są idealne dla różnorodnych zadań związanych z eksploatacją kanałów.",
-        textENG: "Compact portable systems with a self-propelled trolley are mobile and flexible solutions for sewer inspection. With their versatile measurement functions, ease of transport, and simple operation, these systems are ideal for a wide range of sewer maintenance tasks.",
+        [Language.PL]: "Kompaktowe systemy przenośne z wózkiem samojezdnym to mobilne i elastyczne rozwiązania do inspekcji kanałów. Z ich wszechstronnymi funkcjami pomiarowymi, łatwością transportu i obsługi, te systemy są idealne dla różnorodnych zadań związanych z eksploatacją kanałów.",
+        [Language.ENG]: "Compact portable systems with a self-propelled trolley are mobile and flexible solutions for sewer inspection. With their versatile measurement functions, ease of transport, and simple operation, these systems are ideal for a wide range of sewer maintenance tasks.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>Niezwykle mobilne i łatwe w obsłudze, nasze systemy przenośne z wózkiem samojezdnym oferują zaawansowane rozwiązanie do inspekcji kanałów. Wyposażone w szereg wszechstronnych funkcji pomiarowych, te systemy sprawdzą się idealnie nawet w trudno dostępnych miejscach dla wszystkich zadań związanych z eksploatacją kanałów.</p>
 
@@ -52,7 +52,7 @@ export const CompactTrolleySystems: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Extremely mobile and easy to operate, our portable systems with a self-propelled crawler offer an advanced solution for pipeline inspections. Equipped with a range of versatile measurement functions, these systems are ideal even for hard-to-reach locations and all tasks related to sewer operations.

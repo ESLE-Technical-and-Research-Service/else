@@ -4,17 +4,27 @@ import {Language} from "../../types";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/24/outline";
 import Image, {StaticImageData} from "next/image";
 import {useState} from "react";
+import {GetLocalizedText} from "../../utils";
 
 type ImagesViewerCardProps = {
     images: StaticImageData[];
     productName: string;
-    lang: Language;
 }
 
-export default function ImagesViewerCard({images, productName, lang}: ImagesViewerCardProps) {
+export default function ImagesViewerCard({images, productName}: ImagesViewerCardProps) {
     const [selectedImgIdx, setSelectedImgIdx] = useState(0);
     const [dialogOpen, setDialogOpen] = useState(false);
     const selectedImg = images[selectedImgIdx];
+
+    const previousImageText = {
+        [Language.PL]: 'Poprzednie',
+        [Language.ENG]: 'Previous',
+    };
+
+    const nextImageText = {
+        [Language.PL]: 'Następne',
+        [Language.ENG]: 'Next',
+    };
 
     return (
         <>
@@ -34,7 +44,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                                 className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--background)]/80
                                     hover:bg-blue-100 border border-blue-200 rounded-full p-2 shadow
                                     focus:outline-none focus:ring-2 focus:ring-blue-300"
-                                aria-label={lang === Language.PL ? 'Poprzednie zdjęcie' : 'Previous image'}
+                                aria-label={GetLocalizedText(previousImageText)}
                             >
                                 <ChevronLeftIcon className="h-6 w-6 text-blue-500"/>
                             </button>
@@ -58,7 +68,7 @@ export default function ImagesViewerCard({images, productName, lang}: ImagesView
                                 className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--background)]/80
                                     hover:bg-blue-100 border border-blue-200 rounded-full p-2 shadow
                                     focus:outline-none focus:ring-2 focus:ring-blue-300"
-                                aria-label={lang === Language.PL ? 'Następne zdjęcie' : 'Next image'}
+                                aria-label={GetLocalizedText(nextImageText)}
                             >
                                 <ChevronRightIcon className="h-6 w-6 text-blue-500"/>
                             </button>

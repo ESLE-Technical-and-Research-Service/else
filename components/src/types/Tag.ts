@@ -1,5 +1,9 @@
+import {Language} from "./Language";
+
 export type Tag = {
-    namePL: string,
-    nameENG: string,
-    link: string
+    name: {
+        [Language.PL]: string;
+        [Language.ENG]: string;
+    }
+    link: string;
 }

@@ -1,34 +1,39 @@
-import {DropDownItem} from "../render-dropdown-items";
+import {DropdownItem, Language} from "../../../types";
 
-export const aboutUsDropdownItems: DropDownItem[] = [
+export const aboutUsDropdownItems: DropdownItem[] = [
     {
         href: "/about/profile",
-        labelPL: "Opis działalności",
-        labelENG: "Company Profile",
+        label: {
+            [Language.PL]: "Opis działalności",
+            [Language.ENG]: "Company Profile",
+        },
     },
     {
-      href: "/about/departments",
-      labelPL: "Nasze działy",
-      labelENG: "Our Departments",
+        href: "/about/departments",
+        label: {
+            [Language.PL]: "Nasze działy",
+            [Language.ENG]: "Our Departments",
+        },
     },
     {
-      href: "/about/management",
-      labelPL: "Władze spółki",
-      labelENG: "Management",
-    },
-    {
-      href: "/about/certificates",
-      labelPL: "Certifikaty",
-      labelENG: "Certificates,"
+        href: "/about/certificates",
+        label: {
+            [Language.PL]: "Certifikaty",
+            [Language.ENG]: "Certificates",
+        },
     },
     {
         href: "/about/locations",
-        labelPL: "Lokalizacje",
-        labelENG: "Locations",
+        label: {
+            [Language.PL]: "Lokalizacje",
+            [Language.ENG]: "Locations",
+        },
     },
     {
         href: "/about/media",
-        labelPL: "Media",
-        labelENG: "Media",
+        label: {
+            [Language.PL]: "Media",
+            [Language.ENG]: "Media",
+        },
     },
 ];

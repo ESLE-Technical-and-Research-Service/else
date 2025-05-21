@@ -1,12 +1,11 @@
-import Image, {StaticImageData} from "next/image";
+import Image from "next/image";
 import React from "react";
-import {ImagesGridLayout} from "../../../types/ImagesGridLayout";
+import {ContentImage, ImagesGridLayout} from "../../../types";
 import {motion} from "framer-motion";
 
 type ColOrRowLayoutProps = {
     direction: ImagesGridLayout;
-    images: StaticImageData[];
-    imageAlt: string;
+    images: ContentImage[];
     articleRef: React.RefObject<HTMLDivElement | null>;
     isInCenter: boolean;
     scaleValue: number;
@@ -17,7 +16,6 @@ type ColOrRowLayoutProps = {
 export default function ColOrRowLayout({
                                            direction,
                                            images,
-                                           imageAlt,
                                            articleRef,
                                            isInCenter,
                                            scaleValue,
@@ -35,11 +33,11 @@ export default function ColOrRowLayout({
                 : 'flex-col'
             } gap-6 items-center`}
         >
-            {images.slice(startIndex, limit).map((src, idx) => (
+            {images.slice(startIndex, limit).map((img, idx) => (
                 <Image
                     key={idx}
-                    src={src}
-                    alt={`${imageAlt} ${idx + 1}`}
+                    src={img.src}
+                    alt={`${img.alt} ${idx + 1}`}
                     className={`"rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 object-cover" w-full 
                     ${direction === ImagesGridLayout.ROW
                         ? 'md:w-[calc(50%-0.75rem)]'

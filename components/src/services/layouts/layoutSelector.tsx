@@ -1,6 +1,5 @@
-import React, { RefObject } from "react";
-import { Language, PageLayout } from "../../types";
-import { Service } from "../../types/Service";
+import React, {RefObject} from "react";
+import {Language, PageLayout, Service} from "../../types";
 import DefaultLayout from "./DefaultLayout";
 import CompactLayout from "./CompactLayout";
 import SidebarLayout from "./SidebarLayout";
@@ -10,7 +9,7 @@ import TimelineLayout from "./TimelineLayout";
 import CardsLayout from "./CardsLayout";
 import MasonryLayout from "./MasonryLayout";
 import GalleryLayout from "./GalleryLayout";
-import { ImageStyleConfig } from "./imageStyles";
+import {ImageStyleConfig} from "./imageStyles";
 
 export type LayoutSelectorProps = {
     service: Service;

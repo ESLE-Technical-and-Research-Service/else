@@ -1,19 +1,11 @@
-'use client';
-
-import {Language} from "../../types";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import AnimatedDivider from "./animated-divider";
 
 type HeaderDividerProps = {
-    title: {
-        labelPL: string;
-        labelENG: string;
-    },
+    title: string;
     isVisible?: boolean;
 }
 
 export default function HeaderDivider({title, isVisible}: HeaderDividerProps) {
-    const {language} = useLanguage();
     return (
         <>
             <h1
@@ -25,7 +17,7 @@ export default function HeaderDivider({title, isVisible}: HeaderDividerProps) {
               `}
             >
                 <div>
-                    {language === Language.PL ? title.labelPL : title.labelENG}
+                    {title}
                 </div>
                 <AnimatedDivider delay={1} width={150}/>
             </h1>

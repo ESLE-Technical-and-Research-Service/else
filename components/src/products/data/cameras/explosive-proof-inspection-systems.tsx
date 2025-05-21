@@ -11,11 +11,12 @@ import explosiveProofInspecSys05
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
+import {Language} from "../../../types";
 
 export const ExplosiveProofInspectionSystems = {
     name: {
-        namePL: "Systemy inspekcyjne w wersji przeciw wybuchowej Ex",
-        nameENG: "Explosive-proof inspection systems",
+        [Language.PL]: "Systemy inspekcyjne w wersji przeciw wybuchowej Ex",
+        [Language.ENG]: "Explosive-proof inspection systems",
     },
     href: "/products/water-sewage/cameras/explosive-proof-inspection-systems",
     images: [
@@ -26,11 +27,11 @@ export const ExplosiveProofInspectionSystems = {
         explosiveProofInspecSys05
     ],
     description: {
-        textPL: "Systemy inspekcyjne w wersji przeciwwybuchowej Ex oferują bezpieczne i skuteczne rozwiązania dla prac w miejscach zagrożonych wybuchem. Z systemami zabudowanymi na pojeździe, przenośnymi z wózkiem samojezdnym oraz przenośnymi systemami popychanymi, mamy opcje dostosowane do każdej potrzeby.",
-        textENG: "Explosive-proof inspection systems offer secure and effective solutions for work areas prone to explosions. We have options for every need, with built-in vehicles, tow-truck and pusher systems.",
+        [Language.PL]: "Systemy inspekcyjne w wersji przeciwwybuchowej Ex oferują bezpieczne i skuteczne rozwiązania dla prac w miejscach zagrożonych wybuchem. Z systemami zabudowanymi na pojeździe, przenośnymi z wózkiem samojezdnym oraz przenośnymi systemami popychanymi, mamy opcje dostosowane do każdej potrzeby.",
+        [Language.ENG]: "Explosive-proof inspection systems offer secure and effective solutions for work areas prone to explosions. We have options for every need, with built-in vehicles, tow-truck and pusher systems.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>Systemy inspekcyjne w wersji przeciwwybuchowej Ex zapewniają bezpieczną pracę w miejscach zagrożonych
                     wybuchem. Oferujemy różne rozwiązania dostosowane do Twoich potrzeb, zarówno systemy zabudowane na
@@ -56,7 +57,7 @@ export const ExplosiveProofInspectionSystems = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Inspection systems in the Ex explosion-proof version ensure safe operation in potentially explosive

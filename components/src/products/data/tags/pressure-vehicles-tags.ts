@@ -1,428 +1,570 @@
-import {Tag} from "../../../types";
+import {Language, Tag} from "../../../types";
 
 const AdditionalEquipmentTag: Tag = {
-    namePL: "Dodatkowe wyposażenie",
-    nameENG: "Additional equipment",
+    name: {
+        [Language.PL]: "Dodatkowe wyposażenie",
+        [Language.ENG]: "Additional equipment",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=additional-equipment",
 };
 
 const AdditionalTanksTag: Tag = {
-    namePL: "Dodatkowe zbiorniki",
-    nameENG: "Additional tanks",
+    name: {
+        [Language.PL]: "Dodatkowe zbiorniki",
+        [Language.ENG]: "Additional tanks",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=additional-tanks",
 };
 
 const AddoptionToUrbanInfrastructureTag: Tag = {
-    namePL: "Dopasowanie do infrastruktury miejskiej",
-    nameENG: "Addoption to urban infrastructure",
+    name: {
+        [Language.PL]: "Dopasowanie do infrastruktury miejskiej",
+        [Language.ENG]: "Addoption to urban infrastructure",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=addoption-to-urban-infrastructure",
 };
 
 const AdrComplianceTag: Tag = {
-    namePL: "Zgodność z ADR",
-    nameENG: "ADR compliance",
+    name: {
+        [Language.PL]: "Zgodność z ADR",
+        [Language.ENG]: "ADR compliance",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=adr-complianance",
 };
 
 const AdvertisingSpaceTag: Tag = {
-    namePL: "Przestrzeń reklamowa",
-    nameENG: "Advertising space",
+    name: {
+        [Language.PL]: "Przestrzeń reklamowa",
+        [Language.ENG]: "Advertising space",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=advertising-space",
 };
 
 const AirCoolingTag: Tag = {
-    namePL: "Chłodze powietrzem",
-    nameENG: "Air cooling",
+    name: {
+        [Language.PL]: "Chłodze powietrzem",
+        [Language.ENG]: "Air cooling",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=air-cooling",
 };
 
 const ArmWithSuctionHoseTag: Tag = {
-    namePL: "Ramię z wężem ssącym",
-    nameENG: "Arm with suction hose",
+    name: {
+        [Language.PL]: "Ramię z wężem ssącym",
+        [Language.ENG]: "Arm with suction hose",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=arm-with-suction-hose"
 };
 
 const AutomaticCleaningTag: Tag = {
-    namePL: "Automatyczne czyszczenie",
-    nameENG: "Automatic cleaning",
+    name: {
+        [Language.PL]: "Automatyczne czyszczenie",
+        [Language.ENG]: "Automatic cleaning",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=automatic-cleaning",
 };
 
 const AutomaticManholeCoverLifting: Tag = {
-    namePL: "Automatyczne podnoszenie włazu",
-    nameENG: "Automatic manhole cover lifting",
+    name: {
+        [Language.PL]: "Automatyczne podnoszenie włazu",
+        [Language.ENG]: "Automatic manhole cover lifting",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=automatic-manhole-cover-lifting",
 };
 
 const CabinControlledTag: Tag = {
-    namePL: "Sterowanie z kabiny",
-    nameENG: "Cabin-controlled",
+    name: {
+        [Language.PL]: "Sterowanie z kabiny",
+        [Language.ENG]: "Cabin-controlled",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=cabin-controlled",
 };
 
 const ChassinTypeTag: Tag = {
-    namePL: "Typ podwozia",
-    nameENG: "Chassin type",
+    name: {
+        [Language.PL]: "Typ podwozia",
+        [Language.ENG]: "Chassin type",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=chassin-type",
 };
 
 const CleaningSystemTag: Tag = {
-    namePL: "System czyszczący",
-    nameENG: "Cleaning system",
+    name: {
+        [Language.PL]: "System czyszczący",
+        [Language.ENG]: "Cleaning system",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=cleaning-system",
 };
 
 const ContinuousCleaningTag: Tag = {
-    namePL: "Ciągłe czyszczenie",
-    nameENG: "Continuous cleaning",
+    name: {
+        [Language.PL]: "Ciągłe czyszczenie",
+        [Language.ENG]: "Continuous cleaning",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=continuous-cleaning",
 };
 
 const CustomOrderTag: Tag = {
-    namePL: "Indywidualne zamówienie",
-    nameENG: "Custom order",
+    name: {
+        [Language.PL]: "Indywidualne zamówienie",
+        [Language.ENG]: "Custom order",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=custom-order",
 };
 
 const CustomConfigurationTag: Tag = {
-    namePL: "Indywidualna konfiguracja",
-    nameENG: "Custom configuration",
+    name: {
+        [Language.PL]: "Indywidualna konfiguracja",
+        [Language.ENG]: "Custom configuration",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=custom-configuration",
 };
 
 const DualFunctionVehiclesTag: Tag = {
-    namePL: "Pojazdy dwufunkcyjne",
-    nameENG: "Dual-function vehicles",
+    name: {
+        [Language.PL]: "Pojazdy dwufunkcyjne",
+        [Language.ENG]: "Dual-function vehicles",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=dual-function-vehicles",
 };
 
 const EnvironmentallyFriendlyOperationTag: Tag = {
-    namePL: "Ekologiczna eksploatacja",
-    nameENG: "Environmentally friendly operation",
+    name: {
+        [Language.PL]: "Ekologiczna eksploatacja",
+        [Language.ENG]: "Environmentally friendly operation",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=environmentally-friendly-operation",
 };
 
 const EquipmentOptionsTag: Tag = {
-    namePL: "Opcje wyposazenia",
-    nameENG: "Equipment options",
+    name: {
+        [Language.PL]: "Opcje wyposazenia",
+        [Language.ENG]: "Equipment options",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=equipment-options",
 };
 
 const FunctionalityTag: Tag = {
-    namePL: "Funkcjonalność",
-    nameENG: "Functionality",
+    name: {
+        [Language.PL]: "Funkcjonalność",
+        [Language.ENG]: "Functionality",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=functionality",
 };
 
 const HighPressureCleaningNozzlesTag: Tag = {
-    namePL: "Dyszcze Wysokociśnieniowe",
-    nameENG: "High pressure cleaning nozzles",
+    name: {
+        [Language.PL]: "Dyszcze Wysokociśnieniowe",
+        [Language.ENG]: "High pressure cleaning nozzles",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=high-pressure-cleaning-nozzles",
 };
 
 const HoseStackingPlatformTag: Tag = {
-    namePL: "Paleta do układania węża",
-    nameENG: "Hose stacking platform",
+    name: {
+        [Language.PL]: "Paleta do układania węża",
+        [Language.ENG]: "Hose stacking platform",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=hose-stacking-platform",
 };
 
 const IsolationTag: Tag = {
-    namePL: "Izolacja",
-    nameENG: "Isolation",
+    name: {
+        [Language.PL]: "Izolacja",
+        [Language.ENG]: "Isolation",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=isolation",
 };
 
 const OptimalWeightDistributionTag: Tag = {
-    namePL: "Optymalny rozkład masy",
-    nameENG: "Optimal weight distribution",
+    name: {
+        [Language.PL]: "Optymalny rozkład masy",
+        [Language.ENG]: "Optimal weight distribution",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=optimal-weight-distribution",
 };
 
 const TelescopicArmFilterTag: Tag = {
-    namePL: "Filtr Teleskopowy Wysięgnik",
-    nameENG: "Telescopic arm filter",
+    name: {
+        [Language.PL]: "Filtr Teleskopowy Wysięgnik",
+        [Language.ENG]: "Telescopic arm filter",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=telescopic-arm-filter",
 };
 
 const HardToReachAreasTag: Tag = {
-    namePL: "Miejsca trudno dostępne",
-    nameENG: "Hard to reach areas",
+    name: {
+        [Language.PL]: "Miejsca trudno dostępne",
+        [Language.ENG]: "Hard to reach areas",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=hard-to-reach-areas",
 };
 
 const SelfCleaningRotatingSlotFilterTag: Tag = {
-    namePL: "Obrotowy Filtr Szczelinowy Samoczyszczący",
-    nameENG: "Self-cleaning rotating slot filter",
+    name: {
+        [Language.PL]: "Obrotowy Filtr Szczelinowy Samoczyszczący",
+        [Language.ENG]: "Self-cleaning rotating slot filter",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=self-cleaning-rotating-slot-filter",
 };
 
 const SpaceOptimizationTag: Tag = {
-    namePL: "Optymalizacja przestrzeni",
-    nameENG: "Space optimization",
+    name: {
+        [Language.PL]: "Optymalizacja przestrzeni",
+        [Language.ENG]: "Space optimization",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=space-optimization",
 };
 
 const SpaceSaveTag: Tag = {
-    namePL: "Oszczędność miejsca",
-    nameENG: "Space save",
+    name: {
+        [Language.PL]: "Oszczędność miejsca",
+        [Language.ENG]: "Space save",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=space-save",
 };
 
 const WaterRecoverySystemTag: Tag = {
-    namePL: "System odzysku wody",
-    nameENG: "Water recovery system",
+    name: {
+        [Language.PL]: "System odzysku wody",
+        [Language.ENG]: "Water recovery system",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=water-recovery-system",
 };
 
 const CompactSuctionBarrelTag: Tag = {
-    namePL: "Kompaktowa beczka ssąca",
-    nameENG: "Compact suction barrel",
+    name: {
+        [Language.PL]: "Kompaktowa beczka ssąca",
+        [Language.ENG]: "Compact suction barrel",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=compact-suction-barrel",
 };
 
 const CleaningHosesTag: Tag = {
-    namePL: "Węże do Czyszczenia",
-    nameENG: "Cleaning hoses",
+    name: {
+        [Language.PL]: "Węże do Czyszczenia",
+        [Language.ENG]: "Cleaning hoses",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=cleaning-hoses",
 };
 
 const EaseOfRepairTag: Tag = {
-    namePL: "Łatwość naprawy",
-    nameENG: "Ease of repair",
+    name: {
+        [Language.PL]: "Łatwość naprawy",
+        [Language.ENG]: "Ease of repair",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=ease-of-repair",
 };
 
 const EasyMaintananceTag: Tag = {
-    namePL: "Prosta konserwacja",
-    nameENG: "Easy maintanance",
+    name: {
+        [Language.PL]: "Prosta konserwacja",
+        [Language.ENG]: "Easy maintanance",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=easy-maintanance",
 };
 
 const ExtendableArmTag: Tag = {
-    namePL: "Wysuwane ramię",
-    nameENG: "Extendable arm",
+    name: {
+        [Language.PL]: "Wysuwane ramię",
+        [Language.ENG]: "Extendable arm",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=extendable-arm",
 };
 
 const FriendlyConstructionTag: Tag = {
-    namePL: "Przyjazna konstrukcja",
-    nameENG: "Friendly construction",
+    name: {
+        [Language.PL]: "Przyjazna konstrukcja",
+        [Language.ENG]: "Friendly construction",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=friendly-construction",
 };
 
 const GalvanizedMaterialsTag: Tag = {
-    namePL: "Materiały ocynkowane",
-    nameENG: "Galvanized materials",
+    name: {
+        [Language.PL]: "Materiały ocynkowane",
+        [Language.ENG]: "Galvanized materials",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=galvanized-materials",
 };
 
 const HazardousMaterialsTransportTag: Tag = {
-    namePL: "Transport materiałów niebezpiecznych",
-    nameENG: "Hazardous materials transport",
+    name: {
+        [Language.PL]: "Transport materiałów niebezpiecznych",
+        [Language.ENG]: "Hazardous materials transport",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=hazardous-materials-transport",
 };
 
 const HighPressureModulesTag: Tag = {
-    namePL: "Moduły wysokociśnieniowe",
-    nameENG: "High-pressure modules",
+    name: {
+        [Language.PL]: "Moduły wysokociśnieniowe",
+        [Language.ENG]: "High-pressure modules",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=high-pressure-modules",
 };
 
 const HighPressureSystemTag: Tag = {
-    namePL: "System wysokociśnieniowy",
-    nameENG: "High-pressure system",
+    name: {
+        [Language.PL]: "System wysokociśnieniowy",
+        [Language.ENG]: "High-pressure system",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=high-pressure-system",
 };
 
 const HighPressurePompsTag: Tag = {
-    namePL: "Pompy ciśnieniowe",
-    nameENG: "High pressure pumps",
+    name: {
+        [Language.PL]: "Pompy ciśnieniowe",
+        [Language.ENG]: "High pressure pumps",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=pressure-pomps",
 };
 
 const QuietDriveTag: Tag = {
-    namePL: "Cichy napęd",
-    nameENG: "Quiet drive",
+    name: {
+        [Language.PL]: "Cichy napęd",
+        [Language.ENG]: "Quiet drive",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=quiet-drive",
 };
 
 const MagneticLiftingDeviceTag: Tag = {
-    namePL: "Magnetyczne urządzenie podnoszące",
-    nameENG: "Magnetic lifting device",
+    name: {
+        [Language.PL]: "Magnetyczne urządzenie podnoszące",
+        [Language.ENG]: "Magnetic lifting device",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=magnetic-lifting-device",
 };
 
 const ModularDesignTag: Tag = {
-    namePL: "Modułowa budowa",
-    nameENG: "Modular design",
+    name: {
+        [Language.PL]: "Modułowa budowa",
+        [Language.ENG]: "Modular design",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=modular-design",
 };
 
 const MultistageCleaningTag: Tag = {
-    namePL: "Wielostopniowe Oczyszczanie",
-    nameENG: "Multistage cleaning",
+    name: {
+        [Language.PL]: "Wielostopniowe Oczyszczanie",
+        [Language.ENG]: "Multistage cleaning",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=multistage-cleaning",
 };
 
 const MultifunctionalArmTag: Tag = {
-    namePL: "Wielofunkcyjne ramię",
-    nameENG: "Multifunctional arm",
+    name: {
+        [Language.PL]: "Wielofunkcyjne ramię",
+        [Language.ENG]: "Multifunctional arm",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=multifunctional-arm",
 };
 
 const LargeTankVolumeTag: Tag = {
-    namePL: "Duża obiętość zbiornika",
-    nameENG: "Large tank volume",
+    name: {
+        [Language.PL]: "Duża obiętość zbiornika",
+        [Language.ENG]: "Large tank volume",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=large-tank-volume",
 };
 
 const LowInstallationWeightTag: Tag = {
-    namePL: "Niewielka masa montażowa",
-    nameENG: "Low installation weight",
+    name: {
+        [Language.PL]: "Niewielka masa montażowa",
+        [Language.ENG]: "Low installation weight",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=low-installation-weight",
 };
 
 const LowWidthTag: Tag = {
-    namePL: "Mała szerokość",
-    nameENG: "Low width",
+    name: {
+        [Language.PL]: "Mała szerokość",
+        [Language.ENG]: "Low width",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=low-width",
 };
 
 const LowUnladenWeightTag: Tag = {
-    namePL: "Niewielka masa własna",
-    nameENG: "Low unloaded weight",
+    name: {
+        [Language.PL]: "Niewielka masa własna",
+        [Language.ENG]: "Low unloaded weight",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=low-unloaded-weight",
 };
 
 const LiquidWasteTag: Tag = {
-    namePL: "Odpady płynne",
-    nameENG: "Liquid waste",
+    name: {
+        [Language.PL]: "Odpady płynne",
+        [Language.ENG]: "Liquid waste",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=luqid-waste",
 }
 
 const SludgeTankTag: Tag = {
-    namePL: "Zbiornik Osadu",
-    nameENG: "Sludge tank",
+    name: {
+        [Language.PL]: "Zbiornik Osadu",
+        [Language.ENG]: "Sludge tank",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=sludge-tank",
 };
 
 const SideTanksTag: Tag = {
-    namePL: "Boczne Zbiorniki",
-    nameENG: "Side tanks",
+    name: {
+        [Language.PL]: "Boczne Zbiorniki",
+        [Language.ENG]: "Side tanks",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=side-tanks",
 };
 
 const SewerCleaningTag: Tag = {
-    namePL: "Czyszczenie kanalizacji",
-    nameENG: "Sewer cleaning",
+    name: {
+        [Language.PL]: "Czyszczenie kanalizacji",
+        [Language.ENG]: "Sewer cleaning",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=sewer-cleaning",
 };
 
 const SuctionPumpPerformanceTag: Tag = {
-    namePL: "Wydajność pompy ssącej",
-    nameENG: "Suction pump performance",
+    name: {
+        [Language.PL]: "Wydajność pompy ssącej",
+        [Language.ENG]: "Suction pump performance",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=suction-pump-performance",
 };
 
 const SuctionVehiclesTag: Tag = {
-    namePL: "Pojazdy ssące",
-    nameENG: "Suction Vehicles",
+    name: {
+        [Language.PL]: "Pojazdy ssące",
+        [Language.ENG]: "Suction Vehicles",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=suction-vehicles",
 };
 
 const SuctionPumpsTag: Tag = {
-    namePL: "Pompy ssące",
-    nameENG: "Suction pumps",
+    name: {
+        [Language.PL]: "Pompy ssące",
+        [Language.ENG]: "Suction pumps",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=suction-pumps",
 };
 
 const SuperstructureTag: Tag = {
-    namePL: "Zabudowa",
-    nameENG: "Superstructure",
+    name: {
+        [Language.PL]: "Zabudowa",
+        [Language.ENG]: "Superstructure",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=superstructure",
 };
 
 const PersonalizationTag: Tag = {
-    namePL: "Personalizacja",
-    nameENG: "Personalization",
+    name: {
+        [Language.PL]: "Personalizacja",
+        [Language.ENG]: "Personalization",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=personalization",
 };
 
 const PneumaticPartitionTag: Tag = {
-    namePL: "Pneumatyczna przegroda",
-    nameENG: "Pneumatic partition",
+    name: {
+        [Language.PL]: "Pneumatyczna przegroda",
+        [Language.ENG]: "Pneumatic partition",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=pneumatic-partition",
 };
 
 const SinglePersonOperationTag: Tag = {
-    namePL: "Jednoosobowa obsługa",
-    nameENG: "Single-person operation",
+    name: {
+        [Language.PL]: "Jednoosobowa obsługa",
+        [Language.ENG]: "Single-person operation",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=single-person-operation",
 };
 
 const SpecializationTag: Tag = {
-    namePL: "Specjalizacja",
-    nameENG: "Specialization",
+    name: {
+        [Language.PL]: "Specjalizacja",
+        [Language.ENG]: "Specialization",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=specialization",
 };
 
 const StreetInletsTag: Tag = {
-    namePL: "Wpusty uliczne",
-    nameENG: "Street inlets",
+    name: {
+        [Language.PL]: "Wpusty uliczne",
+        [Language.ENG]: "Street inlets",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=street-inlets",
 };
 
 const TailoredCustomizationTag: Tag = {
-    namePL: "Indywidualne dopasowanie",
-    nameENG: "Tailored customization",
+    name: {
+        [Language.PL]: "Indywidualne dopasowanie",
+        [Language.ENG]: "Tailored customization",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=tailored-customization",
 };
 
 const TankTiltingTag: Tag = {
-    namePL: "Przechylenie zbiornika",
-    nameENG: "Tank tilting",
+    name: {
+        [Language.PL]: "Przechylenie zbiornika",
+        [Language.ENG]: "Tank tilting",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=tank-tilting",
 };
 
 const TrailersTag: Tag = {
-    namePL: "Przyczepy",
-    nameENG: "Trailers",
+    name: {
+        [Language.PL]: "Przyczepy",
+        [Language.ENG]: "Trailers",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=trailers",
 };
 
 const TwoThreeFourAxleChassisTag: Tag = {
-    namePL: "Podwozie 2-, 3-, 4-osiowe",
-    nameENG: "Chassis with 2, 3, 4 axles",
+    name: {
+        [Language.PL]: "Podwozie 2-, 3-, 4-osiowe",
+        [Language.ENG]: "Chassis with 2, 3, 4 axles",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=two-three-four-axle-chassis",
 };
 
 const WaterproofFinishTag: Tag = {
-    namePL: "Wodoodporne wykończenie",
-    nameENG: "Waterproof finish",
+    name: {
+        [Language.PL]: "Wodoodporne wykończenie",
+        [Language.ENG]: "Waterproof finish",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=waterproof-finish",
 };
 
 const WaterTransportTag: Tag = {
-    namePL: "Transport wody",
-    nameENG: "Water transport",
+    name: {
+        [Language.PL]: "Transport wody",
+        [Language.ENG]: "Water transport",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=water-transport",
 };
 
 const VacuumSystemTag: Tag = {
-    namePL: "System podciśnieniowy",
-    nameENG: "Vacuum system",
+    name: {
+        [Language.PL]: "System podciśnieniowy",
+        [Language.ENG]: "Vacuum system",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=vacuum-system",
 };
 
 const VanTypeChassinTag: Tag = {
-    namePL: "Podwozie typu furgon",
-    nameENG: "Van-type chassis",
+    name: {
+        [Language.PL]: "Podwozie typu furgon",
+        [Language.ENG]: "Van-type chassis",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=van-type-chassis",
 };
 
 const VariousTankSizesTag: Tag = {
-    namePL: "Rożne rozmiary zbiorników",
-    nameENG: "Various tank sizes",
+    name: {
+        [Language.PL]: "Rożne rozmiary zbiorników",
+        [Language.ENG]: "Various tank sizes",
+    },
     link: "/products/water-sewage/pressure-vehicles?name=various-tank-sizes",
 };
 

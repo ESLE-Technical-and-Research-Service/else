@@ -1,16 +1,15 @@
-'use client';
-
-import {useLanguage} from "../../../context/src/LanguageContext";
+import {Language} from "../types";
+import {GetLocalizedText} from "../utils";
 
 export default function CopyRights() {
-    const {language} = useLanguage();
+    const copyRightsText = {
+        [Language.PL]: "Wszelkie prawa zastrzeżone.",
+        [Language.ENG]: "All rights reserved.",
+    };
+
     return (
         <div data-testid="copy-rights" className="text-sm text-gray-600 mt-6">
-            &copy; {new Date().getFullYear()} ELSE - Technical and Research Service. {
-            language === "PL"
-                ? "Wszelkie prawa zastrzeżone."
-                : "All rights reserved."
-        }
+            &copy; {new Date().getFullYear()} ELSE - Technical and Research Service. {GetLocalizedText(copyRightsText)}
         </div>
     )
 }

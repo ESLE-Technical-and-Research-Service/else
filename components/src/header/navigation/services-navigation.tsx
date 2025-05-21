@@ -1,6 +1,5 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import {Language} from "../../types";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
@@ -8,6 +7,7 @@ import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
 import {servicesDropdownItems} from "./config/services-dropdown-items";
 import ServicesMobileSubmenu from "./mobile/services-mobile-submenu";
+import {GetLocalizedText} from "../../utils";
 
 type ServicesNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
@@ -20,7 +20,6 @@ export default function ServicesNavigation({
                                                isMobile,
                                                openDropdown,
                                            }: ServicesNavigationProps) {
-    const {language} = useLanguage();
     const isTouchTablet = useIsTouchTablet();
     const router = useRouter();
 
@@ -28,6 +27,11 @@ export default function ServicesNavigation({
         e.preventDefault();
         handleClickAction(e as React.MouseEvent, 'services');
         router.push(href);
+    };
+
+    const servicesLinkText = {
+        [Language.PL]: "Serwisy",
+        [Language.ENG]: "Services"
     };
 
     return (
@@ -38,7 +42,7 @@ export default function ServicesNavigation({
                 href="/services"
                 onClick={(e) => handleClickAction(e, 'services')}
             >
-                {language === Language.PL ? "Serwisy" : "Services"}
+                {GetLocalizedText(servicesLinkText)}
             </Link>
 
             {/* Mobile Dropdown */}
@@ -55,7 +59,7 @@ export default function ServicesNavigation({
                     mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`
                     }
                 >
-                    {renderDropdownItems(servicesDropdownItems, language, onDropdownItemActivate)}
+                    {renderDropdownItems(servicesDropdownItems, onDropdownItemActivate)}
                 </ul>
             )}
 
@@ -64,7 +68,7 @@ export default function ServicesNavigation({
                 <ul data-testid="services-menu-items"
                     className={`${classes.dropdownMenu} ${classes.absoluteDropdown} absolute left-0 mt-2 w-48 
                     rounded-lg shadow-lg bg-[var(--background)] border border-gray-200`}>
-                    {renderDropdownItems(servicesDropdownItems, language)}
+                    {renderDropdownItems(servicesDropdownItems)}
                 </ul>
             )}
         </li>
