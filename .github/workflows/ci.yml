@@ -65,7 +65,7 @@ jobs:
         run: npx eslint --ext .js,.jsx,.ts,.tsx --plugin security
 
   test-unit:
-    needs: [cache, lint]
+    needs: [cache, lint, security]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -79,7 +79,7 @@ jobs:
       - run: npm run test:unit
 
   test-e2e:
-    needs: [cache, lint]
+    needs: [cache, lint, security]
     runs-on: ubuntu-latest
     environment: test
     steps:

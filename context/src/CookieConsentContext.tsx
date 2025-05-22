@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 
 interface CookieConsentContext {
     showConsent: () => boolean;
@@ -10,7 +10,6 @@ interface CookieConsentContext {
 const CookieConsentContext = createContext<CookieConsentContext | undefined>(undefined);
 
 export const CookieConsentProvider = ({ children }: { children: ReactNode }) => {
-    const [acceptedConsent, setAcceptedConsent] = useState<boolean>(false);
     const [displayConsentPopup, setDisplayConsentPopup] = useState<boolean>(false);
 
     useEffect(() => {
@@ -19,8 +18,7 @@ export const CookieConsentProvider = ({ children }: { children: ReactNode }) => 
             .find((cookie) => cookie.trim().startsWith("cookie-consent"));
 
         if (cookie) {
-            const consent = cookie.split("=")[1] === "true";
-            setAcceptedConsent(consent);
+            // const consent = cookie.split("=")[1] === "true";
             setDisplayConsentPopup(false);
         } else {
             setDisplayConsentPopup(true);
@@ -28,8 +26,15 @@ export const CookieConsentProvider = ({ children }: { children: ReactNode }) => 
     }, []);
 
     const setConsent = (consent: boolean) => {
-        setAcceptedConsent(consent);
-        global.document.cookie = `cookie-consent=${consent}`;
+        if (!consent) {
+            const halfYearInSeconds = 182 * 24 * 60 * 60;
+            global.document.cookie = `cookie-consent=${consent}; max-age=${halfYearInSeconds}; Secure; SameSite=Lax; path=/`;
+            setDisplayConsentPopup(false);
+            return;
+        }
+
+        const oneYearInSeconds = 365 * 24 * 60 * 60;
+        global.document.cookie = `cookie-consent=${consent}; max-age=${oneYearInSeconds}; Secure; SameSite=Lax; path=/`;
         setDisplayConsentPopup(!consent);
     };
 
