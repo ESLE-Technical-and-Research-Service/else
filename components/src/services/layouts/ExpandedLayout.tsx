@@ -4,7 +4,7 @@ import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import ImagesGridCard from "../../common/cards/images-grid-card";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import Image from "next/image";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import BackButton from "../../common/buttons/back-button";
@@ -13,9 +13,6 @@ import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 
 type ExpandedLayoutProps = {
     service: Service;
-    isInCenter1: boolean;
-    isInCenter2: boolean;
-    isBadgeInCenter: boolean;
     articleImagesRef1: RefObject<HTMLDivElement | null>;
     articleImagesRef2: RefObject<HTMLDivElement | null>;
     badgeRef: RefObject<HTMLDivElement | null>;
@@ -30,15 +27,16 @@ type ExpandedLayoutProps = {
 
 export default function ExpandedLayout({
                                            service,
-                                           isInCenter1,
-                                           isInCenter2,
-                                           isBadgeInCenter,
                                            articleImagesRef1,
                                            articleImagesRef2,
                                            badgeRef,
                                            scaleValue,
                                            imagesStyle,
                                        }: ExpandedLayoutProps) {
+    const isInCenter1 = useInView(articleImagesRef1, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+    const isInCenter2 = useInView(articleImagesRef2, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage

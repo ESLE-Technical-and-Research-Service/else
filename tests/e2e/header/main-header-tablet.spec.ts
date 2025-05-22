@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnTabletAndCloseConsentPopup} from "../utils/openMainPageOnTablet";
 import {waterSewageSubmenuItems} from "../../../components/src/header/navigation/config/water-sewage-submenu-items";
-import {DropdownItem} from "../../../components/src/header/navigation/render-dropdown-items";
 import {maritimeItems} from "../../../components/src/header/navigation/config/maritime-items";
+import {DropdownItem, Language} from "../../../components/src/types";
 
 test.describe("main header suite", () => {
     test.describe("tablet version", () => {
@@ -183,7 +183,7 @@ test.describe("main header suite", () => {
                         .locator('[data-testid="water-sewage-submenu-tablet-items"]')
                         .first();
 
-                    const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelENG);
+                    const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropdownItem) => item.label[Language.ENG]);
                     await expect(submenuItemsContainer.locator('li a')).toHaveCount(expectedSubmenuItems.length, { timeout: 3000 });
 
                     const submenuLinks = submenuItemsContainer.locator('li a');
@@ -211,7 +211,7 @@ test.describe("main header suite", () => {
                     const maritimeSubmenuItems = tabletPage.locator('[data-testid="maritime-submenu-tablet-items"]:visible').first();
                     await expect(maritimeSubmenuItems).toBeVisible({ timeout: 3000 });
 
-                    const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelENG);
+                    const expectedSubmenuItems = maritimeItems.map((item: DropdownItem) => item.label[Language.ENG]);
                     const submenuLinks = maritimeSubmenuItems.locator('li a:visible');
                     await expect(submenuLinks).toHaveCount(expectedSubmenuItems.length, { timeout: 3000 });
                     const submenuItems = await submenuLinks.allTextContents();
@@ -288,14 +288,16 @@ test.describe("main header suite", () => {
                     await expect(dropdownMenu).toBeVisible({timeout: 3000});
 
                     const waterAndSewageSubmenuLink = tabletPage
-                        .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-water-sewage-submenu-link"]');
+                        .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-water-sewage-submenu-link"]')
+                        .first();
                     await expect(waterAndSewageSubmenuLink).toBeVisible({ timeout: 3000});
                     await expect(waterAndSewageSubmenuLink).toHaveText('Dział WOD-KAN');
 
                     const maritimeSubmenuLink = tabletPage
-                        .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-maritime-submenu-link"]');
+                        .locator('[data-testid="main-nav-container"] [data-testid="products-tablet-dropdown-menu"] [data-testid="products-maritime-submenu-link"]')
+                        .first();
                     await expect(maritimeSubmenuLink).toBeVisible({ timeout: 3000 });
-                    await expect(maritimeSubmenuLink).toHaveText('Dział Morski');
+                    await expect(maritimeSubmenuLink).toHaveText('Dział morski');
                 });
 
                 test("should display water and sewage submenu items on click in polish", async () => {
@@ -319,7 +321,7 @@ test.describe("main header suite", () => {
                     const submenuLinks = submenuItemsContainer.locator('li a');
                     const submenuItems = await submenuLinks.allTextContents();
 
-                    const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelPL);
+                    const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropdownItem) => item.label[Language.PL]);
 
                     expect(submenuItems).toEqual(expectedSubmenuItems);
                 });
@@ -347,7 +349,7 @@ test.describe("main header suite", () => {
                     const submenuLinks = submenuItemsContainer.locator('li a');
                     const submenuItems = await submenuLinks.allTextContents();
 
-                    const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelPL);
+                    const expectedSubmenuItems = maritimeItems.map((item: DropdownItem) => item.label[Language.PL]);
 
                     expect(submenuItems).toEqual(expectedSubmenuItems);
                 });

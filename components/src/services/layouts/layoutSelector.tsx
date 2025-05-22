@@ -15,9 +15,6 @@ export type LayoutSelectorProps = {
     service: Service;
     language: Language;
     layoutType: PageLayout;
-    isInCenter1: boolean;
-    isInCenter2: boolean;
-    isBadgeInCenter: boolean;
     articleImagesRef1: RefObject<HTMLDivElement | null>;
     articleImagesRef2: RefObject<HTMLDivElement | null>;
     badgeRef: RefObject<HTMLDivElement | null>;
@@ -32,9 +29,6 @@ export const getLayoutComponent = ({
     service,
     language,
     layoutType,
-    isInCenter1,
-    isInCenter2,
-    isBadgeInCenter,
     articleImagesRef1,
     articleImagesRef2,
     badgeRef,
@@ -52,8 +46,7 @@ export const getLayoutComponent = ({
         [PageLayout.COMPACT]: (
             <CompactLayout
                 {...commonProps}
-                isInCenter1={isInCenter1}
-                articleImagesRef1={articleImagesRef1}
+                articleImagesRef={articleImagesRef1}
                 scaleValue={scaleValue}
                 imagesStyle={imagesStyle}
             />
@@ -61,7 +54,6 @@ export const getLayoutComponent = ({
         [PageLayout.SIDEBAR]: (
             <SidebarLayout
                 {...commonProps}
-                isInCenter1={isInCenter1}
                 articleImagesRef1={articleImagesRef1}
                 scaleValue={scaleValue}
                 imagesStyle={imagesStyle}
@@ -70,17 +62,12 @@ export const getLayoutComponent = ({
         [PageLayout.GRID]: (
             <GridLayout
                 {...commonProps}
-                isInCenter1={isInCenter1}
                 badgeRef={badgeRef}
-                isBadgeInCenter={isBadgeInCenter}
             />
         ),
         [PageLayout.EXPANDED]: (
             <ExpandedLayout
                 {...commonProps}
-                isInCenter1={isInCenter1}
-                isInCenter2={isInCenter2}
-                isBadgeInCenter={isBadgeInCenter}
                 articleImagesRef1={articleImagesRef1}
                 articleImagesRef2={articleImagesRef2}
                 badgeRef={badgeRef}
@@ -92,7 +79,6 @@ export const getLayoutComponent = ({
             <TimelineLayout
                 {...commonProps}
                 badgeRef={badgeRef}
-                isBadgeInCenter={isBadgeInCenter}
                 articleImagesRef1={articleImagesRef1}
             />
         ),
@@ -103,22 +89,17 @@ export const getLayoutComponent = ({
             <MasonryLayout
                 {...commonProps}
                 badgeRef={badgeRef}
-                isBadgeInCenter={isBadgeInCenter}
             />
         ),
         [PageLayout.GALLERY]: (
             <GalleryLayout
                 {...commonProps}
                 badgeRef={badgeRef}
-                isBadgeInCenter={isBadgeInCenter}
             />
         ),
         [PageLayout.DEFAULT]: (
             <DefaultLayout
                 {...commonProps}
-                isInCenter1={isInCenter1}
-                isInCenter2={isInCenter2}
-                isBadgeInCenter={isBadgeInCenter}
                 articleImagesRef1={articleImagesRef1}
                 articleImagesRef2={articleImagesRef2}
                 badgeRef={badgeRef}

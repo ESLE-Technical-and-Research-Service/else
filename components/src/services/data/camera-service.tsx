@@ -1,3 +1,5 @@
+'use client';
+
 import {Language, Service} from "../../types";
 import camServiceHeroImg
     from "../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_04.webp";

@@ -18,3 +18,4 @@ export * from "./NavigationItem";
 export * from "./DropdownItem";
 export * from "./SubmenuItem";
 export * from "./Service";
+export * from "./DropdownItem";

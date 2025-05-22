@@ -7,11 +7,11 @@ import ImagesGridCard from "../../common/cards/images-grid-card";
 import BackButton from "../../common/buttons/back-button";
 import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
+import {useInView} from "framer-motion";
 
 type CompactLayoutProps = {
     service: Service;
-    isInCenter1: boolean;
-    articleImagesRef1: RefObject<HTMLDivElement | null>;
+    articleImagesRef: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
         imagesLayout: ImagesGridLayout;
@@ -23,11 +23,12 @@ type CompactLayoutProps = {
 
 export default function CompactLayout({
                                           service,
-                                          isInCenter1,
-                                          articleImagesRef1,
+                                          articleImagesRef,
                                           scaleValue,
                                           imagesStyle,
                                       }: CompactLayoutProps) {
+    const isInCenter = useInView(articleImagesRef, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+
     return (
         <main className="w-full bg-[var(--background)]">
             <HeroImage
@@ -57,9 +58,9 @@ export default function CompactLayout({
                     {service.images.length > 0 && (
                         <ImagesGridCard
                             content={serviceToContentModel(service)}
-                            isInCenter={isInCenter1}
+                            isInCenter={isInCenter}
                             layoutType={imagesStyle.imagesLayout}
-                            articleRef={articleImagesRef1}
+                            articleRef={articleImagesRef}
                             scaleValue={scaleValue}
                             columns={imagesStyle.columns}
                             limit={imagesStyle.limit}

@@ -5,7 +5,7 @@ import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import {CheckBadgeIcon, ClockIcon} from "@heroicons/react/24/outline";
 import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
@@ -14,7 +14,6 @@ type TimelineLayoutProps = {
     service: Service;
     language: Language;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
     articleImagesRef1: RefObject<HTMLDivElement | null>;
 };
 
@@ -22,12 +21,12 @@ export default function TimelineLayout({
                                            service,
                                            language,
                                            badgeRef,
-                                           isBadgeInCenter,
                                            articleImagesRef1,
                                        }: TimelineLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
     // Create timeline points based on the number of images
     const timelinePoints = useMemo(() => {
-        // Create an array of timeline points based on the images
         return service.images.map((_, index) => ({
             id: index,
             title: language === Language.PL

@@ -17,7 +17,7 @@ export const productsMenuItems: SubmenuItem[] = [
         href: "/products/maritime",
         submenuName: "maritime",
         label: {
-            [Language.PL]: "Dział MORSKI",
+            [Language.PL]: "Dział morski",
             [Language.ENG]: "Maritime Department",
         },
         items: maritimeItems

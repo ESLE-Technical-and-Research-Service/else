@@ -5,7 +5,7 @@ import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion, useInView, useScroll, useTransform} from "framer-motion";
 import {ArrowLeftIcon, ArrowRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
 import {GetLocalizedText} from "../../utils";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
@@ -14,15 +14,15 @@ type GalleryLayoutProps = {
     service: Service;
     language: Language;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
 };
 
 export default function GalleryLayout({
     service,
     language,
     badgeRef,
-    isBadgeInCenter,
 }: GalleryLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const galleryRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({

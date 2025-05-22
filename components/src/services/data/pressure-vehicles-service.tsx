@@ -1,3 +1,5 @@
+'use client';
+
 import {Language, Service} from "../../types";
 import pressureVehiclesServiceHeroImg
     from "../../../../assets/images/products/pressure-vehicles/automatic_street_inlets_cleaning_vehicles_06.webp"

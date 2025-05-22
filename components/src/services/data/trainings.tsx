@@ -1,3 +1,5 @@
+'use client';
+
 import {Language, Service} from "../../types";
 import trainingsHeroImg from "../../../../assets/images/hero/trainingHero01.webp";
 import trainingsImg01 from "../../../../assets/images/services/training_01.jpg";

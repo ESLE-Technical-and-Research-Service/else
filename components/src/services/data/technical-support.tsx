@@ -1,3 +1,5 @@
+'use client';
+
 import {Language, Service} from "../../types";
 import technicalSupportHeroImg from "../../../../assets/images/services/tech_support_02.jpg";
 import techSupportImg02 from "../../../../assets/images/services/tech_support_02.jpg";

@@ -1,8 +1,8 @@
 import {expect, Page, test} from "@playwright/test";
 import {openMainPageOnMobileAndCloseConsentPopup} from "../utils/openMainPageOnMobile";
 import {waterSewageSubmenuItems} from "../../../components/src/header/navigation/config/water-sewage-submenu-items";
-import {DropdownItem} from "../../../components/src/header/navigation/render-dropdown-items";
 import {maritimeItems} from "../../../components/src/header/navigation/config/maritime-items";
+import {DropdownItem, Language} from "../../../components/src/types";
 
 test.describe("main header suite", () => {
     test.describe("mobile version", () => {
@@ -15,12 +15,12 @@ test.describe("main header suite", () => {
 
             test("should render main header", async () => {
                 const mainHeader = mobilePage.getByTestId('main-header');
-                await expect(mainHeader).toBeVisible({ timeout: 3000 });
+                await expect(mainHeader).toBeVisible({timeout: 3000});
             });
 
             test("should render burger menu button", async () => {
                 const burgerMenuButton = mobilePage.locator('[data-testid="burger-menu-button"]');
-                await expect(burgerMenuButton).toBeVisible({ timeout: 3000 });
+                await expect(burgerMenuButton).toBeVisible({timeout: 3000});
             });
 
             test("should display language switch", async () => {
@@ -69,93 +69,112 @@ test.describe("main header suite", () => {
             test.beforeEach(async ({browser}) => {
                 mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser);
                 const burgerMenuButton = mobilePage.locator('[data-testid="burger-menu-button"]');
-                await burgerMenuButton.waitFor({ state: "visible" });
+                await burgerMenuButton.waitFor({state: "visible"});
                 await burgerMenuButton.click();
 
             });
 
             test("should display menu items in english after clicking burger menu button", async () => {
                 const mainNavigation = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="main-nav-container"]');
-                await expect(mainNavigation).toBeVisible({ timeout: 3000});
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="main-nav-container"]')
+                    .first();
+                await expect(mainNavigation).toBeVisible({timeout: 3000});
 
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
-                await expect(productsMenu).toBeVisible({ timeout: 3000 });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
+                await expect(productsMenu).toBeVisible({timeout: 3000});
                 await expect(productsMenu).toHaveText("Products");
 
                 const aboutUsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="about-us-menu"]');
-                await expect(aboutUsMenu).toBeVisible({ timeout: 3000 });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="about-us-menu"]')
+                    .first();
+                await expect(aboutUsMenu).toBeVisible({timeout: 3000});
                 await expect(aboutUsMenu).toHaveText("About Us");
 
                 const servicesMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="services-menu"]');
-                await expect(servicesMenu).toBeVisible({ timeout: 3000 });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="services-menu"]')
+                    .first();
+                await expect(servicesMenu).toBeVisible({timeout: 3000});
                 await expect(servicesMenu).toHaveText("Services");
 
                 const service24by7Menu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="service-24by7-menu"]');
-                await expect(service24by7Menu).toBeVisible({ timeout: 3000 });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="service-24by7-menu"]')
+                    .first();
+                await expect(service24by7Menu).toBeVisible({timeout: 3000});
                 await expect(service24by7Menu).toHaveText("Service 24/7");
 
                 const contactMenu = mobilePage
                     .locator('[data-testid="burger-menu-slide-in"] [data-testid="contact-menu"]');
-                await expect(contactMenu).toBeVisible({ timeout: 3000 });
+                await expect(contactMenu).toBeVisible({timeout: 3000});
                 await expect(contactMenu).toHaveText("Contact");
             });
 
             test("should display water and sewage submenu items for products menu item in english", async () => {
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
                 await productsMenu.click();
 
-                const waterAndSewageMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-water-sewage-mobile-submenu-link"]'
-                );
-                await waterAndSewageMobileSubmenuLink.waitFor({ state: "visible" });
+                const waterAndSewageMobileSubmenuLink = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="products-water-sewage-mobile-submenu-link"]'
+                    )
+                    .first();
+                await waterAndSewageMobileSubmenuLink.waitFor({state: "visible"});
                 await waterAndSewageMobileSubmenuLink.click();
 
-                const waterAndSewageMobileSubmenuItems = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]'
-                );
+                const waterAndSewageMobileSubmenuItems = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]'
+                    )
+                    .first();
                 await expect(waterAndSewageMobileSubmenuItems).toBeVisible({timeout: 3000});
 
                 const submenuItemsContainer = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]')
+                    .first();
                 await expect(submenuItemsContainer).toBeVisible({timeout: 3000});
 
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelENG);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropdownItem) => item.label[Language.ENG]);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
 
             test("should display maritime submenu items for products menu item in english", async () => {
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
-                await productsMenu.waitFor({ state: "visible" });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
+                await productsMenu.waitFor({state: "visible"});
                 await productsMenu.click();
 
-                const maritimeMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
-                );
+                const maritimeMobileSubmenuLink = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
+                    )
+                    .first();
                 await maritimeMobileSubmenuLink.click();
 
-                const maritimeMobileSubmenuItems = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]'
-                );
+                const maritimeMobileSubmenuItems = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]'
+                    )
+                    .first();
                 await expect(maritimeMobileSubmenuItems).toBeVisible({timeout: 3000});
 
                 const submenuItemsContainer = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]');
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]'
+                    )
+                    .first();
 
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelENG);
+                const expectedSubmenuItems = maritimeItems.map((item: DropdownItem) => item.label[Language.ENG]);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
@@ -169,94 +188,113 @@ test.describe("main header suite", () => {
                 mobilePage = await openMainPageOnMobileAndCloseConsentPopup(browser, "pl-PL");
                 await mobilePage.waitForTimeout(3000);
                 const burgerMenuButton = mobilePage.locator('[data-testid="burger-menu-button"]');
-                await burgerMenuButton.waitFor({ state: "visible" });
+                await burgerMenuButton.waitFor({state: "visible"});
                 await burgerMenuButton.click();
             });
 
             test("should display menu items in polish after clicking burger menu button", async () => {
                 const mainNavigation = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="main-nav-container"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="main-nav-container"]')
+                    .first();
                 await expect(mainNavigation).toBeVisible();
 
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
                 await expect(productsMenu).toBeVisible({timeout: 3000});
                 await expect(productsMenu).toHaveText("Produkty");
 
                 const aboutUsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="about-us-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="about-us-menu"]')
+                    .first();
                 await expect(aboutUsMenu).toBeVisible({timeout: 3000});
                 await expect(aboutUsMenu).toHaveText("O nas");
 
                 const servicesMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="services-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="services-menu"]')
+                    .first();
                 await expect(servicesMenu).toBeVisible({timeout: 3000});
                 await expect(servicesMenu).toHaveText("Serwisy");
 
                 const service24by7Menu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="service-24by7-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="service-24by7-menu"]')
+                    .first();
                 await expect(service24by7Menu).toBeVisible({timeout: 3000});
                 await expect(service24by7Menu).toHaveText("Serwis 24/7");
 
                 const contactMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="contact-menu"]');
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="contact-menu"]')
+                    .first();
                 await expect(contactMenu).toBeVisible({timeout: 3000});
                 await expect(contactMenu).toHaveText("Kontakt");
             });
 
             test("should display water and sewage submenu items for products menu item in polish", async () => {
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
-                await productsMenu.waitFor({ state: "visible" });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
+                await productsMenu.waitFor({state: "visible"});
                 await expect(productsMenu).toBeVisible({timeout: 3000});
                 await productsMenu.click();
 
-                const waterAndSewageMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-water-sewage-mobile-submenu-link"]'
-                );
-                await waterAndSewageMobileSubmenuLink.waitFor({ state: "visible" });
+                const waterAndSewageMobileSubmenuLink = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="products-water-sewage-mobile-submenu-link"]'
+                    )
+                    .first();
+                await waterAndSewageMobileSubmenuLink.waitFor({state: "visible"});
                 await expect(waterAndSewageMobileSubmenuLink).toBeVisible({timeout: 3000});
                 await waterAndSewageMobileSubmenuLink.click();
 
-                const waterAndSewageMobileSubmenuItems = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]'
-                );
+                const waterAndSewageMobileSubmenuItems = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]'
+                    )
+                    .first();
                 await expect(waterAndSewageMobileSubmenuItems).toBeVisible({timeout: 3000});
 
                 const submenuItemsContainer = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]');
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="water-sewage-mobile-submenu-items"]'
+                    )
+                    .first();
                 await expect(submenuItemsContainer).toBeVisible({timeout: 3000});
 
                 const submenuLinks = submenuItemsContainer.locator('li a');
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropDownItem) => item.labelPL);
+                const expectedSubmenuItems = waterSewageSubmenuItems.map((item: DropdownItem) => item.label[Language.PL]);
 
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
 
             test("should display maritime submenu items for products menu item in polish", async () => {
                 const productsMenu = mobilePage
-                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]');
-                await productsMenu.waitFor({ state: "visible" });
+                    .locator('[data-testid="burger-menu-slide-in"] [data-testid="products-menu"]')
+                    .first();
+                await productsMenu.waitFor({state: "visible"});
                 await productsMenu.click();
 
-                const maritimeMobileSubmenuLink = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
-                );
-                await maritimeMobileSubmenuLink.waitFor({ state: "visible" });
+                const maritimeMobileSubmenuLink = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="products-maritime-mobile-submenu-link"]'
+                    )
+                    .first();
+                await maritimeMobileSubmenuLink.waitFor({state: "visible"});
                 await maritimeMobileSubmenuLink.click();
 
-                const maritimeMobileSubmenuItems = mobilePage.locator(
-                    '[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]'
-                );
+                const maritimeMobileSubmenuItems = mobilePage
+                    .locator(
+                        '[data-testid="burger-menu-slide-in"] [data-testid="maritime-mobile-submenu-items"]'
+                    )
+                    .first();
                 await expect(maritimeMobileSubmenuItems).toBeVisible({timeout: 3000});
 
                 const submenuLinks = maritimeMobileSubmenuItems.locator('li a');
-                await expect(submenuLinks).toHaveCount(maritimeItems.length, { timeout: 3000 });
+                await expect(submenuLinks).toHaveCount(maritimeItems.length, {timeout: 3000});
                 const submenuItems = await submenuLinks.allTextContents();
 
-                const expectedSubmenuItems = maritimeItems.map((item: DropDownItem) => item.labelPL);
+                const expectedSubmenuItems = maritimeItems.map((item: DropdownItem) => item.label[Language.PL]);
                 expect(submenuItems).toEqual(expectedSubmenuItems);
             });
         });

@@ -9,10 +9,10 @@ import Link from "next/link";
 import {servicesDropdownItems} from "../../header/navigation/config/services-dropdown-items";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
+import {useInView} from "framer-motion";
 
 type SidebarLayoutProps = {
     service: Service;
-    isInCenter1: boolean;
     articleImagesRef1: RefObject<HTMLDivElement | null>;
     scaleValue: number;
     imagesStyle: {
@@ -25,11 +25,12 @@ type SidebarLayoutProps = {
 
 export default function SidebarLayout({
                                           service,
-                                          isInCenter1,
                                           articleImagesRef1,
                                           scaleValue,
                                           imagesStyle,
                                       }: SidebarLayoutProps) {
+    const isInCenter = useInView(articleImagesRef1, {amount: 0.5, margin: "-10% 0px -10% 0px"});
+
     const quickNavigationHeaderText = {
         [Language.PL]: "Szybka nawigacja",
         [Language.ENG]: "Quick Navigation",
@@ -156,7 +157,7 @@ export default function SidebarLayout({
                         {service.images.length > 0 && (
                             <ImagesGridCard
                                 content={serviceToContentModel(service)}
-                                isInCenter={isInCenter1}
+                                isInCenter={isInCenter}
                                 layoutType={imagesStyle.imagesLayout}
                                 articleRef={articleImagesRef1}
                                 scaleValue={scaleValue}

@@ -6,24 +6,23 @@ import HeaderDivider from "../../common/dividers/header-divider";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 
 type GridLayoutProps = {
     service: Service;
     language: Language;
-    isInCenter1: boolean;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
 };
 
 export default function GridLayout({
                                        service,
                                        language,
                                        badgeRef,
-                                       isBadgeInCenter,
                                    }: GridLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
     const descriptionHeader = {
         [Language.PL]: "Opis",
         [Language.ENG]: "Description",

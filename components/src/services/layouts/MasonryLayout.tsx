@@ -5,7 +5,7 @@ import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
 import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
@@ -13,14 +13,10 @@ import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 type MasonryLayoutProps = {
     service: Service;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
 };
 
-export default function MasonryLayout({
-                                          service,
-                                          badgeRef,
-                                          isBadgeInCenter,
-                                      }: MasonryLayoutProps) {
+export default function MasonryLayout({service, badgeRef}: MasonryLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
 
     const specializationHeaderText = {
         [Language.PL]: "Nasza specjalizacja",
