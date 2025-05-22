@@ -7,7 +7,7 @@ import CheckButton, {CheckButtonProps} from "../../../src/common/buttons/check-b
 
 jest.mock("next/image", () => ({
     __esModule: true,
-    default: ({ alt }: { alt: string }) => <img alt={alt} />,
+    default: ({alt}: { alt: string }) => <img alt={alt}/>,
 }));
 
 
@@ -60,6 +60,56 @@ describe("Department card", () => {
             expect(screen.getByTestId("department-card-title-0")).toHaveTextContent(departmentDetails.titlePL);
             expect(screen.getByTestId("department-card-description-0")).toHaveTextContent(departmentDetails.descriptionPL);
             expect(screen.getByRole("img", {name: departmentDetails.altPL})).toBeInTheDocument();
+            expect(screen.getByRole("link", {name: departmentDetails.link})).toHaveAttribute("href", departmentDetails.link);
+        });
+    afterEach(cleanup);
+    it(
+        "should render department card with correct content in english", () => {
+
+            const staticImageData: StaticImageData = {
+                src: "./image.webp",
+                height: 100,
+                width: 100,
+                blurDataURL: ""
+            }
+
+            const departmentDetails: Department = {
+                img: staticImageData,
+                altPL: "Obraz w języku polskim",
+                altENG: "Image in English",
+                titlePL: "Tytuł w języku polskim",
+                titleENG: "Title in English",
+                descriptionPL: "Opis w języku polskim",
+                descriptionENG: "Description in English",
+                link: "Dowiedz się więcej"
+            };
+
+            const buttonProps: CheckButtonProps = {
+                children: "Dowiedz się więcej",
+                href: "link"
+            };
+
+            Object.defineProperty(window.navigator, 'language', {
+                value: 'eng-EN',
+                configurable: true,
+            });
+
+            render(
+                <LanguageProvider>
+                    <DepartmentCard
+                        departmentDetails={departmentDetails}
+                        language={Language.ENG}
+                        isVisible={true}
+                        index={0}
+                    />
+                    <CheckButton href={departmentDetails.link}>{buttonProps.children}</CheckButton>
+                </LanguageProvider>
+            );
+
+            expect(screen.getByTestId("department-card-0")).toBeInTheDocument();
+            expect(screen.getByTestId("department-card-title-0")).toHaveTextContent(departmentDetails.titleENG);
+            expect(screen.getByTestId("department-card-description-0")).toHaveTextContent(departmentDetails.descriptionENG);
+            expect(screen.getByRole("img", {name: departmentDetails.altENG})).toBeInTheDocument();
             expect(screen.getByRole("link", {name: departmentDetails.link})).toHaveAttribute("href", departmentDetails.link);
         });
 });
