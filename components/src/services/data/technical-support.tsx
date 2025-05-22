@@ -53,7 +53,7 @@ export const TechnicalSupport: Service = {
                             "Dostępność części zamiennych i komponentów.",
                             "Zdalne i stacjonarne konsultacje techniczne.",
                         ].map((text, idx) => (
-                                <motion.li
+                                <motion.div
                                     key={idx}
                                     initial={{ x: 100, opacity: 0 }}
                                     whileInView={{ x: 0, opacity: 1 }}
@@ -62,7 +62,7 @@ export const TechnicalSupport: Service = {
                                     style={{ listStyle: 'none', objectFit: 'cover' }}
                                 >
                                     <ListElementCard text={text} key={idx} />
-                                </motion.li>
+                                </motion.div>
 
                         ))}
                     </ul>
@@ -96,7 +96,7 @@ export const TechnicalSupport: Service = {
                             "Provision of spare parts and replacement components.",
                             "Remote and on-site technical consultations.",
                         ].map((text, idx) => (
-                            <motion.li
+                            <motion.div
                                 key={idx}
                                 initial={{ x: 100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
@@ -105,7 +105,7 @@ export const TechnicalSupport: Service = {
                                 style={{ listStyle: 'none', objectFit: 'cover' }}
                             >
                                 <ListElementCard text={text} key={idx} />
-                            </motion.li>
+                            </motion.div>
                         ))}
                     </ul>
 

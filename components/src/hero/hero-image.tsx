@@ -70,14 +70,14 @@ export default function HeroImage({heroSlides, heroTitle, heroHeight, descriptio
 
             <div
                 className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-20">
-                <motion.h1
+                <motion.div
                     className="text-5xl md:text-7xl font-bold text-white mb-6 text-center px-4"
                     initial={{opacity: 0, y: 30}}
                     animate={{opacity: 1, y: 0}}
                     transition={{duration: 1, ease: "easeOut"}}
                 >
                     {heroTitle}
-                </motion.h1>
+                </motion.div>
                 <motion.p
                     className="text-lg md:text-xl text-white/90 max-w-2xl text-center px-6 md:leading-10 sm:leading-4"
                     initial={{opacity: 0, y: 30}}
