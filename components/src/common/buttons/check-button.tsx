@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import Link from "next/link";
 
-type CheckButtonProps = {
+export type CheckButtonProps = {
     children: ReactNode;
     href: string;
 };
