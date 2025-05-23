@@ -9,7 +9,7 @@ import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Link from "next/link";
 import {servicesDropdownItems} from "../../header/navigation/config/services-dropdown-items";
-import {DropDownItem} from "../../header/navigation/render-dropdown-items";
+import type {DropDownItem} from "../../header/navigation/render-dropdown-items";
 import {ImagesGridLayout} from "../../types/ImagesGridLayout";
 
 type SidebarLayoutProps = {

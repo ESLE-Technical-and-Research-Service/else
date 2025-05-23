@@ -1,4 +1,4 @@
-import {DropDownItem} from "../render-dropdown-items";
+import type {DropDownItem} from "../render-dropdown-items";
 import {waterSewageSubmenuItems} from "./water-sewage-submenu-items";
 import {maritimeItems} from "./maritime-items";
 

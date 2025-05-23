@@ -4,7 +4,7 @@ import {useLanguage} from "../../../../../context/src/LanguageContext";
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
 import {Language} from "../../../types";
-import {DropDownItem} from "../render-dropdown-items";
+import type {DropDownItem} from "../render-dropdown-items";
 import React from "react";
 import {servicesDropdownItems} from "../config/services-dropdown-items";
 import {useRouter} from "next/navigation";

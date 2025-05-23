@@ -1,7 +1,7 @@
 import {expect, Locator, Page, test} from "@playwright/test";
 import {openMainPageOnDesktopAndCloseConsentPopup} from "../utils/openMainPageOnDesktop";
 import {waterSewageSubmenuItems} from "../../../components/src/header/navigation/config/water-sewage-submenu-items";
-import {DropDownItem} from "../../../components/src/header/navigation/render-dropdown-items";
+import type {DropDownItem} from "../../../components/src/header/navigation/render-dropdown-items";
 import {maritimeItems} from "../../../components/src/header/navigation/config/maritime-items";
 
 test.describe("main header suite", () => {
@@ -82,7 +82,7 @@ test.describe("main header suite", () => {
                     await servicesMenu.hover();
 
                     const servicesItems = desktopPage.locator('[data-testid="services-menu-items"]').first();
-                    // Wait for the transition to complete
+
                     await desktopPage.waitForTimeout(300);
                     await expect(servicesItems).toBeVisible({timeout: 2000});
                 });
