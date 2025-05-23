@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MillingRobotsForSewerRepairAndRenovationCategory} from "../categories";
 import {MillingRobotsTags} from "../tags";
 import electricMillingRobotImg01
@@ -18,8 +18,8 @@ import electricMillingRobotImg07
 
 export const ElectricMillingRobot: ProductItem = {
     name: {
-        namePL: "Elektryczny robot frezujący",
-        nameENG: "Electric milling robot"
+        [Language.PL]: "Elektryczny robot frezujący",
+        [Language.ENG]: "Electric milling robot"
     },
     href: "/products/water-sewage/milling-robots/electric-milling-robot",
     images: [
@@ -32,11 +32,11 @@ export const ElectricMillingRobot: ProductItem = {
         electricMillingRobotImg07,
     ],
     description: {
-        textPL: "Elektryczny robot frezujący do napraw i renowacji kanałów",
-        textENG: "Electric milling robot for sewer repair and renovation"
+        [Language.PL]: "Elektryczny robot frezujący do napraw i renowacji kanałów",
+        [Language.ENG]: "Electric milling robot for sewer repair and renovation"
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <>
                     <h3>Główne cechy:</h3>
@@ -94,7 +94,7 @@ export const ElectricMillingRobot: ProductItem = {
                 </>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <h3>Main Features:</h3>
 

@@ -1,12 +1,10 @@
 import React, {RefObject} from "react";
-import {Language, PageLayout} from "../types";
-import {ContentModel, serviceToContentModel} from "../types/ContentModel";
+import {ContentModel, Language, PageLayout, serviceToContentModel} from "../types";
 import {Service} from "../types/Service";
 import GalleryLayout from "./GalleryLayout";
 
 export type LayoutSelectorProps = {
     content: ContentModel;
-    language: Language;
     layoutType: PageLayout;
     badgeRef?: RefObject<HTMLDivElement | null>;
     isBadgeInCenter?: boolean;
@@ -18,7 +16,6 @@ export type LayoutSelectorProps = {
  */
 export const getLayoutComponent = ({
     content,
-    language,
     layoutType,
     badgeRef,
     isBadgeInCenter,
@@ -27,7 +24,6 @@ export const getLayoutComponent = ({
         [PageLayout.GALLERY]: (
             <GalleryLayout
                 content={content}
-                language={language}
                 badgeRef={badgeRef}
                 isBadgeInCenter={isBadgeInCenter}
             />
@@ -36,7 +32,6 @@ export const getLayoutComponent = ({
         [PageLayout.DEFAULT]: (
             <GalleryLayout
                 content={content}
-                language={language}
                 badgeRef={badgeRef}
                 isBadgeInCenter={isBadgeInCenter}
             />
@@ -54,7 +49,6 @@ export const getLayoutComponent = ({
  */
 export const getServiceLayout = ({
     service,
-    language,
     layoutType,
     badgeRef,
     isBadgeInCenter,
@@ -69,7 +63,6 @@ export const getServiceLayout = ({
 
     return getLayoutComponent({
         content,
-        language,
         layoutType,
         badgeRef,
         isBadgeInCenter,

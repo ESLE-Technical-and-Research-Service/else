@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import officeSoftware01 from "../../../../../assets/images/products/cameras/office_software_01.webp";
 import officeSoftware02 from "../../../../../assets/images/products/cameras/office_software_02.webp";
 import officeSoftware03 from "../../../../../assets/images/products/cameras/office_software_03.webp";
@@ -10,8 +10,8 @@ import {CamerasTags} from "../tags";
 
 export const OfficeSoftwareForNetworkManagement: ProductItem = {
     name: {
-        namePL: "Oprogramowanie do zarządzania siecią",
-        nameENG: "Office software for network management",
+        [Language.PL]: "Oprogramowanie do zarządzania siecią",
+        [Language.ENG]: "Office software for network management",
     },
     href: "/products/water-sewage/cameras/office-software-for-network-management",
     images: [
@@ -23,11 +23,11 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
         officeSoftware06,
     ],
     description: {
-        textPL: "IKAS Evolution to zaawansowane oprogramowanie do zbierania, analizy i dokumentowania danych o sieci wod-kan. Działa w terenie i biurze, oferując spójne rozwiązanie sprzętowo-programowe. Bogate opcje pomiarowe dają solidne podstawy do decyzji, a analiza danych wspiera planowanie napraw. IKAS Evolution to harmonijne połączenie oprogramowania i sprzętu, tworząc jednolitą platformę",
-        textENG: "IKAS Evolution is advanced software for collecting, analyzing, and documenting water and sewage network data. It operates both in the field and in the office, offering a consistent hardware-software solution. Its rich measurement options provide a solid foundation for decision-making, while data analysis supports repair planning. IKAS Evolution is a harmonious integration of software and hardware, creating a unified platform.",
+        [Language.PL]: "IKAS Evolution to zaawansowane oprogramowanie do zbierania, analizy i dokumentowania danych o sieci wod-kan. Działa w terenie i biurze, oferując spójne rozwiązanie sprzętowo-programowe. Bogate opcje pomiarowe dają solidne podstawy do decyzji, a analiza danych wspiera planowanie napraw. IKAS Evolution to harmonijne połączenie oprogramowania i sprzętu, tworząc jednolitą platformę",
+        [Language.ENG]: "IKAS Evolution is advanced software for collecting, analyzing, and documenting water and sewage network data. It operates both in the field and in the office, offering a consistent hardware-software solution. Its rich measurement options provide a solid foundation for decision-making, while data analysis supports repair planning. IKAS Evolution is a harmonious integration of software and hardware, creating a unified platform.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     <strong>IKAS Evolution</strong> to zaawansowane oprogramowanie do zbierania, analizy i
@@ -95,7 +95,7 @@ export const OfficeSoftwareForNetworkManagement: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     <strong>IKAS Evolution</strong> is advanced software for collecting, analyzing, and documenting

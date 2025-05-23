@@ -18,11 +18,12 @@ import panoramoSi4KScanner08
 import {CamerasTags} from "../tags";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {IBAK} from "../manufacturers/IBAK";
+import {Language} from "../../../types";
 
 export const PanoramoSi4kManholeInspectionScanner = {
     name: {
-        namePL: "Skanery do inspekcji studzienek PANORAMO SI 4K",
-        nameENG: "PANORAMO SI 4K Manhole Inspection Scanners",
+        [Language.PL]: "Skanery do inspekcji studzienek PANORAMO SI 4K",
+        [Language.ENG]: "PANORAMO SI 4K Manhole Inspection Scanners",
     },
     href: "/products/water-sewage/cameras/360-panoramo-si-4k-manhole-inspection-scanner",
     images: [
@@ -36,11 +37,11 @@ export const PanoramoSi4kManholeInspectionScanner = {
         panoramoSi4KScanner08,
     ],
     description: {
-        textPL: "Skaner do inspekcji studzienek PANORAMO SI 4K to narzędzie umożliwiające trójwymiarowe skanowanie studzienek w ultrawysokiej rozdzielczości. Wykorzystuje technologię chmury punktów do precyzyjnych pomiarów i inwentaryzacji uszkodzeń. Dostępny w wersji zabudowanej na pojeździe lub przenośnej, skaner oferuje elastyczną konfigurację i jest zaprojektowany do obsługi przez jedną osobę.",
-        textENG: "The PANORAMO SI 4K Manhole Inspection Scanner is a cutting-edge tool designed for three-dimensional scanning of manholes in ultra-high resolution. Utilizing point cloud technology, it enables precise measurements and detailed documentation of structural conditions. Available in both vehicle-mounted and portable configurations, the scanner offers flexible deployment options and is engineered for single-operator use."
+        [Language.PL]: "Skaner do inspekcji studzienek PANORAMO SI 4K to narzędzie umożliwiające trójwymiarowe skanowanie studzienek w ultrawysokiej rozdzielczości. Wykorzystuje technologię chmury punktów do precyzyjnych pomiarów i inwentaryzacji uszkodzeń. Dostępny w wersji zabudowanej na pojeździe lub przenośnej, skaner oferuje elastyczną konfigurację i jest zaprojektowany do obsługi przez jedną osobę.",
+        [Language.ENG]: "The PANORAMO SI 4K Manhole Inspection Scanner is a cutting-edge tool designed for three-dimensional scanning of manholes in ultra-high resolution. Utilizing point cloud technology, it enables precise measurements and detailed documentation of structural conditions. Available in both vehicle-mounted and portable configurations, the scanner offers flexible deployment options and is engineered for single-operator use."
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <b>PANORAMO SI 4K Manhole Inspection Scanner</b>
 
@@ -78,7 +79,7 @@ export const PanoramoSi4kManholeInspectionScanner = {
             </>
 
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <b>Skaner do inspekcji studzienek PANORAMO® SI 4K</b>
 

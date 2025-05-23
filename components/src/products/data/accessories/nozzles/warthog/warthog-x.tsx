@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
@@ -16,8 +16,8 @@ import warthogXImg07 from "../../../../../../../assets/images/products/nozzles/w
 
 export const WarthogX: ProductItem = {
     name: {
-        namePL: "Warthog X",
-        nameENG: "Warthog X",
+        [Language.PL]: "Warthog X",
+        [Language.ENG]: "Warthog X",
     },
     href: "/products/water-sewage/accessories/warthog-x",
     images: [
@@ -30,12 +30,12 @@ export const WarthogX: ProductItem = {
         warthogXImg07,
     ],
     description: {
-        textPL: "Zaprojektowana z myślą o wydłużonej żywotności. Warthog X to najpotężniejsza w branży głowica do rur DN75-DN200. Warthog X ma niewielkie rozmiary i jest wyposażona w kombinację tylnych dysz obrotowych.",
-        textENG: "Designed for extended durability, the Warthog X is the most powerful cleaning head in the industry for DN75–DN200 pipes. Despite its compact size, it features a combination of rear rotating jets for superior cleaning performance and propulsion.",
+        [Language.PL]: "Zaprojektowana z myślą o wydłużonej żywotności. Warthog X to najpotężniejsza w branży głowica do rur DN75-DN200. Warthog X ma niewielkie rozmiary i jest wyposażona w kombinację tylnych dysz obrotowych.",
+        [Language.ENG]: "Designed for extended durability, the Warthog X is the most powerful cleaning head in the industry for DN75–DN200 pipes. Despite its compact size, it features a combination of rear rotating jets for superior cleaning performance and propulsion.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>
     },
     manufacturers: [NUOVACONTEC],
     category: [

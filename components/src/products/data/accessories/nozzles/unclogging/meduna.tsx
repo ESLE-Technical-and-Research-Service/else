@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -10,20 +10,20 @@ import medunaImg01 from "../../../../../../../assets/images/products/nozzles/med
 
 export const Meduna: ProductItem = {
     name: {
-        namePL: "Meduna",
-        nameENG: "Meduna",
+        [Language.PL]: "Meduna",
+        [Language.ENG]: "Meduna",
     },
     href: "/products/water-sewage/accessories/meduna",
     images: [
         medunaImg01,
     ],
     description: {
-        textPL: "Krótkie głowice o okrągłym kształcie.",
-        textENG: "Short nozzles with rounded shape.",
+        [Language.PL]: "Krótkie głowice o okrągłym kształcie.",
+        [Language.ENG]: "Short nozzles with rounded shape.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

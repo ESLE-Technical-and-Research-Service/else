@@ -1,12 +1,10 @@
-'use client';
-
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
-import {useLanguage} from "../../../../../context/src/LanguageContext";
-import {MenuItem, productsMenuItems} from "../config/products-menu-items";
+import {productsMenuItems} from "../config/products-menu-items";
+import {GetLocalizedText} from "../../../utils";
+import {SubmenuItem} from "../../../types";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, dropdown: string) => void;
@@ -19,9 +17,6 @@ export default function ProductsMobileSubmenu({
                                                   dropdownSubmenu,
                                                   onDropdownItemActivateAction
                                               }: ProductNavigationProps) {
-    const {language} = useLanguage();
-
-
     return (
         <ul
             data-testid="products-mobile-menu-container"
@@ -29,7 +24,7 @@ export default function ProductsMobileSubmenu({
                 `mt-2 bg-[var(--background)] border-b border-t border-gray-300`
             }
         >
-            {productsMenuItems.map((item: MenuItem, indx: number) => (
+            {productsMenuItems.map((item: SubmenuItem, indx: number) => (
                 <li
                     key={indx}
                     className={classes.navItem}
@@ -41,11 +36,7 @@ export default function ProductsMobileSubmenu({
                         href={item.href}
                         onClick={(e) => handleClickAction(e, item.submenuName)}
                     >
-                        {
-                            language === Language.PL
-                                ? item.labelPL
-                                : item.labelENG
-                        }
+                        {GetLocalizedText(item.label)}
                     </Link>
                     {
                         dropdownSubmenu === item.submenuName && (
@@ -54,7 +45,7 @@ export default function ProductsMobileSubmenu({
                                 data-testid={`${item.submenuName}-mobile-submenu-items`}
                                 className={`mt-2 bg-[var(--background)] border-b border-t border-gray-300`}
                             >
-                                {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
+                                {renderDropdownItems(item.items, onDropdownItemActivateAction, true)}
                             </ul>
                         )
                     }

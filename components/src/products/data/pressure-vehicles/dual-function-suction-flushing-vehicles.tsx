@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import dualSuctionAndJettingVeh01
@@ -16,8 +16,8 @@ import dualSuctionAndJettingVeh06
 
 export const DualFunctionSuctionFlushingVehicles: ProductItem = {
     name: {
-        namePL: "Pojazdy dwufunkcyjne ssąco-płuczące",
-        nameENG: "Dual-function suction and jetting vehicles",
+        [Language.PL]: "Pojazdy dwufunkcyjne ssąco-płuczące",
+        [Language.ENG]: "Dual-function suction and jetting vehicles",
     },
     href: "/products/water-sewage/pressure-vehicles/dual-function-suction-flushing-vehicles",
     images: [
@@ -29,11 +29,11 @@ export const DualFunctionSuctionFlushingVehicles: ProductItem = {
         dualSuctionAndJettingVeh06,
     ],
     description: {
-        textPL: "Nasze dwufunkcyjne pojazdy ssąco-płuczące są idealne do efektywnego czyszczenia kanalizacji. Dostępne w różnych konfiguracjach zbiorników, oferują wszechstronność w opróżnianiu i optymalizację przestrzeni. Dodatkowo, zewnętrzna płaska część oferuje możliwość personalizacji jako przestrzeń reklamowa.",
-        textENG: "Our dual-function suction and jetting vehicles are ideal for efficient sewer cleaning. Available in various tank configurations, they offer versatility in emptying and space optimization. Additionally, the flat external surface provides an opportunity for customization as an advertising space.",
+        [Language.PL]: "Nasze dwufunkcyjne pojazdy ssąco-płuczące są idealne do efektywnego czyszczenia kanalizacji. Dostępne w różnych konfiguracjach zbiorników, oferują wszechstronność w opróżnianiu i optymalizację przestrzeni. Dodatkowo, zewnętrzna płaska część oferuje możliwość personalizacji jako przestrzeń reklamowa.",
+        [Language.ENG]: "Our dual-function suction and jetting vehicles are ideal for efficient sewer cleaning. Available in various tank configurations, they offer versatility in emptying and space optimization. Additionally, the flat external surface provides an opportunity for customization as an advertising space.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Pojazdy te służą do skutecznego i ekonomicznego czyszczenia kanalizacji. Są dostępne ze zbiornikami
@@ -53,7 +53,7 @@ export const DualFunctionSuctionFlushingVehicles: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     These vehicles are designed for effective and economical sewer cleaning. They are available with

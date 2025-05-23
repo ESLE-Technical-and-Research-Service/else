@@ -1,12 +1,10 @@
-'use client';
-
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
-import {useLanguage} from "../../../../../context/src/LanguageContext";
-import {MenuItem, productsMenuItems} from "../config/products-menu-items";
+import { GetLocalizedText } from "../../../utils";
+import {productsMenuItems} from "../config/products-menu-items";
+import {SubmenuItem} from "../../../types";
 
 type ProductsDesktopSubmenuProps = {
     handleClickAction: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, submenu: string) => void;
@@ -23,7 +21,6 @@ export default function ProductsDesktopSubmenu({
                                                    handleMouseLeaveAction,
                                                    hoveredSubmenu
                                                }: ProductsDesktopSubmenuProps) {
-    const {language} = useLanguage();
 
     return (
         <ul
@@ -33,7 +30,7 @@ export default function ProductsDesktopSubmenu({
                 absolute left-0 mt-2 w-64 bg-[var(--background)] border border-gray-300 shadow-lg rounded-lg z-10`
             }
         >
-            {productsMenuItems.map((item: MenuItem, idx: number) => (
+            {productsMenuItems.map((item: SubmenuItem, idx: number) => (
                 <li
                     key={idx}
                     className={`${classes.navItem} relative`}
@@ -51,11 +48,7 @@ export default function ProductsDesktopSubmenu({
                             href={item.href}
                             onClick={(e) => handleClickAction(e, item.submenuName)}
                         >
-                            {
-                                language === Language.PL
-                                    ? item.labelPL
-                                    : item.labelENG
-                            }
+                            {GetLocalizedText(item.label)}
                         </Link>
 
                         <ul
@@ -68,7 +61,7 @@ export default function ProductsDesktopSubmenu({
                             }`}
                             data-testid={`${item.submenuName}-submenu-desktop-items`}
                         >
-                            {renderDropdownItems(item.items, language, onDropdownItemActivateAction)}
+                            {renderDropdownItems(item.items, onDropdownItemActivateAction)}
                         </ul>
                     </div>
                 </li>

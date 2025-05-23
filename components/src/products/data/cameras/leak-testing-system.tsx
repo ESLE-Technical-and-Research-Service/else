@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import leakTestingSystem01 from "../../../../../assets/images/products/cameras/leak_testing_system_01.webp";
 import leakTestingSystem02 from "../../../../../assets/images/products/cameras/leak_testing_system_02.webp";
 import leakTestingSystem03 from "../../../../../assets/images/products/cameras/leak_testing_system_03.webp";
@@ -11,8 +11,8 @@ import {CamerasForSewageInspectionCategory} from "../categories";
 
 export const LeakTestingSystem: ProductItem = {
     name: {
-        namePL: "System do sprawdzania szczelności",
-        nameENG: "Leak testing system",
+        [Language.PL]: "System do sprawdzania szczelności",
+        [Language.ENG]: "Leak testing system",
     },
     href: "/products/water-sewage/cameras/leak-testing-system",
     images: [
@@ -24,11 +24,11 @@ export const LeakTestingSystem: ProductItem = {
         leakTestingSystem06,
     ],
     description: {
-        textPL: "Nasz system do sprawdzania szczelności to wszechstronne rozwiązanie do efektywnej kontroli nowych obiektów budowlanych. Wyposażony w zaawansowane funkcje pomiarowe oraz system wymiany kół bez użycia narzędzi. Intuicyjne oprogramowanie pozwala na szybkie przesyłanie wyników do klienta. Zaprojektowany został z myślą o obsłudze przez jedną osobę.",
-        textENG: "Our leak testing system is a versatile solution for efficient inspection of new construction structures. It is equipped with advanced measurement functions and a tool-free wheel exchange system. The intuitive software allows for quick transmission of inspection results to the client. Designed for single-person operation.",
+        [Language.PL]: "Nasz system do sprawdzania szczelności to wszechstronne rozwiązanie do efektywnej kontroli nowych obiektów budowlanych. Wyposażony w zaawansowane funkcje pomiarowe oraz system wymiany kół bez użycia narzędzi. Intuicyjne oprogramowanie pozwala na szybkie przesyłanie wyników do klienta. Zaprojektowany został z myślą o obsłudze przez jedną osobę.",
+        [Language.ENG]: "Our leak testing system is a versatile solution for efficient inspection of new construction structures. It is equipped with advanced measurement functions and a tool-free wheel exchange system. The intuitive software allows for quick transmission of inspection results to the client. Designed for single-person operation.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <h2>
                     <strong>Główne cechy:</strong>
@@ -71,7 +71,7 @@ export const LeakTestingSystem: ProductItem = {
             </>
 
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <h2>
                     <strong>Main features:</strong>

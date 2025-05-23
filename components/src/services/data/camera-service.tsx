@@ -1,4 +1,6 @@
-import {Service} from "../../types/Service";
+'use client';
+
+import {Language, Service} from "../../types";
 import camServiceHeroImg
     from "../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_04.webp";
 import camServiceImg01 from "../../../../assets/images/products/cameras/explosive_proof_inspec_sys_01.webp";
@@ -7,16 +9,16 @@ import camServiceImg03 from "../../../../assets/images/services/cam_service_01.w
 import camServiceImg04 from "../../../../assets/images/services/cam_service_02.webp";
 import ListElementCard from "../../common/cards/list-element-card";
 import AnimatedDivider from "../../common/dividers/animated-divider";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 export const CameraService: Service = {
     name: {
-        namePL: "Serwis kamer",
-        nameENG: "Cameras service",
+        [Language.PL]: "Serwis kamer",
+        [Language.ENG]: "Cameras service",
     },
     title: {
-        titlePL: "Zapewniamy kompleksowa obsługę systemów kamer inspekcyjnych",
-        titleENG: "We offer comprehensive maintenance and support of inspection cameras systems",
+        [Language.PL]: "Zapewniamy kompleksowa obsługę systemów kamer inspekcyjnych",
+        [Language.ENG]: "We offer comprehensive maintenance and support of inspection cameras systems",
     },
     href: "/services/cam-service",
     heroImage: camServiceHeroImg,
@@ -27,11 +29,11 @@ export const CameraService: Service = {
         camServiceImg04,
     ],
     description: {
-        textPL: "Serwis kamer oferowany przez firmę ELSE Technical and Research Service Co. Ltd Sp. z o.o. koncentruje się na kompleksowej obsłudze systemów inspekcji kanalizacji i sieci wodno-kanalizacyjnych. Dzięki wieloletniemu doświadczeniu (działalność od 1989 roku) oraz autoryzacji producenta IBAK, firma zapewnia wysoką jakość usług serwisowych.",
-        textENG: "The camera service provided by ELSE Technical and Research Service Co. Ltd focuses on comprehensive maintenance and support of inspection systems for sewage and water networks. With decades of experience (operating since 1989) and official authorization from the manufacturer IBAK, the company ensures high-quality service.",
+        [Language.PL]: "Serwis kamer oferowany przez firmę ELSE Technical and Research Service Co. Ltd Sp. z o.o. koncentruje się na kompleksowej obsłudze systemów inspekcji kanalizacji i sieci wodno-kanalizacyjnych. Dzięki wieloletniemu doświadczeniu (działalność od 1989 roku) oraz autoryzacji producenta IBAK, firma zapewnia wysoką jakość usług serwisowych.",
+        [Language.ENG]: "The camera service provided by ELSE Technical and Research Service Co. Ltd focuses on comprehensive maintenance and support of inspection systems for sewage and water networks. With decades of experience (operating since 1989) and official authorization from the manufacturer IBAK, the company ensures high-quality service.",
     },
     detailedDescription: {
-        textPL: (
+        [Language.PL]: (
             <>
                 <section>
                     <p className="text-center md:text-2xl text-base leading-10">
@@ -75,7 +77,7 @@ export const CameraService: Service = {
 
             </>
         ),
-        textENG: (
+        [Language.ENG]: (
             <>
                 <section>
                     <p className="text-center md:text-2xl text-base leading-10">
@@ -121,12 +123,12 @@ export const CameraService: Service = {
         ),
     },
     summary: {
-        summaryPL: (
+        [Language.PL]: (
             <p className="text-center md:text-2xl text-base">
                 <span className="font-extrabold">ELSE</span> zapewnia kompleksowy serwis systemów kamer inspekcyjnych, gwarantując ich niezawodne działanie i długowieczność. Dzięki wieloletniemu doświadczeniu i zaawansowanemu zapleczu technicznemu, oferujemy usługi najwyższej jakości, dostosowane do potrzeb inspekcji sieci kanalizacyjnych i wodociągowych.
             </p>
         ),
-        summaryENG: (
+        [Language.ENG]: (
             <p className="text-center md:text-2xl text-base">
                 <span className="font-extrabold">ELSE</span> provides expert maintenance and support for inspection camera systems, ensuring their optimal performance and longevity. Leveraging decades of experience and advanced technical facilities, we deliver high-quality services tailored to the needs of sewage and water network inspections.
             </p>

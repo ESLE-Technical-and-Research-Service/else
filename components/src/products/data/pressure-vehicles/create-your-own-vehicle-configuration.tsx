@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import customVehicleImg01
@@ -12,8 +12,8 @@ import customVehicleImg04
 
 export const CreateYourOwnVehicleConfiguration: ProductItem = {
     name: {
-        namePL: "Stwórz własną konfiguracje pojazdu",
-        nameENG: "Create your own vehicle configuration",
+        [Language.PL]: "Stwórz własną konfiguracje pojazdu",
+        [Language.ENG]: "Create your own vehicle configuration",
     },
     href: "/products/water-sewage/pressure-vehicles/create-your-own-vehicle-configuration",
     images: [
@@ -23,11 +23,11 @@ export const CreateYourOwnVehicleConfiguration: ProductItem = {
         customVehicleImg04,
     ],
     description: {
-        textPL: "Indywidualna konfiguracja zamawiającego pozwala na dopasowanie pojazdu do potrzeb danej infrastruktury miejskiej. Dostępne opcje obejmują podwozia 2-, 3- lub 4-osiowe, różne rozmiary zbiorników, dodatkowe zbiorniki po obu stronach zabudowy, zróżnicowaną długość wysuwanego ramienia oraz wielkość i rodzaje pomp ssących i ciśnieniowych.",
-        textENG: "The individual configuration tailored to the customer's needs allows the vehicle to be adapted to specific urban infrastructure requirements. Available options include 2-, 3-, or 4-axle chassis types, various tank sizes, additional side-mounted tanks, different lengths of the extendable arm, as well as a range of suction and pressure pump sizes and types.",
+        [Language.PL]: "Indywidualna konfiguracja zamawiającego pozwala na dopasowanie pojazdu do potrzeb danej infrastruktury miejskiej. Dostępne opcje obejmują podwozia 2-, 3- lub 4-osiowe, różne rozmiary zbiorników, dodatkowe zbiorniki po obu stronach zabudowy, zróżnicowaną długość wysuwanego ramienia oraz wielkość i rodzaje pomp ssących i ciśnieniowych.",
+        [Language.ENG]: "The individual configuration tailored to the customer's needs allows the vehicle to be adapted to specific urban infrastructure requirements. Available options include 2-, 3-, or 4-axle chassis types, various tank sizes, additional side-mounted tanks, different lengths of the extendable arm, as well as a range of suction and pressure pump sizes and types.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Stwórz własny pojazd dostosowany do Twoich potrzeb. Oferujemy indywidualną konfigurację
@@ -37,7 +37,7 @@ export const CreateYourOwnVehicleConfiguration: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Create your own vehicle tailored to your needs.

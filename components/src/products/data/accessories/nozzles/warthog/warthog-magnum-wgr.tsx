@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -35,8 +35,8 @@ import warthogMagnumWgrImg13
 
 export const WarthogMagnumWgr: ProductItem = {
     name: {
-        namePL: "Warthog Magnum WGR",
-        nameENG: "Warthog Magnum WGR",
+        [Language.PL]: "Warthog Magnum WGR",
+        [Language.ENG]: "Warthog Magnum WGR",
     },
     href: "/products/water-sewage/accessories/warthog-magnum-wgr",
     images: [
@@ -55,12 +55,12 @@ export const WarthogMagnumWgr: ProductItem = {
         warthogMagnumWgrImg13,
     ],
     description: {
-        textPL: "Głowice Warthog MAGNUM WGR zostały zaprojektowane z myślą o pojazdach z recyklingiem. Można je wyposażyć w wkładki stalowe lub z węglika spiekanego w zależności od potrzeby czyszczenia. Przełączają się pomiędzy ciągnięciem a czyszczeniem bez wyjmowania z rury. Opcja czyszcząca maksymalizuje moc w celu usuwania zanieczyszczeń i wycinania korzeni.",
-        textENG: "Warthog MAGNUM WGR nozzles are designed specifically for recycling vehicles. They can be equipped with either steel or carbide inserts depending on cleaning requirements. They switch between pulling and cleaning without being removed from the pipe. The cleaning mode maximizes power to remove debris and cut roots.",
+        [Language.PL]: "Głowice Warthog MAGNUM WGR zostały zaprojektowane z myślą o pojazdach z recyklingiem. Można je wyposażyć w wkładki stalowe lub z węglika spiekanego w zależności od potrzeby czyszczenia. Przełączają się pomiędzy ciągnięciem a czyszczeniem bez wyjmowania z rury. Opcja czyszcząca maksymalizuje moc w celu usuwania zanieczyszczeń i wycinania korzeni.",
+        [Language.ENG]: "Warthog MAGNUM WGR nozzles are designed specifically for recycling vehicles. They can be equipped with either steel or carbide inserts depending on cleaning requirements. They switch between pulling and cleaning without being removed from the pipe. The cleaning mode maximizes power to remove debris and cut roots.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>
     },
     manufacturers: [NUOVACONTEC],
     category: [

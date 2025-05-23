@@ -1,9 +1,11 @@
-import {DropDownItem} from "../render-dropdown-items";
+import { DropdownItem, Language } from "../../../types";
 
-export const maritimeItems: DropDownItem[] = [
+export const maritimeItems: DropdownItem[] = [
     {
         href: "/products/maritime/product-1",
-        labelPL: "Produkt 1",
-        labelENG: "Product 1",
+        label: {
+            [Language.PL]: "Produkt 1",
+            [Language.ENG]: "Product 1",
+        },
     }
 ];

@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -12,8 +12,8 @@ import smallImg03 from "../../../../../../../assets/images/products/nozzles/smal
 
 export const Small: ProductItem = {
     name: {
-        namePL: "Małe głowice obrotowe",
-        nameENG: "Small rotating nozzles",
+        [Language.PL]: "Małe głowice obrotowe",
+        [Language.ENG]: "Small rotating nozzles",
     },
     href: "/products/water-sewage/accessories/small",
     images: [
@@ -22,12 +22,12 @@ export const Small: ProductItem = {
         smallImg03,
     ],
     description: {
-        textPL: "Małe głowice obrotowe i wibracyjne. Dzięki końcówce w kształcie korony zapewniają agresywne i skuteczne czyszczenie. Na skutek wibracji głowicy ze ścianek kanału odpadają twarde osady. Przeznaczone do kanałów od DN30.",
-        textENG: "Small rotating and vibrating nozzles. Thanks to their crown-shaped tip, they provide aggressive and effective cleaning. The vibration of the nozzle causes hard deposits to break off from the pipe walls. Designed for pipes starting from DN30.",
+        [Language.PL]: "Małe głowice obrotowe i wibracyjne. Dzięki końcówce w kształcie korony zapewniają agresywne i skuteczne czyszczenie. Na skutek wibracji głowicy ze ścianek kanału odpadają twarde osady. Przeznaczone do kanałów od DN30.",
+        [Language.ENG]: "Small rotating and vibrating nozzles. Thanks to their crown-shaped tip, they provide aggressive and effective cleaning. The vibration of the nozzle causes hard deposits to break off from the pipe walls. Designed for pipes starting from DN30.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

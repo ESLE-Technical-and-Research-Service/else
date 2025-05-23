@@ -1,15 +1,22 @@
+'use client';
+
 import Image from "next/image";
 import {Department, Language} from "../../types";
 import CheckButton from "../buttons/check-button";
+import {GetLocalizedText} from "../../utils";
 
 type DepartmentCardProps = {
     departmentDetails: Department;
-    language: Language;
     isVisible: boolean;
     index: number;
 }
 
-export default function DepartmentCard({departmentDetails, language, isVisible, index}: DepartmentCardProps) {
+export default function DepartmentCard({departmentDetails, isVisible, index}: DepartmentCardProps) {
+    const exploreMoreText = {
+        [Language.PL]: "Dowiedz się więcej",
+        [Language.ENG]: "Explore more",
+    };
+
     return (
         <div
             data-testid={`department-card-${index}`}
@@ -24,7 +31,7 @@ export default function DepartmentCard({departmentDetails, language, isVisible, 
         >
             <Image
                 src={departmentDetails.img}
-                alt={language === Language.PL ? departmentDetails.altPL : departmentDetails.altENG}
+                alt={GetLocalizedText(departmentDetails.alt)}
                 width={200}
                 height={200}
                 className="mx-auto rounded-lg"
@@ -33,20 +40,16 @@ export default function DepartmentCard({departmentDetails, language, isVisible, 
                 data-testid={`department-card-title-${index}`}
                 className="mt-4 text-xl font-semibold text-[var(--font-color-accent)]"
             >
-                {language === Language.PL ? departmentDetails.titlePL : departmentDetails.titleENG}
+                {GetLocalizedText(departmentDetails.title)}
             </h2>
             <p
                 data-testid={`department-card-description-${index}`}
                 className="mt-3 mb-6 text-sm text-[var(--font-color)] leading-relaxed"
             >
-                {language === Language.PL ? departmentDetails.descriptionPL : departmentDetails.descriptionENG}
+                {GetLocalizedText(departmentDetails.description)}
             </p>
             <CheckButton href={departmentDetails.link}>
-                {isVisible && (
-                    language === Language.PL
-                        ? "Dowiedz się więcej"
-                        : "Explore more"
-                )}
+                {isVisible && GetLocalizedText(exploreMoreText)}
             </CheckButton>
         </div>
     )

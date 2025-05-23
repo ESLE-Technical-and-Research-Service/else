@@ -1,13 +1,18 @@
 import {Language, Manufacturer} from "../../types";
 import Image from "next/image";
 import React from "react";
+import {GetLocalizedText} from "../../utils";
 
 type ManufacturerCardProps = {
     manufacturers: Manufacturer[],
-    lang: Language,
 }
 
-export const ManufacturerCard = ({manufacturers, lang}: ManufacturerCardProps) => {
+export const ManufacturerCard = ({manufacturers}: ManufacturerCardProps) => {
+    const manufacturerText = {
+        [Language.PL]: "Producent:",
+        [Language.ENG]: "Manufacturer:",
+    };
+
     return (
         <>
             {manufacturers.length > 0 && (
@@ -16,13 +21,13 @@ export const ManufacturerCard = ({manufacturers, lang}: ManufacturerCardProps) =
                         data-testid="manufacturer-card-title"
                         className="font-semibold text-gray-700 mr-2"
                     >
-                        {lang === Language.PL ? "Producent:" : "Manufacturer:"}
+                        {GetLocalizedText(manufacturerText)}
                     </span>
                     <div
                         data-testid="manufacturer-name-card"
                         className="flex flex-wrap gap-2 sm:gap-4 mt-2 items-center justify-center md:justify-start"
                     >
-                        {manufacturers.map((man) => (
+                        {manufacturers.map((man: Manufacturer) => (
                             <a
                                 data-testid="manufacturer-link"
                                 key={man.name}

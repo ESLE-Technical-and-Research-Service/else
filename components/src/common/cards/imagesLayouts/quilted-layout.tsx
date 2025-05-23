@@ -1,11 +1,10 @@
-import { StaticImageData } from "next/image";
-import { RefObject } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import {RefObject} from "react";
+import {motion} from "framer-motion";
+import {ContentImage} from "../../../types";
 
 type QuiltedLayoutProps = {
-    images: StaticImageData[];
-    imageAlt: string;
+    images: ContentImage[];
     articleRef: RefObject<HTMLDivElement | null>;
     isInCenter: boolean;
     scaleValue: number;
@@ -25,7 +24,6 @@ const pattern = [
 
 export default function QuiltedLayout({
                                           images,
-                                          imageAlt,
                                           articleRef,
                                           isInCenter,
                                           scaleValue,
@@ -40,7 +38,7 @@ export default function QuiltedLayout({
             transition={{ duration: 1.2, ease: "easeOut", type: "spring", stiffness: 80, damping: 30 }}
             className="grid grid-cols-4 auto-rows-[120px] grid-flow-dense gap-4 p-4 bg-[var(--background)]"
         >
-            {images.slice(startIndex, limit).map((src, idx) => {
+            {images.slice(startIndex, limit).map((img, idx) => {
                 const { colSpan, rowSpan } = pattern[idx % pattern.length];
 
                 return (
@@ -53,8 +51,8 @@ export default function QuiltedLayout({
                         }}
                     >
                         <Image
-                            src={src}
-                            alt={`${imageAlt} ${idx + 1}`}
+                            src={img.src}
+                            alt={`${img.alt} ${idx + 1}`}
                             className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 object-cover w-full h-full"
                             width={800}
                             height={500}

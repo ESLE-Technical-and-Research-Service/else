@@ -26,6 +26,7 @@ import PreviousButton from "../../../../../components/src/common/buttons/previou
 import logo from "../../../../../assets/images/logoElse.webp";
 import TechnologyFilters from "../../../../../components/src/products/filters/technology-filters";
 import CategoryFilters from "../../../../../components/src/products/filters/category-filters";
+import {GetLocalizedText} from "../../../../../components/src/utils";
 
 export default function WaterSewageProductLayout() {
     const {language} = useLanguage();
@@ -70,6 +71,17 @@ export default function WaterSewageProductLayout() {
         setCurrentPage(1);
     }, [products]);
 
+
+    const categoryErrorMessageText = {
+        [Language.PL]: "Wybrana kategoria nie istnieje",
+        [Language.ENG]: "Selected category does not exist",
+    };
+
+    const filersHederText = {
+        [Language.PL]: "Filtry",
+        [Language.ENG]: "Filters",
+    };
+
     if (!Object.values(NavigationLinks).includes(slug as NavigationLinks)) {
         return (
             <main className="w-full overflow-y-auto bg-[var(--foreground)]">
@@ -79,7 +91,7 @@ export default function WaterSewageProductLayout() {
                 <div className="flex flex-col items-center justify-center">
                     <Image src={logo} alt="ELSE logo"/>
                     <h2 className="text-2xl font-bold mt-8 text-center text-gray-800">
-                        {language === Language.PL ? "Wybrana kategoria nie istnieje" : "Selected category does not exist"}
+                        {GetLocalizedText(categoryErrorMessageText)}
                     </h2>
                     <div className="w-full flex justify-center pt-4 pb-2 mb-8">
                         <BackButton/>
@@ -98,7 +110,7 @@ export default function WaterSewageProductLayout() {
             <HeroImage
                 heroSlides={productImageSlides}
                 heroTitle={<HeroTitleByPathName pathname={slug ?? ''} language={language}/>}
-                heroHeight={30}
+                heroHeight={40}
             />
 
             <div
@@ -119,7 +131,7 @@ export default function WaterSewageProductLayout() {
                     onClick={() => setShowFilters(true)}
                 >
                     <FunnelIcon className="h-5 w-5"/>
-                    Filters
+                    {GetLocalizedText(filersHederText)}
                 </button>
             </div>
 
@@ -178,7 +190,6 @@ export default function WaterSewageProductLayout() {
                             <PreviousButton
                                 currentPage={currentPage}
                                 setCurrentPage={setCurrentPage}
-                                language={language}
                             />
                             {Array.from({length: totalPages}, (_, i) => (
                                 <button
@@ -199,7 +210,6 @@ export default function WaterSewageProductLayout() {
                                 currentPage={currentPage}
                                 setCurrentPage={setCurrentPage}
                                 totalPages={totalPages}
-                                language={language}
                             />
                         </div>
                     )}

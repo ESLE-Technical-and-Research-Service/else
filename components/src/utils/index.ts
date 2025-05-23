@@ -3,3 +3,7 @@ export * from "./get-hero-title-by-pathname";
 export * from "./get-products-categories-by-pathname";
 export * from "./get-products-by-category";
 export * from "./breadcrumbs-label-map";
+export * from "./get-localized-jsx";
+export * from "./get-localized-text";
+export * from "./get-manufacturers-by-category";
+export * from "./get-category-tags-by-category-name";

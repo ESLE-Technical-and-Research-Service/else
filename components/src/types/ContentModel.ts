@@ -61,41 +61,23 @@ export type ContentModel = {
 // Adapter function to convert Service to ContentModel
 export const serviceToContentModel = (service: Service): ContentModel => {
     return {
-        title: {
-            [Language.PL]: service.name.namePL,
-            [Language.ENG]: service.name.nameENG,
-        },
-        subtitle: {
-            [Language.PL]: service.title.titlePL,
-            [Language.ENG]: service.title.titleENG,
-        },
-        description: {
-            [Language.PL]: service.description.textPL,
-            [Language.ENG]: service.description.textENG,
-        },
+        title: service.name,
+        subtitle: service.title,
+        description: service.description,
         href: service.href,
         heroImage: {
             src: service.heroImage,
-            alt: {
-                [Language.PL]: service.name.namePL,
-                [Language.ENG]: service.name.nameENG,
-            },
+            alt: service.name,
         },
-        images: service.images.map((img: StaticImageData) => ({
+        images: service.images.map((img: StaticImageData, idx) => ({
             src: img,
             alt: {
-                [Language.PL]: service.name.namePL,
-                [Language.ENG]: service.name.nameENG,
+                [Language.PL]: `${service.name[Language.PL]} image ${idx}`,
+                [Language.ENG]: `${service.name[Language.ENG]} image ${idx}`
             },
-        })),
-        mainContent: {
-            [Language.PL]: service.detailedDescription.textPL,
-            [Language.ENG]: service.detailedDescription.textENG,
-        },
-        summary: service.summary ? {
-            [Language.PL]: service.summary.summaryPL,
-            [Language.ENG]: service.summary.summaryENG,
-        } : undefined,
+        } as ContentImage)),
+        mainContent: service.detailedDescription,
+        summary: service.summary ? service.summary: undefined,
         contact: {
             title: {
                 [Language.PL]: "Kontakt",
@@ -127,14 +109,4 @@ export const serviceToContentModel = (service: Service): ContentModel => {
             ],
         },
     };
-};
-
-// Helper function to get localized text based on current language
-export const getLocalizedText = (text: LocalizedText, language: Language): string => {
-    return text[language];
-};
-
-// Helper function to get localized JSX based on current language
-export const getLocalizedJSX = (content: LocalizedJSX, language: Language): JSX.Element => {
-    return content[language];
 };

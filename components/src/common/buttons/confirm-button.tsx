@@ -1,6 +1,5 @@
 import {ReactNode} from "react";
 
-
 type ConfirmButtonProps = {
     children: ReactNode;
     onClick: () => void;

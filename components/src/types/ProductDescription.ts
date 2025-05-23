@@ -1,4 +1,6 @@
+import {Language} from "./Language";
+
 export type ProductDescription = {
-    textPL: string;
-    textENG: string;
+    [Language.PL]: string;
+    [Language.ENG]: string;
 }

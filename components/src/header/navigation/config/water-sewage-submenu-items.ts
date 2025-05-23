@@ -1,24 +1,32 @@
-import {DropDownItem} from "../render-dropdown-items";
+import {DropdownItem, Language} from "../../../types";
 
-export const waterSewageSubmenuItems: DropDownItem[] = [
+export const waterSewageSubmenuItems: DropdownItem[] = [
     {
         href: "/products/water-sewage/cameras",
-        labelPL: "Kamery",
-        labelENG: "Cameras",
+        label: {
+            [Language.PL]: "Kamery",
+            [Language.ENG]: "Cameras",
+        },
     },
     {
-      href: "/products/water-sewage/pressure-vehicles",
-      labelPL: "Samochody ciśnieniowe",
-      labelENG: "Pressure Vehicles",
+        href: "/products/water-sewage/pressure-vehicles",
+        label: {
+            [Language.PL]: "Samochody ciśnieniowe",
+            [Language.ENG]: "Pressure Vehicles",
+        },
     },
     {
-      href: "/products/water-sewage/milling-robots",
-      labelPL: "Roboty frezujące",
-      labelENG: "Milling Robots",
+        href: "/products/water-sewage/milling-robots",
+        label: {
+            [Language.PL]: "Roboty frezujące",
+            [Language.ENG]: "Milling Robots",
+        },
     },
     {
         href: "/products/water-sewage/accessories",
-        labelPL: "Akcesoria",
-        labelENG: "Accessories"
+        label: {
+            [Language.PL]: "Akcesoria",
+            [Language.ENG]: "Accessories"
+        },
     }
 ];

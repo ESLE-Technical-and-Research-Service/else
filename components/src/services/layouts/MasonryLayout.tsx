@@ -1,45 +1,37 @@
 import React, {RefObject} from "react";
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+import {Language, Service} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import {CheckBadgeIcon} from "@heroicons/react/24/outline";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
+import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
 
 type MasonryLayoutProps = {
     service: Service;
-    language: Language;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
 };
 
-export default function MasonryLayout({
-                                          service,
-                                          language,
-                                          badgeRef,
-                                          isBadgeInCenter,
-                                      }: MasonryLayoutProps) {
+export default function MasonryLayout({service, badgeRef}: MasonryLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
+    const specializationHeaderText = {
+        [Language.PL]: "Nasza specjalizacja",
+        [Language.ENG]: "Our Specialization",
+    };
+
     return (
         <main className="w-full bg-[var(--background)]">
             {/* Hero Section with Parallax Effect */}
             <div className="relative overflow-hidden">
                 <HeroImage
                     heroSlides={[service.heroImage]}
-                    heroTitle={
-                        language === Language.PL
-                            ? service.name.namePL
-                            : service.name.nameENG
-                    }
+                    heroTitle={GetLocalizedText(service.name)}
                     heroHeight={70}
-                    description={
-                        language === Language.PL
-                            ? service.description.textPL
-                            : service.description.textENG
-                    }
+                    description={GetLocalizedText(service.description)}
                 />
             </div>
 
@@ -53,10 +45,7 @@ export default function MasonryLayout({
             {service && (
                 <section className="max-w-7xl mx-auto px-4 py-16 mt-12">
                     <HeaderDivider
-                        title={{
-                            labelPL: service.title.titlePL,
-                            labelENG: service.title.titleENG,
-                        }}
+                        title={GetLocalizedText(service.title)}
                         isVisible={true}
                     />
 
@@ -80,11 +69,7 @@ export default function MasonryLayout({
                                     [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                     [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
-                                    {
-                                        language === Language.PL
-                                            ? service.detailedDescription.textPL
-                                            : service.detailedDescription.textENG
-                                    }
+                                    {GetLocalizedText(service.description)}
                                 </div>
                             </motion.div>
 
@@ -109,7 +94,7 @@ export default function MasonryLayout({
                                         >
                                             <Image
                                                 src={image}
-                                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image ${index + 1}`}
+                                                alt={`${GetLocalizedText(service.name)} image ${index + 1}`}
                                                 className="object-cover"
                                                 fill
                                             />
@@ -129,13 +114,7 @@ export default function MasonryLayout({
                                 viewport={{once: true, amount: 0.3}}
                                 transition={{duration: 0.6}}
                             >
-                                <ContactUsCard
-                                    lang={language}
-                                    text={{
-                                        textPL: "Masz pytania odnośnie uslugi?",
-                                        textENG: "Do you have questions about this service?"
-                                    }}
-                                />
+                                <ContactUsServiceCard />
                             </motion.div>
 
                             {/* Featured Image with Overlay */}
@@ -150,14 +129,14 @@ export default function MasonryLayout({
                                 >
                                     <Image
                                         src={service.images[0]}
-                                        alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} featured image`}
+                                        alt={`${GetLocalizedText(service.name)} featured image`}
                                         className="object-cover"
                                         fill
                                     />
                                     <div
                                         className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                                         <h3 className="text-white text-xl font-semibold">
-                                            {language === Language.PL ? "Nasza specjalizacja" : "Our Specialization"}
+                                            {GetLocalizedText(specializationHeaderText)}
                                         </h3>
                                     </div>
                                 </motion.div>
@@ -194,18 +173,14 @@ export default function MasonryLayout({
                                     <CheckBadgeIcon className="w-24 h-24" style={{color: "inherit"}}/>
                                 </motion.div>
                                 <div
-                                    data-testid="product-detailed-description"
+                                    data-testid="product-summary"
                                     className="prose prose-blue max-w-none text-base leading-relaxed
                                     !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-6 [&_ul]:!mb-10 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                                     [&_li]:!text-gray-900 [&_li]:mb-4 [&_strong]:block [&_strong]:mb-2
                                     [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                     [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
-                                    {
-                                        language === Language.PL
-                                            ? service.summary.summaryPL
-                                            : service.summary.summaryENG
-                                    }
+                                    {GetLocalizedJSX(service.summary)}
                                 </div>
                             </motion.div>
                         )}

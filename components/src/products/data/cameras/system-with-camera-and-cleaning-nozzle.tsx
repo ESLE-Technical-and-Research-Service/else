@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import sysWithCamAndCleaningNozzle01
     from "../../../../../assets/images/products/cameras/system_with_camera_and_cleaning_nozzle_01.webp";
@@ -12,8 +12,8 @@ import {CamerasTags} from "../tags";
 
 export const SystemWithCameraAndCleaningNozzle: ProductItem = {
     name: {
-        namePL: "System z kamerą oraz dyszą czyszczącą",
-        nameENG: "System with camera and cleaning nozzle",
+        [Language.PL]: "System z kamerą oraz dyszą czyszczącą",
+        [Language.ENG]: "System with camera and cleaning nozzle",
     },
     href: "/products/water-sewage/cameras/system-with-camera-and-cleaning-nozzle",
     images: [
@@ -23,11 +23,11 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
         sysWithCamAndCleaningNozzle04,
     ],
     description: {
-        textPL: "System z kamerą oraz dyszą czyszczącą to wszechstronne rozwiązanie do efektywnego udrażniania przyłączy oraz czyszczenia kanałów głównych. Z jego wieloma funkcjami pomiarowymi, łatwością obsługi oraz elastyczną konfiguracją, stanowi on wszechstronne rozwiązanie do inspekcji sieci wod-kan.",
-        textENG: "The System with Camera and Cleaning Nozzle is a versatile solution for efficient clearing of laterals and cleaning of mainline sewers. With its multiple measurement functions, ease of use, and flexible configuration, it provides a comprehensive solution for inspecting water and sewage networks.",
+        [Language.PL]: "System z kamerą oraz dyszą czyszczącą to wszechstronne rozwiązanie do efektywnego udrażniania przyłączy oraz czyszczenia kanałów głównych. Z jego wieloma funkcjami pomiarowymi, łatwością obsługi oraz elastyczną konfiguracją, stanowi on wszechstronne rozwiązanie do inspekcji sieci wod-kan.",
+        [Language.ENG]: "The System with Camera and Cleaning Nozzle is a versatile solution for efficient clearing of laterals and cleaning of mainline sewers. With its multiple measurement functions, ease of use, and flexible configuration, it provides a comprehensive solution for inspecting water and sewage networks.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <b>Główne cechy:</b>
 
@@ -62,7 +62,7 @@ export const SystemWithCameraAndCleaningNozzle: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <b>Main features:</b>
 

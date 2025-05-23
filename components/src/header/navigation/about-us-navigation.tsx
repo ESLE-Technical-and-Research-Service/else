@@ -1,12 +1,12 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import {Language} from "../../types";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useIsTouchTablet} from "../../../../hooks/src/useIsTouchTablet";
 import React from "react";
 import {useRouter} from "next/navigation";
 import {renderDropdownItems} from "./render-dropdown-items";
 import {aboutUsDropdownItems} from "./config/about-us-dropdown-items";
+import {GetLocalizedText} from "../../utils";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, menu: string) => void;
@@ -15,7 +15,6 @@ type ProductNavigationProps = {
 };
 
 export default function AboutUsNavigation({ handleClickAction, isMobile, openDropdown }: ProductNavigationProps) {
-    const { language } = useLanguage();
     const isTouchTablet = useIsTouchTablet();
     const router = useRouter();
 
@@ -25,6 +24,11 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
         router.push(href);
     }
 
+    const aboutUsHeaderText = {
+        [Language.PL]: "O nas",
+        [Language.ENG]: "About Us"
+    };
+
     return (
         <li data-testid="about-us-menu" className={`${classes.navItem} ${classes.hasDropdown}`}>
             <Link
@@ -33,13 +37,13 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
                 href="/about"
                 onClick={(e) => handleClickAction(e, 'about')}
             >
-                {language === Language.PL ? "O nas" : "About Us"}
+                {GetLocalizedText(aboutUsHeaderText)}
             </Link>
 
             {/* Mobile Dropdown */}
             {isMobile && openDropdown === 'about' && (
                 <ul className={`mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`}>
-                    {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
+                    {renderDropdownItems(aboutUsDropdownItems, onDropdownItemActivate)}
                 </ul>
             )}
 
@@ -52,7 +56,7 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
                     mt-2 bg-[var(--background)] border border-gray-200 rounded-lg`
                 }
                 >
-                    {renderDropdownItems(aboutUsDropdownItems, language, onDropdownItemActivate)}
+                    {renderDropdownItems(aboutUsDropdownItems, onDropdownItemActivate)}
                 </ul>
             )}
 
@@ -60,7 +64,7 @@ export default function AboutUsNavigation({ handleClickAction, isMobile, openDro
             {!isMobile && !isTouchTablet && (
                 <ul data-testid="about-us-items" className={`${classes.dropdownMenu} ${classes.absoluteDropdown} a
                 bsolute left-0 mt-2 w-48 rounded-lg shadow-lg bg-[var(--background)] border border-gray-200`}>
-                    {renderDropdownItems(aboutUsDropdownItems, language)}
+                    {renderDropdownItems(aboutUsDropdownItems)}
                 </ul>
             )}
         </li>

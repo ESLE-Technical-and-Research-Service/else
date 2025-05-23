@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -15,8 +15,8 @@ import piciulImg06 from "../../../../../../../assets/images/products/nozzles/pic
 
 export const Piciul: ProductItem = {
     name: {
-        namePL: "Piciul",
-        nameENG: "Piciul",
+        [Language.PL]: "Piciul",
+        [Language.ENG]: "Piciul",
     },
     href: "/products/water-sewage/accessories/piciul",
     images: [
@@ -28,12 +28,12 @@ export const Piciul: ProductItem = {
         piciulImg06,
     ],
     description: {
-        textPL: "Krótkie, kompaktowe głowice ze stali nierdzewnej.",
-        textENG: "Short, compact stainless steel nozzles.",
+        [Language.PL]: "Krótkie, kompaktowe głowice ze stali nierdzewnej.",
+        [Language.ENG]: "Short, compact stainless steel nozzles.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

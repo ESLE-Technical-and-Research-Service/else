@@ -1,13 +1,18 @@
 import React from "react";
-import {Language} from "../../types/Language";
+import {Language} from "../../types";
 import BackButton from "../buttons/back-button";
+import {GetLocalizedText} from "../../utils";
 
 interface BackCardProps {
-    lang: Language;
     className?: string;
 }
 
-const BackCard: React.FC<BackCardProps> = ({lang, className = ""}) => {
+const BackCard: React.FC<BackCardProps> = ({className = ""}) => {
+    const backText = {
+        [Language.PL]: "Wróć do poprzedniej strony",
+        [Language.ENG]: "Go back to previous page"
+    };
+
     return (
         <div
             className={
@@ -18,7 +23,7 @@ const BackCard: React.FC<BackCardProps> = ({lang, className = ""}) => {
         >
             <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-blue-200 rounded-l-2xl"/>
             <div className="mb-3 text-base text-gray-700 font-medium z-10">
-                {lang === Language.PL ? "Wróć do poprzedniej strony" : "Go back to previous page"}
+                {GetLocalizedText(backText)}
             </div>
             <BackButton />
         </div>

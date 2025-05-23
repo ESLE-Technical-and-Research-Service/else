@@ -8,12 +8,12 @@ import pushrodPortableSys07 from "../../../../../assets/images/products/cameras/
 import pushrodPortableSys08 from "../../../../../assets/images/products/cameras/pushrod_portable_sys_08.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
 import {CamerasTags} from "../tags";
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 
 export const PushrodPortableSystem: ProductItem = {
     name: {
-        namePL: "Przenośne systemy popychane",
-        nameENG: "Pushrod portable systems",
+        [Language.PL]: "Przenośne systemy popychane",
+        [Language.ENG]: "Pushrod portable systems",
     },
     href: "/products/water-sewage/cameras/pushrod-portable-systems",
     images: [
@@ -27,11 +27,11 @@ export const PushrodPortableSystem: ProductItem = {
         pushrodPortableSys08,
     ],
     description: {
-        textPL: "Przenośny system popychany  to lekkie i wytrzymałe rozwiązanie do inspekcji trudno dostępnych miejsc i małych kanałów. Z długim przewodem, wszechstronnymi funkcjami pomiarowymi i możliwością podłączenia różnych kamer, te systemy są niezastąpione w warunkach niedostępnych dla samochodu",
-        textENG: "The portable pushrod system is a lightweight and durable solution for inspecting hard-to-reach areas and small pipelines. With a long cable, versatile measurement functions, and the ability to connect various cameras, these systems are indispensable in locations inaccessible to vehicles.",
+        [Language.PL]: "Przenośny system popychany  to lekkie i wytrzymałe rozwiązanie do inspekcji trudno dostępnych miejsc i małych kanałów. Z długim przewodem, wszechstronnymi funkcjami pomiarowymi i możliwością podłączenia różnych kamer, te systemy są niezastąpione w warunkach niedostępnych dla samochodu",
+        [Language.ENG]: "The portable pushrod system is a lightweight and durable solution for inspecting hard-to-reach areas and small pipelines. With a long cable, versatile measurement functions, and the ability to connect various cameras, these systems are indispensable in locations inaccessible to vehicles.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>Idealne do trudno dostępnych miejsc i kanałów o małej średnicy, nasz przenośny system popychany
                     oferuje solidność w lekkiej, mobilnej formie. Wyposażony w wszechstronne funkcje pomiarowe i 80
@@ -68,7 +68,7 @@ export const PushrodPortableSystem: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Ideal for hard-to-reach areas and small-diameter pipelines, our portable pushrod system offers

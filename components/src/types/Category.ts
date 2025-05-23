@@ -1,5 +1,9 @@
+import {Language} from "./Language";
+
 export type Category = {
-    namePL: string,
-    nameENG: string,
+    name: {
+        [Language.PL]: string,
+        [Language.ENG]: string,
+    },
     link: string
 }

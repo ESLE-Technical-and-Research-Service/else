@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import {FeierabendAndFockGmbH} from "../manufacturers/FeierabendAndFockGmbH";
@@ -13,8 +13,8 @@ import compSuctionBarrelsOnATrailerImg04
 
 export const CompactSuctionBarrelsOnATrailer: ProductItem = {
     name: {
-        namePL: "Kompaktowe beczki ssące na przyczepie",
-        nameENG: "Compact suction barrels on a trailer",
+        [Language.PL]: "Kompaktowe beczki ssące na przyczepie",
+        [Language.ENG]: "Compact suction barrels on a trailer",
     },
     href: "/products/water-sewage/pressure-vehicles/compact-suction-barrels-on-a-trailer",
     images: [
@@ -24,11 +24,11 @@ export const CompactSuctionBarrelsOnATrailer: ProductItem = {
         compSuctionBarrelsOnATrailerImg04,
     ],
     description: {
-        textPL: "Mała szerokość, idealna do manewrowania w wąskich obszarach, niska masa własna, duża objętość zbiornika, oszczędność miejsca, modułowa konstrukcja, idealne rozmieszczenie elementów dla optymalnego rozkładu masy, prosta konserwacja, duża paleta do układania węża.",
-        textENG: "Small width, ideal for maneuvering in narrow areas, low weight, large tank volume, space-saving design, modular construction, ideal placement of components for optimal weight distribution, and easy maintenance with a large pallet for hose storage.",
+        [Language.PL]: "Mała szerokość, idealna do manewrowania w wąskich obszarach, niska masa własna, duża objętość zbiornika, oszczędność miejsca, modułowa konstrukcja, idealne rozmieszczenie elementów dla optymalnego rozkładu masy, prosta konserwacja, duża paleta do układania węża.",
+        [Language.ENG]: "Small width, ideal for maneuvering in narrow areas, low weight, large tank volume, space-saving design, modular construction, ideal placement of components for optimal weight distribution, and easy maintenance with a large pallet for hose storage.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Our trailer with a suction barrel is the ideal compact solution for connecting to a van-type chassis. The small width of the trailer allows for easy reversing and maneuvering in tight spaces. Made of galvanized materials, the modular design enables easy transfer of components to any other chassis or frame.
@@ -53,7 +53,7 @@ export const CompactSuctionBarrelsOnATrailer: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     Our trailer with a suction barrel is the ideal compact solution for connecting to a van-type chassis. The small width of the trailer allows for easy reversing and maneuvering in tight spaces. Made of galvanized materials, the modular design enables easy transfer of components to any other chassis or frame.

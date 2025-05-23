@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {
     AccessoriesCategory,
     CleaningNozzlesCategory,
@@ -13,8 +13,8 @@ import rdsVImg04 from "../../../../../../../assets/images/products/nozzles/rds-v
 
 export const RdsV: ProductItem = {
     name: {
-        namePL: "RDS-V",
-        nameENG: "RDS-V",
+        [Language.PL]: "RDS-V",
+        [Language.ENG]: "RDS-V",
     },
     href: "/products/water-sewage/accessories/rds-v",
     images: [
@@ -24,12 +24,12 @@ export const RdsV: ProductItem = {
         rdsVImg04,
     ],
     description: {
-        textPL: "Dzięki działaniu wibracyjnemu i udarowemu, te obrotowe głowice nadają się idealnie do rozbijania i usuwania twardych osadów z dna kanału. Zęby na czubku sprawiają, że głowica jest agresywna w przypadku twardych przeszkód. Aby uniknąć uszkodzenia rur PCV, można zastosować głowicę bez zębów.",
-        textENG: "Thanks to their vibrating and percussive action, these rotating nozzles are ideal for breaking up and removing hard deposits from the bottom of the pipe. The teeth on the tip make the nozzle aggressive when tackling tough obstructions. To avoid damaging PVC pipes, a toothless version of the nozzle can be used.",
+        [Language.PL]: "Dzięki działaniu wibracyjnemu i udarowemu, te obrotowe głowice nadają się idealnie do rozbijania i usuwania twardych osadów z dna kanału. Zęby na czubku sprawiają, że głowica jest agresywna w przypadku twardych przeszkód. Aby uniknąć uszkodzenia rur PCV, można zastosować głowicę bez zębów.",
+        [Language.ENG]: "Thanks to their vibrating and percussive action, these rotating nozzles are ideal for breaking up and removing hard deposits from the bottom of the pipe. The teeth on the tip make the nozzle aggressive when tackling tough obstructions. To avoid damaging PVC pipes, a toothless version of the nozzle can be used.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

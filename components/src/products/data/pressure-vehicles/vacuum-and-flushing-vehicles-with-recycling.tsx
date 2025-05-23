@@ -1,6 +1,6 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
-import {PressureVehiclesTags} from "../tags/pressure-vehicles-tags";
+import {PressureVehiclesTags} from "../tags";
 import vaccumAndFlushingVehImg01
     from "../../../../../assets/images/products/pressure-vehicles/vacuum_and_flushing_veh_01.webp";
 import vaccumAndFlushingVehImg02
@@ -24,8 +24,8 @@ import vaccumAndFlushingVehImg12
 
 export const VacuumAndFlushingVehiclesWithRecycling: ProductItem = {
     name: {
-        namePL: "Pojazdy ssąco-płuczące z recyklingiem",
-        nameENG: "Vacuum and flushing vehicles with recycling",
+        [Language.PL]: "Pojazdy ssąco-płuczące z recyklingiem",
+        [Language.ENG]: "Vacuum and flushing vehicles with recycling",
     },
     href: "/products/water-sewage/pressure-vehicles/vacuum-and-flushing-vehicles-with-recycling",
     images: [
@@ -41,11 +41,11 @@ export const VacuumAndFlushingVehiclesWithRecycling: ProductItem = {
         vaccumAndFlushingVehImg12,
     ],
     description: {
-        textPL: "Nasze pojazdy oferują zaawansowany system odzysku wody dla ciągłego czyszczenia. Z wykorzystaniem sita ze stali nierdzewnej i obrotowego filtra szczelinowego, woda jest wielokrotnie oczyszczana. Dodatkowo, innowacyjny teleskopowy wysięgnik z oboma wężami zapewnia precyzyjność i wygodę w pracy, nawet w miejscach trudno dostępnych.",
-        textENG: "Our vehicles feature an advanced water recycling system for continuous cleaning. Using a stainless steel screen and a rotating slotted filter, the water is purified multiple times. Additionally, the innovative telescopic boom with dual hoses ensures precision and convenience during operation, even in hard-to-reach areas.",
+        [Language.PL]: "Nasze pojazdy oferują zaawansowany system odzysku wody dla ciągłego czyszczenia. Z wykorzystaniem sita ze stali nierdzewnej i obrotowego filtra szczelinowego, woda jest wielokrotnie oczyszczana. Dodatkowo, innowacyjny teleskopowy wysięgnik z oboma wężami zapewnia precyzyjność i wygodę w pracy, nawet w miejscach trudno dostępnych.",
+        [Language.ENG]: "Our vehicles feature an advanced water recycling system for continuous cleaning. Using a stainless steel screen and a rotating slotted filter, the water is purified multiple times. Additionally, the innovative telescopic boom with dual hoses ensures precision and convenience during operation, even in hard-to-reach areas.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Pojazdy te posiadają system odzysku wody, który umożliwia ciągłe czyszczenie. Brudna woda zebrana z kanałów jest poddawana kilkustopniowemu oczyszczaniu, dzięki czemu może zostać ponownie wykorzystana.
@@ -68,7 +68,7 @@ export const VacuumAndFlushingVehiclesWithRecycling: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     These vehicles feature a water recycling system that enables continuous cleaning. Dirty water collected from the sewer is subjected to a multi-stage purification process, allowing it to be reused.

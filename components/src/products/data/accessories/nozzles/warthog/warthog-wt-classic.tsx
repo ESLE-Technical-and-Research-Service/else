@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {NUOVACONTEC} from "../../../manufacturers/NUOVACONTEC";
 import {
     AccessoriesCategory,
@@ -17,8 +17,8 @@ import {AccessoriesTags} from "../../../tags";
 
 export const WarthogWtClassic: ProductItem = {
     name: {
-        namePL: "Warthog WT Classic",
-        nameENG: "Warthog WT Classic",
+        [Language.PL]: "Warthog WT Classic",
+        [Language.ENG]: "Warthog WT Classic",
     },
     href: "/products/water-sewage/accessories/warthog-wt-classic",
     images: [
@@ -28,12 +28,12 @@ export const WarthogWtClassic: ProductItem = {
         warthogWtClassicImg04,
     ],
     description: {
-        textPL: "WT Classic jest przeznaczona do pokonywania kolan w rurach z korzeniami, lodem i innymi zatorami. Ta głowica jest najczęściej wykorzystywana w pompach o małej wydajności. Owalna konstrukcja zmniejsza ryzyko zablokowania się w kanale, a specjalnie zaprojektowane wypustki z węglika spiekanego zwiększają jej trwałość.",
-        textENG: "The WT Classic is designed to navigate bends in pipes clogged with roots, ice, and other blockages. This nozzle is most commonly used with low-flow pumps. Its oval design reduces the risk of getting stuck in the pipe, and specially designed tungsten carbide inserts enhance its durability.",
+        [Language.PL]: "WT Classic jest przeznaczona do pokonywania kolan w rurach z korzeniami, lodem i innymi zatorami. Ta głowica jest najczęściej wykorzystywana w pompach o małej wydajności. Owalna konstrukcja zmniejsza ryzyko zablokowania się w kanale, a specjalnie zaprojektowane wypustki z węglika spiekanego zwiększają jej trwałość.",
+        [Language.ENG]: "The WT Classic is designed to navigate bends in pipes clogged with roots, ice, and other blockages. This nozzle is most commonly used with low-flow pumps. Its oval design reduces the risk of getting stuck in the pipe, and specially designed tungsten carbide inserts enhance its durability.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [NUOVACONTEC],
     category: [

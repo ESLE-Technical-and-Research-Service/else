@@ -1,28 +1,29 @@
 import {StaticImageData} from "next/image";
 import {JSX} from "react";
+import {Language} from "./Language";
 
 export type Service = {
     name: {
-        namePL: string,
-        nameENG: string,
+        [Language.PL]: string,
+        [Language.ENG]: string,
     };
     title: {
-        titlePL: string,
-        titleENG: string,
+        [Language.PL]: string,
+        [Language.ENG]: string,
     };
     href: string;
     heroImage: StaticImageData;
     images: StaticImageData[];
     description: {
-        textPL: string,
-        textENG: string,
+        [Language.PL]: string,
+        [Language.ENG]: string,
     };
     detailedDescription: {
-        textPL: JSX.Element,
-        textENG: JSX.Element,
+        [Language.PL]: JSX.Element,
+        [Language.ENG]: JSX.Element,
     };
     summary: {
-        summaryPL: JSX.Element,
-        summaryENG: JSX.Element,
+        [Language.PL]: JSX.Element,
+        [Language.ENG]: JSX.Element,
     } | null,
 }

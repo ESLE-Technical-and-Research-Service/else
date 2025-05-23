@@ -1,18 +1,19 @@
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+'use client';
+
+import {Language, Service} from "../../types";
 import Image from "next/image";
 import {motion, useInView} from "framer-motion";
 import Link from "next/link";
 import AnimatedDivider from "../dividers/animated-divider";
 import {useRef} from "react";
+import {GetLocalizedText} from "../../utils";
 
 type ServiceCardProps = {
-    language: Language;
     index: number;
     service: Service;
 }
 
-export default function ServiceCard({language, index, service}: ServiceCardProps) {
+export default function ServiceCard({index, service}: ServiceCardProps) {
     const cardRef = useRef(null);
     const isInCenter = useInView(cardRef, {
         amount: 0.5,
@@ -30,6 +31,11 @@ export default function ServiceCard({language, index, service}: ServiceCardProps
             scaleValue = 1;
         }
     }
+
+    const learnMoreText = {
+        [Language.PL]: 'Dowiedz się więcej',
+        [Language.ENG]: 'Learn more',
+    };
 
     return (
         <motion.article
@@ -54,7 +60,7 @@ export default function ServiceCard({language, index, service}: ServiceCardProps
             >
                 <Image
                     src={service.heroImage}
-                    alt={language === 'PL' ? service.name.namePL : service.name.nameENG}
+                    alt={GetLocalizedText(service.name)}
                     className="rounded-xl w-full h-auto max-h-80 object-cover shadow-lg transition-transform duration-300 hover:scale-105"
                     width={600}
                     height={320}
@@ -67,20 +73,20 @@ export default function ServiceCard({language, index, service}: ServiceCardProps
                         <span className="inline-block text-xl font-bold text-[var(--font-color-accent)]">
                                         {index + 1 < 10 ? `0${index + 1}` : index + 1}
                                     </span>
-                        {language === 'PL' ? service.name.namePL : service.name.nameENG}
+                        {GetLocalizedText(service.name)}
                     </h2>
                     <AnimatedDivider delay={index + 1}/>
                 </header>
                 <div className="prose prose-lg max-w-none text-gray-700 mb-6">
                     <p>
-                        {language === 'PL' ? service.description.textPL : service.description.textENG}
+                        {GetLocalizedText(service.description)}
                     </p>
                 </div>
                 <Link
                     href={service.href}
                     className="text-[var(--font-color-accent)] font-semibold hover:underline"
                 >
-                    {language === 'PL' ? 'Dowiedz się więcej' : 'Learn more'} &rarr;
+                    {GetLocalizedText(learnMoreText)} &rarr;
                 </Link>
             </div>
         </motion.article>

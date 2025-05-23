@@ -1,20 +1,19 @@
 import React, {RefObject, useMemo} from "react";
-import {Language} from "../../types";
-import {Service} from "../../types/Service";
+import {Language, Service} from "../../types";
 import HeroImage from "../../hero/hero-image";
 import Breadcrumbs from "../../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../../common/dividers/header-divider";
-import ContactUsCard from "../../common/cards/contact-us-card";
 import BackButton from "../../common/buttons/back-button";
 import Image from "next/image";
-import {motion} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import {CheckBadgeIcon, ClockIcon} from "@heroicons/react/24/outline";
+import {GetLocalizedJSX, GetLocalizedText} from "../../utils";
+import ContactUsServiceCard from "../../common/cards/contact-us-service-card";
 
 type TimelineLayoutProps = {
     service: Service;
     language: Language;
     badgeRef: RefObject<HTMLDivElement | null>;
-    isBadgeInCenter: boolean;
     articleImagesRef1: RefObject<HTMLDivElement | null>;
 };
 
@@ -22,12 +21,12 @@ export default function TimelineLayout({
                                            service,
                                            language,
                                            badgeRef,
-                                           isBadgeInCenter,
                                            articleImagesRef1,
                                        }: TimelineLayoutProps) {
+    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
+
     // Create timeline points based on the number of images
     const timelinePoints = useMemo(() => {
-        // Create an array of timeline points based on the images
         return service.images.map((_, index) => ({
             id: index,
             title: language === Language.PL
@@ -40,17 +39,9 @@ export default function TimelineLayout({
         <main className="w-full bg-[var(--background)]" ref={articleImagesRef1}>
             <HeroImage
                 heroSlides={[service.heroImage]}
-                heroTitle={
-                    language === Language.PL
-                        ? service.name.namePL
-                        : service.name.nameENG
-                }
+                heroTitle={GetLocalizedText(service.name)}
                 heroHeight={70}
-                description={
-                    language === Language.PL
-                        ? service.description.textPL
-                        : service.description.textENG
-                }
+                description={GetLocalizedText(service.description)}
             />
 
             <div
@@ -63,21 +54,17 @@ export default function TimelineLayout({
             {service && (
                 <section className="max-w-6xl mx-auto px-4 py-16 mt-6">
                     <HeaderDivider
-                        title={{
-                            labelPL: service.title.titlePL,
-                            labelENG: service.title.titleENG,
-                        }}
+                        title={GetLocalizedText(service.title)}
                         isVisible={true}
                     />
 
                     {/* Detailed Description Section */}
                     <div className="mb-16">
                         <div
-                            className="prose prose-blue max-w-none text-base text-[var(--font-color)] leading-7 bg-[var(--background)] rounded-lg shadow-md p-6">
+                            className="prose prose-blue max-w-none text-base text-[var(--font-color)]
+                            leading-7 bg-[var(--background)] rounded-lg shadow-md p-6">
                             {/* Render the JSX.Element directly */}
-                            {language === Language.PL
-                                ? service.detailedDescription.textPL
-                                : service.detailedDescription.textENG}
+                            {GetLocalizedJSX(service.detailedDescription)}
                         </div>
                     </div>
 
@@ -85,26 +72,43 @@ export default function TimelineLayout({
                     <div className="relative">
                         {/* Timeline line - hidden on mobile, visible on larger screens */}
                         <div
-                            className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--main-color-secondary)] opacity-30 hidden md:block"></div>
+                            className="absolute left-1/2 transform -translate-x-1/2 h-full w-1
+                            bg-[var(--main-color-secondary)] opacity-30 hidden md:block"
+                        >
+                        </div>
 
                         {/* Timeline items */}
                         {timelinePoints.map((point, index) => (
                             <div key={point.id}
-                                 className={`flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                 className={`flex flex-col md:flex-row items-center mb-16 ${
+                                     index % 2 === 0
+                                         ? 'md:flex-row'
+                                         : 'md:flex-row-reverse'
+                                 }`
+                                 }>
                                 {/* Content - full width on mobile, half width on larger screens */}
                                 <div
-                                    className={`w-full md:w-5/12 mb-6 md:mb-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-center md:text-left`}>
+                                    className={`w-full md:w-5/12 mb-6 md:mb-0 ${
+                                        index % 2 === 0
+                                            ? 'md:pr-8 md:text-right'
+                                            : 'md:pl-8 md:text-left'
+                                    } text-center md:text-left`
+                                    }>
                                     <motion.div
                                         initial={{opacity: 0, y: 30, x: 0}}
                                         whileInView={{opacity: 1, y: 0, x: 0}}
                                         transition={{duration: 0.8, ease: "easeOut"}}
                                         viewport={{once: true, amount: 0.5}}
                                     >
-                                        <h3 className="text-xl font-semibold mb-2 text-[var(--font-color)]">{point.title}</h3>
+                                        <h3 className="text-xl font-semibold mb-2 text-[var(--font-color)]">
+                                            {point.title}
+                                        </h3>
                                         <p className="text-[var(--font-color)]">
-                                            {language === Language.PL
-                                                ? `Etap ${index + 1} naszej usługi`
-                                                : `Stage ${index + 1} of our service`}
+                                            {
+                                                language === Language.PL
+                                                    ? `Etap ${index + 1} naszej usługi`
+                                                    : `Stage ${index + 1} of our service`
+                                            }
                                         </p>
                                     </motion.div>
                                 </div>
@@ -112,7 +116,8 @@ export default function TimelineLayout({
                                 {/* Timeline dot - centered on mobile */}
                                 <div className="w-full md:w-2/12 flex justify-center my-4 md:my-0">
                                     <motion.div
-                                        className="w-10 h-10 rounded-full bg-[var(--main-color)] flex items-center justify-center z-10"
+                                        className="w-10 h-10 rounded-full bg-[var(--main-color)] flex items-center
+                                        justify-center z-10"
                                         initial={{scale: 0}}
                                         whileInView={{scale: 1}}
                                         transition={{duration: 0.5, ease: "easeOut", delay: 0.2}}
@@ -134,7 +139,7 @@ export default function TimelineLayout({
                                         <div className="relative h-48 md:h-64 overflow-hidden rounded-lg shadow-md">
                                             <Image
                                                 src={service.images[index]}
-                                                alt={`${language === Language.PL ? service.name.namePL : service.name.nameENG} image ${index + 1}`}
+                                                alt={`${GetLocalizedText(service.name)} image ${index + 1}`}
                                                 className="object-cover hover:scale-105 transition-transform duration-300"
                                                 fill
                                             />
@@ -169,31 +174,21 @@ export default function TimelineLayout({
                                 <CheckBadgeIcon className="w-20 h-20" style={{color: "inherit"}}/>
                             </motion.div>
                             <div
-                                data-testid="product-detailed-description"
+                                data-testid="product-summary"
                                 className="prose prose-blue max-w-none text-base leading-7
                                 !text-gray-800 [&_ul]:!list-disc [&_ul]:!mt-4 [&_ul]:!mb-8 [&_ul]:!pl-6 [&_li]:!marker:text-blue-600
                                 [&_li]:!text-gray-900 [&_li]:mb-2 [&_strong]:block [&_strong]:mb-1
-                                [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4 
+                                [&_p]:mb-2 [&_h2]:mb-2 [&_h2]:mt-4
                                 [&_h3]:mb-2 [&_h3]:mt-4"
                             >
-                                {
-                                    language === Language.PL
-                                        ? service.summary.summaryPL
-                                        : service.summary.summaryENG
-                                }
+                                {GetLocalizedJSX(service.summary)}
                             </div>
                         </div>
                     )}
 
                     {/* Contact section */}
                     <div className="flex justify-center mt-10 mb-10 mx-auto">
-                        <ContactUsCard
-                            lang={language}
-                            text={{
-                                textPL: "Masz pytania odnośnie uslugi?",
-                                textENG: "Do you have questions about this service?"
-                            }}
-                        />
+                        <ContactUsServiceCard />
                     </div>
 
                     <div className="flex justify-center mt-8 mb-6">

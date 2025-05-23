@@ -3,12 +3,16 @@
 import {ArrowLeftIcon} from "@heroicons/react/24/outline";
 import {Language} from "../../types";
 import React from "react";
-import {useLanguage} from "../../../../context/src/LanguageContext";
 import {useRouter} from "next/navigation";
+import {GetLocalizedText} from "../../utils";
 
 export default function BackButton() {
-    const {language} = useLanguage();
     const router = useRouter();
+
+    const backButtonText = {
+        [Language.PL]: "Wróć",
+        [Language.ENG]: "Back"
+    };
 
     return (
         <button
@@ -22,7 +26,7 @@ export default function BackButton() {
             <ArrowLeftIcon
                 className="h-5 w-5 text-[var(--main-color)] hover:text-[var(--font-color-accent)]
                 transition-colors duration-200"/>
-            {language === Language.PL ? "Wróć" : "Back"}
+            {GetLocalizedText(backButtonText)}
         </button>
     )
 }

@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../../../types";
+import {Language, ProductItem} from "../../../../../types";
 import {AccessoriesTags} from "../../../tags";
 import {
     AccessoriesCategory,
@@ -12,8 +12,8 @@ import malnisImg03 from "../../../../../../../assets/images/products/nozzles/mal
 
 export const Malnis: ProductItem = {
     name: {
-        namePL: "Malnis",
-        nameENG: "Malnis",
+        [Language.PL]: "Malnis",
+        [Language.ENG]: "Malnis",
     },
     href: "/products/water-sewage/accessories/malnis",
     images: [
@@ -22,12 +22,12 @@ export const Malnis: ProductItem = {
         malnisImg03,
     ],
     description: {
-        textPL: "Głowice Malnis są obrotowe, wibrujące i kompaktowe. Dzięki okrągłej główce zapenwia lekkie wibracje i dlatego idealnie nadaje się do rur PCV. Małe wymiary pozwalają na zastosowanie ich w średnicach już od DN50.",
-        textENG: "Malnis nozzles are rotating, vibrating, and compact. Thanks to the round head, they produce gentle vibrations, making them ideal for PVC pipes. Their small size allows them to be used in diameters starting from DN50.",
+        [Language.PL]: "Głowice Malnis są obrotowe, wibrujące i kompaktowe. Dzięki okrągłej główce zapenwia lekkie wibracje i dlatego idealnie nadaje się do rur PCV. Małe wymiary pozwalają na zastosowanie ich w średnicach już od DN50.",
+        [Language.ENG]: "Malnis nozzles are rotating, vibrating, and compact. Thanks to the round head, they produce gentle vibrations, making them ideal for PVC pipes. Their small size allows them to be used in diameters starting from DN50.",
     },
     detailedDescription: {
-        descriptionPL: <></>,
-        descriptionENG: <></>,
+        [Language.PL]: <></>,
+        [Language.ENG]: <></>,
     },
     manufacturers: [],
     category: [

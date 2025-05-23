@@ -1,12 +1,17 @@
 import {Language} from "../../types";
+import {GetLocalizedText} from "../../utils";
 
 type PreviousButtonProps = {
     currentPage: number,
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>,
-    language: Language
 }
 
-export default function PreviousButton({currentPage, setCurrentPage, language}: PreviousButtonProps) {
+export default function PreviousButton({currentPage, setCurrentPage}: PreviousButtonProps) {
+    const previousButtonText = {
+        [Language.PL]: 'Poprzednia',
+        [Language.ENG]: 'Previous'
+    };
+
     return (
         <button
             data-testid="pagination-previous-button"
@@ -18,7 +23,7 @@ export default function PreviousButton({currentPage, setCurrentPage, language}: 
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
         >
-            {language === Language.PL ? 'Poprzednia' : 'Previous'}
+            {GetLocalizedText(previousButtonText)}
         </button>
     );
 }

@@ -1,17 +1,11 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../types";
 import React from "react";
-
-export type DropDownItem = {
-    href: string;
-    labelPL: string;
-    labelENG: string;
-}
+import {DropdownItem} from "../../types/DropdownItem";
+import {GetLocalizedText} from "../../utils";
 
 export const renderDropdownItems = (
-    items: DropDownItem[],
-    language: Language,
+    items: DropdownItem[],
     onDropdownAction?: (href: string) => (e: React.MouseEvent | React.TouchEvent) => void,
     isSubmenu?: boolean
 ) => (
@@ -23,7 +17,7 @@ export const renderDropdownItems = (
                 className="block px-4 py-2 text-[var(--font-color)]  whitespace bg-[var(--background)]"
                 onClick={onDropdownAction ? onDropdownAction(item.href) : undefined}
             >
-                {language === Language.PL ? item.labelPL : item.labelENG}
+                {GetLocalizedText(item.label)}
             </Link>
         </li>
     ))

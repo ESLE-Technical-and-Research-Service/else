@@ -1,10 +1,10 @@
-import Image, {StaticImageData} from "next/image";
+import Image from "next/image";
 import {motion} from "framer-motion";
 import React from "react";
+import {ContentImage} from "../../../types";
 
 type MasonryLayoutProps = {
-    images: StaticImageData[];
-    imageAlt: string;
+    images: ContentImage[];
     articleRef: React.RefObject<HTMLDivElement | null>;
     isInCenter: boolean;
     scaleValue: number;
@@ -15,7 +15,6 @@ type MasonryLayoutProps = {
 
 export default function MasonryLayout({
                                           images,
-                                          imageAlt,
                                           articleRef,
                                           isInCenter,
                                           scaleValue,
@@ -37,11 +36,11 @@ export default function MasonryLayout({
             }
         })} className="w-full px-6 py-10 bg-[var(--background)]">
             <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${columns} gap-6`}>
-                {images.slice(startIndex, limit).map((src, idx) => (
+                {images.slice(startIndex, limit).map((img, idx) => (
                     <Image
                         key={idx}
-                        src={src}
-                        alt={`${imageAlt} ${idx + 1}`}
+                        src={img.src}
+                        alt={`${img.alt} ${idx + 1}`}
                         className="rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 object-cover
                         w-full h-64 md:h-[22rem] bg-[var(--background)] border-4 border-white"
                         width={800}

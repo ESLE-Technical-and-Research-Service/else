@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MillingRobotsForSewerRepairAndRenovationCategory} from "../categories";
 import {MillingRobotsTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
@@ -21,8 +21,8 @@ import pneumaticMillingRobotImg08
 
 export const PneumaticMillingRobot: ProductItem = {
     name: {
-        namePL: "Pneumatyczny robot frezujący",
-        nameENG: "Pneumatic milling robot"
+        [Language.PL]: "Pneumatyczny robot frezujący",
+        [Language.ENG]: "Pneumatic milling robot"
     },
     href: "/products/water-sewage/milling-robots/pneumatic-milling-robot",
     images: [
@@ -36,11 +36,11 @@ export const PneumaticMillingRobot: ProductItem = {
         pneumaticMillingRobotImg04,
     ],
     description: {
-        textPL: "Pneumatyczny robot frezujący do napraw i renowacji kanałów",
-        textENG: "Pneumatic milling robot for sewer repair and renovation"
+        [Language.PL]: "Pneumatyczny robot frezujący do napraw i renowacji kanałów",
+        [Language.ENG]: "Pneumatic milling robot for sewer repair and renovation"
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <h3>Główne cechy:</h3>
 
@@ -93,7 +93,7 @@ export const PneumaticMillingRobot: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <h3>Main Features:</h3>
 

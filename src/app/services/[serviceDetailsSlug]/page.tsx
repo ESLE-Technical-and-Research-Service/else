@@ -2,11 +2,9 @@
 
 import {usePathname} from "next/navigation";
 import {useLanguage} from "../../../../context/src/LanguageContext";
-import {Service} from "../../../../components/src/types/Service";
+import {NavigationLinks, Service} from "../../../../components/src/types";
 import {useMemo, useRef} from "react";
-import {NavigationLinks} from "../../../../components/src/types";
 import {CameraService} from "../../../../components/src/services/data/camera-service";
-import {useInView} from "framer-motion";
 import {PressureVehiclesService} from "../../../../components/src/services/data/pressure-vehicles-service";
 import {Trainings} from "../../../../components/src/services/data/trainings";
 import {getLayoutForSlug} from "../../../../components/src/services/layouts";
@@ -23,11 +21,6 @@ export default function ServiceDetailsPage() {
     const articleImagesRef1 = useRef<HTMLDivElement | null>(null);
     const articleImagesRef2 = useRef<HTMLDivElement | null>(null);
     const badgeRef = useRef(null);
-
-    // Set up animation triggers
-    const isInCenter1 = useInView(articleImagesRef1, {amount: 0.5, margin: "-10% 0px -10% 0px"});
-    const isInCenter2 = useInView(articleImagesRef2, {amount: 0.5, margin: "-10% 0px -10% 0px"});
-    const isBadgeInCenter = useInView(badgeRef, {amount: 0.5, margin: "-20% 0px -20% 0px"});
 
     // Get the service data based on the slug
     const service: Service = useMemo(() => {
@@ -57,9 +50,6 @@ export default function ServiceDetailsPage() {
         service,
         language,
         layoutType,
-        isInCenter1,
-        isInCenter2,
-        isBadgeInCenter,
         articleImagesRef1,
         articleImagesRef2,
         badgeRef,

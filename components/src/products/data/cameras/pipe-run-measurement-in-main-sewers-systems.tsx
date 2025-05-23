@@ -1,16 +1,16 @@
-import {ProductItem} from "../../../types/ProductItem";
+import {Language, ProductItem} from "../../../types";
 import mainSewerInspSys01 from "../../../../../assets/images/products/cameras/main_sewer_insp_sys_01.webp";
 import mainSewerInspSys02 from "../../../../../assets/images/products/cameras/main_sewer_insp_sys_02.webp";
 import mainSewerInspSys03 from "../../../../../assets/images/products/cameras/main_sewer_insp_sys_03.webp";
 import mainSewerInspSys04 from "../../../../../assets/images/products/cameras/main_sewer_insp_sys_04.webp";
 import {CamerasForSewageInspectionCategory} from "../categories";
-import {CamerasTags} from "../tags/cameras-tags";
+import {CamerasTags} from "../tags";
 import {IBAK} from "../manufacturers/IBAK";
 
 export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
     name: {
-        namePL: "Systemy inspekcyjne w wersji do kanałów głównych",
-        nameENG: "Pipe measurement in main sewers systems",
+        [Language.PL]: "Systemy inspekcyjne w wersji do kanałów głównych",
+        [Language.ENG]: "Pipe measurement in main sewers systems",
     },
     href: "/products/water-sewage/cameras/pipe-measurement-in-main-sewers-systems",
     images: [
@@ -20,11 +20,11 @@ export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
         mainSewerInspSys04,
     ],
     description: {
-        textPL: "Prezentujemy nowoczesne systemy do inspekcji kanałów głównych w jakości HD. Wszechstronna i modułowa konstrukcja, umożliwia inspekcję kanałów o dowolnej średnicy od DN100. Nasze rozwiązania łączą w sobie precyzyjne funkcje pomiarowe, automatyczne sterowanie oświetleniem i ostrością, a także unikalny system ROTAX, który ułatwia orientację operatora w kanale. Oprogramowanie zapewnia łatwe przesyłanie wyników inspekcji. Dodatkowe funkcje, takie jak laserowy pomiar owalizacji kanału oraz automatyczne wykrywanie uszkodzeń poprzez pionierski system AI (sztuczna inteligencja), zwiększają efektywność systemu. Szybka wymiana kół bez użycia narzędzi oraz możliwość obsługi przez jedną osobę to kolejne atuty naszych produktów.",
-        textENG: "We present modern HD-quality systems for mainline sewer inspection. Their versatile and modular design allows inspections of pipes with any diameter starting from DN100. Our solutions combine precise measurement functions, automatic light and focus control, as well as the unique ROTAX system that helps the operator maintain orientation inside the pipe. The software enables easy transfer of inspection results. Additional features, such as laser-based pipe ovality measurement and automatic damage detection using a pioneering AI system, further enhance the system’s efficiency. Quick tool-free wheel replacement and single-person operation are additional advantages of our products.",
+        [Language.PL]: "Prezentujemy nowoczesne systemy do inspekcji kanałów głównych w jakości HD. Wszechstronna i modułowa konstrukcja, umożliwia inspekcję kanałów o dowolnej średnicy od DN100. Nasze rozwiązania łączą w sobie precyzyjne funkcje pomiarowe, automatyczne sterowanie oświetleniem i ostrością, a także unikalny system ROTAX, który ułatwia orientację operatora w kanale. Oprogramowanie zapewnia łatwe przesyłanie wyników inspekcji. Dodatkowe funkcje, takie jak laserowy pomiar owalizacji kanału oraz automatyczne wykrywanie uszkodzeń poprzez pionierski system AI (sztuczna inteligencja), zwiększają efektywność systemu. Szybka wymiana kół bez użycia narzędzi oraz możliwość obsługi przez jedną osobę to kolejne atuty naszych produktów.",
+        [Language.ENG]: "We present modern HD-quality systems for mainline sewer inspection. Their versatile and modular design allows inspections of pipes with any diameter starting from DN100. Our solutions combine precise measurement functions, automatic light and focus control, as well as the unique ROTAX system that helps the operator maintain orientation inside the pipe. The software enables easy transfer of inspection results. Additional features, such as laser-based pipe ovality measurement and automatic damage detection using a pioneering AI system, further enhance the system’s efficiency. Quick tool-free wheel replacement and single-person operation are additional advantages of our products.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <b>Główne cechy:</b>
 
@@ -65,7 +65,7 @@ export const PipeRunMeasurementInMainSewersSystems: ProductItem = {
                 </ul>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <b>Main Features:</b>
 

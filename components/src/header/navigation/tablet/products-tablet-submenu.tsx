@@ -1,12 +1,10 @@
-'use client';
-
 import classes from "../main-navigation.module.css";
 import Link from "next/link";
-import {Language} from "../../../types";
+import {SubmenuItem} from "../../../types";
 import {renderDropdownItems} from "../render-dropdown-items";
 import React from "react";
-import {useLanguage} from "../../../../../context/src/LanguageContext";
-import {MenuItem, productsMenuItems} from "../config/products-menu-items";
+import {productsMenuItems} from "../config/products-menu-items";
+import {GetLocalizedText} from "../../../utils";
 
 type ProductNavigationProps = {
     handleClickAction: (e: React.MouseEvent | React.TouchEvent, submenu: string) => void;
@@ -19,12 +17,10 @@ export default function ProductsTabletSubmenu({
                                                   dropdownSubmenu,
                                                   onDropdownItemActivateAction
                                               }: ProductNavigationProps) {
-    const {language} = useLanguage();
-
     return (
         <ul data-testid="products-tablet-dropdown-menu"
             className={`${classes.dropdownMenu} ${classes.tabletDropdown} mt-2 rounded-lg`}>
-            {productsMenuItems.map((item: MenuItem) => (
+            {productsMenuItems.map((item: SubmenuItem) => (
                 <>
                     <li className={classes.navItem} key={item.submenuName}>
                         <Link
@@ -34,7 +30,7 @@ export default function ProductsTabletSubmenu({
                             href={item.href}
                             onClick={(e) => handleClickAction(e, item.submenuName)}
                         >
-                            {language === Language.PL ? item.labelPL : item.labelENG}
+                            {GetLocalizedText(item.label)}
                         </Link>
                     </li>
                     {
@@ -44,7 +40,7 @@ export default function ProductsTabletSubmenu({
                                 data-testid={`${item.submenuName}-submenu-tablet-items`}
                                 className={`mt-2 bg-[var(--background)] border-b border-t border-gray-300`}
                             >
-                                {renderDropdownItems(item.items, language, onDropdownItemActivateAction, true)}
+                                {renderDropdownItems(item.items, onDropdownItemActivateAction, true)}
                             </ul>
                         )
                     }

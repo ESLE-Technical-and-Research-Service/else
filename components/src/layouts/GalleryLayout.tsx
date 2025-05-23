@@ -1,25 +1,24 @@
 import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import {Language} from "../types";
-import {ContentModel, getLocalizedJSX, getLocalizedText} from "../types/ContentModel";
+import {ContentModel} from "../types";
 import HeroImage from "../hero/hero-image";
 import Breadcrumbs from "../common/breadcrumbs/breadcrumbs";
 import HeaderDivider from "../common/dividers/header-divider";
-import ContactUsCard from "../common/cards/contact-us-card";
+import ContactUsProductCard from "../common/cards/contact-us-product-card";
 import BackButton from "../common/buttons/back-button";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {ArrowLeftIcon, ArrowRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
+import {GetLocalizedJSX, GetLocalizedText} from "../utils";
 
 type GalleryLayoutProps = {
     content: ContentModel;
-    language: Language;
     badgeRef?: RefObject<HTMLDivElement | null>;
     isBadgeInCenter?: boolean;
 };
 
 export default function GalleryLayout({
     content,
-    language,
     badgeRef,
     isBadgeInCenter = false,
 }: GalleryLayoutProps) {
@@ -54,6 +53,11 @@ export default function GalleryLayout({
         return () => clearInterval(interval);
     }, [hasImages, content?.images?.length, content.images, nextImage]);
 
+    const keyFeaturesText = {
+        [Language.PL]: "Kluczowe cechy:",
+        [Language.ENG]: "Key features:",
+    };
+
     return (
         <main className="w-full bg-[var(--background)]">
             {/* Hero Section with Overlay */}
@@ -61,30 +65,12 @@ export default function GalleryLayout({
                 <div className="relative h-[70vh] overflow-hidden">
                     <HeroImage
                         heroSlides={[content.heroImage.src]}
-                        heroTitle={getLocalizedText(content.title, language)}
+                        heroTitle={GetLocalizedText(content.title)}
                         heroHeight={70}
-                        description={getLocalizedText(content.description || {[Language.PL]: "", [Language.ENG]: ""}, language)}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-20">
-                        <motion.h1
-                            className="text-5xl md:text-7xl font-bold text-white mb-6 text-center px-4"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                        >
-                            {getLocalizedText(content.title, language)}
-                        </motion.h1>
-                        {content.description && (
-                            <motion.p
-                                className="text-lg md:text-xl text-white/90 max-w-2xl text-center px-6"
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                            >
-                                {getLocalizedText(content.description, language)}
-                            </motion.p>
+                        description={GetLocalizedText(
+                            content.description || {[Language.PL]: "", [Language.ENG]: ""}
                         )}
-                    </div>
+                    />
                 </div>
             )}
 
@@ -98,10 +84,7 @@ export default function GalleryLayout({
             <section className="max-w-7xl mx-auto px-4 py-16">
                 {content.subtitle && (
                     <HeaderDivider
-                        title={{
-                            labelPL: getLocalizedText(content.subtitle, Language.PL),
-                            labelENG: getLocalizedText(content.subtitle, Language.ENG),
-                        }}
+                        title={GetLocalizedText(content.subtitle)}
                         isVisible={true}
                     />
                 )}
@@ -121,7 +104,7 @@ export default function GalleryLayout({
                                 >
                                     <Image
                                         src={content.images![activeImageIndex].src}
-                                        alt={getLocalizedText(content.images![activeImageIndex].alt, language)}
+                                        alt={GetLocalizedText(content.images![activeImageIndex].alt)}
                                         className="object-cover"
                                         fill
                                         priority
@@ -183,7 +166,7 @@ export default function GalleryLayout({
                                     >
                                         <Image
                                             src={image.src}
-                                            alt={getLocalizedText(image.alt, language)}
+                                            alt={GetLocalizedText(image.alt)}
                                             className="object-cover"
                                             fill
                                         />
@@ -210,7 +193,7 @@ export default function GalleryLayout({
                                     [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                     [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
-                                    {getLocalizedJSX(content.mainContent, language)}
+                                    {GetLocalizedJSX(content.mainContent)}
                                 </div>
                             </div>
                         )}
@@ -241,7 +224,7 @@ export default function GalleryLayout({
                                     [&_p]:mb-4 [&_h2]:mb-4 [&_h2]:mt-6 
                                     [&_h3]:mb-4 [&_h3]:mt-6"
                                 >
-                                    {getLocalizedJSX(content.summary, language)}
+                                    {GetLocalizedJSX(content.summary)}
                                 </div>
                             </div>
                         )}
@@ -254,15 +237,9 @@ export default function GalleryLayout({
                             {content.contact && (
                                 <div className="bg-white rounded-xl shadow-md p-8">
                                     <h3 className="text-xl font-semibold mb-6 text-[var(--main-color)]">
-                                        {getLocalizedText(content.contact.title, language)}
+                                        {GetLocalizedText(content.contact.title)}
                                     </h3>
-                                    <ContactUsCard
-                                        lang={language}
-                                        text={{
-                                            textPL: getLocalizedText(content.contact.message, Language.PL),
-                                            textENG: getLocalizedText(content.contact.message, Language.ENG),
-                                        }}
-                                    />
+                                    <ContactUsProductCard />
                                 </div>
                             )}
 
@@ -271,15 +248,15 @@ export default function GalleryLayout({
                                 <div className="bg-white rounded-xl shadow-md p-8">
                                     <h3 className="text-xl font-semibold mb-6 text-[var(--main-color)]">
                                         {content.features.title 
-                                            ? getLocalizedText(content.features.title, language)
-                                            : language === Language.PL ? "Kluczowe cechy" : "Key Features"}
+                                            ? GetLocalizedText(content.features.title)
+                                            : GetLocalizedText(keyFeaturesText)}
                                     </h3>
                                     <ul className="space-y-4">
                                         {content.features.items.map((item, index) => (
                                             <li key={index} className="flex items-start">
                                                 <span className="text-[var(--main-color)] mr-2">•</span>
                                                 <span className="text-[var(--font-color)]">
-                                                    {getLocalizedText(item, language)}
+                                                    {GetLocalizedText(item)}
                                                 </span>
                                             </li>
                                         ))}

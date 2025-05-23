@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import {MultipurposeVehiclesForPressureSewerCleaningCategory} from "../categories";
 import {PressureVehiclesTags} from "../tags";
 import automaticStreetInletsCleaningVehicles01
@@ -16,8 +16,8 @@ import automaticStreetInletsCleaningVehicles06
 
 export const AutomaticStreetInletsCleaningVehicles: ProductItem = {
     name: {
-        namePL: "Pojazdy do automatycznego czyszczenia wpustów ulicznych",
-        nameENG: "Automatic street inlets cleaning vehicles",
+        [Language.PL]: "Pojazdy do automatycznego czyszczenia wpustów ulicznych",
+        [Language.ENG]: "Automatic street inlets cleaning vehicles",
     },
     href: "/products/water-sewage/pressure-vehicles/automatic-street-gully-cleaning-vehicles",
     images: [
@@ -29,11 +29,11 @@ export const AutomaticStreetInletsCleaningVehicles: ProductItem = {
         automaticStreetInletsCleaningVehicles06,
     ],
     description: {
-        textPL: "Nasze pojazdy oferują automatyczne, szybkie i skuteczne czyszczenie wpustów ulicznych. Wyposażone w zaawansowane ramię, system kamer i czujników, pozwalają na łatwą obsługę przez jedną osobę, zapewniając jednocześnie precyzję i wygodę.",
-        textENG: "Our vehicles offer automatic, fast, and efficient cleaning of street gullies. Equipped with an advanced arm, camera system, and sensors, they allow easy operation by a single person while ensuring precision and convenience.",
+        [Language.PL]: "Nasze pojazdy oferują automatyczne, szybkie i skuteczne czyszczenie wpustów ulicznych. Wyposażone w zaawansowane ramię, system kamer i czujników, pozwalają na łatwą obsługę przez jedną osobę, zapewniając jednocześnie precyzję i wygodę.",
+        [Language.ENG]: "Our vehicles offer automatic, fast, and efficient cleaning of street gullies. Equipped with an advanced arm, camera system, and sensors, they allow easy operation by a single person while ensuring precision and convenience.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>
                     Pojazdy te służą do automatycznego, szybkiego oraz skutecznego czyszczenia wpustów ulicznych. Ramię
@@ -44,7 +44,7 @@ export const AutomaticStreetInletsCleaningVehicles: ProductItem = {
                 </p>
             </>
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>
                     These vehicles are designed for automatic, fast, and efficient cleaning of street gullies. The arm

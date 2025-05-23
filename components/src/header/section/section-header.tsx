@@ -1,29 +1,27 @@
-import {Language} from "../../types";
+'use client';
+
 import HeaderDivider from "../../common/dividers/header-divider";
+import { Language } from "../../types";
+import {GetLocalizedText} from "../../utils";
 
 type SectionHeaderProps = {
-    language: Language;
     title: {
-        labelPL: string;
-        labelENG: string;
+        [Language.PL]: string;
+        [Language.ENG]: string;
     };
     subtitle: {
-        labelPL: string;
-        labelENG: string;
+        [Language.PL]: string;
+        [Language.ENG]: string;
     };
 }
 
-export default function SectionHeader({language, title, subtitle}: SectionHeaderProps) {
+export default function SectionHeader({title, subtitle}: SectionHeaderProps) {
     return (
         <section className="w-full bg-[var(--background)] py-16">
             <div className="max-w-6xl mx-auto px-4 text-center">
-                <HeaderDivider title={title} isVisible={true}/>
+                <HeaderDivider title={GetLocalizedText(title)} isVisible={true}/>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                    {
-                        language === Language.PL
-                            ? subtitle.labelPL
-                            : subtitle.labelENG
-                    }
+                    {GetLocalizedText(subtitle)}
                 </p>
             </div>
         </section>

@@ -1,4 +1,4 @@
-import {ProductItem} from "../../../types";
+import {Language, ProductItem} from "../../../types";
 import inspectionSystemForLateralPipes01
     from "../../../../../assets/images/products/cameras/inspection_sys_for_lateral_pipes_01.webp";
 import inspectionSystemForLateralPipes02
@@ -16,8 +16,8 @@ import {CamerasTags} from "../tags";
 
 export const InspectionSystemForLateralPipes: ProductItem = {
     name: {
-        namePL: "System inspekcyjny do przykanalików",
-        nameENG: "Inspection system for lateral pipes",
+        [Language.PL]: "System inspekcyjny do przykanalików",
+        [Language.ENG]: "Inspection system for lateral pipes",
     },
     href: "/products/water-sewage/cameras/inspection-system-for-lateral-pipes",
     images: [
@@ -29,11 +29,11 @@ export const InspectionSystemForLateralPipes: ProductItem = {
         inspectionSystemForLateralPipes06,
     ],
     description: {
-        textPL: "Nasz system inspekcyjny to innowacyjne rozwiązanie do przeglądu przyłączy z kanału głównego w jakości HD. Oferuje elastyczną konfiguracje dzięki modułowej konstrukcji, a specjalne funkcje takie jak GeoSense umożliwia realistyczne odwzorowanie przebiegu rury w ziemi. Zaprojektowany do obsługi przez jedną osobę, system umożliwia szybkie przesyłanie wyników inspekcji do klienta. Elektryczny podnośnik ramienia pozwala wprowadzać kamerę do przyłącza w dowolnej średnicy kanału.",
-        textENG: "Our inspection system is an innovative solution for surveying service connections from the main sewer line in HD quality. It offers flexible configuration thanks to its modular design, and special features such as GeoSense enable realistic mapping of the pipe layout underground. Designed for one-person operation, the system allows for fast transmission of inspection results to the client. The electric lift arm enables insertion of the camera into service connections of any pipe diameter.",
+        [Language.PL]: "Nasz system inspekcyjny to innowacyjne rozwiązanie do przeglądu przyłączy z kanału głównego w jakości HD. Oferuje elastyczną konfiguracje dzięki modułowej konstrukcji, a specjalne funkcje takie jak GeoSense umożliwia realistyczne odwzorowanie przebiegu rury w ziemi. Zaprojektowany do obsługi przez jedną osobę, system umożliwia szybkie przesyłanie wyników inspekcji do klienta. Elektryczny podnośnik ramienia pozwala wprowadzać kamerę do przyłącza w dowolnej średnicy kanału.",
+        [Language.ENG]: "Our inspection system is an innovative solution for surveying service connections from the main sewer line in HD quality. It offers flexible configuration thanks to its modular design, and special features such as GeoSense enable realistic mapping of the pipe layout underground. Designed for one-person operation, the system allows for fast transmission of inspection results to the client. The electric lift arm enables insertion of the camera into service connections of any pipe diameter.",
     },
     detailedDescription: {
-        descriptionPL: (
+        [Language.PL]: (
             <>
                 <p>Odkryj zalety naszego systemu inspekcyjnego do przykanalików z kanału głównego.</p>
 
@@ -74,7 +74,7 @@ export const InspectionSystemForLateralPipes: ProductItem = {
             </>
 
         ),
-        descriptionENG: (
+        [Language.ENG]: (
             <>
                 <p>Discover the advantages of our lateral inspection system from the mainline sewer.</p>
 
